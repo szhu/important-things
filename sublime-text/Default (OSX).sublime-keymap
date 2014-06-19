@@ -9,6 +9,8 @@
   { "keys": ["ctrl+alt+s"], "command": "toggle_side_bar" },
   { "keys": ["ctrl+alt+/"], "command": "toggle_status_bar" },
   { "keys": ["ctrl+alt+t"], "command": "toggle_tabs" },
+  { "keys": ["ctrl+alt+["], "command": "sublimelinter_toggle_setting", "args": {"setting": "@disable", "value": true} },
+  { "keys": ["ctrl+alt+]"], "command": "sublimelinter_toggle_setting", "args": {"setting": "@disable", "value": null} },
   
   { "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
   { "keys": ["super+b"], "command": "bracketeer_select" },
