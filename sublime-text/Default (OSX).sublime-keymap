@@ -1,0 +1,15 @@
+[
+  { "keys": ["alt+up"], "command": "swap_line_up" },
+  { "keys": ["alt+down"], "command": "swap_line_down" },
+
+  { "keys": ["super+shift+l"], "command": "toggle_setting", "args": {"setting": "word_wrap"} },
+  { "keys": ["ctrl+alt+l"], "command": "toggle_setting", "args": {"setting": "word_wrap"} },
+  { "keys": ["ctrl+alt+n"], "command": "toggle_setting", "args": {"setting": "line_numbers"} },
+  { "keys": ["ctrl+alt+;"], "command": "toggle_setting", "args": {"setting": "spell_check"} },
+  { "keys": ["ctrl+alt+s"], "command": "toggle_side_bar" },
+  { "keys": ["ctrl+alt+/"], "command": "toggle_status_bar" },
+  { "keys": ["ctrl+alt+t"], "command": "toggle_tabs" },
+  
+  { "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+  { "keys": ["super+b"], "command": "bracketeer_select" },
+]
