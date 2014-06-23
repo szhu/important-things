@@ -1,0 +1,17 @@
+[push]
+	default = current
+[alias]
+	b = branch
+	c = commit
+	co = checkout
+	current-branch = rev-parse --abbrev-ref HEAD
+	current-remote = rev-parse --symbolic-full-name --abbrev-ref @{u}
+	last = log -1 HEAD
+	m = merge
+	nb = checkout -b
+	pl = pull
+	ps = push
+	r = rebase
+	r2 = rebase -i HEAD~2
+	rb = remote-branches
+	ri = rebase -i

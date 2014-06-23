@@ -1,0 +1,3 @@
+#!/bin/bash
+
+git branch -vv | sed 's/^..//' | egrep '\s+\w+ \[' | grep -v ': gone\]' | awk '{ print $1; }'
