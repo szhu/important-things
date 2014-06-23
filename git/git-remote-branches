@@ -14,9 +14,10 @@ def main():
   p = Popen(['git', 'for-each-ref', '--python', '--format', """(%(refname:short), %(upstream:short))""", 'refs/heads'], stdout=PIPE)
   for line in p.stdout.readlines():
     branch, remote = eval(line)
-    q = Popen(['git', 'show-branch', '--list', remote], stdout=PIPE, stderr=PIPE); q.wait()
-
     is_current = branch == current_branch
+    is_normal_remote = remote.endswith('/' + branch)
+
+    q = Popen(['git', 'show-branch', '--list', remote], stdout=PIPE, stderr=PIPE); q.wait()
     has_remote = q.returncode == 0
 
     if is_current:
@@ -25,7 +26,9 @@ def main():
     elif has_remote: sym = ' '
     else:            continue
 
-    print sym, branch
+    format = '%(sym)s %(branch)s'
+    if not is_normal_remote: format += ' (%(remote)s)'
+    print format % locals()
 
 if __name__ == '__main__':
   main()
