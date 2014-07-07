@@ -1,0 +1,19 @@
+{
+  "color_scheme": "Packages/User/Monokai (SL).tmTheme",
+  "draw_white_space": "all",
+  "font_face": "Menlo",
+  "font_size": 12,
+  "ignored_packages":
+  [
+    "Vintage",
+  ],
+  "line_numbers": false,
+  "rulers":
+  [
+    80
+  ],
+  "tab_size": 2,
+  "theme": "Soda Dark 3.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "word_wrap": true
+}
