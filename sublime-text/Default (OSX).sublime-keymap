@@ -18,4 +18,14 @@
   
   { "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
   { "keys": ["super+b"], "command": "bracketeer_select" },
+
+  { "keys": ["ctrl+alt+shift+backspace"], "command": "repl_open", "args": {
+    "type": "subprocess",
+    "encoding": "utf8",
+    "cmd": ["python", "-i", "-u"],
+    "cwd": "$file_path",
+    "syntax": "Packages/Python/Python.tmLanguage",
+    "external_id": "python",
+    "extend_env": {"PYTHONIOENCODING": "utf-8"} }
+  },
 ]
