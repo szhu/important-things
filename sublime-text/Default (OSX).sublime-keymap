@@ -17,6 +17,8 @@
   { "keys": ["ctrl+alt+]"], "command": "sublimelinter_toggle_setting", "args": {"setting": "@disable", "value": null} },
   
   { "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+  { "keys": ["super+p"], "command": "rspec_examples", "context": [{ "key": "selector", "operator": "equal", "operand": "source.ruby.rspec" }] },
+
   { "keys": ["super+b"], "command": "bracketeer_select" },
 
   { "keys": ["ctrl+alt+shift+backspace"], "command": "repl_open", "args": {
