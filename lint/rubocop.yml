@@ -1,0 +1,15 @@
+# Style/Documentation:
+#   Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+LineLength:
+  Max: 80
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
