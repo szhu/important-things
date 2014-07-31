@@ -1,0 +1,13 @@
+1Password
+Backdrop
+Caffeine
+ClamXav
+Cloud
+HexColor
+Install OS X Yosemite Beta
+ResolutionTab
+Slack
+Sparrow
+Sunrise
+TextWrangler
+Xcode

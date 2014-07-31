@@ -1,0 +1,14 @@
+bundler
+gem-prune
+git-up
+haml-lint
+hashie
+httparty
+kramdown
+pry
+rails
+redis-objects
+rubocop
+rubygems-update
+sass
+sinatra

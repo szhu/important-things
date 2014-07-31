@@ -1,0 +1,10 @@
+bower
+brunch
+coffee-script
+coffeelint
+jade
+js2coffee
+jshint
+nodewebkit
+npm
+request-json
