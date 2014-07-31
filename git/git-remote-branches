@@ -3,32 +3,40 @@
 Prints out branches that have a valid remote, in the format of git-branch(1).
 '''
 
+
 def main():
-  from subprocess import Popen, PIPE
-  from re import match, compile
-  from sys import stdout
+    from subprocess import Popen, PIPE
+    from ast import literal_eval
 
-  q = Popen(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], stdout=PIPE); q.wait()
-  current_branch = q.stdout.readline().strip()
+    q = Popen(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], stdout=PIPE)
+    q.wait()
+    current_branch = q.stdout.readline().strip()
 
-  p = Popen(['git', 'for-each-ref', '--python', '--format', """(%(refname:short), %(upstream:short))""", 'refs/heads'], stdout=PIPE)
-  for line in p.stdout.readlines():
-    branch, remote = eval(line)
-    is_current = branch == current_branch
-    is_normal_remote = remote.endswith('/' + branch)
+    p = Popen(['git', 'for-each-ref', '--python', '--format', """(%(refname:short), %(upstream:short))""", 'refs/heads'], stdout=PIPE)
+    for line in p.stdout.readlines():
+        branch, remote = literal_eval(line)
+        is_current = branch == current_branch
+        is_normal_remote = remote.endswith('/' + branch)
 
-    q = Popen(['git', 'show-branch', '--list', remote], stdout=PIPE, stderr=PIPE); q.wait()
-    has_remote = q.returncode == 0
+        q = Popen(['git', 'show-branch', '--list', remote], stdout=PIPE, stderr=PIPE)
+        q.wait()
+        has_remote = q.returncode == 0
 
-    if is_current:
-      if has_remote: sym = '*'
-      else:          sym = 'x'
-    elif has_remote: sym = ' '
-    else:            continue
+        if is_current:
+            if has_remote:
+                sym = '*'
+            else:
+                sym = 'x'
+        else:
+            if has_remote:
+                sym = ' '
+            else:
+                continue
 
-    format = '%(sym)s %(branch)s'
-    if not is_normal_remote: format += ' (%(remote)s)'
-    print format % locals()
+        format = '%(sym)s %(branch)s'
+        if not is_normal_remote:
+            format += ' (%(remote)s)'
+        print format % locals()
 
 if __name__ == '__main__':
-  main()
+    main()
