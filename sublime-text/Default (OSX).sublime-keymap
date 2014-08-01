@@ -28,4 +28,10 @@
     "external_id": "python",
     "extend_env": {"PYTHONIOENCODING": "utf-8"} }
   },
+
+  { "keys": ["super+alt+up"], "command": "block_nav", "args": {"v_dir": -1,"depth_offset": 0} },
+  { "keys": ["super+alt+left"], "command": "block_nav", "args": {"v_dir": -1,"depth_offset": -1} },
+  { "keys": ["super+alt+down"], "command": "block_nav", "args": {"v_dir": 1,"depth_offset": 0} },
+  { "keys": ["super+alt+right"], "command": "block_nav", "args": {"v_dir": 1,"depth_offset": 1} },
+
 ]
