@@ -28,3 +28,6 @@
 	exec = "!exec " # http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
 [mergetool]
 	keepBackup = false
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
