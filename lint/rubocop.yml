@@ -7,6 +7,9 @@ Style/HashSyntax:
 Style/SignalException:
   Enabled: false
 
+Style/Blocks:
+  Enabled: false
+
 LineLength:
   Max: 80
   Enabled: false
