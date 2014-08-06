@@ -9,5 +9,4 @@ ResolutionTab
 Slack
 Sparrow
 Sunrise
-TextWrangler
 Xcode

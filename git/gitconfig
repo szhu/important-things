@@ -31,3 +31,6 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[difftool "twdiff"]
+	cmd = twdiff –wait \"$LOCAL\" \"$REMOTE\"
+	cmd = twdiff --wait \"$LOCAL\" \"$REMOTE\"

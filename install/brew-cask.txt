@@ -1,4 +1,3 @@
-airmail
 alfred
 bartender
 basictex
@@ -62,6 +61,7 @@ sublime-text3
 suspicious-package
 switchresx
 texshop
+textwrangler
 the-unarchiver
 tinkertool
 transmission
