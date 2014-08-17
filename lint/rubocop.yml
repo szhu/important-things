@@ -1,8 +1,8 @@
 # Style/Documentation:
 #   Enabled: false
 
-Style/HashSyntax:
-  Enabled: false
+# Style/HashSyntax:
+#   Enabled: false
 
 Style/SignalException:
   Enabled: false
