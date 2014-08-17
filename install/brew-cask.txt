@@ -1,4 +1,5 @@
 alfred
+audacity
 bartender
 basictex
 bean
@@ -20,6 +21,7 @@ gimp
 github
 google-chrome
 gyazo
+hex-fiend
 imagealpha
 imageoptim
 inkscape

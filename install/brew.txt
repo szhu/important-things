@@ -17,6 +17,7 @@ mpg123
 ngrok
 node
 osxfuse
+postgresql
 python3
 redis
 shellcheck
