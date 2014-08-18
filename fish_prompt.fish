@@ -1,5 +1,7 @@
 function fish_prompt --description 'Write out the prompt'
-  echo
+  echo '        '
+
+  cd (pwd)
 
   set -l last_status $status
 
