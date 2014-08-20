@@ -5,6 +5,8 @@ ClamXav
 Cloud
 HexColor
 Install OS X Yosemite Beta
+Liya
+Microsoft OneNote
 ResolutionTab
 Slack
 Sparrow

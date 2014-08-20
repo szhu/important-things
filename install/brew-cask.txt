@@ -33,6 +33,7 @@ league-of-legends
 macdown
 mactracker
 macvim
+mailbox
 menumeters
 minitimer
 mou
