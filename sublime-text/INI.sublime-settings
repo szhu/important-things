@@ -1,0 +1,8 @@
+{
+	"extensions":
+	[
+    ".gitconfig",
+    "git-rebase-todo",
+    "gitconfig"
+  ]
+}

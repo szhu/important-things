@@ -1,0 +1,12 @@
+{
+	"user":
+	{
+		"linters":
+		{
+			"coffeelint":
+			{
+				"ignore_match": "Line exceeds maximum allowed length"
+			},
+		},
+	}
+}

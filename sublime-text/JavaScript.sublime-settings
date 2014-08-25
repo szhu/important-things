@@ -1,0 +1,7 @@
+{
+	"extensions":
+	[
+    "cy",
+    "js"  // ensures save dialog uses .js by default
+	]
+}
