@@ -1,0 +1,15 @@
+#!/usr/bin/env fish
+
+set -l old_pwd (pwd)
+
+for repo_rel_git in (find * -name .git -type d -prune)
+  set -l repo (dirname $repo_rel_git)
+  cd $old_pwd
+  echo "# $repo"
+  and cd $repo
+  and git pull --ff-only
+  and git status --porcelain
+  and git branch --no-merged master
+  and diff (git rev-parse master | psub) (git rev-parse origin/master | psub)
+  echo
+end

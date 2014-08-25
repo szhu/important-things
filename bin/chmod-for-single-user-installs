@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -e
+
+repair_global() {
+  sudo chgrp admin /"$1"
+  sudo chmod ug+rw /"$1"
+}
+repair_global_recursive() {
+  sudo chgrp -R admin /"$1"
+  sudo chmod -R ug+rw /"$1"
+}
+replace_userland() {
+  if test -d ~/"$1"; then
+    sudo rm -f ~/"$1"/.localized ~/"$1"/.DS_Store
+    sudo rmdir ~/"$1"
+  fi
+  ln -s /"$1" ~/"$1"
+}
+process_brew_cask_dir() {
+  repair_global "$1"
+  replace_userland "$1"
+}
+sudo_hide() {
+  sudo chflags -h hidden "$1"
+}
+hide() {
+  chflags -h hidden "$1"
+}
+
+process_brew_cask_dir 'Applications'
+hide ~/'Applications'
+process_brew_cask_dir 'Library/QuickLook'
+process_brew_cask_dir 'Library/PreferencePanes'
+
+repair_global '/usr/bin'
+repair_global_recursive '/Library/Ruby'
+repair_global_recursive '/Library/Python'
+
+sudo_hide '/opt'
+sudo_hide '/Applications/Flip4Mac'
+sudo_hide '/Applications/Vagrant'
