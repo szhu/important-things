@@ -44,6 +44,7 @@ osxfuse
 paparazzi
 plainview
 platypus
+qlcolorcode
 qlimagesize
 qlmarkdown
 qlstephen
