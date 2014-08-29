@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[from __future__ import division]]></content>
+    <tabTrigger>futuredivision</tabTrigger>
+    <scope>source.python</scope>
+    <description>__future__.division</description>
+</snippet>

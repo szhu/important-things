@@ -1,0 +1,4 @@
+{
+	"cmd": ["scss", "$file_path/style.scss", "../style.css"],
+	"selector": "source.scss"
+}

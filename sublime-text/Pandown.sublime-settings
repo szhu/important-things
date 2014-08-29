@@ -1,0 +1,9 @@
+{
+    "pandoc_arguments": {
+        "from": "markdown-yaml_metadata_block",
+        "command_arguments": {
+            // "standalone": true,
+            // "css": ["/path/to/stylesheet.css"]
+        }
+    }
+}

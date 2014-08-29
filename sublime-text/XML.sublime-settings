@@ -1,0 +1,10 @@
+{
+	"extensions":
+	[
+		"plist",
+		"svg",
+		"xml",
+		"xsd",
+		"xslt"
+	]
+}

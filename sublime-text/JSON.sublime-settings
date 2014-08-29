@@ -1,7 +1,8 @@
 {
-	"tab_size": 4,
 	"extensions":
 	[
-		"sublime-commands"
+		"sublime-commands",
+		"sublime-workspace",
+		"sublime_session"
 	]
 }
