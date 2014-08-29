@@ -1,3 +1,6 @@
-set -x PATH /usr/local/bin $PATH ~/Code/bin/* ~/.local/opt/*/bin
-source ~/.config/fish/osxutils.fish
-source ~/.config/fish/gitcuts.fish
+
+set -x PATH ~/.local/bin ~/.local/opt/*/bin /usr/local/bin /usr/local/sbin $PATH
+source ~/.config/fish/unix.fish
+source ~/.config/fish/osx.fish
+source ~/.config/fish/git.fish
+source ~/.config/fish/local.fish
