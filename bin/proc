@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+usage()
+{
+cat << EOF
+usage: $0 [options] procname
+
+OPTIONS:
+   -h      : Show this message
+   -s SIG  : Specify signal for kill
+   -p      : Only print the processes
+
+EOF
+}
+
+SIGNAL=
+while getopts "hs:p" OPTION
+do
+    case $OPTION in
+        h)
+            usage
+            exit 1
+            ;;
+        s)
+            SIGNAL=-$OPTARG
+            ;;
+        p)
+            NOACTION='true'
+            ;;
+        ?)
+            usage
+            exit
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ -z $1 ]; then usage; exit; fi
+
+
+fp() { #find and list processes matching a case-insensitive partial-match string
+    if [ -z $1 ]; then return; fi
+    ps Ao pid,comm|awk '{match($0,/[^\/]+$/); print '"$printer"|grep -i $1|grep -v grep
+}
+if [ $NOACTION ]; then
+    printer='$1": \t"substr($0,RSTART,RLENGTH)}'
+    fp $1
+else
+    printer='substr($0,RSTART,RLENGTH)": "$1}'
+    IFS=$'\n'
+    PS3='Kill which process? '
+    select OPT in $(fp $1) "Cancel"; do
+        if [ -z $OPT ]; then exit; fi
+        if [ $OPT != "Cancel" ]; then
+            kill $SIGNAL $(echo $OPT|awk '{print $NF}')
+        fi
+        break
+    done
+    unset IFS
+fi
+

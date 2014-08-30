@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -z "$3" ]
+then
+    echo "usage: mountram size diskname fmt" # HFS+
+else
+    diskutil eraseVolume "$3" "$2" `hdid -nomount ram://$(($1*2048))`
+fi

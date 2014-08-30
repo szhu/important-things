@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sPDFPassword='' -dPDFSETTINGS=/prepress -dPassThroughJPEGImages=true -sOutputFile="${1%.*} (Unlocked).pdf" "$1"
