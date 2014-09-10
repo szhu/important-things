@@ -25,34 +25,38 @@ set -v
 
 cd ~
 
+
+# Make directories
+
 mkdir -p .config
 mkdir -p .local/opt
 mkdir -p work
 
-cd ~/.local/opt
-2> /dev/null git clone https://github.com/szhu/berkeley-cs-build.git
-2> /dev/null git clone https://github.com/szhu/important-things.git
 
-cd ~/.local/opt/important-things
+# Symlink config files to files in important-things repo
+
+cd ~/.local/opt
+2> /dev/null git clone https://github.com/szhu/important-things.git
+cd important-things
 ln -s ../.local/opt/important-things/fish ~/.config
 ln -s .local/opt/important-things/git/gitconfig ~/.gitconfig
 
-cd ~/.local/opt/berkeley-cs-build
+
+# Install fish shell
+
 if [ ! -e ~/.local/bin/fish ]; then
+    cd ~/.local/opt
+    2> /dev/null git clone https://github.com/szhu/berkeley-cs-build.git
+    cd berkeley-cs-build
     curses/build.sh
     fish/build.sh
+    rm -rf ~/.local/opt/berkeley-cs-build
 fi
-rm -rf ~/.local/opt/berkeley-cs-build
+
+
+# Make fish the pseudo-default shell
 
 cd ~
-fish_bootstrap_cmd='
-if [ -e ~/.local/bin/fish ] && [ "$(arch)" = x86_64 ] && [ -t 1 ] && [ "$SHLVL" -eq 1 ]; then
-    clear
-    ~/.local/bin/fish
-    exit
-fi
-'
-
 fish_bootstrap_cmd='
 if [ -e ~/.local/bin/fish ] && [ "$(arch)" = x86_64 ] && [ -t 1 ] && [ "$SHLVL" -eq 1 ]; then
     clear
@@ -70,7 +74,8 @@ for rc_file in .bashrc .bash_profile; do
     fi
 done
 
-rmdir -f 
+
+# Rearrange default directories in home folder
 
 rmdir_if_exists() {
     if [[ -d "$1" ]] ; then
@@ -114,6 +119,19 @@ XDG_VIDEOS_DIR="$HOME"
 '
 echo "$user_dirs_contents" > ~/.config/user-dirs.dirs
 
+
+# Make SSH identity
+
+if [ ! -e .ssh/id_rsa ]; then
+    yes '' | ssh-keygen
+fi
+
+
+# Mark user as bootstrapped
+
 touch .bootstrapped
+
+
+# Start fish shell
 
 .local/bin/fish
