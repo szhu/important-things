@@ -1,5 +1,6 @@
-/*.tmTheme
 /*.cache
+/*.tmTheme
+/.SublimeREPLHistory/python.db
 /Package Control.last-run
 /Package Control.system-ca-bundle
 /SublimeLinter.sublime-settings
