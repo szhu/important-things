@@ -47,6 +47,7 @@
 		"SublimeLinter-coffeelint",
 		"SublimeLinter-contrib-haml-lint",
 		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-cpplint",
 		"SublimeLinter-json",
 		"SublimeLinter-pyyaml",
 		"SublimeLinter-rubocop",
