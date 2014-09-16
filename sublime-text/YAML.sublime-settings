@@ -1,6 +1,7 @@
 {
 	"extensions":
 	[
-		"fish_history"
+		"fish_history",
+		"yaml"  // ensures save dialog uses .yaml by default
 	]
 }
