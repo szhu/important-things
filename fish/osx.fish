@@ -93,7 +93,7 @@ end
 
 alias finder 'open -b com.apple.finder'
 alias reveal 'open -R'
-alias lc='launchctl'
+alias lc     'launchctl'
 
 ## finding files
 
@@ -106,8 +106,6 @@ alias find_brokensymlinks "find -L . -type l"
 
 ## Mac OS
 
-alias v 'SetFile -P -a V'
-alias V 'SetFile -P -a v'
 alias v 'chflags -h hidden'
 alias V 'chflags -h nohidden'
 alias aedebug 'set -x AEDebugReceives 1'
