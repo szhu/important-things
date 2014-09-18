@@ -12,16 +12,24 @@ warn() {
   # >&2 echo "!!"
 }
 allow_admin() {
-  sudo chgrp admin "$1"
-  sudo chmod ug+rw "$1"
+  if test -e "$1"; then
+    sudo chgrp admin "$1"
+    sudo chmod ug+rw "$1"
+  else
+    warn "$1" "not processed because it doesn't exist"
+  fi
 }
 allow_admin_recursive() {
-  if test "$global_opt1" = '-R'; then
-    sudo chgrp -R admin "$1"
-    sudo chmod -R ug+rw "$1"
+  if test -e "$1"; then
+    if test "$global_opt1" = '-R'; then
+      sudo chgrp -R admin "$1"
+      sudo chmod -R ug+rw "$1"
+    else
+      warn "$1" "not processed recurively; use -R to do so"
+      allow_admin "$1"
+    fi
   else
-    warn "$1" "not processed recurively; use -R to do so"
-    allow_admin "$1"
+    warn "$1" "not processed because it doesn't exist"
   fi
 }
 replace_peruser() {

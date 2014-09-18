@@ -36,7 +36,7 @@ mkdir -p work
 # Symlink config files to files in important-things repo
 
 cd ~/.local/opt
-2> /dev/null git clone https://github.com/szhu/important-things.git
+git clone -q https://github.com/szhu/important-things.git
 cd important-things
 ln -s ../.local/opt/important-things/fish ~/.config
 ln -s .local/opt/important-things/git/gitconfig ~/.gitconfig
@@ -46,7 +46,7 @@ ln -s .local/opt/important-things/git/gitconfig ~/.gitconfig
 
 if [ ! -e ~/.local/bin/fish ]; then
     cd ~/.local/opt
-    2> /dev/null git clone https://github.com/szhu/berkeley-cs-build.git
+    git clone -q https://github.com/szhu/berkeley-cs-build.git
     cd berkeley-cs-build
     curses/build.sh
     fish/build.sh

@@ -2,21 +2,10 @@
 #
 # Run with:
 # bash -c "$(curl -fsSL https://goo.gl/zo57s2)"
-#
-# To undo (may be fairly destructive):
-# rm -f ~/.bootstrapped
-# rm -rf ~/.local/opt
-# rm -rf ~/.config/fish
-# rm -f ~/.gitconfig
-#
-# all in one line:
-# rm -f ~/.bootstrapped ~/.gitconfig && rm -rf ~/.local/opt ~/.config/fish && bash -c "$(curl -fsSL https://goo.gl/FUIwla)"
-
-last_command=$_
 
 if [[ -e ~/.bootstrapped ]] ; then
-    echo 'Already bootstrapped!'
-    [[ "$last_command" != "$0" ]] && return 1 || exit 1
+    echo 'Already bootstrapped! Delete ~/.bootstrap to attempt to delete and reinstall.'
+    exit 1
 fi
 
 set -e
@@ -26,18 +15,24 @@ mkdir -p ~/.config
 mkdir -p ~/.local/opt
 
 cd ~/.local/opt
-2> /dev/null git clone https://github.com/szhu/important-things.git
+rm -rf important-things
+git clone -q https://github.com/szhu/important-things.git
 
 cd ~/.local/opt/important-things
+rm -rf important-things ~/.config/fish
 ln -s ../.local/opt/important-things/fish ~/.config
+rm -rf important-things ~/.gitconfig
 ln -s .local/opt/important-things/git/gitconfig ~/.gitconfig
 
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+cd ~
+if [[ -z "$(which brew)" ]]; then
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
 brew install fish
 brew install caskroom/cask/brew-cask
+# To prepare cask, run ~/.local/opt/important-things/bootstrap/prepare-package-managers.sh
+touch .bootstrapped
 
-cd ~
 
-touch ~/.bootstrapped
-
-~/.local/bin/fish
+defaults write com.apple.Terminal Shell /usr/local/bin/fish
+/usr/local/bin/fish
