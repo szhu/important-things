@@ -92,7 +92,10 @@ function idof
 end
 
 alias finder 'open -b com.apple.finder'
-alias reveal 'open -R'
+function reveal
+    osascript -e 'launch app id "com.apple.Finder"'
+    open -R $argv
+end
 alias lc     'launchctl'
 
 ## finding files
