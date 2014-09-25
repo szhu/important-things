@@ -16,7 +16,7 @@
 	detach = !bash -c 'git checkout "$(git current-commit)"'
 	exec = "!exec " # http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
 	last = log -1 HEAD
-	ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+	ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=iso --graph
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 	m = merge
