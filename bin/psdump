@@ -1,1 +1,2 @@
+#!/bin/bash
 ps -Aro 'user,pid,time,%cpu,%mem,ucomm,command'
