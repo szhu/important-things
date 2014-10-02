@@ -1,0 +1,10 @@
+[user]
+    name = 
+    email = 
+
+[include]
+    path = .local/opt/important-things/git/gitconfig
+
+[difftool "twdiff"]
+    cmd = twdiff –wait \"$LOCAL\" \"$REMOTE\"
+    cmd = twdiff --wait \"$LOCAL\" \"$REMOTE\"

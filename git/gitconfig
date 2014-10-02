@@ -27,11 +27,6 @@
 	ri = rebase -i
 	root = rev-parse --show-toplevel
 	uu = set-upstream-to-origin-current
+	verify-included = !echo 'it works!'
 [mergetool]
 	keepBackup = false
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[difftool "twdiff"]
-	cmd = twdiff –wait \"$LOCAL\" \"$REMOTE\"
-	cmd = twdiff --wait \"$LOCAL\" \"$REMOTE\"
