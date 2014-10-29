@@ -26,7 +26,7 @@ ln -s .local/opt/important-things/git/gitconfig ~/.gitconfig
 
 cd ~
 if [[ -z "$(which brew)" ]]; then
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 brew install fish
 brew install caskroom/cask/brew-cask
