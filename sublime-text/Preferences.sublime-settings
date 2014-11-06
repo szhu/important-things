@@ -8,7 +8,6 @@
 		"*.pyo",
 		"*.exe",
 		"*.dll",
-		"*.obj",
 		"*.o",
 		"*.a",
 		"*.lib",
@@ -22,15 +21,17 @@
 		".DS_Store",
 		"*.class",
 		"*.psd",
-		"*.db",
-		"*.sublime-workspace"
+		"*.sublime-workspace",
+		"*.sassc"
 	],
 	"folder_exclude_patterns":
 	[
 		".svn",
 		".git",
 		".hg",
-		"CVS"
+		"CVS",
+		"__pycache__",
+		".sass-cache"
 	],
 	"font_face": "Menlo",
 	"font_size": 12.0,
