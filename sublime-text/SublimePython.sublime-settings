@@ -1,14 +1,12 @@
 {
+    "pep8": false,
 	"pep8_ignore": [
-		"W191",
-		"E501",
-
-
+		// "W191",
+		"E501", // 80 chars max
 		// "E211", // whitespace before (
 		// "E251", // whitespace before (
 		// "E302", // 2 blank lines
 		// "E111", // indentation is not a mutliple of four
-
 		// "E701"
 	],
 }

@@ -1,7 +1,37 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
-	"color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
+	"color_scheme": "Packages/User/Monokai Extended Bright (SL).tmTheme",
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS"
+	],
 	"font_face": "Menlo",
 	"font_size": 12.0,
 	"ignored_packages":
@@ -13,7 +43,6 @@
 		"Clojure",
 		"D",
 		"Erlang",
-		"Gist",
 		"Go",
 		"Graphviz",
 		"Groovy",
@@ -31,6 +60,7 @@
 		"Perl",
 		"Scala",
 		"SublimeCodeIntel",
+		"SublimeHaskell",
 		"SublimeLinter-coffee",
 		"SublimeLinter-contrib-jslint",
 		"SublimeLinter-html-tidy",
@@ -38,11 +68,15 @@
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
 		"SublimeLinter-pep257",
-		"SublimePythonIDE",
 		"TCL",
 		"Textile",
 		"Vintage",
 	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
+	"line_numbers": false,
 	"tab_size": 4,
 	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": true

@@ -4,6 +4,7 @@
 
   { "keys": ["super+shift+l"], "command": "toggle_setting", "args": {"setting": "word_wrap"} },
   { "keys": ["ctrl+alt+l"], "command": "toggle_setting", "args": {"setting": "word_wrap"} },
+  // { "keys": ["ctrl+alt+g"], "command": "toggle_setting", "args": {"setting": "indent_guides_enabled"} },
   { "keys": ["ctrl+alt+n"], "command": "toggle_setting", "args": {"setting": "line_numbers"} },
   { "keys": ["ctrl+alt+;"], "command": "toggle_setting", "args": {"setting": "spell_check"} },
   { "keys": ["ctrl+alt+s"], "command": "toggle_side_bar" },

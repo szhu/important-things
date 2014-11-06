@@ -1,7 +1,7 @@
 alias wow   'git status'
 alias such  'git'
 alias very  'git'
-function wuf ; git commit -am "$argv" ; end
+function wuf ; git commit -m "$argv" ; end
 # alias wuf   'git commit -am'
 
 alias gaa   'git add --all'

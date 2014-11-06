@@ -81,8 +81,8 @@ function sudolaunch
 end
 
 function quit
-    set -l path (pathtoapp $argv) ; or return 1
-    osascript -e 'quit app "'$path'"'
+    # set -l path (pathtoapp $argv) ; or set -l path $argv
+    osascript -e 'quit app "'$argv'"'
 end
 function idof
     # $ idof term
