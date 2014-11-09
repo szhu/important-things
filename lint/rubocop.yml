@@ -1,14 +1,14 @@
-# Style/Documentation:
-#   Enabled: false
+Style/Documentation:
+  Enabled: false
 
-# Style/HashSyntax:
-#   Enabled: false
+Style/HashSyntax:
+  Enabled: false
 
 Style/SignalException:
   Enabled: false
 
-Style/Blocks:
-  Enabled: false
+# Style/Blocks:
+#   Enabled: false
 
 LineLength:
   Max: 80

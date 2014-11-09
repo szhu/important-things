@@ -1,18 +1,35 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
-	"color_scheme": "Packages/User/Monokai Extended Bright (SL).tmTheme",
-	"file_exclude_patterns":
+	"binary_file_patterns":
 	[
-		"*.pyc",
-		"*.pyo",
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.psd",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
 		"*.exe",
 		"*.dll",
 		"*.o",
 		"*.a",
 		"*.lib",
 		"*.so",
-		"*.dylib",
+		"*.dylib"
+	],
+	"color_scheme": "Packages/User/Monokai Extended Bright (SL).tmTheme",
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
 		"*.ncb",
 		"*.sdf",
 		"*.suo",
@@ -20,7 +37,6 @@
 		"*.idb",
 		".DS_Store",
 		"*.class",
-		"*.psd",
 		"*.sublime-workspace",
 		"*.sassc"
 	],
