@@ -9,9 +9,10 @@ def mktemppipe(lines):
 
 def main(*lines):
     from subprocess import Popen, call, PIPE
-    if len(lines) > 0 and lines[0] == '-i':
-        lines = lines[1:]
+    if len(lines) == 0:
         interactive = True
+    elif lines[0] == '-i':
+        lines = lines[1:]
     else:
         interactive = False
     pipefile = mktemppipe(lines)
