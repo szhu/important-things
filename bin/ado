@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+def mktemppipe(lines):
+    from os import mkfifo
+    from tempfile import mktemp
+    filename = mktemp()
+    mkfifo(filename)
+    return filename
+
+def main(*lines):
+    from subprocess import Popen, call, PIPE
+    if len(lines) > 0 and lines[0] == '-i':
+        lines = lines[1:]
+        interactive = True
+    else:
+        interactive = False
+    pipefile = mktemppipe(lines)
+    cmd = ['cat', pipefile, '-'] if interactive else ['cat', pipefile]
+    multiplexed_stdin = Popen(cmd, stdout=PIPE)
+    with open(pipefile, 'w') as f:
+        for line in lines:
+            print >> f, line
+    call(['nc', '-U', '/usr/local/var/adminer'], stdin=multiplexed_stdin.stdout)
+
+if __name__ == '__main__':
+    from sys import argv
+    try:
+        exit(main(*argv[1:]))
+    except Exception, e:
+        from sys import stderr
+        print >> stderr, 'Error:', e
+    except KeyboardInterrupt:
+        print
+        pass
