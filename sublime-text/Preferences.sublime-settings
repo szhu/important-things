@@ -51,6 +51,7 @@
 	],
 	"font_face": "Menlo",
 	"font_size": 12.0,
+	"highlight_line": true,
 	"ignored_packages":
 	[
 		"ActionScript",
@@ -94,6 +95,8 @@
 		"draw_active"
 	],
 	"line_numbers": false,
+	"open_files_in_new_window": true,
+	"remember_full_screen": true,
 	"tab_size": 4,
 	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": true
