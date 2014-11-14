@@ -49,6 +49,8 @@ def main(commands_dir):
         command = args.pop(0)
         if command == 'cd':
             last_code = jail.do_cd(args)
+        elif command == 'exit':
+            return last_code
         else:
             if command in ('and', "&&"):
                 if last_code != 0 or len(args) == 0: continue

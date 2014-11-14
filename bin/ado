@@ -12,6 +12,7 @@ def main(*lines):
     if len(lines) == 0:
         interactive = True
     elif lines[0] == '-i':
+        interactive = True
         lines = lines[1:]
     else:
         interactive = False

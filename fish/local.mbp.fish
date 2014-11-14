@@ -58,7 +58,7 @@ end
 # end
 
 # Normal
-for cmd in brew brewup gem
+for cmd in brew brewup gem npm-g
     eval "function $cmd; ado \"$cmd \$argv\"; end"
 end
 
