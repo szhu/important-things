@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+# coding: utf-8
+from util import do_command, STDOUT, PIPE, sort_lines
+from sys import argv
+PY_VERSION = argv[1]
+
+@do_command('pip' + PY_VERSION, 'freeze', process=STDOUT, stdout=PIPE)
+@sort_lines
+def process_lines(lines):
+    for line in lines:
+        line = line.rsplit('==', 1)[0]
+        yield line + '\n'

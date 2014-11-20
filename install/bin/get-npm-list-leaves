@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+# coding: utf-8
+from util import do_command, STDOUT, PIPE, sort_lines
+
+@do_command('npm', 'list', '-g', process=STDOUT, stdout=PIPE, stderr=file('/dev/null', 'w'))
+@sort_lines
+def process_lines(lines):
+    from re import sub, match
+    for line in lines:
+        if not match(r'^(└|├)─┬ ', line): continue
+        line = line.decode('utf8')[4:].encode('utf8')
+        line = sub(r'@[^@]+$', '\n', line)
+        yield line
