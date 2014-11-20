@@ -7,7 +7,7 @@ PY_VERSION = argv[1]
 prefix = '/Library/Python/%s/site-packages' % PY_VERSION
 suffix = "*-py%s.egg-info" % PY_VERSION
 
-@do_command('find', '-s', prefix, '-name', suffix, process=STDOUT, stdout=PIPE)
+@do_command('find', prefix, '-name', suffix, process=STDOUT, stdout=PIPE)
 @sort_lines
 def process_lines(lines):
     from os.path import splitext, basename

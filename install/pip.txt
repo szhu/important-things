@@ -1,4 +1,8 @@
-Markdown
-Pygments
+flake8
+pep257
+pep8
+pyflakes
 PyYAML
+requests
 vboxapi
+virtualenv
