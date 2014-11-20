@@ -1,10 +1,6 @@
 bower
-brunch
 coffee-script
 coffeelint
-jade
-js2coffee
-jshint
-nodewebkit
+grunt-cli
+karma
 npm
-request-json

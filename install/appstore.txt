@@ -1,14 +1,12 @@
-1Password
 Backdrop
 Caffeine
 ClamXav
-Cloud
+CloudApp
 HexColor
-Install OS X Yosemite Beta
+Install OS X Yosemite
+Keynote
 Liya
 Microsoft OneNote
-ResolutionTab
 Slack
-Sparrow
 Sunrise
 Xcode

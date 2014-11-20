@@ -1,3 +1,7 @@
-Django
-PyYAML
 cpplint
+flake8
+mccabe
+pep257
+pep8
+pyflakes
+PyYAML
