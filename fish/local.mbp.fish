@@ -1,3 +1,5 @@
+alias a 'su a'
+
 # ------ SYNCING ------ #
 
 ## Rsyncer helpers

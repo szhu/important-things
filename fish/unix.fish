@@ -1,11 +1,13 @@
-## pure UNIX
+alias ls  'ls -FGh'
+alias ll  'ls -oFGh'
+alias py  'python'
+alias py3 'python3'
 
-alias ls 'ls -FGh'
-alias ll 'ls -oFGh'
-alias cattail "cat $argv ; tail -fn 0 $argv"
-alias a 'su a'
+function cattail
+    cat $argv
+    and tail -f -n 0 $argv
+end
 
-## Python
-
-alias py    'python'
-alias py3   'python3'
+function edit
+    env (echo $EDITOR | tr ' ' '\n') $argv
+end
