@@ -1,11 +1,11 @@
 blueutil
 brew-cask
 cloc
-cmake
 cscope
 elinks
 exiftool
 fish
+flow
 fuse4x-kext
 gcc
 geoip
@@ -19,6 +19,7 @@ libyaml
 links
 node
 numpy
+osquery
 osxfuse
 postgresql
 python3

@@ -1,3 +1,4 @@
+affinic-debugger-gui
 alfred
 appfresh
 audacity
@@ -29,6 +30,7 @@ inkscape
 isolator
 java
 joinme
+keycastr
 launchcontrol
 league-of-legends
 libreoffice
