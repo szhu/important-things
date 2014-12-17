@@ -66,6 +66,7 @@ jquery-ui-rails
 json
 json_builder
 kramdown
+kramdown-yaml-tablerize
 libxml-ruby
 liquid
 listen
@@ -151,3 +152,4 @@ uglifier
 warden
 watchr
 yajl-ruby
+yaml-tablerize

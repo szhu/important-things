@@ -3,4 +3,5 @@ coffee-script
 coffeelint
 grunt-cli
 karma
+less
 npm
