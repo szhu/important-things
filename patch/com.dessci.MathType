@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [[ "$0" == -* ]] ; then
+	echo 'This script must be in a separate process; i.e. don'"'"'t use `source`.'
+	return
+fi
+set -e
+
+ROOT='/Applications/'
+PATCHED='.patched'
+DIR='MathType 6'
+OLD='MathType.app'
+NEW='MathType.app'
+
+echo "cd $ROOT"
+cd "$ROOT"
+
+if [ -e "$DIR/$PATCHED" ]
+
+then
+	echo 'Unpatching:'
+	chflags -v nohidden "$DIR"
+	rm "$NEW"
+	rm "$DIR/$PATCHED"
+	echo 'Unpatching complete.'
+
+else
+	echo 'Patching:'
+	ln -sv "$DIR/$OLD" "$NEW"
+	chflags -v hidden "$DIR"
+	touch "$DIR/$PATCHED"
+	echo 'Patching complete.'
+
+fi

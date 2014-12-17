@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ "$0" == -* ]] ; then
+	echo 'This script must be in a separate process; i.e. don'"'"'t use `source`.'
+	return
+fi
+set -e
+
+ROOT='/System/Library/Extensions/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS'
+PATCHED='.patched'
+DIR='.'
+FILE='IOAHCIBlockStorage'
+BACK='IOAHCIBlockStorage (Original)'
+
+echo "cd $ROOT"
+cd "$ROOT"
+
+if [ -e "$DIR/$PATCHED" ]
+
+then
+	echo 'Unpatching:'
+	cp -piv "$DIR/$BACK" "$DIR/$FILE"
+	kextcache -system-prelinked-kernel
+	kextcache -system-caches
+	rm "$DIR/$PATCHED"
+	echo 'Unpatching complete.'
+
+else
+	echo 'Patching:'
+	cp -piv "$DIR/$FILE" "$DIR/$BACK"
+	perl -pi -e 's|(\x52\x6F\x74\x61\x74\x69\x6F\x6E\x61\x6C\x00{1,20})[^\x00]{9}(\x00{1,20}\x54)|$1\x00\x00\x00\x00\x00\x00\x00\x00\x00$2|sg' "$DIR/$FILE"
+	kextcache -system-prelinked-kernel
+	kextcache -system-caches
+	touch "$DIR/$PATCHED"
+	echo 'Patching complete.'
+
+fi
+
+# Source:
+# http://www.return1.at/trim-enabler-for-osx/
+# https://gist.github.com/return1/4058659

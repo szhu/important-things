@@ -1,0 +1,55 @@
+#!/bin/bash
+
+if [[ "$0" == -* ]] ; then
+	echo 'This script must be in a separate process; i.e. don'"'"'t use `source`.'
+	return
+fi
+set -e
+
+ROOT='/Applications/'
+PATCHED='.patched'
+OLDDIR='Microsoft Office 2011'
+NEWDIR='Office'
+OLD1='Microsoft Excel.app'
+OLD2='Microsoft PowerPoint.app'
+OLD3='Microsoft Word.app'
+NEW1='Excel.app'
+NEW2='PowerPoint.app'
+NEW3='Word.app'
+
+echo "cd $ROOT"
+cd "$ROOT"
+
+if [ -e "$NEWDIR/$PATCHED" ]
+
+then
+	echo 'Unpatching:'
+	DIR="$NEWDIR"
+	chflags -hv nohidden "$DIR"/*
+	chflags -hv hidden "$DIR"/Icon*
+	rm -v "$DIR/$OLD1" "$DIR/$OLD2" "$DIR/$OLD3"
+	mv -v "$DIR/$NEW1" "$DIR/$OLD1"
+	mv -v "$DIR/$NEW2" "$DIR/$OLD2"
+	mv -v "$DIR/$NEW3" "$DIR/$OLD3"
+	DIR="$OLDDIR"
+	mv -v "$NEWDIR" "$DIR"
+	rm "$DIR/$PATCHED"
+	echo 'Unpatching complete.'
+
+else
+	echo 'Patching:'
+	DIR="$OLDDIR"
+	mv -v "$DIR/$OLD1" "$DIR/$NEW1"
+	mv -v "$DIR/$OLD2" "$DIR/$NEW2"
+	mv -v "$DIR/$OLD3" "$DIR/$NEW3"
+	ln -sv "$NEW1" "$DIR/$OLD1"
+	ln -sv "$NEW2" "$DIR/$OLD2"
+	ln -sv "$NEW3" "$DIR/$OLD3"
+	chflags -hv hidden "$DIR"/*
+	chflags -hv nohidden "$DIR/$NEW1" "$DIR/$NEW2" "$DIR/$NEW3"
+	DIR="$NEWDIR"
+	mv -v "$OLDDIR" "$DIR"
+	touch "$DIR/$PATCHED"
+	echo 'Patching complete.'
+
+fi

@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [[ "$0" == -* ]] ; then
+	echo 'This script must be in a separate process; i.e. don'"'"'t use `source`.'
+	return
+fi
+set -e
+
+ROOT='/Applications/'
+PATCHED='.patched'
+DIR='Adobe Acrobat X Pro'
+OLD='Adobe Acrobat Pro.app'
+NEW='Acrobat.app'
+
+echo "cd $ROOT"
+cd "$ROOT"
+
+if [ -e "$DIR/$PATCHED" ]
+
+then
+	echo 'Unpatching:'
+	chflags -v nohidden "$DIR"
+	rm -v "$DIR/$OLD"
+	mv -v "$NEW" "$DIR/$OLD"
+	rm "$DIR/$PATCHED"
+	echo 'Unpatching complete.'
+
+else
+	echo 'Patching:'
+	mv -v "$DIR/$OLD" "$NEW"
+	ln -sv "../$NEW" "$DIR/$OLD"
+	chflags -v hidden "$DIR"
+	touch "$DIR/$PATCHED"
+	echo 'Patching complete.'
+
+fi
