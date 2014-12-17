@@ -128,5 +128,7 @@
         "operand":"source.python"
       }
     ]
-  }
+  },
+  { "keys": ["ctrl+j"], "command": "wrap_lines_plus" }
+
 ]

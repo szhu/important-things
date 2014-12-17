@@ -1,0 +1,191 @@
+{
+    "user": {
+        "debug": false,
+        "delay": 0.25,
+        "error_color": "D02000",
+        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
+        "gutter_theme_excludes": [],
+        "lint_mode": "background",
+        "linters": {
+            "chktex": {
+                "@disable": false,
+                "args": [],
+                "erroron": [
+                    16
+                ],
+                "excludes": [],
+                "inputfiles": [
+                    0
+                ],
+                "nowarn": [
+                    22,
+                    30
+                ]
+            },
+            "clang": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "extra_flags": "",
+                "include_dirs": []
+            },
+            "coffee": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "coffeelint": {
+                "@disable": true,
+                "args": [],
+                "excludes": [],
+                "ignore_match": [
+                    "Line exceeds maximum allowed length"
+                ]
+            },
+            "cpplint": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "filter": "",
+                "ignore_match": [
+                    "An else should appear on the same line as the preceding",
+                    "Closing \\) should be moved to the previous line",
+                    "Do not use namespace using-directives\\.",
+                    "Extra space after .* in function call",
+                    "Found C system header after C\\+\\+ system header\\.",
+                    "If an else has a brace on one side, it should have it on both",
+                    "Is this a non-const reference\\? If so, make const or use a pointer\\.",
+                    "Lines should be <= 80 characters long",
+                    "Lines should very rarely be longer than 100 characters",
+                    "Missing space after ,",
+                    "Missing spaces around (<|>|=|==|!=)",
+                    "Missing username in TODO",
+                    "More than one command on the same line",
+                    "No copyright message found\\.",
+                    "Streams are highly discouraged\\.",
+                    "Tab found; better to use spaces",
+                    "Using C-style cast\\."
+                ]
+            },
+            "csslint": {
+                "@disable": false,
+                "args": [],
+                "errors": "",
+                "excludes": [],
+                "ignore": "",
+                "warnings": ""
+            },
+            "hamllint": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "htmltidy": {
+                "@disable": true,
+                "args": [],
+                "excludes": []
+            },
+            "javac": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "lint": ""
+            },
+            "jshint": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "json": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "pep257": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "pep8": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "ignore": "",
+                "ignore_match": [
+                    ".*indentation contains tabs.*"
+                ],
+                "max-line-length": null,
+                "select": ""
+            },
+            "php": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "pyflakes": {
+                "@disable": true,
+                "args": [],
+                "excludes": []
+            },
+            "pylint": {
+                "@disable": false,
+                "args": [
+                    "--disable=W191"
+                ],
+                "disable": "",
+                "enable": "",
+                "excludes": [],
+                "rcfile": "~/.config/pylint.rc"
+            },
+            "pyyaml": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "rubocop": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "scss": {
+                "@disable": true,
+                "args": [],
+                "exclude-linter": "",
+                "excludes": [],
+                "include-linter": ""
+            },
+            "shellcheck": {
+                "@disable": false,
+                "args": [],
+                "exclude": "",
+                "excludes": []
+            }
+        },
+        "mark_style": "squiggly underline",
+        "no_column_highlights_line": false,
+        "passive_warnings": false,
+        "paths": {
+            "linux": [],
+            "osx": [],
+            "windows": []
+        },
+        "python_paths": {
+            "linux": [],
+            "osx": [],
+            "windows": []
+        },
+        "rc_search_limit": 3,
+        "shell_timeout": 10,
+        "show_errors_on_save": false,
+        "show_marks_in_minimap": true,
+        "syntax_map": {
+            "html (django)": "html",
+            "html (rails)": "html",
+            "html 5": "html",
+            "php": "html",
+            "python django": "python"
+        },
+        "warning_color": "DDB700",
+        "wrap_find": true
+    }
+}

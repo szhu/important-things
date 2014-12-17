@@ -13,7 +13,9 @@
 		"CoffeeComplete Plus (Autocompletion)",
 		"CoffeeScriptHaml",
 		"CSSTidy",
+		"Djaneiro",
 		"fish-shell",
+		"Gist",
 		"Git",
 		"GitGutter",
 		"Gutter Color",
@@ -47,6 +49,7 @@
 		"SublimeLinter-chktex",
 		"SublimeLinter-coffee",
 		"SublimeLinter-coffeelint",
+		"SublimeLinter-contrib-jslint",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-cpplint",
 		"SublimeLinter-csslint",
@@ -64,6 +67,10 @@
 		"Swift",
 		"Tab Filter",
 		"Theme - Soda",
-		"TrailingSpaces"
+		"Toggle the View Read-Only",
+		"TrailingSpaces",
+		"WakaTime",
+		"Wrap Plus",
+		"YAML Nav"
 	]
 }
