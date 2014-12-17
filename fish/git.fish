@@ -4,7 +4,7 @@ alias very  'git'
 function wuf ; git commit -m "$argv" ; end
 # alias wuf   'git commit -am'
 
-alias gaa   'git add --all'
+alias gaa   'git add --all :/'
 alias gbr   'git branch'
 alias gc    'git commit'
 alias gch   'git checkout'

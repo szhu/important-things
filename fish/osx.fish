@@ -91,6 +91,7 @@ function idof
     osascript -e 'id of app "'$path'"'
 end
 
+alias subl 'open -b com.sublimetext.3'
 alias finder 'open -b com.apple.finder'
 function reveal
     osascript -e 'launch app id "com.apple.Finder"'

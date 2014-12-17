@@ -22,7 +22,7 @@ end
 for cmd in int sz cs ee
     alias $cmd "rsyncer $cmd"
 end
-for cmd in 168 170 184 61b-lab 61c-lab 170-hw9
+for cmd in 168 170 184 61b-lab 61c-lab 170-hw9 170-hw11 170-hw12
     alias "cs$cmd" "rsyncer cs$cmd"
     alias $cmd "rsyncer cs$cmd"
 end
@@ -60,7 +60,7 @@ end
 # end
 
 # Normal
-for cmd in brew brewup gem npm-g
+for cmd in brew brewup npm-g
     eval "function $cmd; ado \"$cmd \$argv\"; end"
 end
 
@@ -70,6 +70,6 @@ for cmd in pip pip3
 end
 
 # Use current cd for these
-for cmd in bundle
+for cmd in gem bundle
     eval "function $cmd; ado \"cd \\\"\$PWD\\\"\" \"and $cmd \$argv\"; end"
 end
