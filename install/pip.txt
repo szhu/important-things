@@ -1,8 +1,14 @@
+ecdsa
+Fabric
+fabtools
 flake8
+paramiko
 pep257
 pep8
+pycrypto
 pyflakes
 PyYAML
 requests
+setuptools
 vboxapi
 virtualenv
