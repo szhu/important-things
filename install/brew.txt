@@ -10,6 +10,7 @@ fish
 fswatch
 fuse4x-kext
 geoip
+git
 glib
 heroku-toolbelt
 hub
