@@ -1,4 +1,8 @@
 {
+	"_autosort":
+	[
+		"ignored_packages"
+	],
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
 	"binary_file_patterns":
@@ -55,6 +59,7 @@
 	"ignored_packages":
 	[
 		"ActionScript",
+		"Additional PHP Snippets",
 		"ASP",
 		"Batch File",
 		"C#",
@@ -67,6 +72,7 @@
 		"Haskell",
 		"Javascript Beautify",
 		"Jedi - Python autocompletion",
+		"JS Snippets",
 		"JSHint Gutter",
 		"Lua",
 		"Markdown",
@@ -76,7 +82,9 @@
 		"Pandoc Markdown",
 		"Pascal",
 		"Perl",
+		"Ruby on Rails snippets",
 		"Scala",
+		"SnippetMaker",
 		"SublimeCodeIntel",
 		"SublimeHaskell",
 		"SublimeLinter-coffee",
@@ -85,10 +93,9 @@
 		"SublimeLinter-javac",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
-		"SublimeLinter-pep257",
 		"TCL",
 		"Textile",
-		"Vintage",
+		"Vintage"
 	],
 	"indent_guide_options":
 	[

@@ -1,3 +1,4 @@
+*.last-normalized
 /*.cache
 /*.tmTheme
 /.SublimeREPLHistory/*.db

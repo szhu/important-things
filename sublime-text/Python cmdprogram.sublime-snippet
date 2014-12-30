@@ -1,0 +1,33 @@
+<snippet>
+    <content><![CDATA[#!/usr/bin/env python
+
+def main(${1:}):
+    ${2:return 0}
+
+
+##
+
+
+class ProgramError(Exception):
+    pass
+
+def run():
+    from sys import argv, stderr
+    try:
+        exit(main(*argv[1:]) or 0)
+    except ProgramError, exc:
+        print >> stderr, exc
+    except TypeError, exc:
+        if exc.message.startswith("main() takes"):
+            print >> stderr, exc
+        else:
+            raise
+
+if __name__ == '__main__':
+    run()
+
+]]></content>
+    <tabTrigger>cmdprogram</tabTrigger>
+    <scope>source.python</scope>
+    <description>command-line program template</description>
+</snippet>
