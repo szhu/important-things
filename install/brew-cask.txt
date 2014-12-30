@@ -1,5 +1,6 @@
 affinic-debugger-gui
 alfred
+android-file-transfer
 appfresh
 audacity
 bartender
@@ -10,6 +11,7 @@ breach
 clipmenu
 coconutbattery
 colorpicker-hex
+copy
 cyberduck
 dropbox
 easysimbl
@@ -34,7 +36,6 @@ joinme
 keycastr
 launchcontrol
 league-of-legends
-libreoffice
 mactracker
 macvim
 mailbox
@@ -70,6 +71,7 @@ textmate
 textwrangler
 the-unarchiver
 tinkertool
+torbrowser
 transmission
 unity-web-player
 vagrant

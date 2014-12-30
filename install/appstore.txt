@@ -3,7 +3,7 @@ Caffeine
 ClamXav
 CloudApp
 HexColor
-Install OS X Yosemite
+Hotspot Shield
 Keynote
 Liya
 Microsoft OneNote
