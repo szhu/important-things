@@ -14,6 +14,8 @@ alias gm    'git merge'
 alias gP    'git pull'
 alias gp    'git push'
 alias gr    'git rebase'
-alias gr~2  'git rebase -i HEAD~2'
+for n in 1 2 3 4 5 6 7 8 9
+    alias "gr~"$n "git rebase -i HEAD~"$n
+end
 alias gs    'git status'
 alias gu    'git up'
