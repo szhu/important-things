@@ -9,4 +9,5 @@ Liya
 Microsoft OneNote
 Slack
 Sunrise
+WeChat
 Xcode
