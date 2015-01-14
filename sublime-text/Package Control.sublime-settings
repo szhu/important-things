@@ -1,4 +1,12 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"Apache Hive",
@@ -35,6 +43,7 @@
 		"LESS",
 		"MarkdownEditing",
 		"Monokai Extended",
+		"Package Control",
 		"Pretty JSON",
 		"Pretty YAML",
 		"Rails Developer Snippets",
