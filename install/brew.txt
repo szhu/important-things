@@ -24,6 +24,7 @@ links
 node
 numpy
 osxfuse
+postgresql
 python3
 shellcheck
 sleepwatcher
