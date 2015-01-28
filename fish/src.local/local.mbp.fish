@@ -1,4 +1,4 @@
-alias a 'su a'
+alias a "ssh -q a@localhost"
 
 # ------ SYNCING ------ #
 
@@ -61,15 +61,19 @@ end
 
 # Normal
 for cmd in brew brewup npm
-    eval "function $cmd-g; ado \"$cmd \$argv\"; end"
+    eval "function $cmd; ado \"$cmd \$argv\"; end"
 end
 
 # Be interactive for these
 for cmd in pip pip3
-    eval "function $cmd-g; ado -i \"$cmd \$argv\"; end"
+    eval "function $cmd; ado -i \"$cmd \$argv\"; end"
 end
 
 # Use current cd for these
 for cmd in gem bundle
-    eval "function $cmd-g; ado \"cd \\\"\$PWD\\\"\" \"and $cmd \$argv\"; end"
+    eval "function $cmd; ado \"cd \\\"\$PWD\\\"\" \"and $cmd \$argv\"; end"
+end
+
+for cmd in brew npm pip pip3 gem bundle
+    alias my$cmd (which $cmd)
 end

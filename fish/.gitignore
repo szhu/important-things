@@ -1,3 +1,4 @@
-/fishd.*
 /fish_history
-/local.fish
+/fishd.*
+/functions
+/src/local.fish
