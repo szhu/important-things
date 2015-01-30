@@ -1,5 +1,5 @@
 set -x PATH ~/.local/bin ~/.local/opt/*/bin /usr/local/bin /usr/local/sbin $PATH
-
+set -X LANG 'en_US.UTF-8'
 
 function funcmarkset
     set -g __functions_old (mktemp /tmp/fish.funcmark.XXXXXX)
@@ -21,12 +21,17 @@ end
 
 function funcnuke
     set functions_dir ~/.config/fish/functions
-    rm -v $argv -- $functions_dir
+    rm -rf $argv -- $functions_dir
 end
 
 function update-functions
     set functions_dir ~/.config/fish/functions/
     set srcs ~/.config/fish/src/*.fish ~/.config/fish/src/*/*.fish
+    if [ (uname) = "Darwin" ]
+        set srcs $srcs ~/.config/fish/src.local/osx.fish
+    else if [ (uname) = "Linux" ]
+        set srcs $srcs ~/.config/fish/src.local/linux.fish
+    end
 
     funcmarkset
 
