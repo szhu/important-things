@@ -41,8 +41,9 @@ cd important-things
 ln -s ../.local/opt/important-things/fish ~/.config
 ln -s .local/opt/important-things/git/gitconfig ~/.gitconfig
 
-if [ ! -e ~.local/share/sublime-text-3/Packages/User ]; then
-    ln -s ../../../../.local/opt/important-things/sublime-text/ ~.local/share/sublime-text-3/Packages/User
+mkdir -p ~/.local/share/sublime-text-3/Packages
+if [ ! -e ~/.local/share/sublime-text-3/Packages/User ]; then
+    ln -s ../../../../.local/opt/important-things/sublime-text/ ~/.local/share/sublime-text-3/Packages/User
 fi
 
 # Install fish shell
