@@ -114,7 +114,7 @@ user_dirs_contents='
 # 
 XDG_DESKTOP_DIR="$HOME/desktop"
 XDG_DOWNLOAD_DIR="$HOME/downloads"
-XDG_TEMPLATES_DIR="$HOME/work"
+XDG_TEMPLATES_DIR="$HOME/work/templates"
 XDG_PUBLICSHARE_DIR="$HOME/public_html"
 XDG_DOCUMENTS_DIR="$HOME/work"
 XDG_MUSIC_DIR="$HOME"

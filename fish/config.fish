@@ -1,30 +1,36 @@
 set -x PATH ~/.local/bin ~/.local/opt/*/bin /usr/local/bin /usr/local/sbin $PATH
 set -X LANG 'en_US.UTF-8'
+set -g functions_builtins hostname la ll ls man
 
-function funcmarkset
+function functions-setmark
     set -g __functions_old (mktemp /tmp/fish.funcmark.XXXXXX)
     functions -a > $__functions_old
 end
 
-function funcmarkdiff
+function functions-diffmark
     set -l __functions_new (mktemp /tmp/fish.funcmark.XXXXXX)
     functions -a > $__functions_new
     diff --changed-group-format='%>' --unchanged-group-format='' $__functions_old $__functions_new
     echo -n
 end
 
-function funcmarksave
-    for func in (funcmarkdiff)
+function functions-marksave
+    for func in (functions-diffmark)
         funcsave $func
+    end
+    for func in $functions_builtins
+        if functions -q $func
+            funcsave $func
+        end
     end
 end
 
-function funcnuke
+function functions-nuke
     set functions_dir ~/.config/fish/functions
     rm -rf $argv -- $functions_dir
 end
 
-function update-functions
+function functions-update
     set functions_dir ~/.config/fish/functions/
     set srcs ~/.config/fish/src/*.fish ~/.config/fish/src/*/*.fish
     if [ (uname) = "Darwin" ]
@@ -33,7 +39,7 @@ function update-functions
         set srcs $srcs ~/.config/fish/src.local/linux.fish
     end
 
-    funcmarkset
+    functions-setmark
 
     mkdir -p $functions_dir
     cp ~/.config/fish/src/fish/* $functions_dir
@@ -41,10 +47,10 @@ function update-functions
         source $src
     end
 
-    funcmarksave
+    functions-marksave
 end
 
-function reset-functions
-    funcnuke $argv
-    and update-functions
+function functions-reset
+    functions-nuke $argv
+    and functions-update
 end

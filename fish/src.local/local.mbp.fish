@@ -22,7 +22,7 @@ end
 for cmd in int sz cs ee
     alias $cmd "rsyncer $cmd"
 end
-for cmd in 168 170 184 61b-lab 61c-lab 170-hw9 170-hw11 170-hw12
+for cmd in 61b-lab 172 189
     alias "cs$cmd" "rsyncer cs$cmd"
     alias $cmd "rsyncer cs$cmd"
 end

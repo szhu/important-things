@@ -34,7 +34,7 @@ function fish_prompt --description 'Write out the prompt'
 
   __fish_prompt_user_hostname
   __fish_prompt_pwd
-  __fish_prompt_git
+  __fish_git_prompt
   
   echo
 
@@ -71,33 +71,20 @@ function __fish_prompt_pwd
   end
 end
 
-function __fish_prompt_git
-  __fish_git_prompt
-end
-
 function __fish_prompt_time
   echo_with_color $fish_color_autosuggestion[1] (date +%H:%M)
 end
 
+set -U __fish_prompt_normal (set_color normal)
+set -U __fish_prompt_cwd (set_color $fish_color_cwd)
+
 
 function __fish_prompt_init
-  if not set -q __fish_prompt_initialized
-    # Just calculate these once, to save a few cycles when displaying the prompt
-    if not set -q __fish_prompt_user_hostname
-      if [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
-        set -g __fish_prompt_user_hostname (set_color $fish_color_autosuggestion[1])"$USER@"(hostname|cut -d . -f 1)(set_color normal)" "
-      end
+  # Just calculate these once, to save a few cycles when displaying the prompt
+  if not set -q __fish_prompt_user_hostname
+    if [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
+      set -g __fish_prompt_user_hostname (set_color $fish_color_autosuggestion[1])"$USER@"(hostname|cut -d . -f 1)(set_color normal)" "
     end
-
-    if not set -q __fish_prompt_normal
-      set -g __fish_prompt_normal (set_color normal)
-    end
-
-    if not set -q __fish_prompt_cwd
-      set -g __fish_prompt_cwd (set_color $fish_color_cwd)
-    end
-
-    set -g __fish_prompt_initialized 1
   end
 end
 
