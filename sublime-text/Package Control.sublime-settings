@@ -2,11 +2,6 @@
 	"in_process_packages":
 	[
 	],
-	"installed_dependencies":
-	[
-		"0_package_control_loader",
-		"bz2"
-	],
 	"installed_packages":
 	[
 		"Apache Hive",
@@ -21,9 +16,7 @@
 		"CoffeeComplete Plus (Autocompletion)",
 		"CoffeeScriptHaml",
 		"CSSTidy",
-		"Djaneiro",
 		"fish-shell",
-		"Gist",
 		"Git",
 		"GitGutter",
 		"Gutter Color",
@@ -47,7 +40,6 @@
 		"Pretty JSON",
 		"Pretty YAML",
 		"Rails Developer Snippets",
-		"RSpec",
 		"SASS Build",
 		"SASS Snippets",
 		"SideBarEnhancements",
