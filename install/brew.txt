@@ -21,6 +21,7 @@ iftop
 jhead
 libevent
 libyaml
+lighttpd
 links
 lua
 node
@@ -32,7 +33,6 @@ python3
 raptor
 shellcheck
 sleepwatcher
-speedtest_cli
 ssh-copy-id
 texinfo
 trash

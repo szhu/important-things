@@ -10,5 +10,6 @@ pyflakes
 PyYAML
 requests
 setuptools
+speedtest_cli
 vboxapi
 virtualenv
