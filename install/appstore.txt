@@ -3,7 +3,6 @@ Caffeine
 ClamXav
 CloudApp
 HexColor
-Hotspot Shield
 Keynote
 Liya
 Microsoft OneNote

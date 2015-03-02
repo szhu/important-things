@@ -24,6 +24,7 @@ genymotion
 gifrocket
 gimp
 github
+google-drive
 grandperspective
 gyazo
 hex-fiend
@@ -52,8 +53,10 @@ qlimagesize
 qlmarkdown
 quicksilver
 quicktime-player7
+r
 rcdefaultapp
 recovery-disk-assistant
+rstudio
 scroll-reverser
 seashore
 secrets
@@ -67,6 +70,7 @@ spotify
 spotify-notifications
 sublime-text3
 suspicious-package
+texshop
 textmate
 textwrangler
 the-unarchiver
