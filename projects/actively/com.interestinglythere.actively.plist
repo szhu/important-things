@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Nice</key>
+	<integer>1</integer>
+	<key>LowPriorityIO</key>
+	<true/>
+	<key>Label</key>
+	<string>com.interestinglythere.actively</string>
+	<key>StartInterval</key>
+	<integer>60</integer>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/env</string>
+		<string>python</string>
+		<string>com.interestinglythere.actively.py</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/Users/Sean/Library/Application Support/InterestinglyThere/Actively/Errors.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/Sean/Library/Application Support/InterestinglyThere/Actively/Activities.log</string>
+	<key>WorkingDirectory</key>
+	<string>/Users/Sean/Library/Application Support/InterestinglyThere/Actively/Support</string>
+	<key>Disabled</key>
+	<false/>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>OnDemand</key>
+	<true/>
+</dict>
+</plist>
