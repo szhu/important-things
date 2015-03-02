@@ -1,28 +1,42 @@
 #!/usr/bin/env python
 
-def file_to_base64(filename):
+def text_to_base64(text):
     import base64
-    with open(filename, "rb") as f:
-        return base64.b64encode(f.read())
+    return base64.b64encode(text)
 
-def file_to_data_url(filename):
-    return "data:" + mimetype(filename) + ";base64," + file_to_base64(filename)
+def base64_to_text(b64):
+    import base64
+    return base64.b64decode(b64)
 
-def mimetype(filename):
+def text_to_data_url(text, fname):
+    return "data:" + mimetype(fname) + ";base64," + text_to_base64(text)
+
+def mimetype(text):
     import mimetypes
-    return mimetypes.guess_type(filename)[0]
+    return mimetypes.guess_type(text)[0]
 
-def main(filename, mode=None):
-    if mode == 'data':
-        print file_to_data_url(filename)
-    elif mode == 'url':
-        print "url(" + file_to_data_url(filename) + ")"
-    elif mode == 'img':
-        print '<img src="' + file_to_data_url(filename) + '">'
-    elif mode == 'mdimg':
-        print '![' + filename + '](' + file_to_data_url(filename) + ')'
+def main(mode, fname=None):
+    if fname is None or fname == '-':
+        from sys import stdin
+        text = stdin.read()
     else:
-        print file_to_base64(filename)
+        with open(fname, "rb") as f:
+            text = f.read()
+
+    if mode == 'encode':
+        print text_to_base64(text)
+    elif mode == 'encode-data':
+        print text_to_data_url(text, fname)
+    elif mode == 'encode-url':
+        print "url(" + text_to_data_url(text, fname) + ")"
+    elif mode == 'encode-img':
+        print '<img src="' + text_to_data_url(text, fname) + '">'
+    elif mode == 'encode-mdimg':
+        print '![' + fname + '](' + text_to_data_url(text, fname) + ')'
+    elif mode == 'decode':
+        print base64_to_text(text)
+    else:
+        raise ValueError("invalid mode " + mode)
 
 if __name__ == '__main__':
     from sys import argv
