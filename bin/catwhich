@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PIPE=`which "$@"`
+STATUS="$?"
+if [[ "$STATUS" != 0 ]]; then
+	exit "$STATUS"
+fi
+cat "$PIPE"
