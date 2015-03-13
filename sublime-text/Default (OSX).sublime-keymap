@@ -37,6 +37,14 @@
   { "keys": ["super+alt+down"], "command": "block_nav", "args": {"v_dir": 1,"depth_offset": 0} },
   { "keys": ["super+alt+right"], "command": "block_nav", "args": {"v_dir": 1,"depth_offset": 1} },
 
+  {   "keys": ["super+alt+l"], 
+    "context":  [
+      {"key": "selector", "operator": "equal", "operand": "text.tex.latex"}],
+    "command": "jump_to_pdf", "args": {"from_keybinding": true}},
+  // {   "keys": ["super+t"], 
+  //   "context":  [
+  //     {"key": "selector", "operator": "equal", "operand": "text.tex.latex"}],
+  //   "command":"build"},
 
   {  
     "keys":[  
