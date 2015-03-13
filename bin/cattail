@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -ue
+
+cat $@
+tail -f -n 0 $@

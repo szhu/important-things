@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ue
+
 PIPE=`which "$@"`
 STATUS="$?"
 if [[ "$STATUS" != 0 ]]; then

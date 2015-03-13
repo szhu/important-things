@@ -91,23 +91,15 @@ function idof
     osascript -e 'id of app "'$path'"'
 end
 
-alias subl 'open -b com.sublimetext.3'
+alias subl   'open -b com.sublimetext.3'
 alias finder 'open -b com.apple.finder'
+alias github 'open -b com.github.GitHub .'
 alias gh github
 function reveal
     osascript -e 'launch app id "com.apple.Finder"'
     open -R $argv
 end
 alias lc     'launchctl'
-
-## finding files
-
-alias find_DS_Store "find . -name '.DS_Store' -type f -print"
-alias find_AppleDouble "find . -name '._*' -type f -print"
-alias find_pyc "find . -name '*.pyc' -type f -print"
-alias find_pycache "find . -name '__pycache__' -type d -print"
-alias find_symlinks "find . -type l -exec ls -l {} \;"
-alias find_brokensymlinks "find -L . -type l"
 
 ## Mac OS
 
