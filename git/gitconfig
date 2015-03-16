@@ -16,7 +16,7 @@
 	current-commit = rev-parse --verify HEAD
 	current-remote = rev-parse --verify --symbolic-full-name --abbrev-ref @{u} # http://stackoverflow.com/questions/6245570
 	detach = !bash -c 'git checkout "$(git current-commit)"'
-	exec = "!exec " # http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
+	exec = '!exec '  # http://stackoverflow.com/questions/957928
 	last = log -1 HEAD
 	ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=iso --graph
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -27,7 +27,7 @@
 	r2 = rebase -i HEAD~2
 	rb = remote-branches
 	ri = rebase -i
-	root = rev-parse --show-toplevel
+	root = rev-parse --show-toplevel  # http://stackoverflow.com/questions/957928
 	uu = set-upstream-to-origin-current
 	verify-included = !echo 'it works!'
 [mergetool]
