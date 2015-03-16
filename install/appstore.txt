@@ -2,6 +2,7 @@ Backdrop
 Caffeine
 ClamXav
 CloudApp
+Current
 HexColor
 Keynote
 Liya

@@ -3,6 +3,7 @@ blueutil
 brew-cask
 brew-rmtree
 cloc
+commonmark
 elinks
 exiftool
 faac
@@ -24,10 +25,10 @@ libyaml
 lighttpd
 links
 lua
+lynx
 node
 numpy
 octave
-osxfuse
 postgresql
 python3
 raptor

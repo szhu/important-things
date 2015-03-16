@@ -169,6 +169,7 @@ sass
 sass-rails
 scss-lint
 sdoc
+seed_dump
 selenium-webdriver
 slop
 sparql

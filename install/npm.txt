@@ -1,5 +1,5 @@
 bower
-coffee-script
+brunch
 coffeelint
 grunt-cli
 karma

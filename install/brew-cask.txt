@@ -1,6 +1,7 @@
 alfred
 android-file-transfer
 appfresh
+atom
 audacity
 bartender
 basictex
@@ -32,6 +33,7 @@ keycastr
 launchcontrol
 launchrocket
 league-of-legends
+lyx
 mactracker
 macvim
 mailbox
@@ -69,7 +71,7 @@ texshop
 textmate
 textwrangler
 the-unarchiver
-tinkertool
+tinkertool (!)
 torbrowser
 transmission
 unity-web-player
