@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+
+PlistBuddy = '/usr/libexec/PlistBuddy'
+
+def main(bundle_name, app_name=None):
+    from subprocess import check_call, check_output
+
+    plist = bundle_plist_path(bundle_name)
+
+    if not app_name:
+        check_call(['open', plist])
+
+    else:
+        app_id = idof(app_name)
+        if app_id is None:
+            raw_input("Can't find the app %s. Is it an app id? (^C to cancel) ")
+            app_id = app_name
+        current_app_ids = check_output([PlistBuddy, '-c', 'Print :SIMBLTargetApplications', plist])
+        print 'Adding app id: %s...' % app_id,
+        if app_id in current_app_ids:
+            print 'already exists.'
+        else:
+            print 'done.'
+            check_call([PlistBuddy, '-c', 'Add :SIMBLTargetApplications:0 dict', plist])
+            check_call([PlistBuddy, '-c', 'Add :SIMBLTargetApplications:0:BundleIdentifier string ' + app_id, plist])
+
+def bundle_plist_path(bundle_name):
+    from os.path import expanduser, join, exists
+    home = expanduser('~')
+    path = join(home, 'Library/Application Support/SIMBL/Plugins', bundle_name + '.bundle', 'Contents/Info.plist')
+    if not exists(path):
+        raise ProgramError("No bundle at path \n" + path)
+    return path
+
+
+def idof(app_name_or_path):
+    from json import dumps
+    from subprocess import check_output, CalledProcessError
+    try:
+        return chomp(check_output(['osascript', '-e', 'id of app ' + dumps(app_name_or_path)]))
+    except CalledProcessError:
+        return None
+
+# def pathto(app_name):
+#     'mdfind -interpret $@ kind:application | head -1'
+
+# def idof(app_path):
+#     from os.path import join
+#     from subprocess import check_output
+#     return chomp(check_output(['defaults', 'read', join(app_path, 'Contents/Info'), 'CFBundleIdentifier']))
+
+def chomp(s):
+    assert s[-1] == '\n'
+    return s[:-1]
+
+##
+
+
+class ProgramError(Exception):
+    pass
+
+def run():
+    from sys import argv, stderr
+    try:
+        exit(main(*argv[1:]) or 0)
+    except (ProgramError, KeyboardInterrupt), exc:
+        print >> stderr, exc
+        exit(1)
+    except TypeError, exc:
+        if exc.message.startswith("main() takes"):
+            print >> stderr, exc
+        else:
+            raise
+
+if __name__ == '__main__':
+    run()
+
+
+'''
+PlistBuddy=/usr/libexec/PlistBuddy
+PLIST=~/'Library/Application Support/SIMBL/Plugins/Maximizer.bundle/Contents/Info.plist'
+
+pathto() {
+    mdfind -interpret $@ kind:application | head -1
+}
+
+if [[ $1 == '' ]]; then
+    open "$PLIST"
+else
+    path=`pathto "$1"`/
+    id=`defaults read "${path}Contents/Info" CFBundleIdentifier`
+
+    if [[ "$id" == '' ]]; then
+        id=$1
+    fi
+    echo "$id"
+
+    $PlistBuddy -c 'Add :SIMBLTargetApplications:0 dict' "$PLIST"
+    $PlistBuddy -c 'Add :SIMBLTargetApplications:0:BundleIdentifier string '"$id" "$PLIST"
+fi
+'''

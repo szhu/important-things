@@ -1,0 +1,64 @@
+#!/usr/bin/env python
+'''
+convert ip addresses to other number systems
+
+usage: ./ipconvert x.x.x.x src_base dest_base
+
+examples:
+    $ ./ipconvert 19.17.34.41 dec bin
+    00010011.00010001.00100010.00101001
+
+    $ ./ipconvert 192.168.110.92 d h
+    c0.a8.6e.5c
+
+    $ ./ipconvert 19.17.34.41 dec bin
+
+    $ ./ipconvert 192.168.110.92 d h
+'''
+
+BIN = ('2', 'b', 'bin')
+DEC = ('10', 'd', 'dec')
+HEX = ('16', 'h', 'hex')
+def my_dec(x):
+    return str(x)
+def my_hex(x):
+    return hex(x)[2:].zfill(2)
+def my_bin(x):
+    return bin(x)[2:].zfill(8)
+
+def get_base_func(base_id):
+    if   base_id in BIN: return my_bin
+    elif base_id in DEC: return my_dec
+    elif base_id in HEX: return my_hex
+    else: raise ValueError('invalid base %s' % base_id)
+
+def get_base_num(base_id):
+    if   base_id in BIN: return 2
+    elif base_id in DEC: return 10
+    elif base_id in HEX: return 16
+    else: raise ValueError('invalid base %s' % base_id)
+
+def ip_part_convert(part, base_in_num, base_out_func):
+    num = int(part, base_in_num)
+    return base_out_func(num)
+
+def ip_convert(s, base_in, base_out):
+    base_in_num = get_base_num(base_in)
+    base_out_func = get_base_func(base_out)
+    ip_parts_in = s.split('.')
+    ip_parts_out = [
+        ip_part_convert(part, base_in_num, base_out_func)
+        for part in ip_parts_in
+    ]
+    return '.'.join(ip_parts_out)
+
+def main(*argv):
+    print ip_convert(*argv)
+
+if __name__ == '__main__':
+    from sys import argv
+    try:
+        exit(main(*argv[1:]))
+    except ValueError, e:
+        from sys import stderr
+        print >> stderr, 'Error:', e
