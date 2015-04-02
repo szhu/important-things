@@ -45,6 +45,7 @@ nosleep
 nvalt
 paparazzi
 prey
+puush
 qlcolorcode
 qlimagesize
 qlmarkdown
@@ -63,7 +64,6 @@ skype
 sourcetree
 spark
 spectacle
-spotify
 spotify-notifications
 sublime-text3
 suspicious-package

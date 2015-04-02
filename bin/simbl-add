@@ -13,7 +13,7 @@ def main(bundle_name, app_name=None):
     else:
         app_id = idof(app_name)
         if app_id is None:
-            raw_input("Can't find the app %s. Is it an app id? (^C to cancel) ")
+            raw_input("Can't find this app. Is %s an app id? (^C to cancel) " % app_name)
             app_id = app_name
         current_app_ids = check_output([PlistBuddy, '-c', 'Print :SIMBLTargetApplications', plist])
         print 'Adding app id: %s...' % app_id,

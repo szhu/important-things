@@ -19,6 +19,7 @@ glib
 heroku-toolbelt
 hub
 iftop
+javarepl
 jhead
 libevent
 libyaml
@@ -27,7 +28,6 @@ links
 lua
 lynx
 node
-numpy
 octave
 postgresql
 python3
@@ -35,6 +35,5 @@ raptor
 shellcheck
 sleepwatcher
 ssh-copy-id
-texinfo
 trash
 wget

@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+
+def main(src, dst=None):
+    from os.path import splitext
+    from subprocess import check_call
+
+    if dst is None:
+        extless, ext = splitext(src)
+        dst = extless + 'e' + ext
+
+    assert_exists(src)
+    assert_exists(dst)
+
+    check_call(['jhead', '-te', src, dst])
+    check_call(['touch', '-cr', src, dst])
+    check_call(['mv', '-v', src, 'Originals/'])
+    return 0
+
+
+def assert_exists(path):
+    from os.path import exists
+    if not exists(path):
+        raise IOError(path)
+
+##
+
+
+class ProgramError(Exception):
+    pass
+
+def run():
+    from sys import argv, stderr
+    try:
+        exit(main(*argv[1:]) or 0)
+    except ProgramError, exc:
+        print >> stderr, exc
+    except TypeError, exc:
+        if exc.message.startswith("main() takes"):
+            print >> stderr, exc
+        else:
+            raise
+
+if __name__ == '__main__':
+    run()
