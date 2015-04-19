@@ -1,4 +1,5 @@
 /fish_history
+/fish_read_history
 /fishd.*
 /functions
 /src/local.fish

@@ -27,13 +27,13 @@ function fish_prompt --description 'Write out the prompt'
   # Fish was excessively truncating the prompt, because it doesn't know that the
   # output of __fish_prompt_mac_pwd_icon is invisible, so this is disabled for
   # now.
-  # __fish_prompt_mac_pwd_icon
+  # fish_mac_icon $argv[1]
 
   echo '        '
   __fish_prompt_status_if_error $last_status
 
   __fish_prompt_user_hostname
-  __fish_prompt_pwd
+  __fish_pretty_pwd
   __fish_git_prompt
   
   echo
@@ -50,24 +50,18 @@ function __fish_prompt_status_if_error
   end
 end
 
-function __fish_prompt_mac_pwd_icon
-  if [ "$TERM_PROGRAM" = 'Apple_Terminal' ]; and [ -z "$INSIDE_EMACS" ]
-    printf "\e]7;file://%s\a" (echo -n $PWD | sed 's/ /%20/g')
-  end
-end
-
 function __fish_prompt_user_hostname
   echo -n $__fish_prompt_user_hostname
 end
 
-function __fish_prompt_pwd
-  set -l long (prompt_pwd)
-  set -l short (prompt_pwd_short)
+function __fish_pretty_pwd
+  set -l long (pretty_pwd)
+  set -l short (pretty_pwd_short)
 
   if [ (math (echo -n "$long" | wc -m)" + 10 < $COLUMNS") = 1 ]
-    echo_with_color $fish_color_cwd[1] (prompt_pwd)
+    echo_with_color $fish_color_cwd[1] (pretty_pwd)
   else
-    echo_with_color $fish_color_cwd[1] (prompt_pwd_short)
+    echo_with_color $fish_color_cwd[1] (pretty_pwd_short)
   end
 end
 

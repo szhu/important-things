@@ -27,10 +27,10 @@ end
 
 function __folder_select_algorithm
     # Picks first Spotlight result
-    # head -1
+    head -1
     # Picks shortest path
     # http://superuser.com/questions/135753
-    awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
+    # awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
     # Picks shortest path out of top 100 Spotlight results
     # head -100 | awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
 end
