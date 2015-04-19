@@ -1,0 +1,151 @@
+#!/usr/bin/env python
+
+SQUO = "'"
+DQUO = '"'
+SPACE = ' '
+
+from itertools import chain
+from collections import namedtuple
+
+SrcDest = namedtuple('SrcDest', ['src', 'dest'])
+def join_srcdest(srcdest, suf):
+    from os.path import join
+    return SrcDest(*(join(f, suf) for f in srcdest))
+def swap_srcdest(srcdest):
+    return SrcDest(srcdest[0], srcdest[1])
+
+
+def flatten(mainiter):
+    for subiter in mainiter:
+        for item in mainiter:
+            yield item
+
+def quote_if_necessary(arg):
+    if SQUO in arg:
+        raise RuntimeError
+    elif SPACE in arg or DQUO in arg or arg == '':
+        return SQUO + arg + SQUO
+    else:
+        return arg
+
+def arg_join(args):
+    return ' '.join(quote_if_necessary(arg) for arg in args)
+
+class Rsync(object):
+    def print_function(self, name):
+        print 'function %s() {' % name
+        print self, '$@'
+        print '}\n'
+
+    def __str__(self):
+        return arg_join(chain(
+            self.arg_prog,
+            self.arg_simple,
+            self.arg_preserve,
+            self.arg_dryrun,
+            self.arg_delete,
+            self.arg_exclude,
+            self.arg_exclude_from,
+            self.arg_ssh,
+            self.arg_srcdest,
+        ))
+
+    def __init__(self):
+        self.arg_prog = 'rsync'.split(' ')
+        self.arg_simple = '-rvul --progress --copy-unsafe-links --keep-dirlinks'.split(' ')
+        self.preserve = True
+        # self.arg_preserve
+        self.dryrun = False
+        # self.arg_dryrun
+        self.delete = False
+        # self.arg_delete
+        self.inline_excludes = '/.Trashes /.fseventsd .DS_Store'.split(' ')
+        # self.arg_exclude
+        self.arg_exclude_from = '--exclude-from /sdcard/.sync/exclude'.split(' ')
+        self.arg_ssh = ['-e', 'ssh -i /sdcard/.sync/id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null']
+        self.fmt_srcdest_for_dir = True
+        self.srcdest = ()
+        self.arg_extras = []
+
+    @property
+    def arg_exclude(self):
+        for f in self.inline_excludes:
+            yield '--exclude'
+            yield f
+
+    @property
+    def arg_delete(self):
+        if self.delete:
+            yield '--delete'
+
+    @property
+    def arg_preserve(self):
+        if self.preserve:
+            yield '-p'
+
+    @property
+    def arg_dryrun(self):
+        if self.dryrun:
+            yield '-n'
+
+    @property
+    def arg_srcdest(self):
+        suffix = '/'
+        for f in self.srcdest:
+            if self.fmt_srcdest_for_dir:
+                assert not f.endswith('/')
+            yield f + suffix
+            suffix = ''
+
+
+C = 'Sean@10.0.0.2:/Volumes/A0001'
+P = '/sdcard'
+sync = '.sync'
+
+
+print r'''
+PS1="`echo -n '\n[$?] ${PWD:-?}\n$ '`" 
+
+function rename() {
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo >&2 "usage: rename src dst"
+    return 1
+  fi
+  mv "$1" _TEMP_$$ && mv _TEMP_$$ "$2"
+}
+
+cd /sdcard
+
+'''
+
+restore = Rsync()
+restore.srcdest = join_srcdest(SrcDest(C, P), sync)
+restore.delete = True
+restore.arg_exclude_from = []
+restore.preserve = False
+restore.print_function('restore-ssh')
+
+backup = Rsync()
+backup.srcdest = SrcDest(P, C)
+# backup.dryrun = True
+# backup.print_function('backup-n')
+backup.dryrun = False
+backup.print_function('backup')
+
+restore = Rsync()
+restore.srcdest = SrcDest(C, P)
+restore.preserve = False
+restore.print_function('restore')
+
+# -----
+
+# rsync --progress -rvul --exclude .DS_Store --copy-unsafe-links --keep-dirlinks -e "ssh -i /sdcard/.sync/id_rsa" Sean@10.0.0.2:/Volumes/A0001/Carbon/ /sdcard/Carbon
+
+# SCP BACKUP
+# scp -r -o IdentityFile=/sdcard/.sync/id_rsa /sdcard/ Sean@10.0.0.2:/Volumes/A0001
+r'''
+make-android-sync-commands > ~/'Code/web/interestinglythere.com/www/projects/android-sync-commands.bash'
+
+eval "$(curl -L 'http://10.0.0.2:2323/projects/android-sync-commands.bash')"
+
+'''

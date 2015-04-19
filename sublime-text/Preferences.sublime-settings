@@ -27,7 +27,8 @@
 		"*.a",
 		"*.lib",
 		"*.so",
-		"*.dylib"
+		"*.dylib",
+		"*.scssc"
 	],
 	"color_scheme": "Packages/User/Monokai Extended Bright (SL).tmTheme",
 	"file_exclude_patterns":

@@ -16,3 +16,7 @@ alias find_pyc              "find . -name '*.pyc'       -type f -print"
 alias find_pycache          "find . -name '__pycache__' -type d -print"
 alias find_symlinks         "find .                     -type l -exec ls -l {} \;"
 alias find_brokensymlinks   "find . -L                  -type l"
+
+## ruby
+alias rails 'bundle exec rails'
+alias rails 'bundle exec rake'
