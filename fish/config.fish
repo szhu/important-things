@@ -1,6 +1,6 @@
 set -x PATH ~/.local/bin ~/.local/opt/*/bin /usr/local/bin /usr/local/sbin $PATH
 set -X LANG 'en_US.UTF-8'
-set -g functions_builtins hostname la ll ls man
+set -g functions_builtins hostname la ll ls man cd
 
 function __funcssetmark
     set -g __functions_old (mktemp /tmp/fish.funcmark.XXXXXX)

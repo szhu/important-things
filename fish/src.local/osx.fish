@@ -21,7 +21,7 @@ function folder
     test (count $argv) -lt 2 ; and return (__osxutils_usage 'folder scope query')
     set -l onlyin $argv[1] ; set -e argv[1]
     set -l output ( folders $onlyin "$argv" | __folder_select_algorithm )
-    if [ -z $output ] ; return 1 ; end
+    [ -z $output ]; and return 1
     echo $output
 end
 
@@ -44,8 +44,8 @@ function cdto
     cd $path
 end
 
-alias cdto.='cdto .'
-alias cdto~='cdto ~'
+alias cdto. 'cdto .'
+alias cdto~ 'cdto ~'
 
 function pathtoapp
     # $ pathtoapp term
@@ -53,27 +53,28 @@ function pathtoapp
     # $ pathtoapp keep
     # /Users/USER/Applications/Chrome Apps.localized/Default hmjkmjkepdijhoojdojkdfohbdgmmhki.app
     set -l path (mdfind 'kind:application' -name "$argv" | head -1)
-    [ -z $path ] ; or [ $path = "/" ] ; and return 1
+    [ -z $path ]; or [ $path = "/" ]; and return 1
     echo $path
 end
 function appexecutable
     # $ appexecutable term
     # /Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
-    set -l path (pathtoapp $argv) ; or return 1
+    set -l path (pathtoapp $argv); or return 1
     set -l executable (defaults read "$path/Contents/Info" CFBundleExecutable)
-    [ -z $executable ] ; and return 1
+    [ -z $executable ]; and return 1
     echo "$path/Contents/MacOS/$executable"
 end
 
 function launch
-    set -l executablepath (appexecutable $argv) ; or return 1
-    echo $executablepath ; and \
-    env $executablepath
+    set -l executablepath (appexecutable $argv[1]) ; or return 1
+    set -e argv[1]
+    echo $executablepath $argv
+    env $executablepath $argv
 end
 function sudolaunch
     set -l executablepath (appexecutable $argv) ; or return 1
-    echo $executablepath ; and \
-    if [ -z $SUDOER ]
+    echo $executablepath
+    and if [ -z $SUDOER ]
         sudo $executablepath
     else
         su $SUDOER -c 'sudo "'$executablepath'"'

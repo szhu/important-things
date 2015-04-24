@@ -27,15 +27,17 @@ function fish_prompt --description 'Write out the prompt'
   # Fish was excessively truncating the prompt, because it doesn't know that the
   # output of __fish_prompt_mac_pwd_icon is invisible, so this is disabled for
   # now.
-  # fish_mac_icon $argv[1]
+  # fish_mac_icon
 
-  echo '        '
+  printf "%"(math $COLUMNS" - 5")"s\n"
   __fish_prompt_status_if_error $last_status
 
   __fish_prompt_user_hostname
   __fish_pretty_pwd
-  __fish_git_prompt
-  
+  if which git > /dev/null
+    __fish_git_prompt
+  end
+
   echo
 
   __fish_prompt_time
