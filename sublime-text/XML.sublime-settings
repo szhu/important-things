@@ -5,6 +5,7 @@
 		"svg",
 		"xml",
 		"xsd",
-		"xslt"
+		"xslt",
+		".classpath"
 	]
 }
