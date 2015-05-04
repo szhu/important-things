@@ -6,4 +6,5 @@ function fish_mac_icon
         printf "\e]7;\a"
     end
   end
+  true
 end
