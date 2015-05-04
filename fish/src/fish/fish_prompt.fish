@@ -80,6 +80,7 @@ function __fish_prompt_init
   if not set -q __fish_prompt_user_hostname
     if [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
       set -g __fish_prompt_user_hostname (set_color $fish_color_autosuggestion[1])"$USER@"(hostname|cut -d . -f 1)(set_color normal)" "
+      set -g __fish_title_hostname (hostname|cut -d . -f 1):
     end
   end
 end

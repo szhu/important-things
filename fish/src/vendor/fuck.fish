@@ -1,7 +1,5 @@
 function fuck
-    thefuck $history[2] | source
+    eval (thefuck $history[1])
 end
 
-function f
-	thefuck $history[2] | source
-end
+alias f fuck

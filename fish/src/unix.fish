@@ -19,4 +19,4 @@ alias find_brokensymlinks   "find . -L                  -type l"
 
 ## ruby
 alias rails 'bundle exec rails'
-alias rails 'bundle exec rake'
+alias rake  'bundle exec rake'
