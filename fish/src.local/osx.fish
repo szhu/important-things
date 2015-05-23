@@ -107,3 +107,12 @@ alias lc     'launchctl'
 alias v 'chflags -h hidden'
 alias V 'chflags -h nohidden'
 alias aedebug 'set -x AEDebugReceives 1'
+for cmd in vagrant rsyncer ssh
+    eval "
+    function $cmd
+        set -l old_title \$__fish_title
+        title $cmd
+        command $cmd \$argv
+        title $old_title
+    end"
+end

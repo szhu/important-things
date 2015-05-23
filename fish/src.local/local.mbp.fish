@@ -1,4 +1,4 @@
-alias a "ssh -q a@localhost"
+alias a "command ssh -q a@localhost"
 
 # ------ SYNCING ------ #
 
