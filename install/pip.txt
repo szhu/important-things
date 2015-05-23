@@ -1,3 +1,4 @@
+CodeIntel
 ecdsa
 Fabric
 fabtools
@@ -17,5 +18,7 @@ scikit_learn
 setuptools
 six
 speedtest_cli
+subprocess32
 vboxapi
 virtualenv
+zope.cachedescriptors

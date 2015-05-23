@@ -4,7 +4,8 @@
 		"sublime-commands",
 		"sublime-workspace",
 		"sublime_session",
-		".jsbeautifyrc"
+		".jsbeautifyrc",
+		"ipynb"
 	],
 	"tab_size": 4,
 	"translate_tabs_to_spaces": false
