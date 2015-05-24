@@ -1,11 +1,7 @@
-CodeIntel
-ecdsa
-Fabric
 fabtools
-flake8
+ipython
 numpy
 pandas
-paramiko
 pep257
 pep8
 pycrypto
@@ -18,7 +14,6 @@ scikit_learn
 setuptools
 six
 speedtest_cli
-subprocess32
 vboxapi
 virtualenv
 zope.cachedescriptors

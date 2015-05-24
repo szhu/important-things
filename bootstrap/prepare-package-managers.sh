@@ -5,6 +5,7 @@ set -e
 global_opt1="$1"
 
 warn() {
+  >&2 echo "!! $1"
   shift
   >&2 echo "!! $@"
   # >&2 echo "!!"
@@ -16,7 +17,7 @@ allow_admin() {
     sudo chgrp admin "$1"
     sudo chmod ug+rw "$1"
   else
-    warn "$1" "not processed because it doesn't exist"
+    warn "chmod $1" "not processed because it doesn't exist"
   fi
 }
 allow_admin_recursive() {
@@ -25,11 +26,11 @@ allow_admin_recursive() {
       sudo chgrp -R admin "$1"
       sudo chmod -R ug+rw "$1"
     else
-      warn "$1" "not processed recurively; use -R to do so"
+      warn "chmod $1" "not processed recurively; use -R to do so"
       allow_admin "$1"
     fi
   else
-    warn "$1" "not processed because it doesn't exist"
+    warn "chmod $1" "not processed because it doesn't exist"
   fi
 }
 replace_peruser() {
@@ -58,14 +59,14 @@ sudo_hide() {
   if test -e "$1"; then
     sudo chflags -h hidden "$1"
   else
-    warn "$1" "not processed because it doesn't exist"
+    warn "hide $1" "not processed because it doesn't exist"
   fi
 }
 hide() {
   if test -e "$1"; then
     chflags -h hidden "$1"
   else
-    warn "$1" "not processed because it doesn't exist"
+    warn "hide $1" "not processed because it doesn't exist"
   fi
 }
 
@@ -77,7 +78,9 @@ symlink_brew_cask_dir 'Library/QuickLook'
 symlink_brew_cask_dir 'Library/PreferencePanes'
 
 allow_admin '/usr/bin'
+allow_admin '/Library/Ruby'
 allow_admin_recursive '/Library/Ruby'/*
+allow_admin '/Library/Python'
 allow_admin_recursive '/Library/Python'/*
 allow_admin_recursive '/usr/local/texlive'/*
 

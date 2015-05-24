@@ -2,6 +2,8 @@ bower
 brunch
 coffeelint
 grunt-cli
+js-yaml
+js2coffee
 karma
 less
 npm

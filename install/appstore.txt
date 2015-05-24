@@ -1,8 +1,10 @@
 Backdrop
 Caffeine
+CheatSheet
 ClamXav
 CloudApp
 Current
+Droplr
 HexColor
 Keynote
 Liya
