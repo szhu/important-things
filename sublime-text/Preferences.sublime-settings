@@ -30,7 +30,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/User/Monokai Extended Bright (SL).tmTheme",
+	"color_scheme": "Packages/Theme - Gravity/Monokai Gravity (SL).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -107,6 +107,6 @@
 	"open_files_in_new_window": true,
 	"remember_full_screen": true,
 	"tab_size": 4,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "Gravity.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
