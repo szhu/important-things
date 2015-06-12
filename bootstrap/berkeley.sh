@@ -50,7 +50,7 @@ fi
 
 if [ ! -e ~/.local/bin/fish ]; then
     cd ~/.local/opt
-    git clone -q https://github.com/szhu/berkeley-cs-build.git
+    git clone -q https://github.com/rogerhub/cs-build.git berkeley-cs-build
     cd berkeley-cs-build
     curses/build.sh
     fish/build.sh
