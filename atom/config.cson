@@ -1,0 +1,32 @@
+"*":
+  "exception-reporting":
+    userId: "c6d8a06c-ad1c-362a-f1ac-eece33002bb3"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+    projectHome: "~/Code"
+    disabledPackages: [
+      "minimap"
+      "minimap-linter"
+      "terminal-panel"
+    ]
+  editor:
+    invisibles: {}
+    fontSize: 12
+    fontFamily: "Menlo"
+  "one-dark-ui": {}
+  linter:
+    showErrorPanel: false
+  "linter-rubocop": {}
+  "tree-view":
+    hideIgnoredNames: true
+    sortFoldersBeforeFiles: false
+  minimap:
+    plugins:
+      linter: false
+    absoluteMode: true
+  "local-history": {}

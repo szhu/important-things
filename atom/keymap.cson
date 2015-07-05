@@ -1,0 +1,4 @@
+'atom-workspace atom-text-editor:not([mini])':
+  'alt-up': 'editor:move-line-up'
+  'alt-down': 'editor:move-line-down'
+  'shift-cmd-l': 'editor:toggle-soft-wrap'

@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+# coding: utf-8
+from util import do_command, STDOUT, PIPE, sort_lines
+
+@do_command('apm', 'list', process=STDOUT, stdout=PIPE)
+@sort_lines
+def process_lines(lines):
+    from re import sub, match
+    for line in lines:
+        if ".atom/packages" in line:
+            break
+    for line in lines:
+        line = line.decode('utf8')[4:].encode('utf8')
+        line = sub(r'@[^@]+$', '\n', line)
+        yield line
