@@ -5,3 +5,4 @@ pep257
 pep8
 pyflakes
 PyYAML
+wheel

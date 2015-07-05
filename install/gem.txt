@@ -8,10 +8,13 @@ activerecord-deprecated_finders
 activeresource
 activesupport
 acts-as-taggable-on
+addressable
 angularjs-rails
 annotate
 arbre
+archive-tar-minitar
 arel
+arrayfields
 ast
 astrolabe
 atomic
@@ -22,6 +25,7 @@ bcrypt
 bcrypt-ruby
 bigdecimal
 blankslate
+bluff
 bootstrap-sass
 bootstrap-sass-rails
 bootsy
@@ -29,14 +33,19 @@ bourbon
 builder
 bundle
 bundler
+cane
 capybara
 carrierwave
 celluloid
 celluloid-io
 CFPropertyList
 childprocess
+chronic
+churn
 classifier
 classifier-reborn
+code_analyzer
+code_metrics
 coderay
 coffee-rails
 coffee-rails-source-maps
@@ -45,8 +54,12 @@ coffee-script-source
 colorator
 colored
 colorize
+columnize
 commander
+cucumber
 daemons
+debugger-linecache
+debugger-ruby_core_source
 devise
 diff-lcs
 ebnf
@@ -59,9 +72,11 @@ factory_girl
 factory_girl_rails
 faker
 fast-stemmer
+fattr
 ffi
 font-awesome-sass
 formtastic
+gherkin
 git-up
 globalid
 grit
@@ -72,6 +87,7 @@ hash_control
 hashie
 highline
 hike
+hirb
 hitimes
 html2haml
 i18n
@@ -89,6 +105,7 @@ jquery-rails
 jquery-ui-rails
 json
 json_builder
+json_pure
 kaminari
 kgio
 kramdown
@@ -101,6 +118,8 @@ lograge
 loofah
 lunchy
 mail
+main
+map
 maruku
 mercenary
 method_source
@@ -109,11 +128,13 @@ mini_magick
 mini_portile
 minitest
 multi_json
+multi_test
 net-http-persistent
 nio4r
 nokogiri
 normalize-rails
 orm_adapter
+parallel
 parser
 parslet
 pg
@@ -156,6 +177,7 @@ rdf-xsd
 rdoc
 redcarpet
 remotipart
+representable
 responders
 rsolr
 rspec
@@ -172,7 +194,6 @@ ruby-progressbar
 ruby_parser
 rubygems-update
 rubyzip
-rvm
 safe_yaml
 sass
 sass-rails
@@ -211,6 +232,7 @@ treetop
 turbolinks
 tzinfo
 tzinfo-data
+uber
 uglifier
 unicorn
 warden
@@ -219,3 +241,4 @@ websocket
 will_paginate
 xpath
 yajl-ruby
+ZenTest

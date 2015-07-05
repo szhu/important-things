@@ -1,0 +1,9 @@
+autocomplete-ruby
+floobits
+git-blame
+git-blame-tmp
+git-plus
+language-fish-shell
+linter
+linter-rubocop
+monokai

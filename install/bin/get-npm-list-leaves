@@ -2,7 +2,7 @@
 # coding: utf-8
 from util import do_command, STDOUT, PIPE, sort_lines
 
-@do_command('npm', 'list', '-g', process=STDOUT, stdout=PIPE, stderr=file('/dev/null', 'w'))
+@do_command('npm', 'list', '-g', process=STDOUT, stdout=PIPE)
 @sort_lines
 def process_lines(lines):
     from re import sub, match

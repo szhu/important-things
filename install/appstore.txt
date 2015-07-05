@@ -1,15 +1,15 @@
 Backdrop
+Blackmagic Disk Speed Test
 Caffeine
 CheatSheet
 ClamXav
 CloudApp
-Current
 Droplr
 HexColor
 Keynote
 Liya
 Microsoft OneNote
 Slack
-Sunrise
+Sunrise Calendar
 WeChat
 Xcode
