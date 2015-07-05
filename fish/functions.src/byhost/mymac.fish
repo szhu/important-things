@@ -1,3 +1,5 @@
+test (hostname) = "mac.szhu.me"; or exit
+
 alias a "command ssh -q a@localhost"
 
 # ------ SYNCING ------ #
@@ -22,7 +24,7 @@ end
 for cmd in int sz cs ee
     alias $cmd "rsyncer $cmd"
 end
-for cmd in 61b-lab 172 189
+for cmd in 199
     alias cs$cmd "rsyncer cs$cmd"
     eval "
     function cs$cmd-host

@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+test (uname) = "Darwin"; or exit
 
 # set -U SUDOER Administrator
 

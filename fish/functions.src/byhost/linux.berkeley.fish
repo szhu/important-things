@@ -1,3 +1,6 @@
+test (uname) = "Linux"; or exit
+hostname | grep -q '.cs.berkeley.edu$'; or exit
+
 set SUBL ~/.local/share/sublime-text-3/sublime_text
 
 alias subl $SUBL
