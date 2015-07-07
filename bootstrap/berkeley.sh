@@ -64,8 +64,7 @@ cd ~
 fish_bootstrap_cmd='
 if [ -e ~/.local/bin/fish ] && [ "$(arch)" = x86_64 ] && [ -t 1 ] && [ "$SHLVL" -eq 1 ]; then
     clear
-    ~/.local/bin/fish
-    exit
+    exec ~/.local/bin/fish
 fi
 '
 
@@ -111,7 +110,7 @@ user_dirs_contents='
 # Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
-# 
+#
 XDG_DESKTOP_DIR="$HOME/desktop"
 XDG_DOWNLOAD_DIR="$HOME/downloads"
 XDG_TEMPLATES_DIR="$HOME/work/templates"
