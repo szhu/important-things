@@ -6,4 +6,5 @@ git-plus
 language-fish-shell
 linter
 linter-rubocop
+local-history
 monokai
