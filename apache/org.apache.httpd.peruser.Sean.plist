@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<true/>
+	<key>KeepAlive</key>
+	<false/>
+	<key>Label</key>
+	<string>org.apache.httpd.peruser.Sean</string>
+	<key>LowPriorityIO</key>
+	<false/>
+	<key>Nice</key>
+	<integer>1</integer>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/sbin/httpd</string>
+		<string>-f</string>
+		<string>httpd.conf</string>
+		<string>-DNO_DETACH</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>stderr.log</string>
+	<key>StandardOutPath</key>
+	<string>stdout.log</string>
+	<key>WorkingDirectory</key>
+	<string>/Users/Sean/.local/etc//apache2</string>
+</dict>
+</plist>
