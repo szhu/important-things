@@ -15,7 +15,6 @@ coconutbattery
 colorpicker-hex
 copy
 cyberduck
-easysimbl
 easytether
 eclipse-ide
 flash

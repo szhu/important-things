@@ -44,6 +44,7 @@ homebrew/dupes/rsync
 shellcheck
 sleepwatcher
 ssh-copy-id
+testdisk
 thefuck
 trash
 wget

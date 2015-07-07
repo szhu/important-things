@@ -1,5 +1,7 @@
+atom-beautify
 autocomplete-ruby
 floobits
+foldingtext-for-atom
 git-blame
 git-blame-tmp
 git-plus
@@ -7,4 +9,9 @@ language-fish-shell
 linter
 linter-rubocop
 local-history
+minimap
+minimap-linter
 monokai
+sort-lines
+term2
+terminal-panel
