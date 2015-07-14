@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-defaults write -g NSDisableAutomaticTermination -bool FALSE  # attempt to keep imessages from showing error dialog
+# defaults write -g NSDisableAutomaticTermination -bool FALSE  # attempt to keep imessages from showing error dialog
 defaults write -g AppleMiniaturizeOnDoubleClick -bool YES
 defaults write -g InitialKeyRepeat -float 15
 defaults write -g KeyRepeat -float 2
@@ -14,3 +14,6 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool NO
 defaults write org.chromium.Chromium AppleEnableSwipeNavigateWithScrolls -bool NO
 defaults write org.n8gray.QLColorCode font Menlo
 defaults write org.n8gray.QLColorCode fontSizePoints 8
+
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en1 prefs RequireAdminPowerToggle=NO DisconnectOnLogout=NO RememberRecentNetworks=NO
+
