@@ -2,3 +2,5 @@
   'alt-up': 'editor:move-line-up'
   'alt-down': 'editor:move-line-down'
   'shift-cmd-l': 'editor:toggle-soft-wrap'
+'.platform-darwin atom-text-editor':
+  'ctrl-j': 'autoflow:reflow-selection'

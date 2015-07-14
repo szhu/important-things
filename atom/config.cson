@@ -13,14 +13,33 @@
       "minimap"
       "minimap-linter"
       "terminal-panel"
+      "tidy-markdown"
+      "markdown-preview-plus"
+      "auto-host-markdown-image"
+      "auto-host-markdown-image"
+      "markdown-table-formatter"
+      "markdown-format"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "*.class"
+      "*.pyc"
     ]
   editor:
     invisibles: {}
-    fontSize: 12
     fontFamily: "Menlo"
+    fontSize: 12
   "one-dark-ui": {}
   linter:
     showErrorPanel: false
+    showErrorTabFile: false
+    showErrorTabProject: false
+    underlineIssues: false
+    statusIconPosition: "Right"
   "linter-rubocop": {}
   "tree-view":
     hideIgnoredNames: true
@@ -30,3 +49,12 @@
       linter: false
     absoluteMode: true
   "local-history": {}
+  "atom-beautify":
+    _analyticsUserId: "8747e5b9-f178-4aa4-b253-d06dbb83973c"
+    language_java_disabled: true
+    java_uncrustifyPath: "/usr/local/bin/uncrustify"
+  wordcount:
+    extensions: [
+      "fhtml"
+      "txt"
+    ]
