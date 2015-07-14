@@ -1,8 +1,8 @@
 # alias l   (which ls)
 alias l   'ls -FGh'
 alias ll  'ls -oFGh'
-alias py  'python'
-alias py3 'python3'
+abbr py  'python'
+abbr py3 'python3'
 
 function edit
     eval $EDITOR $argv

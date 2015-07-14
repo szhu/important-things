@@ -1,5 +1,6 @@
 function funcsnuke
     rm -rf -- ~/.config/fish/functions
+    for abbr in (abbr -l); abbr -e $abbr; end
 end
 
 function funcsupdate

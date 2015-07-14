@@ -6,7 +6,7 @@ alias a "command ssh -q a@localhost"
 
 ## Rsyncer helpers
 
-alias rs rsyncer
+abbr rs rsyncer
 function rs-cd
     if [ (count $argv) -lt 1 ]
         echo "usage: rs-cd name"
@@ -22,21 +22,21 @@ end
 ## Rsyncer aliases
 
 for cmd in int sz cs ee
-    alias $cmd "rsyncer $cmd"
+    abbr $cmd "rsyncer $cmd"
 end
 for cmd in 199
-    alias cs$cmd "rsyncer cs$cmd"
+    abbr cs$cmd "rsyncer cs$cmd"
     eval "
     function cs$cmd-host
         set servername \$argv[1]
         set -e argv[1]
         env servername=\$servername rsyncer cs$cmd \$argv
     end"
-    alias $cmd "cs$cmd"
-    alias $cmd-host "cs$cmd-host"
+    abbr $cmd "cs$cmd"
+    abbr $cmd-host "cs$cmd-host"
 end
 
-# alias dcmount='sshfs -p 2222 root@localhost:/srv/wp ~/.Volumes/dailycal-vagrant -o volname=devkit'
+# abbr dcmount='sshfs -p 2222 root@localhost:/srv/wp ~/.Volumes/dailycal-vagrant -o volname=devkit'
 function dcvm
     set -l oldcwd (pwd)
     cdto ~/Code dev-kit
@@ -45,9 +45,9 @@ function dcvm
 end
 
 # set HIVE_ROOT_61C ~/'Dropbox/School/2013-2014/CS 61C LA/cs61c-lc'
-# alias hiveclone61c='cd "$HIVE_ROOT_61C"; bash "$HIVE_ROOT_61C/code/mygit" clone'
+# abbr hiveclone61c='cd "$HIVE_ROOT_61C"; bash "$HIVE_ROOT_61C/code/mygit" clone'
 # set HIVE_ROOT_188 ~/'Dropbox/School/2013-2014/CS 188/ee130-aw'
-# alias hiveclone188='cd "$HIVE_ROOT_188"; bash "$HIVE_ROOT_188/code/mygit" clone'
+# abbr hiveclone188='cd "$HIVE_ROOT_188"; bash "$HIVE_ROOT_188/code/mygit" clone'
 
 
 # ------ SHORTCUTS ------ #

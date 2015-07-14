@@ -1,2 +1,2 @@
-alias rails 'bundle exec rails'
-alias rake  'bundle exec rake'
+abbr rails 'bundle exec rails'
+abbr rake  'bundle exec rake'

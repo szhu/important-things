@@ -44,8 +44,8 @@ function cdto
     cd $path
 end
 
-alias cdto. 'cdto .'
-alias cdto~ 'cdto ~'
+abbr cdto. 'cdto .'
+abbr cdto~ 'cdto ~'
 
 function pathtoapp
     # $ pathtoapp term
@@ -95,18 +95,18 @@ end
 alias subl   'open -b com.sublimetext.3'
 alias finder 'open -b com.apple.finder'
 alias github 'open -b com.github.GitHub (git rev-parse --show-toplevel)'
-alias gh github
+abbr gh github
 function reveal
     osascript -e 'launch app id "com.apple.Finder"'
     open -R $argv
 end
-alias lc     'launchctl'
+abbr lc     'launchctl'
 
 ## Mac OS
 
-alias v 'chflags -h hidden'
-alias V 'chflags -h nohidden'
-alias aedebug 'env AEDebugReceives=1'
+abbr v 'chflags -h hidden'
+abbr V 'chflags -h nohidden'
+abbr aedebug 'env AEDebugReceives=1'
 
 for cmd in vagrant rsyncer ssh
     eval "
