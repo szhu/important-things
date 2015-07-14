@@ -1,7 +1,6 @@
 set -U __fish_git_prompt_show_informative_status 1
 set -U __fish_git_prompt_hide_untrackedfiles 1
 
-set -U __fish_git_prompt_color_branch magenta bold
 set -U __fish_git_prompt_showupstream "informative"
 set -U __fish_git_prompt_char_upstream_ahead ">"
 set -U __fish_git_prompt_char_upstream_behind "<"
@@ -13,11 +12,12 @@ set -U __fish_git_prompt_char_untrackedfiles "~"
 set -U __fish_git_prompt_char_conflictedstate ":("
 set -U __fish_git_prompt_char_cleanstate "^^"
 
-set -U __fish_git_prompt_color_dirtystate red
-set -U __fish_git_prompt_color_stagedstate yellow
-set -U __fish_git_prompt_color_invalidstate red
-set -U __fish_git_prompt_color_untrackedfiles red
-set -U __fish_git_prompt_color_cleanstate green bold
+set -U __fish_git_prompt_color_branch "magenta" "--bold"
+set -U __fish_git_prompt_color_dirtystate "red"
+set -U __fish_git_prompt_color_stagedstate "yellow"
+set -U __fish_git_prompt_color_invalidstate "red"
+set -U __fish_git_prompt_color_untrackedfiles "red"
+set -U __fish_git_prompt_color_cleanstate "green" "--bold"
 
 
 function fish_prompt --description 'Write out the prompt'
@@ -44,12 +44,10 @@ function fish_prompt --description 'Write out the prompt'
   echo -n ' $ '
 end
 
-function __fish_prompt_status_if_error
-  if not [ $argv[1] -eq 0 ]
-    echo_with_color $fish_color_error[1] "[Error $argv[1]]"
-    echo
-    echo
-  end
+function __fish_prompt_status_if_error -a errno
+  test $errno -eq 0; and return
+  echo (set_color red)"[Error $errno]"(set_color normal)
+  echo
 end
 
 function __fish_prompt_user_hostname
@@ -60,33 +58,23 @@ function __fish_pretty_pwd
   set -l long (pretty_pwd)
   set -l short (pretty_pwd_short)
 
-  if [ (math (echo -n "$long" | wc -m)" + 10 < $COLUMNS") = 1 ]
-    echo_with_color $fish_color_cwd[1] (pretty_pwd)
+  if [ (math (echo -n $long | wc -m)" + 10 < $COLUMNS") = 1 ]
+    echo -n (set_color $fish_color_cwd)(pretty_pwd)(set_color normal)
   else
-    echo_with_color $fish_color_cwd[1] (pretty_pwd_short)
+    echo -n (set_color $fish_color_cwd)(pretty_pwd_short)(set_color normal)
   end
 end
 
 function __fish_prompt_time
-  echo_with_color $fish_color_autosuggestion[1] (date +%H:%M)
+  echo -n (set_color $fish_color_autosuggestion)(date +%H:%M)(set_color normal)
 end
-
-set -U __fish_prompt_normal (set_color normal)
-set -U __fish_prompt_cwd (set_color $fish_color_cwd)
-
 
 function __fish_prompt_init
   # Just calculate these once, to save a few cycles when displaying the prompt
   if not set -q __fish_prompt_user_hostname
     if [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
       set -g __fish_prompt_user_hostname (set_color $fish_color_autosuggestion[1])"$USER@"(hostname|cut -d . -f 1)(set_color normal)" "
-      set -g __fish_title_hostname (hostname|cut -d . -f 1):
+      set -g __fish_title_hostname (hostname | cut -d . -f 1):
     end
   end
-end
-
-function echo_with_color
-  set_color $argv[1]
-  echo -n $argv[2]
-  set_color normal
 end
