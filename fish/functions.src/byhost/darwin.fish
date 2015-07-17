@@ -9,42 +9,48 @@ function __osxutils_usage
     return 1
 end
 
-function folders
-    test (count $argv) -lt 2 ; and return (__osxutils_usage 'folders scope query')
-    set -l onlyin $argv[1] ; set -e argv[1]
-    mdfind -onlyin $onlyin 'kind:folder' -name "$argv"
+function __folder_search_mdfind -a scope -a query
+    mdfind -onlyin $scope 'kind:folder' -name $query | __folder_select_algorithm
+end
+
+function __folder_search_exactmatch -a scope -a query
+    echo (cd $scope ^&-; cd $query ^&-; and pwd)
 end
 
 function folder
-    # $ cdto ~ launchagents
-    # ~/Library/LaunchAgents
-    test (count $argv) -lt 2 ; and return (__osxutils_usage 'folder scope query')
-    set -l onlyin $argv[1] ; set -e argv[1]
-    set -l output ( folders $onlyin "$argv" | __folder_select_algorithm )
-    [ -z $output ]; and return 1
-    echo $output
+    set -l scope .
+    while test (count $argv) -gt 0
+        set -l query $argv[1]
+        # echo >&2 DEBUG folder $scope $query
+        set -l result
+        test -z "$result"; and set result (__folder_search_exactmatch $scope $query)
+        test -z "$result"; and set result (__folder_search_mdfind $scope $query)
+        test -z "$result"; and return 1
+        set scope $result
+        set -e argv[1]
+    end
+    echo $scope
 end
 
 function __folder_select_algorithm
     # Picks first Spotlight result
-    head -1
+    # head -1
+
     # Picks shortest path
     # http://superuser.com/questions/135753
     # awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
+
     # Picks shortest path out of top 100 Spotlight results
     # head -100 | awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
+
+    head -5 | awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
 end
 
 function cdto
-    # $ cdto ~ launchagents; and pwd
-    # ~/Library/LaunchAgents
-    test (count $argv) -lt 2; and return (__osxutils_usage 'cdto scope query')
-    set -l onlyin $argv[1] ; set -e argv[1]
-    set -l path (folder $onlyin $argv) ; or return 1
-    cd $path
+    set -l result (folder $argv)
+    test -n "$result"; and cd $result
 end
 
-abbr cdto. 'cdto .'
 abbr cdto~ 'cdto ~'
 
 function pathtoapp
@@ -66,13 +72,13 @@ function appexecutable
 end
 
 function launch
-    set -l executablepath (appexecutable $argv[1]) ; or return 1
+    set -l executablepath (appexecutable $argv[1]); or return 1
     set -e argv[1]
     echo $executablepath $argv
     env $executablepath $argv
 end
 function sudolaunch
-    set -l executablepath (appexecutable $argv) ; or return 1
+    set -l executablepath (appexecutable $argv); or return 1
     echo $executablepath
     and if [ -z $SUDOER ]
         sudo $executablepath
@@ -82,13 +88,13 @@ function sudolaunch
 end
 
 function quit
-    # set -l path (pathtoapp $argv) ; or set -l path $argv
+    # set -l path (pathtoapp $argv); or set -l path $argv
     osascript -e 'quit app "'$argv'"'
 end
 function idof
     # $ idof term
     # com.apple.Terminal
-    set -l path (pathtoapp $argv) ; or return 1
+    set -l path (pathtoapp $argv); or return 1
     osascript -e 'id of app "'$path'"'
 end
 

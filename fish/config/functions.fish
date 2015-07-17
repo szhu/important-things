@@ -8,17 +8,21 @@ function funcsupdate
     set excluded_functions . _ __fish_pwd __fish_git_prompt alias eval funced funcsave funcsnuke funcsupdate funcsreset math
 
     for src in (find ~/.config/fish/functions.src -name '*.fish')
-        echo 'source:' $src
+        echo -ne '\r\033[K'
+        echo -n 'source:' $src ''
         source $src
     end
-    or return 1
 
     for func in (functions -a)
-        not contains $func $excluded_functions
-        and functions -q $func
-        and echo 'save:' $func
-        and funcsave $func
+        contains $func $excluded_functions; and continue
+        # echo $func | grep -q '^__fish_'; and continue
+        not functions -q $func; and continue
+        echo -ne '\r\033[K'
+        echo -n 'save:' $func ''
+        funcsave $func
     end
+
+    echo
 end
 
 function funcsreset
