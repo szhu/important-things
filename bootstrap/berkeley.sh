@@ -61,12 +61,13 @@ fi
 # Make fish the pseudo-default shell
 
 cd ~
-fish_bootstrap_cmd='
-if [ -e ~/.local/bin/fish ] && [ "$(arch)" = x86_64 ] && [ -t 1 ] && [ "$SHLVL" -eq 1 ]; then
-    clear
+fish_bootstrap_cmd="
+if [ -e ~/.local/bin/fish ] && [ \"$(arch)\" = x86_64 ] && [ -t 1 ] && [ \"$SHLVL\" -eq 1 ]; then
+    sleep 0.3
+    echo -ne  '\\033c'
     exec ~/.local/bin/fish
 fi
-'
+"
 
 for rc_file in .bashrc .bash_profile; do
     if grep -Fq '~/.local/bin/fish' "$rc_file"; then
