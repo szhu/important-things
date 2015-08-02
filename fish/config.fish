@@ -1,9 +1,7 @@
 # Backwards compatibility for fish 2.0.0
 not contains source (builtin -n)
-and function source
-    . $argv
-end
+and alias source .
 
-for src in ~/.config/fish/config/*.fish
+for src in (find ~/.config/fish/config -name '*.fish')
     source $src
 end

@@ -1,2 +1,3 @@
-abbr rails 'bundle exec rails'
-abbr rake  'bundle exec rake'
+for cmd in rails rake rspec
+    abbr $cmd bundle exec $cmd
+end

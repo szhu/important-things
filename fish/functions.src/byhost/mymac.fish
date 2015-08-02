@@ -22,18 +22,18 @@ end
 ## Rsyncer aliases
 
 for cmd in int sz cs ee
-    abbr $cmd "rsyncer $cmd"
+    abbr $cmd rsyncer $cmd
 end
 for cmd in 199
-    abbr cs$cmd "rsyncer cs$cmd"
+    abbr cs$cmd rsyncer cs$cmd
     eval "
     function cs$cmd-host
         set servername \$argv[1]
         set -e argv[1]
         env servername=\$servername rsyncer cs$cmd \$argv
     end"
-    abbr $cmd "cs$cmd"
-    abbr $cmd-host "cs$cmd-host"
+    abbr $cmd cs$cmd
+    abbr $cmd-host cs$cmd-host
 end
 
 # abbr dcmount='sshfs -p 2222 root@localhost:/srv/wp ~/.Volumes/dailycal-vagrant -o volname=devkit'

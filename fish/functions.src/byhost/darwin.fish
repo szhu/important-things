@@ -51,7 +51,7 @@ function cdto
     test -n "$result"; and cd $result
 end
 
-abbr cdto~ 'cdto ~'
+abbr cdto~ cdto '~'
 
 function pathtoapp
     # $ pathtoapp term
@@ -68,14 +68,16 @@ function appexecutable
     set -l path (pathtoapp $argv); or return 1
     set -l executable (defaults read "$path/Contents/Info" CFBundleExecutable)
     [ -z $executable ]; and return 1
-    echo "$path/Contents/MacOS/$executable"
+    test -e "$path/Contents/MacOS/$executable"; and echo "$path/Contents/MacOS/$executable"; and return
+    test -e "$path/Contents/$executable"; and echo "$path/Contents/$executable"; and return
+    return 1
 end
 
 function launch
     set -l executablepath (appexecutable $argv[1]); or return 1
     set -e argv[1]
     echo $executablepath $argv
-    env $executablepath $argv
+    eval $executablepath $argv
 end
 function sudolaunch
     set -l executablepath (appexecutable $argv); or return 1
@@ -110,9 +112,9 @@ abbr lc     'launchctl'
 
 ## Mac OS
 
-abbr v 'chflags -h hidden'
-abbr V 'chflags -h nohidden'
-abbr aedebug 'env AEDebugReceives=1'
+abbr       v chflags -h hidden
+abbr       V chflags -h nohidden
+abbr aedebug env AEDebugReceives=1
 
 for cmd in vagrant rsyncer ssh
     eval "
