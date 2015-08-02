@@ -3,6 +3,7 @@
 	[
 		"js",
 		"cy",
+		"gv",
 		"js",  // ensures save dialog uses .js by default
 	]
 }

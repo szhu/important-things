@@ -5,7 +5,7 @@
     showOnStartup: false
   core:
     themes: [
-      "one-dark-ui"
+      "atom-material-ui"
       "monokai"
     ]
     projectHome: "~/Code"
@@ -19,6 +19,7 @@
       "auto-host-markdown-image"
       "markdown-table-formatter"
       "markdown-format"
+      "term2"
     ]
     ignoredNames: [
       ".git"
@@ -58,3 +59,11 @@
       "fhtml"
       "txt"
     ]
+  term2:
+    shellOverride: "/usr/local/bin/fish"
+    scrollback: 10000
+    shellArguments: " "
+    titleTemplate: "{{ bashName }}"
+  "markdown-writer": {}
+  "markdown-preview":
+    useGitHubStyle: true

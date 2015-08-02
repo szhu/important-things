@@ -3,6 +3,20 @@
 	[
 		"ignored_packages"
 	],
+	"added_words":
+	[
+		"autograder",
+		"autograding",
+		"workflow",
+		"Octobear",
+		"app",
+		"webhook",
+		"Hilfinger",
+		"autograders",
+		"toolchain",
+		"unopinionated",
+		"workflows"
+	],
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
 	"binary_file_patterns":
@@ -43,7 +57,9 @@
 		".DS_Store",
 		"*.class",
 		"*.sublime-workspace",
-		"*.sassc"
+		"*.sassc",
+		"Icon?",
+		"*.svg"
 	],
 	"folder_exclude_patterns":
 	[
