@@ -1,3 +1,5 @@
+# https://raw.githubusercontent.com/lunks/fish-nuggets/master/functions/rvm.fish
+
 function rvm --description='Ruby enVironment Manager'
   # run RVM and capture the resulting environment
   set --local env_file (mktemp -t rvm.fish.XXXXXXXXXX)
@@ -12,24 +14,28 @@ end
 function __handle_rvmrc_stuff --on-variable PWD
   # Source a .rvmrc file in a directory after changing to it, if it exists.
   # To disable this fature, set rvm_project_rvmrc=0 in $HOME/.rvmrc
-  if test "$rvm_project_rvmrc" != 0
-    set -l cwd $PWD
-    while true
-      if contains $cwd "" $HOME "/"
-        if test "$rvm_project_rvmrc_default" = 1
-          rvm default 1>/dev/null 2>&1
-        end
-        break
-      else
-        if test -e .rvmrc -o -e .ruby-version -o -e .ruby-gemset
-          eval "rvm reload" > /dev/null
-          break
-        else
-          set cwd (dirname "$cwd")
-        end
-      end
-    end
 
-    set -e cwd
+  test "$rvm_project_rvmrc" = 0; and return
+
+  set -l cwd $PWD
+  while true
+    if contains $cwd '' ~ /
+      test "$__last_rvm_cwd" = $cwd -o -z "$__last_rvm_cwd"; and return
+      set_color green --bold
+      echo -ne "\n💎  ...\r💎  "
+      rvm default; and rvm current
+      set_color normal
+      set -g __last_rvm_cwd $cwd
+      break
+    else if test -e $cwd/.rvmrc -o -e $cwd/.ruby-version -o -e $cwd/.ruby-gemset -o -e $cwd/Gemfile
+      test "$__last_rvm_cwd" = $cwd; and return
+      set_color green --bold
+      echo -ne "\n💎  ...\r💎  "
+      rvm current
+      set_color normal
+      set -g __last_rvm_cwd $cwd
+      break
+    end
+    set cwd (dirname "$cwd")
   end
 end
