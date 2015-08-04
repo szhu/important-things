@@ -1,1 +1,2 @@
-source ~/.config/fish/functions/__handle_rvmrc_stuff.fish
+source ~/.config/fish/functions/__rvm_on_cd.fish
+__rvm_on_cd

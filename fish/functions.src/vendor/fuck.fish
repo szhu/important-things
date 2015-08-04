@@ -1,5 +1,2 @@
-function fuck
-    eval (thefuck $history[1])
-end
-
-alias f fuck
+mkdir -p ~/.config/fish/functions
+thefuck-alias > ~/.config/fish/functions/fuck.fish
