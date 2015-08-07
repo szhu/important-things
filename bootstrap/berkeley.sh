@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Run with:
-# bash -c "$(curl -fsSL https://goo.gl/FUIwla)"
+# bash -c "$(curl -fsSL http://git.io/vOjPt)"
 #
 # To undo (may be fairly destructive):
 # rm -f ~/.bootstrapped
@@ -11,7 +11,7 @@
 # ... and remove lines from ~/.bashrc and ~/.bash_profile
 #
 # all in one line:
-# rm -f ~/.bootstrapped ~/.gitconfig && rm -rf ~/.local/opt ~/.config/fish && bash -c "$(curl -fsSL https://goo.gl/FUIwla)"
+# rm -f ~/.bootstrapped ~/.gitconfig && rm -rf ~/.local/opt ~/.config/fish && bash -c "$(curl -fsSL http://git.io/vOjPt)"
 
 last_command=$_
 
