@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	<key>Label</key>
+	<string>com.interestinglythere.flipwall.31280</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/ssh</string>
+		<string>-C2TN</string>
+		<string>-D</string>
+		<string>31280</string>
+		<string>user@example.com</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
