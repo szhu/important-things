@@ -1,6 +1,7 @@
 DomainsToProxy = [
     // Google
     "1e100.net",
+    "abc.xyz",
     "appspot.com",
     "blogger.com",
     "blogspot.com",
@@ -11,12 +12,12 @@ DomainsToProxy = [
     "google.com",
     "googleapis.com",
     "googleusercontent.com",
+    "googlevideo.com",
     "gstatic.com",
     "youtube.com",
     "ytimg.com",
 
     // Facebook
-    "akamaihd.net",
     "facebook.com",
     "facebook.net",
     "fbcdn.net",
@@ -33,22 +34,49 @@ DomainsToProxy = [
     "twitter.com",
     "twimg.com",
 
+    // Reddit
+    "reddit.com",
+    "redditstatic.com",
+
+    // Dropbox
+    "dropbox.com",
+
+    // Third-party
+    "adzerk.net",  // reddit
+    "akamaihd.net",  // facebook
+
+    // Journalism
+    "nytimes.com",
+
     // Others
+    "genius.com",
     "tecmint.com",
+    "cdn9.howtogeek.com", // wordpress
     "zh.wikipedia.org",
 ]
+HttpsDomainsToProxy = [
+    // Third-party
+    "s3.amazonaws.com",
+]
 
-function ShouldProxy(url, host) {
-    for (var i = DomainsToProxy.length - 1; i >= 0; --i) {
-        if (dnsDomainIs(host, DomainsToProxy[i])) return true;
-        if (dnsDomainIs(host, '.' + DomainsToProxy[i])) return true;
-    }
-    return false;
-}
+var DIRECT = "DIRECT";
+var SOCKS = "SOCKS5 localhost:31280; SOCKS5 localhost:31281; DIRECT";
 
 function FindProxyForURL(url, host) {
-    if (ShouldProxy(url, host))
-        return "SOCKS5 localhost:31280; SOCKS5 localhost:31281; DIRECT";
-    else
-        return "DIRECT";
+    if (isPlainHostName(host)) return DIRECT;
+
+    for (var i = DomainsToProxy.length - 1; i >= 0; --i) {
+        var domainToProxy = DomainsToProxy[i];
+        if (dnsDomainIs(host, domainToProxy)) return SOCKS;
+        if (dnsDomainIs(host, '.' + domainToProxy)) return SOCKS;
+    }
+
+    for (var i = HttpsDomainsToProxy.length - 1; i >= 0; --i) {
+        var domainToProxy = HttpsDomainsToProxy[i];
+        if (url.substring(0, 6) !== 'https:') continue;
+        if (dnsDomainIs(host, domainToProxy)) return SOCKS;
+        if (dnsDomainIs(host, '.' + domainToProxy)) return SOCKS;
+    }
+
+    return DIRECT;
 }
