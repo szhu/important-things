@@ -1,6 +1,7 @@
 test (hostname) = "mac.szhu.me"; or exit
 
-alias a "command ssh -q a@localhost"
+abbr a admin
+alias admin "command ssh -q admin@localhost"
 
 # ------ SYNCING ------ #
 
@@ -22,32 +23,12 @@ end
 ## Rsyncer aliases
 
 for cmd in int sz cs ee
-    abbr $cmd rsyncer $cmd
+    abbr   $cmd exec rsyncer   $cmd
 end
 for cmd in 199
-    abbr cs$cmd rsyncer cs$cmd
-    eval "
-    function cs$cmd-host
-        set servername \$argv[1]
-        set -e argv[1]
-        env servername=\$servername rsyncer cs$cmd \$argv
-    end"
-    abbr $cmd cs$cmd
-    abbr $cmd-host cs$cmd-host
+    abbr cs$cmd exec rsyncer cs$cmd
+    abbr   $cmd exec rsyncer cs$cmd
 end
-
-# abbr dcmount='sshfs -p 2222 root@localhost:/srv/wp ~/.Volumes/dailycal-vagrant -o volname=devkit'
-function dcvm
-    set -l oldcwd (pwd)
-    cdto ~/Code dev-kit
-    vagrant $argv
-    cd $oldcwd
-end
-
-# set HIVE_ROOT_61C ~/'Dropbox/School/2013-2014/CS 61C LA/cs61c-lc'
-# abbr hiveclone61c='cd "$HIVE_ROOT_61C"; bash "$HIVE_ROOT_61C/code/mygit" clone'
-# set HIVE_ROOT_188 ~/'Dropbox/School/2013-2014/CS 188/ee130-aw'
-# abbr hiveclone188='cd "$HIVE_ROOT_188"; bash "$HIVE_ROOT_188/code/mygit" clone'
 
 
 # ------ SHORTCUTS ------ #

@@ -20,6 +20,7 @@
       "markdown-table-formatter"
       "markdown-format"
       "term2"
+      "markdown-scroll-sync"
     ]
     ignoredNames: [
       ".git"
@@ -67,3 +68,10 @@
   "markdown-writer": {}
   "markdown-preview":
     useGitHubStyle: true
+  "auto-update-packages": {}
+".shell.source":
+  editor:
+    tabLength: 4
+".fish.source":
+  editor:
+    tabLength: 4
