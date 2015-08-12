@@ -23,6 +23,7 @@ DomainsToProxy = [
     "fbcdn.net",
     "messenger.com",
     "xx.fbcdn.net",
+    "instagram.com",
 
     // Automattic
     "gravatar.com",
@@ -47,16 +48,25 @@ DomainsToProxy = [
 
     // Journalism
     "nytimes.com",
+    "bloomberg.com",
+    "wsj.com",
+
+    // w t f :(
+    "berkeley.edu",
 
     // Others
     "genius.com",
+    "paperlesspost.com", "ppassets.com",
     "tecmint.com",
     "cdn9.howtogeek.com", // wordpress
+    "vzw.com",
     "zh.wikipedia.org",
 ]
 HttpsDomainsToProxy = [
     // Third-party
     "s3.amazonaws.com",
+    "cloudfront.net",
+    "s3-cdn.invisionapp.com",
 ]
 
 var DIRECT = "DIRECT";
