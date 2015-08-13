@@ -39,33 +39,41 @@ DomainsToProxy = [
     "reddit.com",
     "redditstatic.com",
 
+    // Tumblr
+    "tumblr.com",
+
     // Dropbox
     "dropbox.com",
-
-    // Third-party
-    "adzerk.net",  // reddit
-    "akamaihd.net",  // facebook
 
     // Journalism
     "nytimes.com",
     "bloomberg.com",
     "wsj.com",
 
-    // w t f :(
-    "berkeley.edu",
-
-    // Others
+    // Other large sites
+    "berkeley.edu",  // w t f :(
     "genius.com",
-    "paperlesspost.com", "ppassets.com",
-    "tecmint.com",
-    "cdn9.howtogeek.com", // wordpress
+    "paypal.com",
     "vzw.com",
     "zh.wikipedia.org",
+
+    // Generic CDNs and ad sites
+    "adzerk.net",  // reddit
+    "akamaihd.net",  // facebook
+
+    // Small sites and their CDNs
+    "cdn9.howtogeek.com",  // wordpress
+    "paperlesspost.com", "ppassets.com",
+    "tecmint.com",
+    "dn2.xda-developers.com",
+
 ]
 HttpsDomainsToProxy = [
-    // Third-party
+    // Generic CDNs and ad sites
     "s3.amazonaws.com",
     "cloudfront.net",
+
+    // Small sites and their CDNs
     "s3-cdn.invisionapp.com",
 ]
 
