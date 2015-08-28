@@ -24,8 +24,8 @@ fi
 
 # Set git identity for CSM Bot
 if ssh git@github.com 2>&1 | grep -q "Hi csm-bot! You've successfully authenticated"; then
-  git config --global user.name "CSM Bot"
-  git config --global user.email "csm.bot@szhu.me"
+  verbose git config --global user.name "CSM Bot"
+  verbose git config --global user.email "csm.bot@szhu.me"
 fi
 
 # Install dependencies

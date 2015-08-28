@@ -1,20 +1,19 @@
-# This is @szhu's standard Ubuntu provisoner.
+# This is @szhu's standard Ubuntu provisoner for cs.Berkeley.EDU computers.
 #
-# To use, first...
-# sudo apt-get update && sudo apt-get install wget make
-# ...then choose one of the following:
-# f=$(mktemp) && echo $f && curl -fsSLo $f git.io/vGtS6 && make -f $f
-# f=$(mktemp) && echo $f && wget -qO $f git.io/vGtS6 && make -f $f
-# wget -qO Makefile git.io/vGtS6 && make
+# To use,  choose one of the following:
+# f=$(mktemp) && echo $f && curl -fsSLo $f git.io/vGOFm && make -f $f
+# f=$(mktemp) && echo $f && wget -qO $f git.io/vGOFm && make -f $f
+# wget -qO Makefile git.io/vGOFm && make
 #
 # Custom:
-# f=$(mktemp) && wget -qO $f git.io/vGtS6 && make -f $f rule1 rule2 ...
+# f=$(mktemp) && wget -qO $f git.io/vGOFm && make -f $f rule1 rule2 ...
 
 
 # Short options
 
 ## Things to get or make
 important-things := ~/.local/opt/important-things
+cs-build := ~/.local/opt/berkeley-cs-build
 ssh-key := ~/.ssh/id_rsa
 
 ## Config files
@@ -23,15 +22,9 @@ git-config := ~/.gitconfig
 subl-config := ~/.local/share/sublime-text-3/Packages/User
 user-dirs := ~/.config/user-dirs.dirs
 
-## APT repository locations
-fish-apt-source := /etc/apt/sources.list.d/fish-shell-release-2-$(shell lsb_release -c -s).list
-subl-apt-source := /etc/apt/sources.list.d/webupd8team-sublime-text-3-$(shell lsb_release -c -s).list
-
 # Command locations
-apt-add-repository := /usr/bin/apt-add-repository
-fish := /usr/bin/fish
+fish := ~/.local/bin/fish
 git := /usr/bin/git
-subl := /usr/local/bin/subl
 
 
 # File bodies
@@ -61,61 +54,30 @@ XDG_VIDEOS_DIR="$HOME"
 endef
 export user_dirs_body
 
+define start_fish_body
+source ~/.local/opt/important-things/fish/support/start-fish.bash
+endef
+export start_fish_body
 
 # Rules
 
 PHONIES += default
-default: ssh-key fish git-config fish-config subl-config
+default: ssh-key fish-set-default git-config fish-config subl-config user-dirs
 
 PHONIES += ssh-key
 ssh-key: $(ssh-key)
 $(ssh-key):
 	@echo; echo '## ssh-key: $@'
 	ssh-keygen -N '' -f $@
-
-PHONIES += apt-add-repository
-apt-add-repository: $(apt-add-repository)
-$(apt-add-repository):
-	@echo; echo '## apt-add-repository: $@'
-	sudo apt-get install -y python-software-properties software-properties-common
-
-PHONIES += fish-apt-source
-fish-apt-source: $(fish-apt-source)
-$(fish-apt-source): $(apt-add-repository)
-	@echo; echo '## fish-apt-source: $@'
-	sudo apt-add-repository ppa:fish-shell/release-2 -y >/dev/null
-	sudo apt-get update >/dev/null
+	ssh-copy-id localhost
 
 PHONIES += fish
 fish: $(fish)
-$(fish): $(fish-apt-source)
+$(fish): $(cs-build)
 	@echo; echo '## fish: $@'
-	sudo apt-get install -y fish
-	sudo touch $@
-	sudo chsh $(shell whoami) -s "$$(which fish)"
-
-PHONIES += git
-git: $(git)
-$(git):
-	@echo; echo '## git: $@'
-	sudo apt-get install -y git
-	sudo touch $@
-
-PHONIES += subl-apt-source
-subl-apt-source: $(subl-apt-source)
-$(subl-apt-source): $(apt-add-repository)
-	@echo; echo '## subl-apt-source: $@'
-	sudo add-apt-repository -y ppa:webupd8team/sublime-text-3 >/dev/null
-	sudo apt-get update >/dev/null
-
-PHONIES += subl
-subl: $(subl)
-$(subl): $(subl-apt-source)
-	@echo; echo '## subl: $@'
-	for px in 16 32 48 128 256; do sudo mkdir -p /usr/share/icons/hicolor/$${px}x$${px}/apps/; done
-	sudo apt-get install -y sublime-text-installer
-	sudo touch $@
-	sudo apt-get remove -y sublime-text-installer
+	cd ~/.local/opt/berkeley-cs-build && curses/build.sh && fish/build.sh
+	touch $@
+	@ # rm -rf ~/.local/opt/berkeley-cs-build
 
 PHONIES += important-things
 important-things: $(important-things)
@@ -123,6 +85,14 @@ $(important-things): $(git)
 	@echo; echo '## important-things: $@'
 	mkdir -p $(shell echo "$@" | xargs -0 dirname)
 	test ! -e $@ && git clone -q https://github.com/szhu/important-things.git $@ || true
+	touch $@
+
+PHONIES += cs-build
+cs-build: $(cs-build)
+$(cs-build): $(git)
+	@echo; echo '## cs-build: $@'
+	mkdir -p $(shell echo "$@" | xargs -0 dirname)
+	test ! -e $@ && git clone -q https://github.com/rogerhub/cs-build.git $@ || true
 	touch $@
 
 PHONIES += git-config
@@ -141,6 +111,12 @@ $(fish-config): $(important-things)
 	rm -f -- $@
 	ln -s ../.local/opt/important-things/fish $@
 	touch $@
+
+PHONIES += fish-set-default
+fish-set-default: $(fish) $(fish-config)
+	@echo; echo '## fish-set-default'
+	grep -Fq "$$start_fish_body" .bashrc || echo "$$start_fish_body" >> .bashrc
+	grep -Fq "$$start_fish_body" .bash_profile || echo "$$start_fish_body" >> .bash_profile
 
 PHONIES += subl-config
 subl-config: $(subl-config)
