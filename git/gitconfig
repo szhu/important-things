@@ -1,17 +1,14 @@
 [user]
 	name = Sean Zhu
-[color]  
-	diff = auto  
-	status = auto  
+[color]
+	diff = auto
+	status = auto
 	branch = auto
 [core]
 	excludesfile = ~/.gitignore_global
 [push]
 	default = current
 [alias]
-	b = branch
-	c = commit
-	co = checkout
 	current-branch = rev-parse --verify --abbrev-ref HEAD # http://stackoverflow.com/questions/6245570
 	current-commit = rev-parse --verify HEAD
 	current-remote = rev-parse --verify --symbolic-full-name --abbrev-ref @{u} # http://stackoverflow.com/questions/6245570
@@ -21,12 +18,7 @@
 	ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=iso --graph
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-	m = merge
 	nb = checkout -b
-	r = rebase
-	r2 = rebase -i HEAD~2
-	rb = remote-branches
-	ri = rebase -i
 	root = rev-parse --show-toplevel  # http://stackoverflow.com/questions/957928
 	uu = set-upstream-to-origin-current
 	verify-included = !echo 'it works!'

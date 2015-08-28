@@ -10,8 +10,7 @@ Style/SignalException:
 # Style/Blocks:
 #   Enabled: false
 
-LineLength:
-  Max: 80
+Metrics/LineLength:
   Enabled: false
 
 StringLiterals:
