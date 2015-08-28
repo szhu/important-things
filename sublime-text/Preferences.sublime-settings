@@ -44,7 +44,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/Theme - Gravity/Monokai Gravity (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -71,7 +71,7 @@
 		".sass-cache"
 	],
 	"font_face": "Menlo",
-	"font_size": 12.0,
+	"font_size": 12,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -106,6 +106,7 @@
 		"SublimeAStyleFormatter",
 		"SublimeCodeIntel",
 		"SublimeHaskell",
+		"SublimeLinter",
 		"SublimeLinter-coffee",
 		"SublimeLinter-contrib-jslint",
 		"SublimeLinter-html-tidy",

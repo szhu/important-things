@@ -10,17 +10,18 @@
     ]
     projectHome: "~/Code"
     disabledPackages: [
+      "auto-host-markdown-image"
+      "auto-host-markdown-image"
+      "floobits"
+      "markdown-format"
+      "markdown-preview-plus"
+      "markdown-scroll-sync"
+      "markdown-table-formatter"
       "minimap"
       "minimap-linter"
+      "term2"
       "terminal-panel"
       "tidy-markdown"
-      "markdown-preview-plus"
-      "auto-host-markdown-image"
-      "auto-host-markdown-image"
-      "markdown-table-formatter"
-      "markdown-format"
-      "term2"
-      "markdown-scroll-sync"
     ]
     ignoredNames: [
       ".git"
@@ -37,11 +38,12 @@
     fontSize: 12
   "one-dark-ui": {}
   linter:
-    showErrorPanel: false
-    showErrorTabFile: false
-    showErrorTabProject: false
-    underlineIssues: false
     statusIconPosition: "Right"
+    statusIconScope: "File"
+    ignoredMessageTypes: [
+      "Metrics/LineLength"
+    ]
+    showErrorPanel: false
   "linter-rubocop": {}
   "tree-view":
     hideIgnoredNames: true
@@ -50,7 +52,8 @@
     plugins:
       linter: false
     absoluteMode: true
-  "local-history": {}
+  "local-history":
+    difftoolCommand: "opendiff \"{current-file}\" \"{revision-file}\""
   "atom-beautify":
     _analyticsUserId: "8747e5b9-f178-4aa4-b253-d06dbb83973c"
     language_java_disabled: true
@@ -69,6 +72,25 @@
   "markdown-preview":
     useGitHubStyle: true
   "auto-update-packages": {}
+  "git-blame": {}
+  "linter-haml":
+    copyRubocopYml: false
+  "remote-edit":
+    sshPrivateKeyPath: "~/.ssh/id_dsa"
+  wakatime:
+    ignore: [
+      "^/var/"
+      "^/tmp/"
+      "^/private/"
+      "COMMIT_EDITMSG$"
+      "PULLREQ_EDITMSG$"
+      "MERGE_MSG$"
+    ]
+    apikey: "092bf734-d20e-4e84-a477-bff2e7fc29b9"
+".makefile.source":
+  softTabs: false
+  editor:
+    tabLength: 4
 ".shell.source":
   editor:
     tabLength: 4
