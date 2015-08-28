@@ -1,0 +1,2 @@
+#!/bin/sh
+~/Library/usr/bin/twdiff --wait "$2" "$5"

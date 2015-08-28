@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+
+from os.path import expanduser
+PB = ['/usr/libexec/PlistBuddy', expanduser('~/Library/Preferences/com.apple.loginitems.plist'), '-c']
+
+YES = 1
+NO = 0
+ERROR = -1
+
+def check(i, name):
+    from subprocess import Popen, PIPE
+    p = Popen(PB + ['Print :SessionItems:CustomListItems:%s:Name' % i], stdout=PIPE, stderr=PIPE)
+    p.wait()
+    output = p.stdout.read()[:-1]
+    if p.returncode != 0:
+        return ERROR
+    elif output == name:
+        return YES
+    else:
+        return NO
+
+def main(name):
+    from itertools import count
+    from subprocess import call, check_output
+    for i in count():
+        results = check(i, name)
+        if results == YES:
+            code = call(PB + ['Delete :SessionItems:CustomListItems:%s:Name' % i])
+            check_output('defaults', 'read', 'com.apple.loginitems')
+            return code
+        elif results == ERROR:
+            # print "Not found"
+            return 0
+    return 0
+
+
+##
+
+
+class ProgramError(Exception):
+    pass
+
+def run():
+    from sys import argv, stderr
+    try:
+        exit(main(*argv[1:]) or 0)
+    except ProgramError, exc:
+        print >> stderr, exc
+    except TypeError, exc:
+        if exc.message.startswith("main() takes"):
+            print >> stderr, exc
+        else:
+            raise
+
+if __name__ == '__main__':
+    run()

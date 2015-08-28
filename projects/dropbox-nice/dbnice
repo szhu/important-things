@@ -1,0 +1,2 @@
+#!/bin/sh
+renice 15 -p "$(cat ~/.dropbox/dropbox.pid)"

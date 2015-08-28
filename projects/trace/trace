@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+def init():
+	import sys, os.path
+	profile = os.path.expanduser('~/Library/Sandbox/trace-to-stderr.sb')
+	doscript(['sandbox-exec','-f',profile] + sys.argv[1:])
+
+def doscript(script):
+	import subprocess, sys
+	shellout = subprocess.Popen(script, stdout=sys.stdout, stderr=sys.stderr)
+	shellout.wait()
+
+if __name__ == '__main__': init()

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+while [[ -h "$1" ]]; do
+	src="$1"
+	echo -n "linking '$src' ... "
+	target="`readlink "$src"`"
+	rm "$src"
+	mkdir "$src"
+	ln -sf "$target/Contents"  "$src/Contents"
+	echo "done."
+	shift
+done
+
+
+# SRC="$1"
+
+# if [[ -z "$2" ]] ; then
+# 	NEW="$SRC"
+# 	if [[ -h "$SRC" ]] ; then
+# 		echo 'is symlink, attempting to resolve and remove...'
+# 		NEWSRC="`readlink "$SRC"`"
+# 		rm "$SRC"
+# 		SRC="$NEWSRC"
+# 	elif [[ -d "$SRC" ]] ; then
+# 		echo 'is directory, attempting to remove...'
+# 		rmdir "$SRC"
+# 	fi
+# else
+# 	NEW="$2/`basename "$SRC"`"
+# fi
+
+
+# mkdir "$NEW"
+# ln -sf "$SRC/Contents"  "$NEW/Contents"

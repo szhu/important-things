@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+
+def init():
+	import sys, os.path
+
+	sandboxdir = os.path.expanduser('~/Library/Sandbox')
+	profile = os.path.expanduser('~/Library/Sandbox/trace-to-file.sb')
+	outfile = os.path.expanduser('~/Library/Sandbox/trace.out.sb')
+	
+	if len(sys.argv) < 2:
+		if False and os.path.exists(outfile): readscript(['reveal',outfile])
+		else: readscript(['open',sandboxdir])
+	elif not os.path.exists(profile):
+		sys.stderr.write("Sandbox profile not found!\n")
+	else:
+		if os.path.exists(outfile): doscript(['rm',outfile])
+		doscript(['sandbox-exec','-f',profile] + sys.argv[1:])
+		if os.path.exists(outfile): pass #doscript(['sandbox-simplify',outfile])
+		else: sys.stderr.write("trace didn't produce anything!\n")
+
+def doscript(script):
+	import subprocess, sys
+	#print script
+	shellout = subprocess.Popen(script, stdout=sys.stdout, stderr=sys.stderr)
+	shellout.wait()
+
+def readscript(script):
+	import subprocess, sys
+	shellout = subprocess.Popen(script, stdout=subprocess.PIPE, stderr=sys.stderr)
+	shellout.wait()
+
+
+if __name__ == '__main__': init()

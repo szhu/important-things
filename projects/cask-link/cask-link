@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+
+NOT WORKING
+
+from subprocess import Popen
+
+class Program(Popen):
+	DEBUG = False
+
+	def __init__(self, args):
+		self.args = args
+	def start(self):
+		if self.DEBUG: printe(' '.join(["'"+arg+"'" if ' ' in arg else arg for arg in self.args]))
+		from subprocess import PIPE
+		Popen.__init__(self, self.args, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+	def run(self):
+		self.start()
+		self.wait()
+		return self # chaining!
+
+
+def main():
+	import re
+	from sys import argv
+	if len(argv) != 2:
+		return usage()
+	formula = argv[1]
+
+	p = Program(['brew', 'cask', 'info', formula]).run()
+	output = p.stdout.read()
+	print output
+
+	m = re.match(r'(/opt/homebrew-cask/Caskroom/.+?) ')
+	if not m:
+		return error('formula may not be installed')
+	path = m.group(1)
+	
+
+
+def usage():
+	from sys import argv, exit, stderr
+	print 'usage: %s formula' % argv[0] >> stderr
+	exit(1)
+
+def error(msg):
+	from sys import exit, stderr
+	print 'error: %s' % msg >> stderr
+	exit(1)
+
+if __name__ == '__main__':
+	main()
