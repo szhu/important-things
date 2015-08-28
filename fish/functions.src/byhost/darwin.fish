@@ -74,10 +74,10 @@ function appexecutable
 end
 
 function launch
-    set -l executablepath (appexecutable $argv[1]); or return 1
+    set -l apppath (pathtoapp $argv[1]); or return 1
     set -e argv[1]
-    echo $executablepath $argv
-    eval $executablepath $argv
+    echo open $apppath --args $argv
+    open $apppath --args $argv
 end
 function sudolaunch
     set -l executablepath (appexecutable $argv); or return 1

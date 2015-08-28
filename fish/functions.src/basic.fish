@@ -1,6 +1,9 @@
 # alias l   (which ls)
-alias l   'ls -FGh'
-alias ll  'ls -oFGh'
+alias l  'ls -FGh'
+alias ll 'ls -lFGh'
+abbr la  l -A
+abbr lsa ls -A
+abbr lla ll -A
 abbr py  'python'
 abbr py3 'python3'
 

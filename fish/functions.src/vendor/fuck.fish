@@ -1,2 +1,3 @@
 mkdir -p ~/.config/fish/functions
-thefuck-alias > ~/.config/fish/functions/fuck.fish
+which thefuck >/dev/null
+and thefuck --alias > ~/.config/fish/functions/fuck.fish

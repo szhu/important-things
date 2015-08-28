@@ -9,7 +9,7 @@ alias admin "command ssh -q admin@localhost"
 
 abbr rs rsyncer
 function rs-cd
-    if [ (count $argv) -lt 1 ]
+    if test -z "$argv"
         echo "usage: rs-cd name"
         return 1
     else
@@ -23,11 +23,11 @@ end
 ## Rsyncer aliases
 
 for cmd in int sz cs ee
-    abbr   $cmd exec rsyncer   $cmd
+    abbr   $cmd rsyncer   $cmd
 end
-for cmd in 199
-    abbr cs$cmd exec rsyncer cs$cmd
-    abbr   $cmd exec rsyncer cs$cmd
+for cmd in 160 161 162 199
+    abbr cs$cmd rsyncer cs$cmd
+    abbr   $cmd rsyncer cs$cmd
 end
 
 
