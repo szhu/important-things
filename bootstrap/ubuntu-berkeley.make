@@ -15,6 +15,7 @@
 important-things := ~/.local/opt/important-things
 cs-build := ~/.local/opt/berkeley-cs-build
 ssh-key := ~/.ssh/id_rsa
+start-fish-stub := ~/.bash_fish_launcher
 
 ## Config files
 fish-config := ~/.config/fish
@@ -55,7 +56,9 @@ endef
 export user_dirs_body
 
 define start_fish_body
-source ~/.local/opt/important-things/fish/support/start-fish.bash
+
+# Start fish if the conditions are right
+source ~/.bash_fish_launcher
 endef
 export start_fish_body
 
@@ -112,11 +115,19 @@ $(fish-config): $(important-things)
 	ln -s ../.local/opt/important-things/fish $@
 	touch $@
 
+PHONIES += start-fish-stub
+start-fish-stub: $(start-fish-stub)
+$(start-fish-stub): $(important-things)
+	@echo; echo '## start-fish-stub: $@'
+	mkdir -p $(shell echo "$@" | xargs -0 dirname)
+	rm -f -- $@
+	cp -- ~/.local/opt/important-things/fish/support/start-fish.bash $@
+
 PHONIES += fish-set-default
-fish-set-default: $(fish) $(fish-config)
+fish-set-default: $(fish) $(start-fish-stub)
 	@echo; echo '## fish-set-default'
-	grep -Fq "$$start_fish_body" .bashrc || echo "$$start_fish_body" >> .bashrc
-	grep -Fq "$$start_fish_body" .bash_profile || echo "$$start_fish_body" >> .bash_profile
+	grep -Fq "source ~/.bash_fish_launcher" .bashrc || echo "$$start_fish_body" >> .bashrc
+	grep -Fq "source ~/.bash_fish_launcher" .bash_profile || echo "$$start_fish_body" >> .bash_profile
 
 PHONIES += subl-config
 subl-config: $(subl-config)
