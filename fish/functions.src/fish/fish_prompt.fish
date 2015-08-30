@@ -29,8 +29,7 @@ function fish_prompt --description 'Write out the prompt'
   # now.
   # fish_mac_icon
 
-  echo
-  echo -ne '\033[K'
+  echo -ne '\r\033[K\n\033[K'
   __fish_prompt_status_if_error $last_status
 
   __fish_prompt_user_hostname
