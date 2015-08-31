@@ -37,7 +37,12 @@ cane
 capybara
 carrierwave
 celluloid
+celluloid-essentials
+celluloid-extras
+celluloid-fsm
 celluloid-io
+celluloid-pool
+celluloid-supervision
 CFPropertyList
 childprocess
 chronic
@@ -57,11 +62,14 @@ colorize
 columnize
 commander
 cucumber
+cucumber-core
 daemons
 debugger-linecache
 debugger-ruby_core_source
 devise
 diff-lcs
+domain_name
+dotenv
 ebnf
 equivalent-xml
 erb2haml
@@ -82,6 +90,7 @@ globalid
 grit
 haml
 haml-rails
+haml_lint
 has_scope
 hash_control
 hashie
@@ -90,6 +99,7 @@ hike
 hirb
 hitimes
 html2haml
+http-cookie
 i18n
 inherited_resources
 io-console
@@ -129,7 +139,9 @@ mini_portile
 minitest
 multi_json
 multi_test
+nenv
 net-http-persistent
+netrc
 nio4r
 nokogiri
 normalize-rails
@@ -179,10 +191,12 @@ redcarpet
 remotipart
 representable
 responders
+rest-client
 rsolr
 rspec
 rspec-core
 rspec-expectations
+rspec-logsplit
 rspec-mocks
 rspec-rails
 rspec-support
@@ -220,6 +234,7 @@ sunspot_with_kaminari
 swagger-docs
 swagger-ui_rails
 sxp
+sysexits
 tablerize
 test-unit
 thin
@@ -234,6 +249,7 @@ tzinfo
 tzinfo-data
 uber
 uglifier
+unf
 unicorn
 warden
 watchr

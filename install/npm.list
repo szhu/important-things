@@ -1,11 +1,13 @@
 bower
 brunch
 coffeelint
+csslint
 grunt-cli
 js-yaml
 js2coffee
 karma
 learnyounode
 less
+node-gyp
 npm
 tmpin
