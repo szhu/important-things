@@ -87,13 +87,13 @@
       "MERGE_MSG$"
     ]
     apikey: "092bf734-d20e-4e84-a477-bff2e7fc29b9"
-".makefile.source":
-  softTabs: false
+".fish.source":
   editor:
     tabLength: 4
 ".shell.source":
   editor:
     tabLength: 4
-".fish.source":
+".makefile.source":
+  softTabs: false
   editor:
     tabLength: 4
