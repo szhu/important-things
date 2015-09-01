@@ -34,9 +34,7 @@ function fish_prompt --description 'Write out the prompt'
 
   __fish_prompt_user_hostname
   __fish_pretty_pwd
-  if which git > /dev/null
-    __fish_git_prompt
-  end
+  which git >/dev/null; and __fish_git_prompt
 
   echo
   echo -ne '\033[K'

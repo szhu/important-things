@@ -3,6 +3,9 @@ test (hostname) = "mac.szhu.me" -o (hostname) = "szhu-c02.local"; or exit
 abbr a admin
 alias admin "command ssh -q admin@localhost"
 
+# This account cannot sudo
+abbr sudo '# sudo'
+
 # ------ SYNCING ------ #
 
 ## Rsyncer helpers
