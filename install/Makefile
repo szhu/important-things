@@ -57,7 +57,7 @@ brew-cask-install:
 
 PHONY += brew-tap-install
 brew-tap-install:
-	cat brew-tap.list | xargs brew tap
+	cat brew-tap.list | xargs -L 1 brew tap
 
 PHONY += gem-install
 gem-install:

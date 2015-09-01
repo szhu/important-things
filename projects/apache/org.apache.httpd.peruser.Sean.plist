@@ -26,6 +26,6 @@
 	<key>StandardOutPath</key>
 	<string>stdout.log</string>
 	<key>WorkingDirectory</key>
-	<string>/Users/Sean/.local/etc//apache2</string>
+	<string></string>
 </dict>
 </plist>

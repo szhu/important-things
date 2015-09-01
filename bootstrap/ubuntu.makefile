@@ -3,12 +3,12 @@
 # To use, first...
 # sudo apt-get update && sudo apt-get install wget make
 # ...then choose one of the following:
-# f=$(mktemp) && echo $f && curl -fsSLo $f git.io/vGtS6 && make -f $f
-# f=$(mktemp) && echo $f && wget -qO $f git.io/vGtS6 && make -f $f
-# wget -qO Makefile git.io/vGtS6 && make
+# f=$(mktemp) && echo $f && curl -fsSLo $f git.io/vGgvG && make -f $f
+# f=$(mktemp) && echo $f && wget -qO $f git.io/vGgvG && make -f $f
+# wget -qO Makefile git.io/vGgvG && make
 #
 # Custom:
-# f=$(mktemp) && wget -qO $f git.io/vGtS6 && make -f $f rule1 rule2 ...
+# f=$(mktemp) && wget -qO $f git.io/vGgvG && make -f $f rule1 rule2 ...
 
 
 # Short options

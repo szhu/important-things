@@ -13,7 +13,7 @@ log-cmd() {
     test -n "$1" && >&2 echo -n "$1 "
     shift
     test -z "$*" && >&2 echo && return 0
-    >&2 echo "$@" 
+    >&2 echo "$@"
     "$@"
   fi
 }
@@ -47,6 +47,7 @@ replace-peruser() {
   test -L "$peruser" && return
   if test -d "$peruser"; then
     log-cmd $ sudo rm -f -- "$peruser"/.localized "$peruser"/.DS-Store
+    log-cmd $ mv -v -- "$peruser"/* "$global"/
     log-cmd $ sudo rmdir -- "$peruser"
   fi
   test -e "$peruser" && log-cmd "! $peruser_literal could not be safely removed; skipping"

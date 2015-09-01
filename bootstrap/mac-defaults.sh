@@ -17,3 +17,11 @@ defaults write org.n8gray.QLColorCode fontSizePoints 8
 
 sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en1 prefs RequireAdminPowerToggle=NO DisconnectOnLogout=NO RememberRecentNetworks=NO
 
+sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MANAGED -bool FALSE
+
+sudo scutil --set HostName mac.szhu.me
+sudo scutil --set LocalHostName '???'
+sudo scutil --set ComputerName '???'
+
+sudo dscl . create /Users/Guest IsHidden 1
+sudo dscl . create /Users/Administrator IsHidden 1

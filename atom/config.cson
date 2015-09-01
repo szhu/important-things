@@ -10,6 +10,7 @@
     ]
     projectHome: "~/Code"
     disabledPackages: [
+      "atom-beautify"
       "auto-host-markdown-image"
       "auto-host-markdown-image"
       "floobits"
@@ -17,8 +18,8 @@
       "markdown-preview-plus"
       "markdown-scroll-sync"
       "markdown-table-formatter"
-      "minimap"
       "minimap-linter"
+      "minimap"
       "term2"
       "terminal-panel"
       "tidy-markdown"
@@ -43,7 +44,6 @@
     ignoredMessageTypes: [
       "Metrics/LineLength"
     ]
-    showErrorPanel: false
   "linter-rubocop": {}
   "tree-view":
     hideIgnoredNames: true

@@ -7,18 +7,25 @@
 	<key>KeepAlive</key>
 	<false/>
 	<key>Label</key>
-	<string>com.interestinglythere.syncer</string>
+	<string></string>
 	<key>LowPriorityIO</key>
 	<true/>
 	<key>Nice</key>
 	<integer>1</integer>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/Sean/Library/Application Support/InterestinglyThere/Syncer/sync.sh</string>
+		<string>/bin/sh</string>
+		<string>bin/prefsync</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>StartInterval</key>
 	<integer>28800</integer>
+	<key>StandardErrorPath</key>
+	<string>stderr.log</string>
+	<key>StandardOutPath</key>
+	<string>stdout.log</string>
+	<key>WorkingDirectory</key>
+	<string></string>
 </dict>
 </plist>

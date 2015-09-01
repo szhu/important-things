@@ -17,13 +17,11 @@
 		<string>com.interestinglythere.actively.py</string>
 	</array>
 	<key>StandardErrorPath</key>
-	<string>/Users/Sean/Library/Application Support/InterestinglyThere/Actively/Errors.log</string>
+	<string>errors.log</string>
 	<key>StandardOutPath</key>
-	<string>/Users/Sean/Library/Application Support/InterestinglyThere/Actively/Activities.log</string>
+	<string>activities.log</string>
 	<key>WorkingDirectory</key>
-	<string>/Users/Sean/Library/Application Support/InterestinglyThere/Actively/Support</string>
-	<key>Disabled</key>
-	<false/>
+	<string>???</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>OnDemand</key>

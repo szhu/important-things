@@ -1,12 +1,12 @@
 # This is @szhu's standard Ubuntu provisoner for cs.Berkeley.EDU computers.
 #
 # To use,  choose one of the following:
-# f=$(mktemp) && echo $f && curl -fsSLo $f git.io/vGOFm && make -f $f
-# f=$(mktemp) && echo $f && wget -qO $f git.io/vGOFm && make -f $f
-# wget -qO Makefile git.io/vGOFm && make
+# f=$(mktemp) && echo $f && curl -fsSLo $f git.io/vGgvB && make -f $f
+# f=$(mktemp) && echo $f && wget -qO $f git.io/vGgvB && make -f $f
+# wget -qO Makefile git.io/vGgvB && make
 #
 # Custom:
-# f=$(mktemp) && wget -qO $f git.io/vGOFm && make -f $f rule1 rule2 ...
+# f=$(mktemp) && wget -qO $f git.io/vGgvB && make -f $f rule1 rule2 ...
 
 
 # Short options
@@ -124,10 +124,11 @@ $(start-fish-stub): $(important-things)
 	cp -- ~/.local/opt/important-things/fish/support/start-fish.bash $@
 
 PHONIES += fish-set-default
-fish-set-default: $(fish) $(start-fish-stub)
+fish-set-default: $(start-fish-stub)
 	@echo; echo '## fish-set-default'
-	grep -Fq "source ~/.bash_fish_launcher" .bashrc || echo "$$start_fish_body" >> .bashrc
-	grep -Fq "source ~/.bash_fish_launcher" .bash_profile || echo "$$start_fish_body" >> .bash_profile
+	touch ~/.bashrc ~/.bash_profile
+	grep -Fq "source ~/.bash_fish_launcher" ~/.bashrc || echo "$$start_fish_body" >> ~/.bashrc
+	grep -Fq "source ~/.bash_fish_launcher" ~/.bash_profile || echo "$$start_fish_body" >> ~/.bash_profile
 
 PHONIES += subl-config
 subl-config: $(subl-config)

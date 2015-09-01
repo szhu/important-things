@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # rsync -rvx --progress --delete-during ~/'Library/Application Support/Adium 2.0/' ~/'Dropbox/Library/Application Support/Adium'
 # rsync -rvx --progress --delete-during ~/'Library/Application Support/Quicksilver/' ~/'Dropbox/Library/Application Support/Quicksilver'
