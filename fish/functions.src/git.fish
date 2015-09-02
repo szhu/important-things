@@ -13,6 +13,7 @@ abbr gf    git fetch
 abbr gg    git log
 abbr gm    git merge
 abbr gma   git merge --abort
+abbr gmc   git merge --continue
 abbr gmnf  git merge --no-ff
 abbr gmnc  git merge --no-commit
 abbr gmncf git merge --no-commit --no-ff
@@ -22,6 +23,7 @@ abbr glr   git pull --rebase
 abbr gp    git push
 abbr gr    git rebase
 abbr gra   git rebase --abort
+abbr grc   git rebase --continue
 for n in 1 2 3 4 5 6 7 8 9
     abbr gr~$n git rebase -i HEAD~$n
 end
