@@ -1,2 +1,33 @@
-LineLength:
-  enabled: false
+linters:
+
+  LineLength:
+    enabled: false
+
+  HtmlAttributes:
+    enabled: false
+
+  RuboCop:
+    enabled: true
+    # These cops are incredibly noisy when it comes to HAML templates, so we
+    # ignore them.
+    ignored_cops:
+      # Defaults
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/LineLength
+      - Style/AlignParameters
+      - Style/BlockNesting
+      - Style/FileName
+      - Style/FinalNewline
+      - Style/IfUnlessModifier
+      - Style/IndentationWidth
+      - Style/Next
+      - Style/TrailingBlankLines
+      - Style/TrailingWhitespace
+      - Style/WhileUntilModifier
+      # Custom
+      - Style/BracesAroundHashParameters
+      - Style/SpaceInsideHashLiteralBraces
+      - Style/SpaceAfterComma
+      - Style/TrailingComma

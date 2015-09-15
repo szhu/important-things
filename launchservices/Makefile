@@ -1,6 +1,5 @@
 DIR := $(shell basename $(PWD))/
-ALL += ~/.haml-lint.yml
-ALL += ~/.rubocop.yml
+ALL += ~/.duti
 
 PHONY += install
 install: $(ALL)

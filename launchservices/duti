@@ -1,0 +1,9 @@
+com.github.atom               public.source-code        editor
+com.github.atom               public.plain-text         editor
+com.github.atom               public.unix-executable    editor
+
+com.github.atom               .yml                      editor
+com.github.atom               .haml                     editor
+com.github.atom               .fhtml                    editor
+
+com.ridiculousfish.HexFiend   public.data               editor

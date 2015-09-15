@@ -1,8 +1,9 @@
 LABEL := com.interestinglythere.actively
 
-DIR_FILES := $(HOME)/.local/etc/actively
+DIR_FILES := $(HOME)/.local/opt/actively
 FILES += $(DIR_FILES)/com.interestinglythere.actively.py
 FILES += $(DIR_FILES)/com.interestinglythere.actively.scpt
+FILES += $(DIR_FILES)/bin/activ
 PLIST_DEPENDENCIES := $(FILES)
 
 DIR_PLIST := $(HOME)/Library/LaunchAgents

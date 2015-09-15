@@ -1,0 +1,44 @@
+#!/bin/bash
+
+launchagent=~/Library/LaunchAgents/com.interestinglythere.actively.plist
+log=~/.local/opt/actively/activities.log
+
+start() {
+	launchctl load "$launchagent"
+	echo "Logging started."
+}
+
+stop() {
+	launchctl unload "$launchagent"
+	echo "Logging stopped."
+}
+
+pause() {
+	stop
+	echo "Press any key to resume logging."
+	read -n 1 key >/dev/null
+	test -t 1 && test -z "$key" && echo -ne '\033[<1>A'
+	test -t 1 && echo -ne '\r'
+	start
+}
+
+tail() {
+	exec tail -f $@ -- "$log"
+}
+
+usage() {
+	echo "usage: $(basename "$0") start"
+	echo "       $(basename "$0") stop"
+	echo "       $(basename "$0") pause"
+}
+
+cmd="$1"
+shift
+case "$cmd" in
+	'')      pause $@ ;;
+	'pause') pause $@ ;;
+	'start') start $@ ;;
+	'stop' ) stop  $@ ;;
+	'tail' ) tail  $@ ;;
+	'*'    ) usage $@ ;;
+esac
