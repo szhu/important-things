@@ -4,10 +4,16 @@
   'alt-down': 'editor:move-line-down'
   'shift-cmd-l': 'editor:toggle-soft-wrap'
 
-  'ctrl-alt-right': 'term:open-split-right'
-  'ctrl-alt-left': 'term:open-split-left'
-  'ctrl-alt-down': 'term:open-split-down'
-  'ctrl-alt-up': 'term:open-split-up'
+  # 'ctrl-alt-right': 'term:open-split-right'
+  # 'ctrl-alt-left': 'term:open-split-left'
+  # 'ctrl-alt-down': 'term:open-split-down'
+  # 'ctrl-alt-up': 'term:open-split-up'
 
 '.platform-darwin atom-text-editor':
   'ctrl-j': 'autoflow:reflow-selection'
+
+'.platform-darwin atom-text-editor':
+  'cmd-b': 'bracket-matcher:select-inside-brackets'
+
+'.platform-darwin ft-outline-editor':
+  'cmd-y': 'outline-editor:toggle-strikethrough'

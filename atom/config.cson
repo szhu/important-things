@@ -5,7 +5,7 @@
     showOnStartup: false
   core:
     themes: [
-      "atom-material-ui"
+      "one-dark-ui"
       "monokai"
     ]
     projectHome: "~/Code"
@@ -17,12 +17,14 @@
       "markdown-table-formatter"
       "minimap-linter"
       "minimap"
-      "term2"
       "terminal-panel"
       "tidy-markdown"
+      "symbols-view"
+      "linter-rubocop"
     ]
     ignoredNames: [
       "*.class"
+      "*.o"
       "*.pyc"
       ".DS_Store"
       "._*"
@@ -30,9 +32,11 @@
       ".hg"
       ".svn"
     ]
+    openEmptyEditorOnStart: false
   editor:
     invisibles: {}
     fontFamily: "Menlo"
+    showInvisibles: true
     fontSize: 12
   "one-dark-ui": {}
   linter:
@@ -41,6 +45,7 @@
     ignoredMessageTypes: [
       "Metrics/LineLength"
     ]
+    lintOnFly: false
   "linter-rubocop": {}
   "tree-view":
     hideIgnoredNames: true
@@ -63,6 +68,9 @@
     scrollback: 10000
     shellArguments: " "
     titleTemplate: "{{ bashName }}"
+    fontFamily: "Menlo"
+    fontSize: "11"
+    cursorBlink: false
   "markdown-writer": {}
   "markdown-preview":
     useGitHubStyle: true
@@ -82,14 +90,21 @@
       "MERGE_MSG$"
     ]
     apikey: "092bf734-d20e-4e84-a477-bff2e7fc29b9"
-  "linter-gcc": {}
-".makefile.source":
-  softTabs: false
+  "linter-gcc":
+    gccSuppressWarnings: true
+  floobits: {}
+  "unity-dark-ui":
+    showIcons: true
+    colorStatusIndicatorsInTreeView: true
+  "git-diff":
+    showIconsInEditorGutter: true
+".fish.source":
   editor:
     tabLength: 4
 ".shell.source":
   editor:
     tabLength: 4
-".fish.source":
+".makefile.source":
+  softTabs: false
   editor:
     tabLength: 4
