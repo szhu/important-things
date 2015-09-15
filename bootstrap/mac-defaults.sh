@@ -25,3 +25,6 @@ sudo scutil --set ComputerName '???'
 
 sudo dscl . create /Users/Guest IsHidden 1
 sudo dscl . create /Users/Administrator IsHidden 1
+
+# https://trac.cyberduck.io/ticket/7302
+defaults write ch.sudo.cyberduck rendezvous.notification.limit 0

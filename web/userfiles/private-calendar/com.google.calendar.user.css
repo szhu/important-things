@@ -1,0 +1,24 @@
+.cic,
+.evt-lk,
+.cbrdcc,
+.tg-col-overlaywrapper,
+.tg-nowptr
+{
+    display: none;
+}
+
+.tg-today,
+.wk-today,
+.wk-full-mode .wk-today,
+.wk-allday .st-bg-today
+{
+    background: none;
+    font-weight: normal;
+}
+
+.wk-full-mode .wk-today,
+.wk-full-mode .wk-tomorrow
+{
+    border-left: none;
+    border-top: none;
+}

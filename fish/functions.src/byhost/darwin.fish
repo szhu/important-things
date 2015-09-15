@@ -34,7 +34,7 @@ end
 
 function __folder_select_algorithm
     # Picks first Spotlight result
-    # head -1
+    head -1
 
     # Picks shortest path
     # http://superuser.com/questions/135753
@@ -43,7 +43,7 @@ function __folder_select_algorithm
     # Picks shortest path out of top 100 Spotlight results
     # head -100 | awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
 
-    head -5 | awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
+    # head -5 | awk '(NR == 1 || length < length(shortest)) { shortest = $0 } END { print shortest }'
 end
 
 function cdto
@@ -104,6 +104,7 @@ alias subl   'open -b com.sublimetext.3'
 alias finder 'open -b com.apple.finder'
 alias github 'open -b com.github.GitHub (git rev-parse --show-toplevel)'
 abbr gh github
+abbr gu gitup
 function reveal
     osascript -e 'launch app id "com.apple.Finder"'
     open -R $argv

@@ -10,6 +10,9 @@ Style/SignalException:
 # Style/Blocks:
 #   Enabled: false
 
+LineLength:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
