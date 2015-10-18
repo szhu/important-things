@@ -38,4 +38,4 @@ abbr gs    git stash
 abbr gsp   git stash pop
 abbr gsd   git stash drop
 abbr gsa   git stash apply
-# abbr gu    git up
+abbr gu    git up

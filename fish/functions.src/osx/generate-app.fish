@@ -15,5 +15,5 @@ function generate-app
   and touch MacOS/$EXE_NAME
   and chmod +x MacOS/$EXE_NAME
   and touch MacOS/$EXE_NAME
-  and bash -c "$EDITOR MacOS/$EXE_NAME"
+  and eval $EDITOR \"MacOS/$EXE_NAME\"
 end

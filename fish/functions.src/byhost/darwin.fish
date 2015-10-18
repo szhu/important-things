@@ -103,8 +103,8 @@ end
 alias subl   'open -b com.sublimetext.3'
 alias finder 'open -b com.apple.finder'
 alias github 'open -b com.github.GitHub (git rev-parse --show-toplevel)'
-abbr gh github
-abbr gu gitup
+# abbr gh github
+abbr g gitup
 function reveal
     osascript -e 'launch app id "com.apple.Finder"'
     open -R $argv
