@@ -1,7 +1,8 @@
 {
 	"_autosort":
 	[
-		"ignored_packages"
+		"ignored_packages",
+		"added_words"
 	],
 	"added_words":
 	[
@@ -15,7 +16,8 @@
 		"autograders",
 		"toolchain",
 		"unopinionated",
-		"workflows"
+		"workflows",
+		"mlfqs"
 	],
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
@@ -44,7 +46,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/Monokai (SL) (SublimePythonIDE).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -59,12 +61,12 @@
 		"*.sublime-workspace",
 		"*.sassc",
 		"Icon?",
-		"*.svg"
+		"*.svg",
+		".tags*"
 	],
 	"folder_exclude_patterns":
 	[
 		".svn",
-		".git",
 		".hg",
 		"CVS",
 		"__pycache__",
@@ -103,10 +105,8 @@
 		"Ruby on Rails snippets",
 		"Scala",
 		"SnippetMaker",
-		"SublimeAStyleFormatter",
 		"SublimeCodeIntel",
 		"SublimeHaskell",
-		"SublimeLinter",
 		"SublimeLinter-coffee",
 		"SublimeLinter-contrib-jslint",
 		"SublimeLinter-html-tidy",
@@ -121,7 +121,12 @@
 		"draw_active"
 	],
 	"line_numbers": false,
+	"open_externally_patterns":
+	[
+		"*.pdf"
+	],
 	"open_files_in_new_window": true,
+	"prevent_bin_preview": true,
 	"remember_full_screen": true,
 	"tab_size": 4,
 	"theme": "Gravity.sublime-theme",

@@ -4,10 +4,11 @@
 		// "W191",
 		"E501", // 80 chars max
 		"E221", // multiple whitespace
+		"E272", // multiple whitespace
 		// "E211", // whitespace before (
 		// "E251", // whitespace before (
 		// "E302", // 2 blank lines
 		// "E111", // indentation is not a mutliple of four
-		// "E701"
+		"E701",
 	],
 }
