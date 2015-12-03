@@ -2,6 +2,7 @@
     "pep8": false,
 	"pep8_ignore": [
 		// "W191",
+		"E302", // expected two blank lines
 		"E501", // 80 chars max
 		"E221", // multiple whitespace
 		"E272", // multiple whitespace

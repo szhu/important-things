@@ -46,9 +46,10 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/User/Monokai (SL) (SublimePythonIDE).tmTheme",
+	"color_scheme": "Packages/Gutter Color/Monokai (SL) (SublimePythonIDE).gcfix.tmTheme",
 	"file_exclude_patterns":
 	[
+		"*.o",
 		"*.pyc",
 		"*.pyo",
 		"*.ncb",
@@ -66,6 +67,7 @@
 	],
 	"folder_exclude_patterns":
 	[
+		".git",
 		".svn",
 		".hg",
 		"CVS",

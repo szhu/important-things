@@ -14,7 +14,7 @@
   { "keys": ["ctrl+alt+t"], "command": "toggle_tabs" },
   
   { "keys": ["ctrl+alt+-"], "command": "set_setting", "args": {"setting": "rulers", "value": []} },
-  { "keys": ["ctrl+alt+="], "command": "set_setting", "args": {"setting": "rulers", "value": [65, 80, 100, 120]} },
+  { "keys": ["ctrl+alt+="], "command": "set_setting", "args": {"setting": "rulers", "value": [80, 100, 120]} },
   
   { "keys": ["ctrl+alt+["], "command": "sublimelinter_toggle_setting", "args": {"setting": "@disable", "value": true} },
   { "keys": ["ctrl+alt+]"], "command": "sublimelinter_toggle_setting", "args": {"setting": "@disable", "value": null} },
@@ -67,14 +67,15 @@
       } ] },
   { "keys": ["ctrl+j"], "command": "wrap_lines_plus" },
 
-  { "keys": ["ctrl+alt+f"], "command": "find_next_conflict" },
-  { "keys": ["ctrl+alt+o"], "command": "keep", "args": { "keep": "ours" } },
-  { "keys": ["ctrl+alt+t"], "command": "keep", "args": { "keep": "theirs" } },
-  { "keys": ["ctrl+alt+a"], "command": "keep", "args": { "keep": "ancestor" } },
-  { "keys": ["ctrl+alt+c"], "command": "list_conflict_files" },
+  // { "keys": ["ctrl+alt+f"], "command": "find_next_conflict" },
+  // { "keys": ["ctrl+alt+o"], "command": "keep", "args": { "keep": "ours" } },
+  // { "keys": ["ctrl+alt+t"], "command": "keep", "args": { "keep": "theirs" } },
+  // { "keys": ["ctrl+alt+a"], "command": "keep", "args": { "keep": "ancestor" } },
+  // { "keys": ["ctrl+alt+c"], "command": "list_conflict_files" },
 
   { "keys": ["ctrl+="], "command": "glue_views_add"},
   { "keys": ["ctrl+-"], "command": "glue_views_remove"},
   { "keys": ["ctrl+0"], "command": "glue_views_clear"},
 
+  // { "keys": ["super+z"], "command": "noop" },
 ]

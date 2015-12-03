@@ -23,7 +23,7 @@
         // "k/r" "stroustrup", "whitesmith", "banner", "gnu", "linux", "horstmann",
         // "1tbs", "otbs ", "google", "pico", "lisp", "python", "vtk", or null
         // for default.
-        // "style": null,
+        "style": "linux",
 
         // Tab options
         // "indent": Can be one of "spaces", "tab" "force-tab", "force-tab-x", or null
@@ -33,8 +33,8 @@
         // will be retrieved from Sublime Text view settings: `tab_size`, `translate_tabs_to_spaces`:
         //   1. If `translate_tabs_to_spaces` is true, "indent" will be "spaces", otherwise, "tab";
         //   2. "indent-spaces" will equal to `tab_size`.
-        // "indent": null,
-        "indent-spaces": 2,
+        "indent": null,
+        "indent-spaces": null,
 
         // === Bracket Modify Options ===
         // Attach brackets to a namespace statement. This is done regardless of
@@ -76,11 +76,11 @@
 
         // Indent 'switch' blocks so that the 'case X:' statements are indented
         // in the switch block. The entire case block is indented.
-        // "indent-switches": false,
+        "indent-switches": true,
 
         // Indent 'case X:' blocks from the 'case X:' headers. Case statements
         // not enclosed in blocks are NOT indented.
-        // "indent-cases": false,
+        "indent-cases": true,
 
         // Add extra indentation to namespace blocks. This option has
         // no effect on Java files.
@@ -151,7 +151,7 @@
         // Insert space padding around operators. Any end of line comments
         // will remain in the original column, if possible. Note that there
         // is no option to unpad. Once padded, they stay padded.
-        // "pad-oper": true,
+        "pad-oper": false,
 
         // Insert space padding around parenthesis on both the outside and
         // the inside. Any end of line comments will remain in the original

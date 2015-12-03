@@ -4,11 +4,11 @@
 		"debug": false,
 		"delay": 0.25,
 		"error_color": "D02000",
-		"gutter_theme": "Packages/SublimeLinter/gutter-themes/Circle/Circle.gutter-theme",
+		"gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
 		"gutter_theme_excludes":
 		[
 		],
-		"lint_mode": "load/save",
+		"lint_mode": "background",
 		"linters":
 		{
 			"chktex":
@@ -39,6 +39,7 @@
 				"@disable": false,
 				"args":
 				[
+					"-I/usr/local/opt/openssl/include"
 				],
 				"excludes":
 				[
@@ -58,9 +59,21 @@
 				[
 				]
 			},
+			"coffeejshint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				],
+				"globals": "",
+				"options": "browser,devel,node"
+			},
 			"coffeelint":
 			{
-				"@disable": true,
+				"@disable": false,
 				"args":
 				[
 				],
@@ -74,7 +87,7 @@
 			},
 			"cppcheck":
 			{
-				"@disable": false,
+				"@disable": true,
 				"args":
 				[
 				],
@@ -294,9 +307,19 @@
 				"excludes":
 				[
 				]
+			},
+			"slimlint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
 			}
 		},
-		"mark_style": "fill",
+		"mark_style": "solid underline",
 		"no_column_highlights_line": false,
 		"passive_warnings": false,
 		"paths":

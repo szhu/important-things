@@ -1,8 +1,6 @@
 {
 	"extensions":
 	[
-		"cy",
-		"gv",
-		"pac"
+		"js"
 	]
 }
