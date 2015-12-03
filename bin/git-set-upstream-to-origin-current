@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-git branch --set-upstream-to origin/"$(git rev-parse --abbrev-ref HEAD)"
