@@ -9,6 +9,9 @@ and function abbr -a the_alias
     alias $the_alias "$argv"
 end
 
+# Fix for weird bug: find: .: Invalid argument
+find /dev/null >/dev/null
+
 for src in (find ~/.config/fish/config -name '*.fish')
     source $src
 end

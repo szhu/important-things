@@ -8,10 +8,14 @@ abbr gb    git branch
 abbr gc    git commit
 abbr gca   git commit --amend -m '""'
 abbr gco   git checkout
+abbr gcp   git cherry-pick
+abbr gcpa  git cherry-pick --abort
+abbr gcpc  git cherry-pick --continue
 abbr gd    git diff
 abbr gf    git fetch
 abbr gg    git log
 abbr gm    git merge
+abbr gmt   git mergetool
 abbr gma   git merge --abort
 abbr gmc   git merge --continue
 abbr gmnf  git merge --no-ff
@@ -39,3 +43,6 @@ abbr gsp   git stash pop
 abbr gsd   git stash drop
 abbr gsa   git stash apply
 abbr gu    git up
+
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=565699
+set -Ux LESS RS
