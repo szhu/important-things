@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+'''
+Cleans up screen shots folder.
+'''
+
+from datetime import datetime, timedelta
+from os import listdir, makedirs, rename, chdir
+from os.path import dirname, exists
+from sys import stderr, argv
+
+
+IN_FMTS = [
+    'Screen Shot %Y-%m-%d at %I.%M.%S %p.png',
+    'Screen Shot %Y-%m-%d %H.%M.%S.png',
+]
+OUT_FMT_NOTOUCH = 'Screen Shot %Y-%m-%d %H.%M.%S.png'
+OUT_FMT_ARCHIVE = 'Screen Shot %Y-%m/Screen Shot %Y-%m-%d %H.%M.%S.png'
+ARCHIVE_THRESHOLD = timedelta(days=3)
+
+
+def get_screenshotdir():
+    from subprocess import Popen, PIPE
+    from os.path import expanduser
+    args = 'defaults read com.apple.screencapture location'.split()
+    p = Popen(args, stdout=PIPE, stderr=PIPE)
+    p.wait()
+    if p.returncode != 0:
+        errmsg = p.stderr.read()
+        if 'The domain/default pair of ' in errmsg and 'does not exist' in errmsg:
+            return expanduser('~/Desktop')
+        raise RuntimeError(errmsg)
+    return p.stdout.read()[:-1].decode('utf-8')
+
+
+if argv[1:] == ['get-screenshot-dir']:
+    from sys import stdout
+    stdout.write(get_screenshotdir())
+    exit(0)
+
+screenshotdir = get_screenshotdir()
+print >> stderr, "Checking for new screen shots in %s..." % screenshotdir
+
+chdir(screenshotdir)
+
+today = datetime.today()
+
+for src in listdir('.'):
+    for infmt in IN_FMTS:
+        try:
+            d = datetime.strptime(src, infmt)
+            break
+            # d = datetime.strptime(src, 'Screen Shot %Y-%m-%d %H%M%S.png')
+        except ValueError:
+            continue
+    else:
+        continue
+
+    # If date is after 7 days in the past, leave in place
+    if d > today or (today - d) < ARCHIVE_THRESHOLD:
+        outfmt = OUT_FMT_NOTOUCH
+    else:
+        outfmt = OUT_FMT_ARCHIVE
+
+    dst = d.strftime(outfmt)
+    if src == dst:
+        continue
+
+    print '%s -> %s' % (src, dst)
+    dstdir = dirname(dst)
+    if dstdir and not exists(dstdir):
+        makedirs(dstdir)
+    rename(src, dst)
