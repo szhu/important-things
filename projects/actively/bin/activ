@@ -26,6 +26,10 @@ tail() {
 	exec tail -f $@ -- "$log"
 }
 
+cat() {
+	exec cat -- "$log"
+}
+
 usage() {
 	echo "usage: $(basename "$0") start"
 	echo "       $(basename "$0") stop"
@@ -39,6 +43,7 @@ case "$cmd" in
 	'pause') pause $@ ;;
 	'start') start $@ ;;
 	'stop' ) stop  $@ ;;
+	'cat' )  cat   $@ ;;
 	'tail' ) tail  $@ ;;
 	'*'    ) usage $@ ;;
 esac
