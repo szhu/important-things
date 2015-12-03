@@ -21,6 +21,7 @@
       "tidy-markdown"
       "symbols-view"
       "linter-rubocop"
+      "atom-ctags"
     ]
     ignoredNames: [
       "*.class"
@@ -28,24 +29,23 @@
       "*.pyc"
       ".DS_Store"
       "._*"
-      ".git"
       ".hg"
       ".svn"
     ]
     openEmptyEditorOnStart: false
+    destroyEmptyPanes: false
   editor:
     invisibles: {}
     fontFamily: "Menlo"
-    showInvisibles: true
-    fontSize: 12
+    showIndentGuide: true
+    fontSize: 13
   "one-dark-ui": {}
   linter:
     statusIconPosition: "Right"
     statusIconScope: "File"
-    ignoredMessageTypes: [
-      "Metrics/LineLength"
-    ]
-    lintOnFly: false
+    showErrorTabProject: false
+    showErrorTabLine: true
+    showErrorPanel: false
   "linter-rubocop": {}
   "tree-view":
     hideIgnoredNames: true
@@ -90,21 +90,20 @@
       "MERGE_MSG$"
     ]
     apikey: "092bf734-d20e-4e84-a477-bff2e7fc29b9"
-  "linter-gcc":
-    gccSuppressWarnings: true
   floobits: {}
   "unity-dark-ui":
     showIcons: true
     colorStatusIndicatorsInTreeView: true
-  "git-diff":
-    showIconsInEditorGutter: true
-".fish.source":
+  "git-diff": {}
+  "linter-gcc":
+    gccDefaultCFlags: "-Wall -std=gnu99"
+".makefile.source":
+  softTabs: false
   editor:
     tabLength: 4
 ".shell.source":
   editor:
     tabLength: 4
-".makefile.source":
-  softTabs: false
+".fish.source":
   editor:
     tabLength: 4
