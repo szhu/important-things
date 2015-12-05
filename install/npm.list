@@ -1,13 +1,9 @@
+babel-cli
 bower
-brunch
+coffee-jshint
 coffeelint
-csslint
-grunt-cli
-js-yaml
-js2coffee
-karma
-learnyounode
-less
-node-gyp
 npm
-tmpin
+npm-install-missing
+react-native-cli
+UNMET PEER DEPENDENCY react-native
+watchy

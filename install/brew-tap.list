@@ -3,9 +3,5 @@ caskroom/cask
 caskroom/unofficial
 caskroom/versions
 homebrew/dupes
-homebrew/fuse
-homebrew/python
-homebrew/science
-homebrew/versions
+homebrew/services
 homebrew/x11
-mistydemeo/xfig
