@@ -12,9 +12,10 @@ from sys import stderr, argv
 IN_FMTS = [
     'Screen Shot %Y-%m-%d at %I.%M.%S %p.png',
     'Screen Shot %Y-%m-%d %H.%M.%S.png',
+    '%Y-%m-%d %H.%M.%S.png',
 ]
-OUT_FMT_NOTOUCH = 'Screen Shot %Y-%m-%d %H.%M.%S.png'
-OUT_FMT_ARCHIVE = 'Screen Shot %Y-%m/Screen Shot %Y-%m-%d %H.%M.%S.png'
+OUT_FMT_INPLACE = '%Y-%m-%d %H.%M.%S.png'
+OUT_FMT_ARCHIVE = 'Screen Shot %Y-%m/%Y-%m-%d %H.%M.%S.png'
 ARCHIVE_THRESHOLD = timedelta(days=3)
 
 
@@ -29,7 +30,7 @@ def get_screenshotdir():
         if 'The domain/default pair of ' in errmsg and 'does not exist' in errmsg:
             return expanduser('~/Desktop')
         raise RuntimeError(errmsg)
-    return p.stdout.read()[:-1].decode('utf-8')
+    return p.stdout.read()[:-1].decode('unicode_escape')
 
 
 if argv[1:] == ['get-screenshot-dir']:
@@ -49,15 +50,14 @@ for src in listdir('.'):
         try:
             d = datetime.strptime(src, infmt)
             break
-            # d = datetime.strptime(src, 'Screen Shot %Y-%m-%d %H%M%S.png')
         except ValueError:
             continue
     else:
         continue
 
-    # If date is after 7 days in the past, leave in place
+    # If date is not yet ARCHIVE_THRESHOLD in the past, leave in place
     if d > today or (today - d) < ARCHIVE_THRESHOLD:
-        outfmt = OUT_FMT_NOTOUCH
+        outfmt = OUT_FMT_INPLACE
     else:
         outfmt = OUT_FMT_ARCHIVE
 
