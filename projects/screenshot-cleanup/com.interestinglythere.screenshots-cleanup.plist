@@ -4,6 +4,8 @@
 <dict>
 	<key>Label</key>
 	<string></string>
+	<key>ProcessType</key>
+	<string>Interactive</string>
 	<key>Program</key>
 	<string>bin/screenshots-cleanup</string>
 	<key>QueueDirectories</key>

@@ -15,8 +15,8 @@ IN_FMTS = [
     '%Y-%m-%d %H.%M.%S.png',
 ]
 OUT_FMT_INPLACE = '%Y-%m-%d %H.%M.%S.png'
-OUT_FMT_ARCHIVE = 'Screen Shot %Y-%m/%Y-%m-%d %H.%M.%S.png'
-ARCHIVE_THRESHOLD = timedelta(days=3)
+OUT_FMT_ARCHIVE = '%Y-%m/%Y-%m-%d %H.%M.%S.png'
+ARCHIVE_THRESHOLD = timedelta(days=1)
 
 
 def get_screenshotdir():
