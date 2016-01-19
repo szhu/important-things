@@ -19,6 +19,7 @@
 	exec = '!exec'  # http://stackoverflow.com/questions/957928
 	hard-pull = "!git add --all :/ && git stash && git fetch && git reset --hard \"$(git tracking)\""
 	last = log -1
+	ignored = git ls-files --others -i --exclude-standard --exclude-from=.git/info/exclude
 	log-graph = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=iso --graph
 	log-short = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 	log-stats = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
