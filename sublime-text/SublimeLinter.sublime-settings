@@ -8,7 +8,7 @@
 		"gutter_theme_excludes":
 		[
 		],
-		"lint_mode": "background",
+		"lint_mode": "load/save",
 		"linters":
 		{
 			"chktex":
@@ -128,6 +128,20 @@
 					"Streams are highly discouraged\\.",
 					"Tab found; better to use spaces",
 					"Using C-style cast\\."
+				]
+			},
+			"cs162":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				],
+				"extra_flags": "",
+				"include_dirs":
+				[
 				]
 			},
 			"csslint":
@@ -320,8 +334,8 @@
 			}
 		},
 		"mark_style": "solid underline",
-		"no_column_highlights_line": false,
-		"passive_warnings": false,
+		"no_column_highlights_line": true,
+		"passive_warnings": true,
 		"paths":
 		{
 			"linux":

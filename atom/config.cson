@@ -5,7 +5,7 @@
     showOnStartup: false
   core:
     themes: [
-      "one-dark-ui"
+      "graphite-ui"
       "monokai"
     ]
     projectHome: "~/Code"
@@ -16,7 +16,6 @@
       "markdown-scroll-sync"
       "markdown-table-formatter"
       "minimap-linter"
-      "minimap"
       "terminal-panel"
       "tidy-markdown"
       "symbols-view"
@@ -32,13 +31,11 @@
       ".hg"
       ".svn"
     ]
-    openEmptyEditorOnStart: false
-    destroyEmptyPanes: false
   editor:
     invisibles: {}
     fontFamily: "Menlo"
     showIndentGuide: true
-    fontSize: 13
+    fontSize: 12
   "one-dark-ui": {}
   linter:
     statusIconPosition: "Right"
@@ -53,7 +50,6 @@
   minimap:
     plugins:
       linter: false
-    absoluteMode: true
   "atom-beautify":
     _analyticsUserId: "8747e5b9-f178-4aa4-b253-d06dbb83973c"
     language_java_disabled: true
@@ -97,13 +93,28 @@
   "git-diff": {}
   "linter-gcc":
     gccDefaultCFlags: "-Wall -std=gnu99"
-".makefile.source":
-  softTabs: false
+  blame: {}
+  term3:
+    titleTemplate: "{{ bashName }}"
+  "atom-material-ui":
+    ui:
+      disableAnimations: true
+      accentColor: "White"
+    fonts: {}
+    panels:
+      depth: true
+      panelContrast: true
+    tabs:
+      showTabIcons: "Show on all tabs"
+      tabMinWidth: true
+      tabSize: "Small"
+".fish.source":
   editor:
     tabLength: 4
 ".shell.source":
   editor:
     tabLength: 4
-".fish.source":
+".makefile.source":
+  softTabs: false
   editor:
     tabLength: 4

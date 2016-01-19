@@ -23,8 +23,8 @@
         // "k/r" "stroustrup", "whitesmith", "banner", "gnu", "linux", "horstmann",
         // "1tbs", "otbs ", "google", "pico", "lisp", "python", "vtk", or null
         // for default.
-        "style": "java",
-        // "style": "linux",
+        // "style": "java",
+        "style": "linux",
 
         // Tab options
         // "indent": Can be one of "spaces", "tab" "force-tab", "force-tab-x", or null
@@ -152,7 +152,7 @@
         // Insert space padding around operators. Any end of line comments
         // will remain in the original column, if possible. Note that there
         // is no option to unpad. Once padded, they stay padded.
-        "pad-oper": false,
+        // "pad-oper": true,
 
         // Insert space padding around parenthesis on both the outside and
         // the inside. Any end of line comments will remain in the original
@@ -197,7 +197,7 @@
         // Delete empty lines within a function or method. Empty lines outside of functions
         // or methods are NOT deleted. If used with break-blocks or break-blocks=all it will
         // delete all lines EXCEPT the lines added by the `break-blocks` options.
-        // "delete-empty-lines": false,
+        // "delete-empty-lines": true,
 
         // Fill empty lines with the white space of the previous line.
         // "fill-empty-lines": false,
@@ -224,7 +224,7 @@
         // (e.g. 'else', 'catch', ...) from their immediately preceding closing brackets.
         // Closing header brackets are always broken with broken brackets, horstmann
         // rackets, indented blocks, and indented brackets.
-        // "break-closing-brackets": false,
+        "break-closing-brackets": true,
 
         // Break "else if" header combinations into separate lines. This option has no effect
         // if keep-one-line-statements is used, the "else if" statements will remain as they are.
@@ -285,7 +285,7 @@
         // By default logical conditionals will be placed first on the new line.
         // The option break-after-logical will cause the logical conditionals to be
         // placed last on the previous line. This option has no effect without max-code-length.
-        // "max-code-length": -1,
+        // "max-code-length": 80,
         // "break-after-logical": false,
 
         // == Objective-C Options ==

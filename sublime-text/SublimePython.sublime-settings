@@ -1,4 +1,7 @@
 {
+	"suppress_python_not_found_error": false,
+	// "python_interpreter": "/bin/nonexistent",
+    "python_linter_mark_style": "solid underline", // "none" or "outline"
     "pep8": false,
 	"pep8_ignore": [
 		// "W191",

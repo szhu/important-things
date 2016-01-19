@@ -19,7 +19,16 @@
 		"workflows",
 		"mlfqs",
 		"malloc",
-		"endian"
+		"endian",
+		"–",
+		"syscalls",
+		"filesys",
+		"Yangzi",
+		"Hu",
+		"Zhu",
+		"metadata",
+		"inode",
+		"diff"
 	],
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
@@ -48,7 +57,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/Gutter Color/Monokai (SL) (SublimePythonIDE).gcfix.tmTheme",
+	"color_scheme": "Packages/User/Monokai Bright (SL) (SublimePythonIDE).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.o",
@@ -64,7 +73,6 @@
 		"*.sublime-workspace",
 		"*.sassc",
 		"Icon?",
-		"*.svg",
 		".tags*"
 	],
 	"folder_exclude_patterns":
@@ -84,10 +92,10 @@
 		"ActionScript",
 		"Additional PHP Snippets",
 		"ASP",
-		"Batch File",
 		"C#",
 		"Clojure",
 		"D",
+		"Emmet",
 		"Erlang",
 		"Go",
 		"Graphviz",
@@ -104,7 +112,6 @@
 		"OCaml",
 		"Pandoc Markdown",
 		"Pascal",
-		"Perl",
 		"Rails Developer Snippets",
 		"Ruby on Rails snippets",
 		"Scala",
@@ -115,7 +122,6 @@
 		"SublimeLinter-contrib-jslint",
 		"SublimeLinter-html-tidy",
 		"SublimeLinter-jshint",
-		"SublimeLinter-json",
 		"TCL",
 		"Textile",
 		"Vintage"
