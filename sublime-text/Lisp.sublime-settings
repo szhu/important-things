@@ -1,0 +1,8 @@
+{
+	"extensions":
+	[
+		"lisp",
+		"scm",
+		"ss"
+	]
+}

@@ -28,9 +28,23 @@
 		"Zhu",
 		"metadata",
 		"inode",
-		"diff"
+		"diff",
+		"java",
+		"prev",
+		"curr"
 	],
 	"auto_complete_commit_on_tab": true,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex"
+		}
+	],
 	"auto_complete_with_fields": true,
 	"binary_file_patterns":
 	[
@@ -57,7 +71,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/User/Monokai Bright (SL) (SublimePythonIDE).tmTheme",
+	"color_scheme": "Packages/User/Monokai (SL) (SublimePythonIDE).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.o",
@@ -82,10 +96,12 @@
 		".hg",
 		"CVS",
 		"__pycache__",
-		".sass-cache"
+		".sass-cache",
+		".bin",
+		"node_modules"
 	],
 	"font_face": "Menlo",
-	"font_size": 12,
+	"font_size": 14,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -106,11 +122,9 @@
 		"JS Snippets",
 		"JSHint Gutter",
 		"Lua",
-		"Markdown",
 		"Matlab",
 		"Objective-C",
 		"OCaml",
-		"Pandoc Markdown",
 		"Pascal",
 		"Rails Developer Snippets",
 		"Ruby on Rails snippets",
@@ -140,5 +154,6 @@
 	"remember_full_screen": true,
 	"tab_size": 4,
 	"theme": "Gravity.sublime-theme",
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
+	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?‘’“”"
 }

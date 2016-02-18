@@ -8,7 +8,7 @@
 		"gutter_theme_excludes":
 		[
 		],
-		"lint_mode": "load/save",
+		"lint_mode": "background",
 		"linters":
 		{
 			"chktex":
@@ -32,6 +32,16 @@
 				[
 					22,
 					30
+				]
+			},
+			"cjsx":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
 				]
 			},
 			"clang":
@@ -85,6 +95,16 @@
 					"Line exceeds maximum allowed length"
 				]
 			},
+			"coolc":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
 			"cppcheck":
 			{
 				"@disable": true,
@@ -128,7 +148,8 @@
 					"Streams are highly discouraged\\.",
 					"Tab found; better to use spaces",
 					"Using C-style cast\\."
-				]
+				],
+				"linelength": ""
 			},
 			"cs162":
 			{
@@ -192,6 +213,8 @@
 				"@disable": false,
 				"args":
 				[
+					"-classpath",
+					":/Users/Sean/Code/cs61b/javalib/algs4.jar:/Users/Sean/Code/cs61b/javalib/checkstyle-5.9-all.jar:/Users/Sean/Code/cs61b/javalib/classmexer.jar:/Users/Sean/Code/cs61b/javalib/gjdb.jar:/Users/Sean/Code/cs61b/javalib/hamcrest-core-1.3.jar:/Users/Sean/Code/cs61b/javalib/Jama-1.0.3.jar:/Users/Sean/Code/cs61b/javalib/jh61b.jar:/Users/Sean/Code/cs61b/javalib/junit-4.12.jar:/Users/Sean/Code/cs61b/javalib/reflections-0.9.9-RC1-uberjar.jar:/Users/Sean/Code/cs61b/javalib/stdlib-package.jar:/Users/Sean/Code/cs61b/javalib/stdlib.jar"
 				],
 				"excludes":
 				[
@@ -216,17 +239,20 @@
 				],
 				"excludes":
 				[
-				]
+				],
+				"strict": true
 			},
 			"pep257":
 			{
-				"@disable": false,
+				"@disable": true,
+				"add-ignore": "",
 				"args":
 				[
 				],
 				"excludes":
 				[
-				]
+				],
+				"ignore": ""
 			},
 			"pep8":
 			{
@@ -333,7 +359,7 @@
 				]
 			}
 		},
-		"mark_style": "solid underline",
+		"mark_style": "squiggly underline",
 		"no_column_highlights_line": true,
 		"passive_warnings": true,
 		"paths":
