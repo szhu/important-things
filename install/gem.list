@@ -1,4 +1,5 @@
 activesupport
+addressable
 ast
 astrolabe
 bigdecimal
@@ -18,9 +19,9 @@ diff-lcs
 erb2haml
 erubis
 execjs
+faraday
 fast-stemmer
 ffi
-foreman
 git-fastclone
 git-up
 grit
@@ -35,6 +36,7 @@ jekyll-coffeescript
 jekyll-gist
 jekyll-haml
 jekyll-paginate
+jekyll-redirect-from
 jekyll-sass-converter
 jekyll-watch
 json
@@ -47,8 +49,10 @@ method_source
 mime-types
 mini_portile
 minitest
+multipart-post
 nokogiri
 observr
+octokit
 parser
 parslet
 posix-spawn
@@ -70,6 +74,7 @@ ruby_parser
 rubyzip
 safe_yaml
 sass
+sawyer
 sexp_processor
 slop
 sqlite3

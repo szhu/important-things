@@ -8,12 +8,13 @@ atom-material-ui
 auto-host-markdown-image
 auto-update-packages
 autocomplete-ruby
+blame
 color-picker
 floobits
 foldingtext-for-atom
 foldingtext-markdown
-git-blame
 git-plus
+graphite-ui
 html2haml
 language-apache
 language-applescript
@@ -41,6 +42,7 @@ markdown-scroll-sync
 markdown-table-formatter
 markdown-writer
 merge-conflicts
+min-ui
 minimap
 minimap-linter
 monokai
@@ -51,7 +53,7 @@ preview-inline
 remote-edit
 script
 sort-lines
-term2
+term3
 terminal-panel
 tidy-markdown
 unity-dark-ui

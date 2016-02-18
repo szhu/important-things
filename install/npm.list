@@ -1,9 +1,19 @@
 babel-cli
 bower
 coffee-jshint
+coffee-react
 coffeelint
+cson
+foreman
+grunt
+grunt-cli
+gulp
+gulp-sass
+mapcat
+nodemon
 npm
 npm-install-missing
+react-native
 react-native-cli
-UNMET PEER DEPENDENCY react-native
+tldr
 watchy

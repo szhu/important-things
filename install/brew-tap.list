@@ -2,6 +2,7 @@ beeftornado/rmtree
 caskroom/cask
 caskroom/unofficial
 caskroom/versions
+chrismytton/formula
 homebrew/dupes
 homebrew/services
 homebrew/x11
