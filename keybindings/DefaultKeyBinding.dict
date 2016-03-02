@@ -5,8 +5,8 @@
 	"^;" = {
         "~ "    = ("insertText:", "\U2423");    /* space */
 
-         "e"    = ("insertText:", "\U2305");    /* enter */
-        "^e"    = ("insertText:", "\U21A9");    /* return */
+         "r"    = ("insertText:", "\U2305");    /* enter */
+        "^r"    = ("insertText:", "\U21A9");    /* return */
 
          "t"    = ("insertText:", "\U21E4");    /* backtab */
         "^t"    = ("insertText:", "\U21E5");    /* tab */
