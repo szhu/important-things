@@ -1,0 +1,77 @@
+# LyX 2.1.4 generated this file. If you want to make your own
+# modifications you should do them from inside LyX and save.
+
+Format 15
+
+
+#
+# MISC SECTION ######################################
+#
+
+\user_name "Sean Zhu"
+\user_email ""
+
+#
+# SCREEN & FONTS SECTION ############################
+#
+
+\screen_font_roman "Latin Modern Roman"
+\screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88
+
+#
+# COLOR SECTION ###################################
+#
+
+\set_color "background" "#ffffff"
+\set_color "mathbg" "#ffffff"
+
+#
+# PRINTER SECTION ###################################
+#
+
+
+#
+# TEX SECTION #######################################
+#
+
+
+#
+# FILE SECTION ######################################
+#
+
+
+#
+# PLAIN TEXT EXPORT SECTION ##############################
+#
+
+
+#
+# SPELLCHECKER SECTION ##############################
+#
+
+\use_pixmap_cache true
+
+#
+# LANGUAGE SUPPORT SECTION ##########################
+#
+
+
+#
+# 2nd MISC SUPPORT SECTION ##########################
+#
+
+
+#
+# FORMATS SECTION ##########################
+#
+
+
+#
+# CONVERTERS SECTION ##########################
+#
+
+
+#
+# COPIERS SECTION ##########################
+#
+
