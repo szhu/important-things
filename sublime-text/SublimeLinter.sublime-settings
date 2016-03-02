@@ -242,6 +242,16 @@
 				],
 				"strict": true
 			},
+			"lsc":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
 			"pep257":
 			{
 				"@disable": true,
