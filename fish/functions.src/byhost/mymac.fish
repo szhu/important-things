@@ -28,7 +28,7 @@ end
 for cmd in int sz cs ee
     abbr   $cmd rsyncer   $cmd
 end
-for cmd in 160 161 162 199
+for cmd in 61b 164
     abbr cs$cmd rsyncer cs$cmd
     abbr   $cmd rsyncer cs$cmd
 end
