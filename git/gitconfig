@@ -26,6 +26,7 @@
 	new-branch = checkout -b
 	subldiff = "!env PAGER='subl --wait' git diff --no-color"
 	reset-head-only =  "!f() { git symbolic-ref HEAD refs/heads/$1 && git reset; }; f"
+	reset-head-only- =  "!f() { git symbolic-ref HEAD refs/$1 && git reset; }; f"
 	root = rev-parse --show-toplevel  # http://stackoverflow.com/questions/957928
 	tracking = rev-parse --abbrev-ref --symbolic-full-name @{u}  # http://stackoverflow.com/a/9753364/782045
 	update-upstream = "!f() { git branch --set-upstream-to \"$1\"/\"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
