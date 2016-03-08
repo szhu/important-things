@@ -15,6 +15,7 @@ Format 15
 # SCREEN & FONTS SECTION ############################
 #
 
+\scroll_below_document true
 \screen_font_roman "Latin Modern Roman"
 \screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88
 
@@ -39,6 +40,10 @@ Format 15
 # FILE SECTION ######################################
 #
 
+\mouse_wheel_speed 0.80
+\completion_inline_text true
+\autocorrection_math true
+\completion_popup_text true
 
 #
 # PLAIN TEXT EXPORT SECTION ##############################
@@ -60,6 +65,7 @@ Format 15
 # 2nd MISC SUPPORT SECTION ##########################
 #
 
+\scroll_wheel_zoom ctrl
 
 #
 # FORMATS SECTION ##########################

@@ -1,0 +1,24 @@
+#!/usr/bin/env lsc
+
+global <<< require 'bake/util'
+global <<< require 'prelude-ls'
+
+SRC-DIR = basename PWD
+DST-DIR = "#HOME/Library/Application Support/LyX-2.1"
+REL-SRC-DIR = "../../../.local/opt/important-things/#SRC-DIR"
+
+ALL =
+  * 'bind/user.bind'
+  * 'preferences'
+
+
+export install = ->
+  ALL |> (map (base) -> symlink-base REL-SRC-DIR, DST-DIR, base)
+
+export uninstall = ->
+  ALL |> (map (base) -> "#DST-DIR/#base") |> rm-f
+
+export open = ->
+  shell \open, DST-DIR
+
+bake module, <[ install ]>

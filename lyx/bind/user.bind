@@ -9,7 +9,7 @@ Format 2
 \bind "C-A-1" "layout Section*"
 \bind "C-A-2" "layout Subsection*"
 \bind "C-A-3" "layout Subsubsection*"
-\bind "C-S-7" "layout Enumerate"
-\bind "C-S-8" "layout Itemize"
 \bind "C-A-0" "layout Standard"
+\bind "C-A-7" "layout Enumerate"
+\bind "C-A-9" "layout Itemize"
 
