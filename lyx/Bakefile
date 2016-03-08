@@ -1,24 +1,29 @@
 #!/usr/bin/env lsc
+global <<< require 'bake/helpers'
 
-global <<< require 'bake/util'
-global <<< require 'prelude-ls'
 
-SRC-DIR = basename PWD
+/* Config */
+
+SRC-DIR = "#HOME/.local/opt/important-things/#{basename PWD}"
 DST-DIR = "#HOME/Library/Application Support/LyX-2.1"
-REL-SRC-DIR = "../../../.local/opt/important-things/#SRC-DIR"
+
+
+/* Items */
 
 ALL =
-  * 'bind/user.bind'
-  * 'preferences'
+  * new RelSymlink SRC-DIR, DST-DIR, 'bind/user.bind'
+  * new RelSymlink SRC-DIR, DST-DIR, 'preferences'
 
+
+/* Tasks */
 
 export install = ->
-  ALL |> (map (base) -> symlink-base REL-SRC-DIR, DST-DIR, base)
+  ALL |> each (.install!)
 
 export uninstall = ->
-  ALL |> (map (base) -> "#DST-DIR/#base") |> rm-f
+  ALL |> each (.uninstall!)
 
-export open = ->
-  shell \open, DST-DIR
 
-bake module, <[ install ]>
+/* Bootstrap */
+
+process.exit bake module, <[ install ]>
