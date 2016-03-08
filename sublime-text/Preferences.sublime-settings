@@ -71,7 +71,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/User/Monokai (SL) (SublimePythonIDE).tmTheme",
+	"color_scheme": "Packages/User/Monokai Extended (SL) (SublimePythonIDE).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.o",
@@ -101,7 +101,7 @@
 		"node_modules"
 	],
 	"font_face": "Menlo",
-	"font_size": 14,
+	"font_size": 12,
 	"highlight_line": true,
 	"ignored_packages":
 	[
