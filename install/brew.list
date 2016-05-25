@@ -4,7 +4,6 @@ autojump
 bash
 binutils
 blueutil
-caskroom/cask/brew-cask
 beeftornado/rmtree/brew-rmtree
 cloc
 coreutils
@@ -18,7 +17,6 @@ exiftool
 ffmpeg
 findutils
 fish
-flow
 fswatch
 geoip
 ghostscript
@@ -26,7 +24,7 @@ gifsicle
 git
 gnu-sed
 homebrew/dupes/grep
-heroku-toolbelt
+heroku
 hub
 iftop
 imagemagick
@@ -34,14 +32,17 @@ javarepl
 jhead
 libksba
 libmagic
+libvo-aacenc
 libyaml
 links
 lorem
 lynx
 mercurial
-mongodb
+nmap
 node
+optipng
 parallel
+phantomjs
 pngquant
 postgresql
 python3
@@ -49,6 +50,7 @@ homebrew/x11/rdesktop
 homebrew/dupes/rsync
 rust
 sbt
+scons
 shellcheck
 chrismytton/formula/shoreman
 sleepwatcher

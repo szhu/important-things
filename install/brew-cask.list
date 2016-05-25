@@ -10,14 +10,12 @@ android-studio-canary
 appfresh
 audacity210 (!)
 avocode
-bartender
+backblaze
 basictex
 bean
 beardedspice
-bettertouchtool
 betterzipql
-cakebrew
-cameras
+cameras (!)
 chromium
 clipmenu
 cocoarestclient
@@ -28,13 +26,14 @@ cursorcerer
 cyberduck
 dia
 dockertoolbox
+eclipse-java
 firealpaca
 firefox
 flowdock
 fluid
 flux
 foldingtext
-framer-studio
+framer-studio (!)
 freezer
 genymotion
 gifrocket
@@ -43,6 +42,7 @@ github-desktop
 gitkraken
 gitup
 google-drive
+google-earth-pro
 google-hangouts
 google-photos-backup
 grandperspective
@@ -53,32 +53,34 @@ hewlettpackardprinterdrivers
 hex-fiend
 imagealpha
 imageoptim
-inkscape
 intellij-idea-ce
 isolator
 java
 java6
 java7
 joinme
+keyboardcleantool
 keycastr
 launchcontrol
 league-of-legends
-lyx
+logisim
 macdown
 macintosh-explorer
 macvim
 markright
 menubar-countdown
 menumeters
+messenger
 microsoft-office365 (!)
+middleclick
 minitimer
 miro-video-converter
 mpeg-streamclip
 ngrok
 nosleep
+nottingham
 nvalt
 openzfs
-origami
 osxfuse
 paparazzi
 pgadmin3
@@ -96,6 +98,7 @@ qlstephen
 qt-creator
 quicksilver
 rcdefaultapp
+retinizer
 robomongo
 safari-tab-switching
 scroll-reverser
@@ -108,7 +111,6 @@ skype
 soundflower
 sourcetree
 spark
-speak
 spectacle
 spotify-notifications
 sublime-text3
@@ -125,7 +127,9 @@ vagrant
 virtualbox
 visual-studio-code
 vlc
+webtorrent
 wireshark
 xee22 (!)
 xnconvert
 xquartz
+youview

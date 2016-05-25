@@ -1,4 +1,3 @@
 cpplint
 pyflakes
 PyYAML
-wheel
