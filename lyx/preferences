@@ -1,7 +1,7 @@
-# LyX 2.1.4 generated this file. If you want to make your own
+# LyX 2.2.0beta2 generated this file. If you want to make your own
 # modifications you should do them from inside LyX and save.
 
-Format 15
+Format 19
 
 
 #
@@ -15,6 +15,7 @@ Format 15
 # SCREEN & FONTS SECTION ############################
 #
 
+\screen_zoom 134
 \scroll_below_document true
 \screen_font_roman "Latin Modern Roman"
 \screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88
@@ -25,6 +26,7 @@ Format 15
 
 \set_color "background" "#ffffff"
 \set_color "mathbg" "#ffffff"
+\set_color "bottomarea" "#ffffff"
 
 #
 # PRINTER SECTION ###################################
@@ -40,10 +42,11 @@ Format 15
 # FILE SECTION ######################################
 #
 
-\mouse_wheel_speed 0.80
+\mouse_wheel_speed 0.8
 \completion_inline_text true
 \autocorrection_math true
 \completion_popup_text true
+\completion_minlength 5
 
 #
 # PLAIN TEXT EXPORT SECTION ##############################
@@ -71,11 +74,23 @@ Format 15
 # FORMATS SECTION ##########################
 #
 
+\format "dvi" "dvi" "DVI" "D" "xdvi" "" "document,vector,menu=export" "application/x-dvi"
+\format "dvi3" "dvi" "DVI (LuaTeX)" "V" "xdvi" "" "document,vector,menu=export" ""
+\format "docbook" "sgml" "DocBook" "B" "" "auto" "document,menu=export" ""
+\format "fen" "fen" "FEN" "" "auto" "auto" "" ""
+\format "fig" "fig" "FIG" "" "auto" "auto" "vector" "application/x-xfig"
+\format "gnumeric" "gnumeric" "Gnumeric spreadsheet" "" "" "auto" "document" "application/x-gnumeric"
+\format "agr" "agr" "Grace" "" "auto" "auto" "vector" ""
+\format "beamer.info" "pdf.info" "Info (Beamer)" "" "" "auto" "document,menu=export" ""
+\format "noteedit" "not" "Noteedit" "" "auto" "auto" "vector" ""
+\format "svg" "svg, svgz" "SVG" "" "inkscape" "inkscape" "vector,zipped=native" "image/svg+xml"
 
 #
 # CONVERTERS SECTION ##########################
 #
 
+\converter "latex" "lyx" "/Users/Sean/Applications/LyX.app/Contents/MacOS/tex2lyx -f $$i $$o" ""
+\converter "latex" "rtf" "" ""
 
 #
 # COPIERS SECTION ##########################
