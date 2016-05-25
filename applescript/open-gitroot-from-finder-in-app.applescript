@@ -26,9 +26,9 @@ on main(args)
 		-- Build command for `open`
 		set the_command to ("open -b" & space & quoted form of app_id & space & flags & space & "--" & space)
 		repeat with the_target in the_targets
-			set the_command to the_command & " " & "\"$(cd " & my quoted_path(the_target) & " && git rev-parse --show-toplevel)\""
+			set the_command to the_command & " " & "\"$(cd \"$(dirname " & my quoted_path(the_target) & ")\"; cd " & my quoted_path(the_target) & "; git rev-parse --show-toplevel)\""
 		end repeat
-		# display dialog the_command
+		# display dialog "Command:" default answer the_command
 		
 		-- Execute command
 		do shell script the_command

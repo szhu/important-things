@@ -9,14 +9,25 @@ from os.path import dirname, exists
 from sys import stderr, argv
 
 
-IN_FMTS = [
+FMTS_IN = [
     'Screen Shot %Y-%m-%d at %I.%M.%S %p.png',
     'Screen Shot %Y-%m-%d %H.%M.%S.png',
     '%Y-%m-%d %H.%M.%S.png',
+
+    # Hack for secondary monitor
+    'Screen Shot %Y-%m-%d at %I.%M.%S %p (2).png',
+    'Screen Shot %Y-%m-%d %H.%M.%S (2).png',
+    '%Y-%m-%d %H.%M.%S (2).png',
 ]
-OUT_FMT_INPLACE = '%Y-%m-%d %H.%M.%S.png'
-OUT_FMT_ARCHIVE = '%Y-%m/%Y-%m-%d %H.%M.%S.png'
-ARCHIVE_THRESHOLD = timedelta(days=1)
+FMTS_OUT = [
+    None,
+    '%Y-%m-%d %H.%M.%S.png',
+    '%Y-%m/%Y-%m-%d %H.%M.%S.png',
+]
+THRESHOLDS = [
+    timedelta(minutes=5),
+    timedelta(days=1),
+]
 
 
 def get_screenshotdir():
@@ -43,23 +54,28 @@ print >> stderr, "Checking for new screen shots in %s..." % screenshotdir
 
 chdir(screenshotdir)
 
-today = datetime.today()
+now = datetime.today()
 
 for src in listdir('.'):
-    for infmt in IN_FMTS:
+    for fmt in FMTS_IN:
         try:
-            d = datetime.strptime(src, infmt)
+            d = datetime.strptime(src, fmt)
+            age = now - d
             break
         except ValueError:
             continue
     else:
         continue
 
-    # If date is not yet ARCHIVE_THRESHOLD in the past, leave in place
-    if d > today or (today - d) < ARCHIVE_THRESHOLD:
-        outfmt = OUT_FMT_INPLACE
+    # Don't do anything
+    if age < THRESHOLDS[0]:
+        continue
+    # Rename
+    elif age < THRESHOLDS[1]:
+        outfmt = FMTS_OUT[1]
+    # Move into folder
     else:
-        outfmt = OUT_FMT_ARCHIVE
+        outfmt = FMTS_OUT[2]
 
     dst = d.strftime(outfmt)
     if src == dst:
