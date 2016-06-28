@@ -1,13 +1,6 @@
-adobe-creative-cloud
-adobe-illustrator-cc
-adobe-photoshop-cc
-adobe-reader
 alfred
-amazon-cloud-drive (!)
 android-file-transfer
-appfresh
 audacity
-audacity210 (!)
 bartender
 basictex
 bean
@@ -43,8 +36,6 @@ imagealpha
 imageoptim
 isolator
 java
-java6
-java7
 joinme
 keyboardcleantool
 keycastr
@@ -55,15 +46,13 @@ macvim
 menubar-countdown
 menumeters
 messenger
-microsoft-office365 (!)
+microsoft-office
 minitimer
 miro-video-converter (!)
 mpeg-streamclip
 ngrok
 nosleep
 nvalt
-openzfs
-osxfuse
 paparazzi
 platypus
 playback
@@ -75,20 +64,19 @@ qlstephen
 quicksilver
 rcdefaultapp
 retinizer
-safari-tab-switching
 scroll-reverser
 seashore
 secrets (!)
 shady
 silverlight
 skype
-soundflower
 spark
 spectacle
 spotify
 spotify-notifications
 sublime-text
 suspicious-package
+svgcleaner
 texts
 the-unarchiver
 thunderbird
@@ -100,3 +88,4 @@ webtorrent
 wireshark
 xnconvert
 xquartz
+zipcleaner
