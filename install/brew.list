@@ -1,3 +1,4 @@
+android-platform-tools
 ant
 homebrew/dupes/apple-gcc42
 autojump
@@ -22,6 +23,7 @@ geoip
 ghostscript
 gifsicle
 git
+gmp
 gnu-sed
 homebrew/dupes/grep
 heroku

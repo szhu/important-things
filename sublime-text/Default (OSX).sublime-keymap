@@ -65,7 +65,7 @@
         "operator":"equal",
         "operand":"source.python"
       } ] },
-  { "keys": ["ctrl+j"], "command": "wrap_lines_plus" },
+  { "keys": ["alt+j"], "command": "wrap_lines_plus" },
 
   // { "keys": ["ctrl+alt+f"], "command": "find_next_conflict" },
   // { "keys": ["ctrl+alt+o"], "command": "keep", "args": { "keep": "ours" } },
