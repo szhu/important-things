@@ -1,3 +1,3 @@
 set -x ANDROID_HOME ~/Library/Android/sdk
-set -x PATH ~/Library/Android/sdk/tools $PATH
-set -x PATH ~/Library/Android/sdk/platform-tools $PATH
+set -x PATH $PATH ~/Library/Android/sdk/tools
+set -x PATH $PATH ~/Library/Android/sdk/platform-tools
