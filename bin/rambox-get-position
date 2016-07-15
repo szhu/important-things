@@ -40,8 +40,8 @@ class RamboxSettings(object):
                 service = json.loads(result)
 
                 settings.in_order.append(service)
-                settings.by['url'][service['url']] = service
-                settings.by['type'][service['type']] = service
+                for key in settings.by:
+                    settings.by[key][service[key]] = service
 
         return settings
 
