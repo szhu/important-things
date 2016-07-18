@@ -9,6 +9,7 @@
 		"Apache Hive",
 		"ApacheConf.tmLanguage",
 		"Async Snippets",
+		"AutoCompleteJS",
 		"Babel",
 		"Babel Snippets",
 		"BeautifyRuby",
@@ -26,9 +27,11 @@
 		"Cool",
 		"CSSTidy",
 		"CTags",
+		"DocBlockr",
 		"EJS",
 		"Emmet",
 		"ES6-Toolkit",
+		"ESLint-Formatter",
 		"fish-shell",
 		"Floobits",
 		"Fold Comments",
@@ -50,7 +53,6 @@
 		"jQuery",
 		"jQuery Snippets for Coffeescript",
 		"jQuery Snippets pack",
-		"JSHint Gutter",
 		"LaTeX-cwl",
 		"LaTeXing",
 		"LaTeXTools",
@@ -87,6 +89,7 @@
 		"SublimeLinter-coffeelint",
 		"SublimeLinter-contrib-clang",
 		"SublimeLinter-contrib-coffee-jshint",
+		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-contrib-haml-lint",
 		"SublimeLinter-contrib-jslint",
 		"SublimeLinter-contrib-scss-lint",
@@ -117,7 +120,6 @@
 		"TrailingSpaces",
 		"WakaTime",
 		"Wrap Plus",
-		"x86 and x86_64 Assembly",
-		"YAML Nav"
+		"x86 and x86_64 Assembly"
 	]
 }

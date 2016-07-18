@@ -6,7 +6,7 @@ import sublime
 import sublime_plugin
 
 class MakeReadOnly(sublime_plugin.EventListener):
-    def on_activated(self, view):
+    def on_load(self, view):
         file_name = view.file_name()
         if not file_name:
             return

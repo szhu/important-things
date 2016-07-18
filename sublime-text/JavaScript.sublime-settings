@@ -3,6 +3,8 @@
 	[
 		"cy",
 		"gv",
-		"pac"
+		"pac",
+		".eslintrc",
+		".jshintrc"
 	]
 }
