@@ -18,6 +18,8 @@
 		"Hu",
 		"inode",
 		"java",
+		"keyframe",
+		"keyframes",
 		"malloc",
 		"metadata",
 		"mlfqs",
@@ -71,7 +73,7 @@
 		"*.dylib",
 		"*.scssc"
 	],
-	"color_scheme": "Packages/User/Monokai Extended (SL) (SublimePythonIDE).tmTheme",
+	"color_scheme": "Packages/User/Monokai Extended Origin (SL) (SublimePythonIDE).tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.o",
@@ -139,7 +141,6 @@
 		"SublimeLinter-html-tidy",
 		"TCL",
 		"Textile",
-		"TrailingSpaces",
 		"Vintage"
 	],
 	"indent_guide_options":
