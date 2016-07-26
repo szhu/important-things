@@ -1,5 +1,5 @@
 DIR := $(shell basename $(PWD))/
-ALL += ~/.duti
+ALL += ~/.duti.sh
 
 PHONY += install
 install: $(ALL)
