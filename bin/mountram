@@ -1,8 +1,43 @@
-#!/bin/sh
+#!/usr/bin/env python
 
-if [ -z "$3" ]
-then
-    echo "usage: mountram size diskname fmt" # HFS+
-else
-    diskutil eraseVolume "$3" "$2" `hdid -nomount ram://$(($1*2048))`
-fi
+def main(cmd, *args):
+    cmd = "mountram"
+    try:
+        size, diskname, fmt = args
+    except ValueError:
+        raise ProgramError("usage: %s size diskname fmt" % cmd)
+    size = int(size)
+    mountram(size, diskname, fmt)
+    return 0
+
+def create_ram_disk_of_size(size):
+    from subprocess import check_output
+    realsize = size * 2048
+    return check_output(['hdid', '-nomount', 'ram://%d' % realsize]).strip()
+
+def format_dev(dev, fmt, diskname):
+    from subprocess import check_call
+    check_call(['diskutil', 'eraseVolume', fmt, diskname, dev])
+
+def mountram(size, diskname, fmt):
+    dev = create_ram_disk_of_size(size)
+    format_dev(dev, fmt, diskname)
+
+
+##
+
+
+class ProgramError(Exception):
+    pass
+
+def run():
+    from sys import argv, stderr
+    try:
+        exit(main(*argv) or 0)
+    except ProgramError, exc:
+        print >> stderr, exc
+    except KeyboardInterrupt:
+        exit(1)
+
+if __name__ == '__main__':
+    run()

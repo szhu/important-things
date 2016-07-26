@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+
+
+def quote(s):
+    squo = "'"
+    dquo = '"'
+    if squo in s:
+        for char in ('\\', '$', squo, dquo):
+            s = s.replace(char, '\\' + char)
+        return dquo + s + dquo
+    elif ' ' in s:
+        return squo + s + squo
+    else:
+        return s
+
+
+def main(cmd, src, dest, *extras):
+    from os import execvp
+    from os import sep
+    from os.path import dirname
+    from os.path import realpath
+
+    linkdest = realpath(src)
+    if not src.endswith(sep):
+        linkdest = dirname(linkdest)
+
+    args = ['rsync', '-a', '--link-dest', linkdest, src, dest] + list(extras)
+    if '-v' in extras:
+        print ' '.join(map(quote, args))
+    execvp(args[0], args)
+
+
+def run():
+    from sys import argv, stderr
+    if len(argv) < 3:
+        print >> stderr, 'usage: hardclone src dest [...]'
+        exit(1)
+    else:
+        main(*argv)
+
+if __name__ == '__main__':
+    run()
