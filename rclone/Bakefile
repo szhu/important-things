@@ -1,0 +1,22 @@
+#!/usr/bin/env lsc
+global <<< require 'bake/helpers'
+
+
+/* Tasks */
+
+backup = (src, dst) !->
+  shell "rclone", "copy", "#{src}", "remote:/Backup/Current/#{dst}"
+
+export backup-code = !->
+  backup home("Code"), "Code"
+
+export backup-downloads = !->
+  backup home("Downloads"), "Downloads"
+
+export help = !->
+  list-targets-for module
+
+
+/* Bootstrap */
+
+process.exit bake module, <[ help ]>
