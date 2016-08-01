@@ -25,6 +25,7 @@ function fish_prompt --description 'Write out the prompt'
   cd (pwd)
   __fish_prompt_init
   fish_mac_icon
+  fish_mac_tab_title
 
   echo -ne '\r\033[K\n\033[K'
   __fish_prompt_status_if_error $last_status
@@ -81,19 +82,24 @@ function pretty_pwd --description 'Print the current working directory'
 end
 
 function pretty_pwd_short --description 'Print the current working directory, shortened to fit the prompt'
-	echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' -e 's-\([^/.]\)[^/]*/-\1/-g'
+  echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' -e 's-\([^/.]\)[^/]*/-\1/-g'
+end
+
+function pwd_basename
+	echo $PWD | xargs basename
 end
 
 
 function fish_mac_icon
   if [ "$TERM_PROGRAM" = 'Apple_Terminal' ]; and [ -z "$INSIDE_EMACS" ]
-    if count $__fish_title > /dev/null
-        printf "\e]7;file://%s\a" (echo -n $PWD[1] | sed 's/ /%20/g')
-    else
-        printf "\e]7;\a"
-    end
+    printf "\e]7;file://%s\a" (echo -n $PWD[1] | sed 's/ /%20/g')
   end
   true
+end
+
+# http://superuser.com/q/223308#comment352223_223314
+function fish_mac_tab_title
+  printf "\033]1;%s\007" (pwd_basename)
 end
 
 function fish_title --description 'Write out the title'
@@ -101,7 +107,7 @@ function fish_title --description 'Write out the title'
         echo -n "$__fish_title"
     else
         echo -n $__fish_title_hostname
-        pretty_pwd
+        # pwd_basename
     end
 end
 
