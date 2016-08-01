@@ -24,10 +24,7 @@ function fish_prompt --description 'Write out the prompt'
   set -l last_status $status
   cd (pwd)
   __fish_prompt_init
-  # Fish was excessively truncating the prompt, because it doesn't know that the
-  # output of __fish_prompt_mac_pwd_icon is invisible, so this is disabled for
-  # now.
-  # fish_mac_icon
+  fish_mac_icon
 
   echo -ne '\r\033[K\n\033[K'
   __fish_prompt_status_if_error $last_status
@@ -110,5 +107,4 @@ end
 
 function title --description 'Set a manual window title'
     set -g __fish_title $argv
-    fish_mac_icon
 end
