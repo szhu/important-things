@@ -1,0 +1,5 @@
+# sudo nano /etc/sudoers.d/60_interestinglythere_admin
+# Sean ALL = NOPASSWD: /usr/bin/sudo -u Administrator /usr/bin/env HOME=/Users/Administrator /usr/local/bin/fish
+# Sean ALL = NOPASSWD: /usr/bin/su - Administrator
+# Sean ALL = (Administrator) NOPASSWD: /usr/bin/login -f Administrator /Users/Administrator/.config/fish/support/start-fish-with-pwd.bash *
+Sean ALL = (Administrator) NOPASSWD: /usr/bin/login -f Administrator /Users/Administrator/.local/bin/launch-with-wd.bash *

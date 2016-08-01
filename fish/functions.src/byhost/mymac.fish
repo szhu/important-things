@@ -1,11 +1,5 @@
 test (hostname) = "mac.szhu.me" -o (hostname) = "szhu-c02.local"; or exit
 
-abbr a admin
-alias admin "command ssh -q admin@localhost"
-
-# This account cannot sudo
-abbr sudo '# sudo'
-
 # ------ SYNCING ------ #
 
 ## Rsyncer helpers
@@ -44,29 +38,32 @@ function reapache
     httpd -f ~/'.local/etc/apache2/httpd.conf'
 end
 
-# function ado
-#     if [ (count $argv) -eq 0 ]
-#         nc -U /usr/local/var/adminer
-#     else
-#         echo -e "$argv" | nc -U /usr/local/var/adminer
-#     end
-# end
 
-# Normal
-for cmd in brew brewup npm
-    eval "function sudo$cmd; ado \"$cmd \$argv\"; end"
+# ------ SWITCH TO ADMIN USER ------ #
+
+set -Ux ADMIN_USER Administrator
+set -Ux ADMIN_HOME ~Administrator
+set -Ux ADMIN_CD_SCRIPT ~Administrator/.local/bin/launch-with-wd.bash
+
+# This account cannot sudo
+abbr sudo '# sudo not allowed'
+
+# Except when it can
+function ado-with-wd
+    set -l wd $argv[1]; set -e argv[1]
+    set -l cmd (which $argv[1]); set -e argv[1]
+    test -z "$cmd"; and return 1
+    set -q ADMIN_DEBUG
+    and echo sudo -u $ADMIN_USER (which login) -f $ADMIN_USER $ADMIN_CD_SCRIPT $wd $cmd $argv
+    sudo -u $ADMIN_USER (which login) -f $ADMIN_USER $ADMIN_CD_SCRIPT $wd $cmd $argv
 end
 
-# Be interactive for these
-for cmd in pip pip3
-    eval "function sudo$cmd; ado -i \"$cmd \$argv\"; end"
+function ado
+    ado-with-wd (pwd) $argv
 end
 
-# Use current cd for these
-for cmd in gem bundle
-    eval "function sudo$cmd; ado \"cd \\\"\$PWD\\\"\" \"and $cmd \$argv\"; end"
-end
-
-# for cmd in brew npm pip pip3 gem bundle
-#     alias my$cmd (which $cmd)
-# end
+# Some shortcuts
+# alias admin "command ssh -q admin@localhost"
+alias admin "ado fish"
+abbr a admin
+alias brew 'ado-with-wd $ADMIN_HOME brew'
