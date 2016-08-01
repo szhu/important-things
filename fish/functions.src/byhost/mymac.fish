@@ -62,8 +62,19 @@ function ado
     ado-with-wd (pwd) $argv
 end
 
+function ado-at-home
+    ado-with-wd $ADMIN_HOME $argv
+end
+
 # Some shortcuts
-# alias admin "command ssh -q admin@localhost"
-alias admin "ado fish"
+alias admin 'ado fish'
+alias brew 'ado-at-home brew'
+alias gem 'ado gem'
+function npm
+    if begin; contains -- -g $argv; or contains -- --global $argv; end
+        ado-at-home npm $argv
+    else
+        npm $argv
+    end
+end
 abbr a admin
-alias brew 'ado-with-wd $ADMIN_HOME brew'
