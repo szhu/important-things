@@ -99,18 +99,21 @@ end
 
 # http://superuser.com/q/223308#comment352223_223314
 function fish_mac_tab_title
-  printf "\033]1;%s\007" (pwd_basename)
+  if count $__fish_title > /dev/null
+    printf "\033]1;%s\007" "$__fish_title"
+  else
+    printf "\033]1;%s\007" (pwd_basename)
+  end  
 end
 
 function fish_title --description 'Write out the title'
-    if count $__fish_title > /dev/null
-        echo -n "$__fish_title"
-    else
-        echo -n $__fish_title_hostname
-        # pwd_basename
-    end
+  if count $__fish_title > /dev/null
+      echo -n "$__fish_title"
+  else
+      echo -n
+  end
 end
 
 function title --description 'Set a manual window title'
-    set -g __fish_title $argv
+  set -g __fish_title $argv
 end
