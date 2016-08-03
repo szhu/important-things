@@ -1,14 +1,16 @@
 "*":
-  "exception-reporting":
-    userId: "c6d8a06c-ad1c-362a-f1ac-eece33002bb3"
-  welcome:
-    showOnStartup: false
+  "atom-beautify":
+    _analyticsUserId: "8747e5b9-f178-4aa4-b253-d06dbb83973c"
+    java_uncrustifyPath: "/usr/local/bin/uncrustify"
+    language_java_disabled: true
+  "atom-material-ui":
+    fonts: {}
+    tabs: {}
+    ui: {}
+  "auto-update-packages": {}
+  blame: {}
   core:
-    themes: [
-      "graphite-ui"
-      "monokai"
-    ]
-    projectHome: "~/Code"
+    automaticallyUpdate: false
     disabledPackages: [
       "atom-beautify"
       "auto-host-markdown-image"
@@ -21,6 +23,15 @@
       "symbols-view"
       "linter-rubocop"
       "atom-ctags"
+      "floobits"
+      "atom-html-preview"
+      "pigments"
+      "linter-flake8"
+      "git-plus"
+      "script"
+      "term3"
+      "wordcount"
+      "minimap"
     ]
     ignoredNames: [
       "*.class"
@@ -31,52 +42,64 @@
       ".hg"
       ".svn"
     ]
+    projectHome: "~/Code"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+  "custom-title":
+    template: "<%= relativeFilePath || fileName %> — <% if (projectPath) { %><%= projectName %><% } %>"
   editor:
-    invisibles: {}
+    backUpBeforeSaving: true
     fontFamily: "Menlo"
-    showIndentGuide: true
     fontSize: 12
-  "one-dark-ui": {}
+    invisibles: {}
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "c6d8a06c-ad1c-362a-f1ac-eece33002bb3"
+  floobits: {}
+  "git-blame": {}
+  "git-diff": {}
   linter:
+    showErrorPanel: false
+    showErrorTabLine: true
+    showErrorTabProject: false
     statusIconPosition: "Right"
     statusIconScope: "File"
-    showErrorTabProject: false
-    showErrorTabLine: true
-    showErrorPanel: false
+  "linter-gcc":
+    gccDefaultCFlags: "-Wall -std=gnu99"
+  "linter-haml":
+    copyRubocopYml: false
   "linter-rubocop": {}
-  "tree-view":
-    hideIgnoredNames: true
-    sortFoldersBeforeFiles: false
+  "markdown-preview":
+    useGitHubStyle: true
+  "markdown-writer": {}
   minimap:
     plugins:
       linter: false
-  "atom-beautify":
-    _analyticsUserId: "8747e5b9-f178-4aa4-b253-d06dbb83973c"
-    language_java_disabled: true
-    java_uncrustifyPath: "/usr/local/bin/uncrustify"
-  wordcount:
-    extensions: [
-      "fhtml"
-      "txt"
-    ]
-  term2:
-    shellOverride: "/usr/local/bin/fish"
-    scrollback: 10000
-    shellArguments: " "
-    titleTemplate: "{{ bashName }}"
-    fontFamily: "Menlo"
-    fontSize: "11"
-    cursorBlink: false
-  "markdown-writer": {}
-  "markdown-preview":
-    useGitHubStyle: true
-  "auto-update-packages": {}
-  "git-blame": {}
-  "linter-haml":
-    copyRubocopYml: false
+  "one-dark-ui":
+    layoutMode: "Spacious"
+    tabSizing: "Even"
   "remote-edit":
     sshPrivateKeyPath: "~/.ssh/id_dsa"
+  term2:
+    cursorBlink: false
+    fontFamily: "Menlo"
+    fontSize: "11"
+    scrollback: 10000
+    shellArguments: " "
+    shellOverride: "/usr/local/bin/fish"
+    titleTemplate: "{{ bashName }}"
+  term3:
+    titleTemplate: "{{ bashName }}"
+  "tree-view":
+    hideIgnoredNames: true
+    sortFoldersBeforeFiles: false
+  "unity-dark-ui":
+    colorStatusIndicatorsInTreeView: true
+    showIcons: true
   wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
     ignore: [
       "^/var/"
       "^/tmp/"
@@ -85,36 +108,22 @@
       "PULLREQ_EDITMSG$"
       "MERGE_MSG$"
     ]
-    apikey: "092bf734-d20e-4e84-a477-bff2e7fc29b9"
-  floobits: {}
-  "unity-dark-ui":
-    showIcons: true
-    colorStatusIndicatorsInTreeView: true
-  "git-diff": {}
-  "linter-gcc":
-    gccDefaultCFlags: "-Wall -std=gnu99"
-  blame: {}
-  term3:
-    titleTemplate: "{{ bashName }}"
-  "atom-material-ui":
-    ui:
-      disableAnimations: true
-      accentColor: "White"
-    fonts: {}
-    panels:
-      depth: true
-      panelContrast: true
-    tabs:
-      showTabIcons: "Show on all tabs"
-      tabMinWidth: true
-      tabSize: "Small"
+  "wakatime-hidden":
+    lastInit: 1470048785
+  welcome:
+    showOnStartup: false
+  wordcount:
+    extensions: [
+      "fhtml"
+      "txt"
+    ]
 ".fish.source":
   editor:
     tabLength: 4
-".shell.source":
+".makefile.source":
   editor:
     tabLength: 4
-".makefile.source":
   softTabs: false
+".shell.source":
   editor:
     tabLength: 4
