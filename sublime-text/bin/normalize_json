@@ -16,15 +16,15 @@ def main(filename=None):
         sort_settings = []
 
     rsort(obj, sort_settings=sort_settings)
-    out = dumps(obj, sort_keys=True, indent=4, separators=(',', ': '))
+    out = dumps(obj, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
     out = convert_indent_to_tabs(out)
     out = begin_lists_on_new_line(out)
 
     if filename is None:
-        print out
+        print out.encode('utf8')
     else:
         with open(filename, 'w') as f:
-            print >> f, out
+            print >> f, out.encode('utf8')
 
     return 0
 
