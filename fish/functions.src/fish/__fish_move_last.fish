@@ -27,3 +27,5 @@ function __fish_move_last --description 'Move the last element of a directory hi
 	# All ok, return success
 	return 0
 end
+# Overwrite the built-in function
+funcsave __fish_move_last

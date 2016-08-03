@@ -5,7 +5,8 @@ end
 
 function funcsupdate
     set -l functions_dir ~/.config/fish/functions/
-    set -l excluded_functions . _ __fish_pwd __fish_git_prompt abbr alias eval funced funcsave funcsnuke funcsupdate funcsreset math
+    # set -l excluded_functions . _ __fish_pwd __fish_git_prompt abbr alias eval funced funcsave funcsnuke funcsupdate funcsreset math
+    set -l excluded_functions (functions -a)
 
     for src in (find ~/.config/fish/functions.src -name '*.fish')
         echo -ne '\r\033[K'
