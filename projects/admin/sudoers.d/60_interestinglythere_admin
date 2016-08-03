@@ -1,2 +1,3 @@
 # sudo nano /etc/sudoers.d/60_interestinglythere_admin
 Sean ALL = (Administrator) NOPASSWD: /usr/bin/login -f Administrator /Users/Administrator/.local/bin/launch-with-wd.bash *
+Sean ALL = (Administrator) NOPASSWD: /usr/bin/login -fq Administrator /Users/Administrator/.local/bin/launch-with-wd.bash *

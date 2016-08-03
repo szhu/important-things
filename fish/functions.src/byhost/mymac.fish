@@ -54,8 +54,8 @@ function ado-with-wd
     set -l cmd (which $argv[1]); set -e argv[1]
     test -z "$cmd"; and return 1
     set -q ADMIN_DEBUG
-    and echo sudo -u $ADMIN_USER (which login) -f $ADMIN_USER $ADMIN_CD_SCRIPT $wd $cmd $argv
-    sudo -u $ADMIN_USER (which login) -f $ADMIN_USER $ADMIN_CD_SCRIPT $wd $cmd $argv
+    and echo sudo -u $ADMIN_USER (which login) -fq $ADMIN_USER $ADMIN_CD_SCRIPT $wd $cmd $argv
+    sudo -u $ADMIN_USER (which login) -fq $ADMIN_USER $ADMIN_CD_SCRIPT $wd $cmd $argv
 end
 
 function ado
@@ -66,15 +66,61 @@ function ado-at-home
     ado-with-wd $ADMIN_HOME $argv
 end
 
+
 # Some shortcuts
-alias admin 'ado fish'
-alias brew 'ado-at-home brew'
-alias gem 'ado gem'
+
+function admin
+    ado fish
+end
+abbr a admin
+
+function brew
+    ado-at-home brew $argv
+end
+abbr brewupp 'brew update; and brew upgrade --all --cleanup; and brew cleanup -s --force; and brew cask cleanup'
+abbr brewup  'brew update; and brew upgrade --all --cleanup'
+
+function gem
+    # if not rvm
+    if test (which gem) = /usr/bin/gem
+        ado gem $argv
+    else
+        command gem $argv
+    end
+end
+
 function npm
+    # if --global
     if begin; contains -- -g $argv; or contains -- --global $argv; end
         ado-at-home npm $argv
     else
-        npm $argv
+        command npm $argv
     end
 end
-abbr a admin
+
+function pip
+    # if not venv
+    if test (which pip) = /usr/local/bin/pip
+        ado pip $argv
+    else
+        command pip $argv
+    end
+end
+
+function pip2
+    # if not venv
+    if test (which pip2) = /usr/local/bin/pip2
+        ado pip2 $argv
+    else
+        command pip2 $argv
+    end
+end
+
+function pip3
+    # if not venv
+    if test (which pip3) = /usr/local/bin/pip3
+        ado pip3 $argv
+    else
+        command pip3 $argv
+    end
+end
