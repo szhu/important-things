@@ -14,9 +14,9 @@ function pwd-forprompt
   set -l long (pwd-pretty)
   set -l short (pwd-pretty-short)
 
-  if [ (math (echo -n $long | wc -m)" + 10 < $COLUMNS") = 1 ]
-    echo -n $short
+  if test (math (echo -n $long | wc -m)" + "(status-git-nocolor | wc -m)) -le $COLUMNS
+    echo $long
   else
-    echo -n $long
+    echo $short
   end
 end

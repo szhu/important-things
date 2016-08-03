@@ -28,6 +28,10 @@ function status-git
   which git >/dev/null; and __fish_git_prompt
 end
 
+function status-git-nocolor
+  status-git | uncolor
+end
+
 function status-prommptchar
   echo ' $ '
 end
