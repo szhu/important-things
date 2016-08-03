@@ -10,7 +10,7 @@ function funcsupdate
 
     for src in (find ~/.config/fish/functions.src -name '*.fish')
         echo -ne '\r\033[K'
-        echo -n 'source:' $src ''
+        echo -n 'source' $src ''
         source $src
     end
 
@@ -19,7 +19,7 @@ function funcsupdate
         # echo $func | grep -q '^__fish_'; and continue
         not functions -q $func; and continue
         echo -ne '\r\033[K'
-        echo -n 'save:' $func ''
+        echo -n 'save' $func ''
         funcsave $func
     end
 
