@@ -13,6 +13,9 @@ export backup-code = !->
 export backup-downloads = !->
   backup home("Downloads"), "Downloads"
 
+export backup-phone-camera = !->
+  backup home("Temporary Files/Android/Camera"), "Phone/Camera"
+
 export help = !->
   list-targets-for module
 
