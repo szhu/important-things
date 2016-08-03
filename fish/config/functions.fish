@@ -28,5 +28,10 @@ end
 
 function funcsreset
     funcsnuke
-    and funcsupdate
+    set -Ux NOHUSH
+    and exec login -f (whoami) (which fish) -c '
+        funcsupdate
+        and set -Ux NOHUSH
+        and exec fish
+    '
 end
