@@ -3,9 +3,9 @@ test (uname) = "Darwin"; or exit
 
 # Apps
 
-function subl
-  open -b 'com.sublimetext.3' $argv
-end
+# function subl
+#   open -b 'com.sublimetext.3' $argv
+# end
 
 function finder
   open -b 'com.apple.finder' $argv

@@ -26,6 +26,7 @@ user-dirs := ~/.config/user-dirs.dirs
 # Command locations
 fish := ~/.local/bin/fish
 git := /usr/bin/git
+rsubl := ~/.local/bin/rsubl
 
 
 # File bodies
@@ -67,6 +68,9 @@ export start_fish_body
 PHONIES += default
 default: ssh-key fish-set-default git-config fish-config subl-config user-dirs
 
+PHONIES += work
+work: fish fish-set-default git-config fish-config rsubl
+
 PHONIES += ssh-key
 ssh-key: $(ssh-key)
 $(ssh-key):
@@ -95,7 +99,7 @@ cs-build: $(cs-build)
 $(cs-build): $(git)
 	@echo; echo '## cs-build: $@'
 	mkdir -p $(shell echo "$@" | xargs -0 dirname)
-	test ! -e $@ && git clone -q https://github.com/rogerhub/cs-build.git $@ || true
+	test ! -e $@ && git clone -q https://github.com/szhu/cs-build.git $@ || true
 	touch $@
 
 PHONIES += git-config
@@ -138,6 +142,14 @@ $(subl-config): $(important-things)
 	rm -f -- $@
 	ln -s ../../../../.local/opt/important-things/sublime-text/ $@
 	touch $@
+
+PHONIES += rsubl
+rsubl: $(rsubl)
+$(rsubl):
+	@# https://wrgms.com/editing-files-remotely-via-ssh-on-sublimetext-3/
+	mkdir -p $(shell echo "$@" | xargs -0 dirname)
+	wget -O $@ https://raw.github.com/aurora/rmate/master/rmate
+	chmod a+x $@
 
 PHONIES += user-dirs
 user-dirs: $(user-dirs)

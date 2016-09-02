@@ -5,6 +5,6 @@
 # Check terminal
 [[ "$TERM" = "xterm-256color" || "$TERM" = "xterm-color" || "$TERM" = "screen" ]] &&
 # Check for fish
-for path in /usr/local/bin/fish /usr/bin/fish ~/.local/bin/fish; do
+for path in ~/.local/bin/fish /usr/local/bin/fish /usr/bin/fish; do
     test -e "$path" && exec "$path" 
 done
