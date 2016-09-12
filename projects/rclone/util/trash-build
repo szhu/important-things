@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+verbose() {
+    echo $ "$@"
+    "$@"
+}
+
+
+if test -z "$1"
+
+# Initial call
+then
+    find -s . -type d -path '**/build/generated' -print0 | xargs -0 -n1 "$0"
+    find -s . -type d -path '**/build/intermediates' -print0 | xargs -0 -n1 "$0"
+    find -s . -type d -path '**/build/tmp' -print0 | xargs -0 -n1 "$0"
+
+# Recursive call
+else
+    DIR="$1"
+
+    echo
+    verbose trash -a "$DIR"
+
+fi

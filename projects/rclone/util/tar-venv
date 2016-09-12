@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+verbose() {
+    echo $ "$@"
+    "$@"
+}
+
+
+if test -z "$1"
+
+# Initial call
+then
+    while
+        RESULTS="$(gfind . -type d -name 'venv' -print0 -quit)"
+        echo -n "$RESULTS" | xargs -0 -n1 "$0"
+        test -n "$RESULTS"
+    do
+        :
+    done
+
+# Recursive call
+else
+    VENV_DIR="$1"
+    PROJ_ROOT="$(dirname "$VENV_DIR")"
+
+    echo
+    verbose cd "$PROJ_ROOT"
+
+    verbose env GZIP=-9 tar -czf venv.tar.gz -- venv
+    verbose trash -a venv
+fi

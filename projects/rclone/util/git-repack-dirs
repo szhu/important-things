@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+verbose() {
+    echo $ "$@"
+    "$@"
+}
+
+
+if test -z "$1"
+
+# Initial call
+then
+    find -s . -type d -name '.git' -print0 | xargs -0 -n1 "$0"
+
+# Recursive call
+else
+    GIT_DIR="$1"
+    PROJ_ROOT="$(dirname "$GIT_DIR")"
+
+    echo
+    verbose cd "$PROJ_ROOT"
+
+    # http://gcc.gnu.org/ml/gcc/2007-12/msg00165.html
+    verbose git repack -a -d --depth=250 --window=250
+fi

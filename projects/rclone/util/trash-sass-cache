@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+verbose() {
+    echo $ "$@"
+    "$@"
+}
+
+
+if test -z "$1"
+
+# Initial call
+then
+    find -s . -type d -name .sass-cache -print0 | xargs -0 -n1 "$0"
+
+# Recursive call
+else
+    DIR="$1"
+
+    echo
+    verbose trash -a "$DIR"
+
+fi

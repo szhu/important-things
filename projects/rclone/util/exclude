@@ -1,0 +1,7 @@
+.sass-cache/**
+build/generated/**
+build/intermediates/**
+build/tmp/**
+node_modules/**
+tmp/cache/**
+venv/**
