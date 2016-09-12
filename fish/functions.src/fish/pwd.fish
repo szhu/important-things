@@ -1,13 +1,13 @@
 function pwd-pretty --description 'Print the current working directory'
-	echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' # -e 's-\([^/.]\)[^/]*/-\1/-g'
+	echo -n $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' # -e 's-\([^/.]\)[^/]*/-\1/-g'
 end
 
 function pwd-pretty-short --description 'Print the current working directory, shortened to fit the prompt'
-  echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' -e 's-\([^/.]\)[^/]*/-\1/-g'
+  echo -n $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' -e 's-\([^/.]\)[^/]*/-\1/-g'
 end
 
 function pwd-basename
-	echo $PWD | xargs basename
+	echo -n $PWD | xargs -0 basename
 end
 
 function pwd-forprompt
