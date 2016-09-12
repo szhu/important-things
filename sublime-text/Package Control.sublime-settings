@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"Anaconda",
 		"Apache Hive",
 		"ApacheConf.tmLanguage",
 		"Async Snippets",
