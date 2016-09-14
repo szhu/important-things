@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -eu
+shopt -s dotglob
+
+TMPDIR=${TMPDIR%/}
+cd $TMPDIR
+
+VOLUME_NAME="$(echo -n $TMPDIR | xargs -0 dirname | xargs -0 basename)"
+
+VOLUME="/Volumes/$VOLUME_NAME"
+
+if [[ ! -e "$VOLUME" ]]; then
+    mountram "$1" "$VOLUME_NAME" hfs+
+    # chflags -h hidden "$VOLUME"
+fi
+
+if [[ -d "$TMPDIR" ]]; then
+    mv -f -- "$TMPDIR"/* "$VOLUME/" || true
+fi
+
+if [[ -e "$TMPDIR" ]]; then
+    rm -rf "$TMPDIR" || mv "$TMPDIR" "$TMPDIR.old"
+fi
+
+ln -s "$VOLUME" "$TMPDIR"

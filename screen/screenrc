@@ -1,0 +1,16 @@
+# http://askubuntu.com/questions/87169
+# https://unix.stackexchange.com/questions/40242
+
+term screen-256color
+
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Enable mouse scrolling and scroll bar history scrolling
+termcapinfo xterm* ti@:te@
+
+# use current bg color for erased chars
+defbce on
