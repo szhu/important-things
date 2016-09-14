@@ -3,24 +3,43 @@
 set -eu
 shopt -s dotglob
 
-TMPDIR=${TMPDIR%/}
+cd "$(dirname $0)"
+BIN="$(pwd)"
+
+verbose() {
+	echo
+	echo "$@"
+	"$@"
+}
+
+TMPDIR=${TMPDIR%/}  # remove trailing slash
 cd $TMPDIR
 
 VOLUME_NAME="$(echo -n $TMPDIR | xargs -0 dirname | xargs -0 basename)"
 
 VOLUME="/Volumes/$VOLUME_NAME"
 
+if [[ -L "$TMPDIR" ]]; then
+	verbose rm "$TMPDIR"
+fi
+
+if df "$VOLUME" | grep -qv " $VOLUME$" && [[ -d "$VOLUME" ]]; then
+    verbose rm -rf "$VOLUME"
+fi
+
 if [[ ! -e "$VOLUME" ]]; then
-    mountram "$1" "$VOLUME_NAME" hfs+
+    verbose $BIN/mountram "$1" "$VOLUME_NAME" hfs+
+    # This inadvertendly makes it unclickable in the sidebar
     # chflags -h hidden "$VOLUME"
 fi
 
-if [[ -d "$TMPDIR" ]]; then
-    mv -f -- "$TMPDIR"/* "$VOLUME/" || true
+if [[ ! -L "$TMPDIR" && -d "$TMPDIR" ]]; then
+	touch "$TMPDIR/dummy"
+    verbose mv -f -- "$TMPDIR/"* "$VOLUME/" || true
 fi
 
 if [[ -e "$TMPDIR" ]]; then
-    rm -rf "$TMPDIR" || mv "$TMPDIR" "$TMPDIR.old"
+    verbose rm -rf "$TMPDIR" || verbose mv "$TMPDIR" "$TMPDIR.$$"
 fi
 
-ln -s "$VOLUME" "$TMPDIR"
+verbose ln -s "$VOLUME" "$TMPDIR"

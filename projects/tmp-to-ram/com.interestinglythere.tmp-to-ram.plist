@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.interestinglythere.tmp-to-ram</string>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>./tmp-to-ram</string>
+		<string>10000</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/tmp/tmp-to-ram.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/tmp-to-ram.out</string>
+	<key>WorkingDirectory</key>
+	<string>???</string>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
