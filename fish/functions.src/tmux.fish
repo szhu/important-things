@@ -16,3 +16,20 @@ function stm
     # ssh $host -t -- screen -d -RR $argv $argv
     ssh $host -t -- tmux new-session -A -s $argv
 end
+
+function sc
+    if test (count $argv) = 0
+        set argv main
+    end
+    screen -d -RR $argv
+end
+
+function ssc
+    set -l host $argv[1]
+    set -e argv[1]
+
+    if test (count $argv) = 0
+        set argv main
+    end
+    ssh $host -t -- screen -d -RR $argv
+end
