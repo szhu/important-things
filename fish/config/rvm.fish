@@ -1,3 +1,5 @@
+set -x -q NO_PROMPT_RVM; and exit
+
 function rvm --description='Ruby enVironment Manager'
     bass source ~/.rvm/scripts/rvm \; rvm $argv
 end
