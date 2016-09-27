@@ -1,283 +1,106 @@
-/* Modifier keys: start with C-m */
 /* http://blog.macromates.com/2006/multi-stroke-key-bindings/ */
 
 {
-	"^;" = {
-        "~ "    = ("insertText:", "\U2423");    /* space */
-
-         "r"    = ("insertText:", "\U2305");    /* enter */
-        "^r"    = ("insertText:", "\U21A9");    /* return */
-
-         "t"    = ("insertText:", "\U21E4");    /* backtab */
-        "^t"    = ("insertText:", "\U21E5");    /* tab */
-
-         "d"    = ("insertText:", "\U2326");    /* forward delete */
-        "^d"    = ("insertText:", "\U232B");    /* delete */
-
-         "2"    = ("insertText:", "\U2318");    /* command (apple) */
-        "^2"    = ("insertText:", "\U2318");    /* command (apple) */
-        "\\@"   = ("insertText:", "\U2318");    /* command (apple) */
-
-        "^`"    = ("insertText:", "\U2325");    /* option */
-        "\\~"   = ("insertText:", "\U2325");    /* option */
-        "`"     = ("insertText:", "\U2325");    /* option */
-
-         "6"    = ("insertText:", "\U2303");    /* control */
-        "^6"    = ("insertText:", "\U2303");    /* control */
-        "\\^"   = ("insertText:", "\U2303");    /* control */
-
-         "4"    = ("insertText:", "\U21E7");    /* shift */
-        "^4"    = ("insertText:", "\U21E7");    /* shift */
-        "\\$"   = ("insertText:", "\U21E7");    /* shift */
-
-         "5"    = ("insertText:", "\U21EA");    /* caps lock */
-        "^5"    = ("insertText:", "\U21EA");    /* caps lock */
-        "\\%"   = ("insertText:", "\U21EA");    /* caps lock */
-
-         "a"    = ("insertText:", "\U21E0");    /* dotted left */
-         "d"    = ("insertText:", "\U21E2");    /* dotted right */
-         "w"    = ("insertText:", "\U21E1");    /* dotted up */
-         "s"    = ("insertText:", "\U21E3");    /* dotted down */
-        "^a"    = ("insertText:", "\U2190");    /* solid left */
-        "^d"    = ("insertText:", "\U2192");    /* solid right */
-        "^w"    = ("insertText:", "\U2191");    /* solid up */
-        "^s"    = ("insertText:", "\U2193");    /* solid down */
-
-         "j"    = ("insertText:", "\U2196");    /* home */
-         "l"    = ("insertText:", "\U2198");    /* end */
-         "i"    = ("insertText:", "\U21DE");    /* page up */
-         "k"    = ("insertText:", "\U21DF");    /* page down */
-        "^j"    = ("insertText:", "\U2196");    /* home */
-        "^l"    = ("insertText:", "\U2198");    /* end */
-        "^i"    = ("insertText:", "\U21DE");    /* page up */
-        "^k"    = ("insertText:", "\U21DF");    /* page down */
-
-         "q"    = ("insertText:", "\U238B");    /* escape */ 
-         "e"    = ("insertText:", "\U23CF");    /* eject */ 
-        "^q"    = ("insertText:", "\U238B");    /* escape */ 
-        "^e"    = ("insertText:", "\U23CF");    /* eject */ 
-
-         "8"    = ("insertText:", "\U00D7");    /* times */
-        "^8"    = ("insertText:", "\U00D7");    /* times */
-        "\\*"   = ("insertText:", "\U00D7");    /* times */
-
-         "-"    = ("insertText:", "\U2212");    /* minus */
-        "^-"    = ("insertText:", "\U2212");    /* minus */
-        "\\_"   = ("insertText:", "\U2212");    /* minus */
-
-        "^ "    = ("insertText:", "\U200B");    /* zwsp */
-        " "     = ("insertText:", "\U200B");    /* zwsp */
-
-        "^v"    = ("insertText:", "\U2713");    /* checkmark */
-         "v"    = ("insertText:", "\U2713");    /* checkmark */
-        "^V"    = ("insertText:", "\U2714");    /* heavy checkmark */
-         "V"    = ("insertText:", "\U2714");    /* heavy checkmark */
-        "^x"    = ("insertText:", "\U2717");    /* ballot x */
-         "x"    = ("insertText:", "\U2717");    /* ballot x */
-        "^X"    = ("insertText:", "\U2718");    /* heavy ballot x */
-         "X"    = ("insertText:", "\U2718");    /* heavy ballot x */
-
-	};
 	"^\\\\" = {
-        "A"     = ("insertText:", "\U0391");    /* Alpha */
-        "B"     = ("insertText:", "\U0392");    /* Beta */
-        "C"     = ("insertText:", "\U03A8");    /* Cpsi */
-        "D"     = ("insertText:", "\U0394");    /* Delta */
-        "E"     = ("insertText:", "\U0395");    /* Epsilon */
-        "F"     = ("insertText:", "\U03A6");    /* Fi */
-        "G"     = ("insertText:", "\U0393");    /* Gamma */
-        "H"     = ("insertText:", "\U0397");    /* Heta */
-        "I"     = ("insertText:", "\U0399");    /* Iota */
-        "J"     = ("insertText:", "\U039E");    /* Jxi */
-        "K"     = ("insertText:", "\U039A");    /* Kappa */
-        "L"     = ("insertText:", "\U039B");    /* Lamda */
-        "M"     = ("insertText:", "\U039C");    /* Mu */
-        "N"     = ("insertText:", "\U039D");    /* Nu */
-        "O"     = ("insertText:", "\U039F");    /* Omicron */
-        "P"     = ("insertText:", "\U03A0");    /* Pi */
-        "R"     = ("insertText:", "\U03A1");    /* Rho */
-        "S"     = ("insertText:", "\U03A3");    /* Sigma */
-        "T"     = ("insertText:", "\U03A4");    /* Tau */
-        "U"     = ("insertText:", "\U0398");    /* Theta */
-        "V"     = ("insertText:", "\U03A9");    /* Vomega */
-        "X"     = ("insertText:", "\U03A7");    /* Xchi */
-        "Z"     = ("insertText:", "\U0396");    /* Zeta */
-        "Y"     = ("insertText:", "\U03A5");    /* Upsilon */
-        "a"     = ("insertText:", "\U03B1");    /* alpha */
-        "b"     = ("insertText:", "\U03B2");    /* beta */
-        "c"     = ("insertText:", "\U03C8");    /* cpsi */
-        "d"     = ("insertText:", "\U03B4");    /* delta */
-        "e"     = ("insertText:", "\U03B5");    /* epsilon */
-        "f"     = ("insertText:", "\U03C6");    /* fi */
-        "g"     = ("insertText:", "\U03B3");    /* gamma */
-        "h"     = ("insertText:", "\U03B7");    /* heta */
-        "i"     = ("insertText:", "\U03B9");    /* iota */
-        "j"     = ("insertText:", "\U03BE");    /* jxi */
-        "k"     = ("insertText:", "\U03BA");    /* kappa */
-        "l"     = ("insertText:", "\U03BB");    /* lamda */
-        "m"     = ("insertText:", "\U03BC");    /* mu */
-        "n"     = ("insertText:", "\U03BD");    /* nu */
-        "o"     = ("insertText:", "\U03BF");    /* omicron */
-        "p"     = ("insertText:", "\U03C0");    /* pi */
-        "r"     = ("insertText:", "\U03C1");    /* rho */
-        "s"     = ("insertText:", "\U03C3");    /* sigma */
-        "t"     = ("insertText:", "\U03C4");    /* tau */
-        "u"     = ("insertText:", "\U03B8");    /* theta */
-        "v"     = ("insertText:", "\U03C9");    /* vomega */
-        "w"     = ("insertText:", "\U03C2");    /* wsigma */
-        "x"     = ("insertText:", "\U03C7");    /* xchi */
-        "y"     = ("insertText:", "\U03C5");    /* upsilon */
-        "z"     = ("insertText:", "\U03B6");    /* zeta */
 
-        "^A"     = ("insertText:", "\U0391");    /* Alpha */
-        "^B"     = ("insertText:", "\U0392");    /* Beta */
-        "^C"     = ("insertText:", "\U03A8");    /* Cpsi */
-        "^D"     = ("insertText:", "\U0394");    /* Delta */
-        "^E"     = ("insertText:", "\U0395");    /* Epsilon */
-        "^F"     = ("insertText:", "\U03A6");    /* Fi */
-        "^G"     = ("insertText:", "\U0393");    /* Gamma */
-        "^H"     = ("insertText:", "\U0397");    /* Heta */
-        "^I"     = ("insertText:", "\U0399");    /* Iota */
-        "^J"     = ("insertText:", "\U039E");    /* Jxi */
-        "^K"     = ("insertText:", "\U039A");    /* Kappa */
-        "^L"     = ("insertText:", "\U039B");    /* Lamda */
-        "^M"     = ("insertText:", "\U039C");    /* Mu */
-        "^N"     = ("insertText:", "\U039D");    /* Nu */
-        "^O"     = ("insertText:", "\U039F");    /* Omicron */
-        "^P"     = ("insertText:", "\U03A0");    /* Pi */
-        "^R"     = ("insertText:", "\U03A1");    /* Rho */
-        "^S"     = ("insertText:", "\U03A3");    /* Sigma */
-        "^T"     = ("insertText:", "\U03A4");    /* Tau */
-        "^U"     = ("insertText:", "\U0398");    /* Theta */
-        "^V"     = ("insertText:", "\U03A9");    /* Vomega */
-        "^X"     = ("insertText:", "\U03A7");    /* Xchi */
-        "^Z"     = ("insertText:", "\U0396");    /* Zeta */
-        "^Y"     = ("insertText:", "\U03A5");    /* Upsilon */
-        "^a"     = ("insertText:", "\U03B1");    /* alpha */
-        "^b"     = ("insertText:", "\U03B2");    /* beta */
-        "^c"     = ("insertText:", "\U03C8");    /* cpsi */
-        "^d"     = ("insertText:", "\U03B4");    /* delta */
-        "^e"     = ("insertText:", "\U03B5");    /* epsilon */
-        "^f"     = ("insertText:", "\U03C6");    /* fi */
-        "^g"     = ("insertText:", "\U03B3");    /* gamma */
-        "^h"     = ("insertText:", "\U03B7");    /* heta */
-        "^i"     = ("insertText:", "\U03B9");    /* iota */
-        "^j"     = ("insertText:", "\U03BE");    /* jxi */
-        "^k"     = ("insertText:", "\U03BA");    /* kappa */
-        "^l"     = ("insertText:", "\U03BB");    /* lamda */
-        "^m"     = ("insertText:", "\U03BC");    /* mu */
-        "^n"     = ("insertText:", "\U03BD");    /* nu */
-        "^o"     = ("insertText:", "\U03BF");    /* omicron */
-        "^p"     = ("insertText:", "\U03C0");    /* pi */
-        "^r"     = ("insertText:", "\U03C1");    /* rho */
-        "^s"     = ("insertText:", "\U03C3");    /* sigma */
-        "^t"     = ("insertText:", "\U03C4");    /* tau */
-        "^u"     = ("insertText:", "\U03B8");    /* theta */
-        "^v"     = ("insertText:", "\U03C9");    /* vomega */
-        "^w"     = ("insertText:", "\U03C2");    /* wsigma */
-        "^x"     = ("insertText:", "\U03C7");    /* xchi */
-        "^y"     = ("insertText:", "\U03C5");    /* upsilon */
-        "^z"     = ("insertText:", "\U03B6");    /* zeta */
+		/* Invisibles */
+		"n" = ("insertText:", "⌅"); "^n" = ("insertText:", "↩");
+		"t" = ("insertText:", "⇤"); "^t" = ("insertText:", "⇥");
+		" " = ("insertText:", "␣"); "^ " = ("insertText:", "␣");
+		"z" = ("insertText:",  "​"); "^z" = ("insertText:",  "​");
+		"b" = ("insertText:", "⌦"); "^b" = ("insertText:", "⌫");
+
+		/* Special keys */
+		"q" = ("insertText:", "⎋"); "^q" = ("insertText:", "⎋");
+		"e" = ("insertText:", "⏏"); "^e" = ("insertText:", "⏏");
+
+		/* Modifiers */
+		"5" = ("insertText:", "⇪"); "^5" = ("insertText:", "⇪");
+		"4" = ("insertText:", "⇧"); "^4" = ("insertText:", "⇧");
+		"6" = ("insertText:", "⌃"); "^6" = ("insertText:", "⌃");
+		"`" = ("insertText:", "⌥"); "^`" = ("insertText:", "⌥");
+		"2" = ("insertText:", "⌘"); "^2" = ("insertText:", "⌘");
+
+		/* Directions */
+		"a" = ("insertText:", "⇠"); "h" = ("insertText:", "⇠"); "^a" = ("insertText:", "←"); "^h" = ("insertText:", "←");
+		"d" = ("insertText:", "⇢"); "l" = ("insertText:", "⇢"); "^d" = ("insertText:", "→"); "^l" = ("insertText:", "→");
+		"w" = ("insertText:", "⇡"); "k" = ("insertText:", "⇡"); "^w" = ("insertText:", "↑"); "^k" = ("insertText:", "↑");
+		"s" = ("insertText:", "⇣"); "j" = ("insertText:", "⇣"); "^s" = ("insertText:", "↓"); "^j" = ("insertText:", "↓");
+		"A" = ("insertText:", "↖"); "H" = ("insertText:", "↖"); "^A" = ("insertText:", "↖"); "^H" = ("insertText:", "↖");
+		"D" = ("insertText:", "↘"); "L" = ("insertText:", "↘"); "^D" = ("insertText:", "↘"); "^L" = ("insertText:", "↘");
+		"W" = ("insertText:", "⇞"); "K" = ("insertText:", "⇞"); "^W" = ("insertText:", "⇞"); "^K" = ("insertText:", "⇞");
+		"S" = ("insertText:", "⇟"); "J" = ("insertText:", "⇟"); "^S" = ("insertText:", "⇟"); "^J" = ("insertText:", "⇟");
+
+		/* Math */
+		"8" = ("insertText:", "×"); "^8" = ("insertText:", "×");
+		"-" = ("insertText:", "−"); "^-" = ("insertText:", "−");
+
+		/* Design */
+		"~8" = ("insertText:", "·"); "^~8" = ("insertText:", "·");
+
+        /* Boolean symbols */
+		"v" = ("insertText:", "✓"); "^v" = ("insertText:", "✓");
+		"V" = ("insertText:", "✔"); "^V" = ("insertText:", "✔");
+		"x" = ("insertText:", "✗"); "^x" = ("insertText:", "✗");
+		"X" = ("insertText:", "✘"); "^X" = ("insertText:", "✘");
+
 	};
-	"^$\\\\" = {
-        "A"     = ("insertText:", "\U0391");    /* Alpha */
-        "B"     = ("insertText:", "\U0392");    /* Beta */
-        "C"     = ("insertText:", "\U03A8");    /* Cpsi */
-        "D"     = ("insertText:", "\U0394");    /* Delta */
-        "E"     = ("insertText:", "\U0395");    /* Epsilon */
-        "F"     = ("insertText:", "\U03A6");    /* Fi */
-        "G"     = ("insertText:", "\U0393");    /* Gamma */
-        "H"     = ("insertText:", "\U0397");    /* Heta */
-        "I"     = ("insertText:", "\U0399");    /* Iota */
-        "J"     = ("insertText:", "\U039E");    /* Jxi */
-        "K"     = ("insertText:", "\U039A");    /* Kappa */
-        "L"     = ("insertText:", "\U039B");    /* Lamda */
-        "M"     = ("insertText:", "\U039C");    /* Mu */
-        "N"     = ("insertText:", "\U039D");    /* Nu */
-        "O"     = ("insertText:", "\U039F");    /* Omicron */
-        "P"     = ("insertText:", "\U03A0");    /* Pi */
-        "R"     = ("insertText:", "\U03A1");    /* Rho */
-        "S"     = ("insertText:", "\U03A3");    /* Sigma */
-        "T"     = ("insertText:", "\U03A4");    /* Tau */
-        "U"     = ("insertText:", "\U0398");    /* Theta */
-        "V"     = ("insertText:", "\U03A9");    /* Vomega */
-        "X"     = ("insertText:", "\U03A7");    /* Xchi */
-        "Z"     = ("insertText:", "\U0396");    /* Zeta */
-        "Y"     = ("insertText:", "\U03A5");    /* Upsilon */
-        "a"     = ("insertText:", "\U03B1");    /* alpha */
-        "b"     = ("insertText:", "\U03B2");    /* beta */
-        "c"     = ("insertText:", "\U03C8");    /* cpsi */
-        "d"     = ("insertText:", "\U03B4");    /* delta */
-        "e"     = ("insertText:", "\U03B5");    /* epsilon */
-        "f"     = ("insertText:", "\U03C6");    /* fi */
-        "g"     = ("insertText:", "\U03B3");    /* gamma */
-        "h"     = ("insertText:", "\U03B7");    /* heta */
-        "i"     = ("insertText:", "\U03B9");    /* iota */
-        "j"     = ("insertText:", "\U03BE");    /* jxi */
-        "k"     = ("insertText:", "\U03BA");    /* kappa */
-        "l"     = ("insertText:", "\U03BB");    /* lamda */
-        "m"     = ("insertText:", "\U03BC");    /* mu */
-        "n"     = ("insertText:", "\U03BD");    /* nu */
-        "o"     = ("insertText:", "\U03BF");    /* omicron */
-        "p"     = ("insertText:", "\U03C0");    /* pi */
-        "r"     = ("insertText:", "\U03C1");    /* rho */
-        "s"     = ("insertText:", "\U03C3");    /* sigma */
-        "t"     = ("insertText:", "\U03C4");    /* tau */
-        "u"     = ("insertText:", "\U03B8");    /* theta */
-        "v"     = ("insertText:", "\U03C9");    /* vomega */
-        "w"     = ("insertText:", "\U03C2");    /* wsigma */
-        "x"     = ("insertText:", "\U03C7");    /* xchi */
-        "y"     = ("insertText:", "\U03C5");    /* upsilon */
-        "z"     = ("insertText:", "\U03B6");    /* zeta */
+	"^;" = {
 
-        "^A"     = ("insertText:", "\U0391");    /* Alpha */
-        "^B"     = ("insertText:", "\U0392");    /* Beta */
-        "^C"     = ("insertText:", "\U03A8");    /* Cpsi */
-        "^D"     = ("insertText:", "\U0394");    /* Delta */
-        "^E"     = ("insertText:", "\U0395");    /* Epsilon */
-        "^F"     = ("insertText:", "\U03A6");    /* Fi */
-        "^G"     = ("insertText:", "\U0393");    /* Gamma */
-        "^H"     = ("insertText:", "\U0397");    /* Heta */
-        "^I"     = ("insertText:", "\U0399");    /* Iota */
-        "^J"     = ("insertText:", "\U039E");    /* Jxi */
-        "^K"     = ("insertText:", "\U039A");    /* Kappa */
-        "^L"     = ("insertText:", "\U039B");    /* Lamda */
-        "^M"     = ("insertText:", "\U039C");    /* Mu */
-        "^N"     = ("insertText:", "\U039D");    /* Nu */
-        "^O"     = ("insertText:", "\U039F");    /* Omicron */
-        "^P"     = ("insertText:", "\U03A0");    /* Pi */
-        "^R"     = ("insertText:", "\U03A1");    /* Rho */
-        "^S"     = ("insertText:", "\U03A3");    /* Sigma */
-        "^T"     = ("insertText:", "\U03A4");    /* Tau */
-        "^U"     = ("insertText:", "\U0398");    /* Theta */
-        "^V"     = ("insertText:", "\U03A9");    /* Vomega */
-        "^X"     = ("insertText:", "\U03A7");    /* Xchi */
-        "^Z"     = ("insertText:", "\U0396");    /* Zeta */
-        "^Y"     = ("insertText:", "\U03A5");    /* Upsilon */
-        "^a"     = ("insertText:", "\U03B1");    /* alpha */
-        "^b"     = ("insertText:", "\U03B2");    /* beta */
-        "^c"     = ("insertText:", "\U03C8");    /* cpsi */
-        "^d"     = ("insertText:", "\U03B4");    /* delta */
-        "^e"     = ("insertText:", "\U03B5");    /* epsilon */
-        "^f"     = ("insertText:", "\U03C6");    /* fi */
-        "^g"     = ("insertText:", "\U03B3");    /* gamma */
-        "^h"     = ("insertText:", "\U03B7");    /* heta */
-        "^i"     = ("insertText:", "\U03B9");    /* iota */
-        "^j"     = ("insertText:", "\U03BE");    /* jxi */
-        "^k"     = ("insertText:", "\U03BA");    /* kappa */
-        "^l"     = ("insertText:", "\U03BB");    /* lamda */
-        "^m"     = ("insertText:", "\U03BC");    /* mu */
-        "^n"     = ("insertText:", "\U03BD");    /* nu */
-        "^o"     = ("insertText:", "\U03BF");    /* omicron */
-        "^p"     = ("insertText:", "\U03C0");    /* pi */
-        "^r"     = ("insertText:", "\U03C1");    /* rho */
-        "^s"     = ("insertText:", "\U03C3");    /* sigma */
-        "^t"     = ("insertText:", "\U03C4");    /* tau */
-        "^u"     = ("insertText:", "\U03B8");    /* theta */
-        "^v"     = ("insertText:", "\U03C9");    /* vomega */
-        "^w"     = ("insertText:", "\U03C2");    /* wsigma */
-        "^x"     = ("insertText:", "\U03C7");    /* xchi */
-        "^y"     = ("insertText:", "\U03C5");    /* upsilon */
-        "^z"     = ("insertText:", "\U03B6");    /* zeta */
+        "A" = ("insertText:", "Α"); "^A" = ("insertText:", "Α"); "a" = ("insertText:", "α"); "^a" = ("insertText:", "α");
+        "B" = ("insertText:", "Β"); "^B" = ("insertText:", "Β"); "b" = ("insertText:", "β"); "^b" = ("insertText:", "β");
+        "C" = ("insertText:", "Ψ"); "^C" = ("insertText:", "Ψ"); "c" = ("insertText:", "ψ"); "^c" = ("insertText:", "ψ");
+        "D" = ("insertText:", "Δ"); "^D" = ("insertText:", "Δ"); "d" = ("insertText:", "δ"); "^d" = ("insertText:", "δ");
+        "E" = ("insertText:", "Ε"); "^E" = ("insertText:", "Ε"); "e" = ("insertText:", "ε"); "^e" = ("insertText:", "ε");
+        "F" = ("insertText:", "Φ"); "^F" = ("insertText:", "Φ"); "f" = ("insertText:", "φ"); "^f" = ("insertText:", "φ");
+        "G" = ("insertText:", "Γ"); "^G" = ("insertText:", "Γ"); "g" = ("insertText:", "γ"); "^g" = ("insertText:", "γ");
+        "H" = ("insertText:", "Η"); "^H" = ("insertText:", "Η"); "h" = ("insertText:", "η"); "^h" = ("insertText:", "η");
+        "I" = ("insertText:", "Ι"); "^I" = ("insertText:", "Ι"); "i" = ("insertText:", "ι"); "^i" = ("insertText:", "ι");
+        "J" = ("insertText:", "Ξ"); "^J" = ("insertText:", "Ξ"); "j" = ("insertText:", "ξ"); "^j" = ("insertText:", "ξ");
+        "K" = ("insertText:", "Κ"); "^K" = ("insertText:", "Κ"); "k" = ("insertText:", "κ"); "^k" = ("insertText:", "κ");
+        "L" = ("insertText:", "Λ"); "^L" = ("insertText:", "Λ"); "l" = ("insertText:", "λ"); "^l" = ("insertText:", "λ");
+        "M" = ("insertText:", "Μ"); "^M" = ("insertText:", "Μ"); "m" = ("insertText:", "μ"); "^m" = ("insertText:", "μ");
+        "N" = ("insertText:", "Ν"); "^N" = ("insertText:", "Ν"); "n" = ("insertText:", "ν"); "^n" = ("insertText:", "ν");
+        "O" = ("insertText:", "Ο"); "^O" = ("insertText:", "Ο"); "o" = ("insertText:", "ο"); "^o" = ("insertText:", "ο");
+        "P" = ("insertText:", "Π"); "^P" = ("insertText:", "Π"); "p" = ("insertText:", "π"); "^p" = ("insertText:", "π");
+        "R" = ("insertText:", "Ρ"); "^R" = ("insertText:", "Ρ"); "r" = ("insertText:", "ρ"); "^r" = ("insertText:", "ρ");
+        "S" = ("insertText:", "Σ"); "^S" = ("insertText:", "Σ"); "s" = ("insertText:", "σ"); "^s" = ("insertText:", "σ");
+        "T" = ("insertText:", "Τ"); "^T" = ("insertText:", "Τ"); "t" = ("insertText:", "τ"); "^t" = ("insertText:", "τ");
+        "U" = ("insertText:", "Θ"); "^U" = ("insertText:", "Θ"); "u" = ("insertText:", "θ"); "^u" = ("insertText:", "θ");
+        "V" = ("insertText:", "Ω"); "^V" = ("insertText:", "Ω"); "v" = ("insertText:", "ω"); "^v" = ("insertText:", "ω");
+        "X" = ("insertText:", "Σ"); "^X" = ("insertText:", "Σ"); "w" = ("insertText:", "ς"); "^w" = ("insertText:", "ς");
+        "Z" = ("insertText:", "Χ"); "^Z" = ("insertText:", "Χ"); "x" = ("insertText:", "χ"); "^x" = ("insertText:", "χ");
+        "Y" = ("insertText:", "Υ"); "^Y" = ("insertText:", "Υ"); "y" = ("insertText:", "υ"); "^y" = ("insertText:", "υ");
+        "Z" = ("insertText:", "Ζ"); "^Z" = ("insertText:", "Ζ"); "z" = ("insertText:", "ζ"); "^z" = ("insertText:", "ζ");
+
+	};
+	"^$;" = {
+
+        "A" = ("insertText:", "Α"); "^A" = ("insertText:", "Α"); "a" = ("insertText:", "α"); "^a" = ("insertText:", "α");
+        "B" = ("insertText:", "Β"); "^B" = ("insertText:", "Β"); "b" = ("insertText:", "β"); "^b" = ("insertText:", "β");
+        "C" = ("insertText:", "Ψ"); "^C" = ("insertText:", "Ψ"); "c" = ("insertText:", "ψ"); "^c" = ("insertText:", "ψ");
+        "D" = ("insertText:", "Δ"); "^D" = ("insertText:", "Δ"); "d" = ("insertText:", "δ"); "^d" = ("insertText:", "δ");
+        "E" = ("insertText:", "Ε"); "^E" = ("insertText:", "Ε"); "e" = ("insertText:", "ε"); "^e" = ("insertText:", "ε");
+        "F" = ("insertText:", "Φ"); "^F" = ("insertText:", "Φ"); "f" = ("insertText:", "φ"); "^f" = ("insertText:", "φ");
+        "G" = ("insertText:", "Γ"); "^G" = ("insertText:", "Γ"); "g" = ("insertText:", "γ"); "^g" = ("insertText:", "γ");
+        "H" = ("insertText:", "Η"); "^H" = ("insertText:", "Η"); "h" = ("insertText:", "η"); "^h" = ("insertText:", "η");
+        "I" = ("insertText:", "Ι"); "^I" = ("insertText:", "Ι"); "i" = ("insertText:", "ι"); "^i" = ("insertText:", "ι");
+        "J" = ("insertText:", "Ξ"); "^J" = ("insertText:", "Ξ"); "j" = ("insertText:", "ξ"); "^j" = ("insertText:", "ξ");
+        "K" = ("insertText:", "Κ"); "^K" = ("insertText:", "Κ"); "k" = ("insertText:", "κ"); "^k" = ("insertText:", "κ");
+        "L" = ("insertText:", "Λ"); "^L" = ("insertText:", "Λ"); "l" = ("insertText:", "λ"); "^l" = ("insertText:", "λ");
+        "M" = ("insertText:", "Μ"); "^M" = ("insertText:", "Μ"); "m" = ("insertText:", "μ"); "^m" = ("insertText:", "μ");
+        "N" = ("insertText:", "Ν"); "^N" = ("insertText:", "Ν"); "n" = ("insertText:", "ν"); "^n" = ("insertText:", "ν");
+        "O" = ("insertText:", "Ο"); "^O" = ("insertText:", "Ο"); "o" = ("insertText:", "ο"); "^o" = ("insertText:", "ο");
+        "P" = ("insertText:", "Π"); "^P" = ("insertText:", "Π"); "p" = ("insertText:", "π"); "^p" = ("insertText:", "π");
+        "R" = ("insertText:", "Ρ"); "^R" = ("insertText:", "Ρ"); "r" = ("insertText:", "ρ"); "^r" = ("insertText:", "ρ");
+        "S" = ("insertText:", "Σ"); "^S" = ("insertText:", "Σ"); "s" = ("insertText:", "σ"); "^s" = ("insertText:", "σ");
+        "T" = ("insertText:", "Τ"); "^T" = ("insertText:", "Τ"); "t" = ("insertText:", "τ"); "^t" = ("insertText:", "τ");
+        "U" = ("insertText:", "Θ"); "^U" = ("insertText:", "Θ"); "u" = ("insertText:", "θ"); "^u" = ("insertText:", "θ");
+        "V" = ("insertText:", "Ω"); "^V" = ("insertText:", "Ω"); "v" = ("insertText:", "ω"); "^v" = ("insertText:", "ω");
+        "X" = ("insertText:", "Σ"); "^X" = ("insertText:", "Σ"); "w" = ("insertText:", "ς"); "^w" = ("insertText:", "ς");
+        "Z" = ("insertText:", "Χ"); "^Z" = ("insertText:", "Χ"); "x" = ("insertText:", "χ"); "^x" = ("insertText:", "χ");
+        "Y" = ("insertText:", "Υ"); "^Y" = ("insertText:", "Υ"); "y" = ("insertText:", "υ"); "^y" = ("insertText:", "υ");
+        "Z" = ("insertText:", "Ζ"); "^Z" = ("insertText:", "Ζ"); "z" = ("insertText:", "ζ"); "^z" = ("insertText:", "ζ");
+
 	};
 }
