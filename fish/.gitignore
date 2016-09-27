@@ -2,4 +2,6 @@
 /fish_read_history
 /fishd.*
 /functions
-/src/local.fish
+
+/config/work.fish
+/functions.src/byhost/work.fish

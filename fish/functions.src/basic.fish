@@ -14,7 +14,7 @@ end
 function touchmod
 	set -l mode $argv[1]
 	set -e argv[1]
-	for arg in argv
+	for arg in $argv
 		test -e $arg; and echo "The file $arg already exists" >&2; and return 1
 		touch -- $arg
 		and chmod -- $mode $arg

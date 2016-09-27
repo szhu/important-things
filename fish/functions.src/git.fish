@@ -45,4 +45,5 @@ abbr gsa   git stash apply
 abbr gu    git up
 
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=565699
+set -ge LESS
 set -Ux LESS RS
