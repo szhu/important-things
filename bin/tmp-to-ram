@@ -23,7 +23,7 @@ if [[ -L "$TMPDIR" ]]; then
 	verbose rm "$TMPDIR"
 fi
 
-if df "$VOLUME" | grep -qv " $VOLUME$" && [[ -d "$VOLUME" ]]; then
+if df "$VOLUME" | tail -1 | grep -qv " $VOLUME$" && [[ -d "$VOLUME" ]]; then
     verbose rm -rf "$VOLUME"
 fi
 
