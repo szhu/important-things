@@ -1,3 +1,5 @@
+status --is-login; or exit
+
 # Backwards compatibility for fish 2.0.0
 not contains source (builtin -n)
 and alias source .
