@@ -1,5 +1,5 @@
 function screen-multiplexer--helper -a sshvar -a multiplexervar -a host -a name
-    set -e argv[1..3]
+    set -e argv[1..4]
 
     set -l ssh ssh $host -t --
     set -l nossh
