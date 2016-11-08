@@ -29,7 +29,7 @@ end
 function funcsreset
     funcsnuke
     set -Ux NOHUSH
-    and login -fq (whoami) (which fish) -c 'funcsupdate'
+    and fish -lc 'funcsupdate'
     set -Uxe NOHUSH  # Force fish to read from disk
 
     set -Ux NOHUSH

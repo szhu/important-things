@@ -52,7 +52,11 @@ function status-git
 end
 
 function status-git-nocolor
-  status-git | uncolor
+  if command -s uncolor >/dev/null
+    status-git | uncolor
+  else
+    status-git
+  end
 end
 
 function status-prommptchar

@@ -25,7 +25,8 @@ escape ^|^|
 # Turn on logging
 deflog on
 backtick 1 1 1 /bin/date +%Y-%m-%d--%H.%M.%S
-logfile /Users/seanzhu/.local/screen/%1`--%H.%t.%n.log
+backtick 2 1 1 /bin/pwd
+logfile %2`/.local/screen/%1`--%S.log
 
 
 # Disable startup message
