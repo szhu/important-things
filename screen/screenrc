@@ -11,23 +11,28 @@ attrcolor b ".I"
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # Enable mouse scrolling and scroll bar history scrolling
-termcapinfo xterm* ti@:te@
+# termcapinfo xterm* ti@:te@
 
 # use current bg color for erased chars
 defbce on
-
 
 # Change escape key
 # http://superuser.com/a/271791/110699
 escape ^|^|
 
+# Keyboard shortcuts
+bindkey ^V copy
+bindkey ^H detach
+bindkey ^N sessionname
 
 # Turn on logging
 deflog on
-backtick 1 1 1 /bin/date +%Y-%m-%d--%H.%M.%S
-backtick 2 1 1 /bin/pwd
+backtick 1 0 1 /bin/date +%Y-%m-%d--%H.%M.%S
+backtick 2 0 1 /bin/pwd
 logfile %2`/.local/screen/%1`--%S.log
 
+# Increase scrollback
+defscrollback 1000000
 
 # Disable startup message
 startup_message off

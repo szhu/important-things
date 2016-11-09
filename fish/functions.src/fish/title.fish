@@ -1,6 +1,8 @@
 function fish_title --description 'Write out the title'
   if count $__fish_title > /dev/null
       echo -n "$__fish_title"
+  else if test -n "$SSH_CLIENT"
+      pwd-pretty
   else
       echo
   end
@@ -14,7 +16,7 @@ function fish_tab_title
     appleterminal-tabtitle $__fish_title
   else
     appleterminal-tabtitle (pwd-basename)
-  end  
+  end
 end
 
 function title --description 'Set a manual window title'
@@ -24,7 +26,7 @@ end
 # When running these programs, the working dir isn't relevant
 for cmd in vagrant rsyncer ssh
     eval "
-    function $cmd
+    function $cmd --wraps $cmd
         set -l old_title \$__fish_title
         title $cmd
         command $cmd \$argv

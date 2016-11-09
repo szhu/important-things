@@ -25,6 +25,10 @@ function status-time
 end
 
 function status-git-forced
+  # Do nothing if $GIT_NO_PROMPT contains $PWD
+  for loc in $GIT_NO_PROMPT
+    echo $PWD | grep -Fq $loc; and return
+  end
   # Do nothing if not a git repo
   set -l git_root (git rev-parse --show-toplevel ^/dev/null); or return
   # Do nothing if $git_root/.git/noprompt exists
