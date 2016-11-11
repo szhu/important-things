@@ -1,13 +1,3 @@
-function fish_prompt-init
-  # Just calculate these once, to save a few cycles when displaying the prompt
-  set -q fish_prompt__user_hostname; and return
-
-  if [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
-    set -g fish_prompt__user_hostname "$USER@"(hostname|cut -d . -f 1)" "
-    set -g __fish_title_hostname (hostname | cut -d . -f 1):
-  end
-end
-
 function fish_prompt --description 'Write out the prompt'
   set -l last_status $status
   cd (pwd)
@@ -33,10 +23,7 @@ function fish_prompt --description 'Write out the prompt'
     newline-clearline
   end
 
-  if status-is-remote
-    set_color $fish_color_autosuggestion[1]
-    echo -n (status-user-hostname) ''
-  end
+  echo -n (status-user-hostname-if-remote)
 
   set_color $fish_color_cwd
   echo -n (pwd-forprompt)

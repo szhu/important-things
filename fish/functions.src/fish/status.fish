@@ -9,7 +9,24 @@ function status-hostname
 end
 
 function status-user-hostname
-  echo (whoami)@(status-hostname)
+  set -gq status__user_hostname
+  or set -g status__user_hostname (whoami)@(status-hostname)
+  echo $status__user_hostname
+end
+
+function status-user-hostname-if-remote
+  if status-is-remote
+    set_color $fish_color_autosuggestion[1]
+    echo (status-user-hostname) ''
+  end
+end
+
+function status-user-hostname-nocolor
+  if command -s uncolor >/dev/null
+    status-user-hostname-if-remote | uncolor
+  else
+    status-user-hostname-if-remote
+  end
 end
 
 
