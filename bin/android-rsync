@@ -1,0 +1,10 @@
+#!/bin/bash
+# http://ptspts.blogspot.com/2015/03/how-to-use-rsync-over-adb-on-android.html
+
+set -xe
+
+adb shell wget -O /data/local/tmp/rsync http://github.com/pts/rsyncbin/raw/master/rsync.rsync4android
+adb shell chmod 755 /data/local/tmp/rsync
+adb shell 'exec >/sdcard/rsyncd.conf && echo address = 127.0.0.1 && echo port = 1873 && echo "[root]" && echo path = / && echo use chroot = false && echo read only = false'
+adb shell /data/local/tmp/rsync --daemon --no-detach --config=/sdcard/rsyncd.conf --log-file=/proc/self/fd/2 &
+adb forward tcp:6010 tcp:1873

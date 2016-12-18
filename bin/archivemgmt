@@ -1,0 +1,177 @@
+#!/usr/bin/env python
+
+from subprocess import PIPE, CalledProcessError
+
+def flatten(args):
+    for arg in args:
+        if type(arg) in (str, unicode):
+            yield arg
+        else:
+            for subarg in arg:
+                yield subarg
+
+def check_call(*args, **kwargs):
+    from subprocess import check_call
+    return check_call(list(flatten(args)), **kwargs)
+
+
+def check_output(*args, **kwargs):
+    from subprocess import check_output
+    return check_output(list(flatten(args)), **kwargs)
+
+
+def popen(*args, **kwargs):
+    from subprocess import Popen
+    return Popen(list(flatten(args)), **kwargs)
+
+
+def find(*args, **kwargs):
+    for file in popen('find', *args, stdout=PIPE, **kwargs).stdout:
+        file = file.rstrip('\n')
+        if not file:
+            break
+        yield file
+
+
+def trash(*files):
+    trash = select_command('trash', 'gvfs-trash')
+    if trash == 'trash':
+        cmd = ['trash', '-a']
+    else:
+        cmd = [trash]
+    args = cmd + list(files)
+    return check_call(*args)
+
+
+def select_command(*commands):
+    for command in commands:
+        try:
+            check_output('which', command)
+            return command
+        except CalledProcessError, e:
+            continue
+    raise e
+
+
+COMMANDS = {}
+def command(f):
+    COMMANDS[f.__name__.replace('_', '-')] = f
+    return f
+
+
+def quote(s):
+    if type(s) in (str, unicode):
+        return ' '.join(map(quote, s))
+    else:
+        squo = "'"
+        dquo = '"'
+        if squo in s:
+            for char in ('\\', '$', squo, dquo):
+                s = s.replace(char, '\\' + char)
+            return dquo + s + dquo
+        elif ' ' in s:
+            return squo + s + squo
+        else:
+            return s
+
+
+def hardclone(src, dest, *extras):
+    from os import sep
+    from os.path import dirname, realpath
+
+    linkdest = realpath(src)
+    if not src.endswith(sep):
+        linkdest = dirname(linkdest)
+
+    args = ['rsync', '-a', '--link-dest', linkdest, src, dest] + list(extras)
+    if '-v' in extras:
+        print quote(args)
+    check_call(args)
+
+
+@command
+def merge(*srcs):
+    from os import sep
+    srcs = list(srcs)
+    dst = srcs.pop()
+    for src in srcs:
+        src = src.rstrip(sep) + sep
+        hardclone(src, dst, '--ignore-existing')
+        check_call('rsync', '-a', src, dst, '--dry-run', '--out-format', r'Not same: %f')
+
+
+gfind = select_command('gfind', 'find')
+metadata_fmt = ('-maxdepth', '0', '-printf', r'.metadata v0.1\nPath: %p\nName: %f\nPerm: %m        %M\nModT: %Ts %T+%Tz\n')
+
+
+def write_bom_single(bomloc, dir):
+    print "writing: " + bomloc
+    with open(bomloc, 'w') as bomfile:
+        check_call(gfind, '.', metadata_fmt, stdout=bomfile)
+        check_call('echo', stdout=bomfile)
+        for file in find('.', vnames('.*.metadata'), FILES, cwd=dir):
+            check_call('md5', file, stdout=bomfile)
+
+
+@command
+def write_bom(where, *dirs):
+    for dir in dirs:
+        dir = dir.rstrip('/')
+        write_bom_single(where + "/" + dir + ".txt", dir)
+
+
+FILES = ('-type', 'f')
+DIRS = ('-type', 'd')
+
+def vnames(*names):
+    for name in names:
+        yield '!'
+        yield '-name'
+        yield name
+
+
+def names(*names):
+    for name in names:
+        yield '-name'
+        yield name
+
+
+@command
+def write_metadata():
+    from os.path import exists
+    gfind = select_command('gfind', 'find')
+    for file in find('.', vnames('.', '.*.metadata', '*.metadata', '.DS_Store'), FILES):
+        new_content = check_output(gfind, file, metadata_fmt)
+        if exists(file + '.metadata'):
+            with open(file + '.metadata', 'r') as f:
+                old_content = f.read()
+                if old_content != new_content:
+                    print 'Not same: ' + file + '\n' + old_content + new_content
+        else:
+            with open(file + '.metadata', 'w') as f:
+                f.write(new_content)
+
+
+def ignored(where):
+    for file in find(where, names('.DS_Store'), FILES):
+        yield file
+    for file in find(where, names('.thumbnails'), DIRS):
+        yield file
+
+
+@command
+def print_ignored(where):
+    for file in ignored(where):
+        print file
+
+
+@command
+def trash_ignored(where):
+    for file in ignored(where):
+        print file
+        trash(file)
+
+
+if __name__ == '__main__':
+    from sys import argv
+    COMMANDS[argv[1]](*argv[2:])
