@@ -1,0 +1,27 @@
+#!/system/xbin/bash
+
+verbose() {
+  echo $ "$@"
+  "$@"
+}
+
+export BASE_LOCAL="/sdcard"
+export BASE_REMOTE="acd:/Backup/Current/Android"
+
+pclone() {
+  [[ -n "$1" ]] || return 1
+  [[ -n "$2" ]] || return 1
+  local cmd="$1"; shift
+  for path in "$@"; do
+    verbose rclone "$cmd" "$BASE_LOCAL/$path" "$BASE_REMOTE/$path"
+  done
+}
+
+if [[ -z "$@" ]]; then
+  echo 'pclone: usage:'
+  echo '  a) pclone move DCIM/Camera'
+  echo '  b) pclone move Pictures/Screenshots'
+  echo '  c) pclone move Movies/Screencasts'
+else
+  pclone "$@"
+fi
