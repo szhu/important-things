@@ -1,3 +1,13 @@
+function uncolor-if-possible
+  if begin; command -s perl >/dev/null; and command -s uncolor >/dev/null; end
+    # ok great
+    uncolor
+  else
+    # if not is ok too
+    cat
+  end
+end
+
 function pwd-pretty --description 'Print the current working directory'
 	echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' # -e 's-\([^/.]\)[^/]*/-\1/-g'
 end
@@ -15,7 +25,7 @@ function pwd-forprompt
   set -l short (pwd-pretty-short)
 
   set -l longprompt (status-user-hostname-if-remote) $long (status-git)
-  set -l longpromptcols (math (echo $longprompt | uncolor | wc -m))
+  set -l longpromptcols (math (echo $longprompt | uncolor-if-possible | wc -m))
   if test $longpromptcols -le $COLUMNS
     echo $long
   else
