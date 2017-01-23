@@ -25,7 +25,7 @@ end
 # Other
 
 function status-returncode-error -a errno
-  test $errno -eq 0; and return
+  test "$errno" -eq 0; and return
   echo -n "[Error $errno]"
 end
 

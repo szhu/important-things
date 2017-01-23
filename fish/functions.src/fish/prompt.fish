@@ -15,7 +15,7 @@ function fish_prompt --description 'Write out the prompt'
 
   newline-clearline
 
-  if test $last_status -ne 0
+  if test "$last_status" -ne 0
     set_color red
     status-returncode-error $last_status
 

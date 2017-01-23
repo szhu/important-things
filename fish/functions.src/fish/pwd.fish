@@ -26,7 +26,7 @@ function pwd-forprompt
 
   set -l longprompt (status-user-hostname-if-remote) $long (status-git)
   set -l longpromptcols (math (echo $longprompt | uncolor-if-possible | wc -m))
-  if test $longpromptcols -le $COLUMNS
+  if test "$longpromptcols" -le "$COLUMNS"
     echo $long
   else
     echo $short

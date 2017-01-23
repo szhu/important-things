@@ -4,7 +4,7 @@ function __fish_move_last --description 'Move the last element of a directory hi
 
 	set -l size_src (count $$src)
 
-	if test $size_src = 0
+	if test "$size_src" = 0
 		# Cannot make this step
 		# CUSTOM
 		printf (_ "\r"(tput smso)"Hit end of history..."(tput rmso))
