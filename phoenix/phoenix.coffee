@@ -1,28 +1,3 @@
-# within = (point, rect) ->
-#   return Math.min(
-#     point.x - rect.x,
-#     point.y - rect.y,
-#     rect.x + rect.width - point.x,
-#     rect.y + rect.height - point.y,
-#   )
-
-# Event.on 'mouseDidMove', ->
-#   mouseLocation = Mouse.location()
-#   for window in Window.recent()
-#     if within(mouseLocation, window.frame()) > 0
-#       window.focus()
-#       break
-
-# How far is point inside rect?
-within = (point, rect) ->
-  return Math.min(
-    point.x - rect.x,
-    point.y - rect.y,
-    rect.x + rect.width - point.x,
-    rect.y + rect.height - point.y,
-  )
-
-
 # Calculate the length of the last consecutive series of the same items
 class Streak
   constructor: ->
@@ -37,21 +12,13 @@ class Streak
       @lastItem = item
 
 
-focusWindowUnderMouse = do (lastWidowStreak = new Streak) ->
-  return ->
-    mouseLocation = Mouse.location()
-    window = Window.focused()
+focusWindowUnderMouse = do (lastWindowStreak = new Streak) ->
+  return (location) ->
+    window = Window.at(location)
     return unless window?
-    return if within(mouseLocation, Window.focused().frame()) > 0
-    for window in Window.recent()
-      distWithin = within(mouseLocation, window.frame())
-      if distWithin > 40
-        lastWidowStreak.push window
-        window.focus()  if lastWidowStreak.length >= 2
-        return window
-      else if distWithin > -40
-        return window
-    return false
+    lastWindowStreak.push window
+    window.raise()  if lastWindowStreak.length >= 1
+    return window
 
 
 focusWindowUnderMouseEventId = null
