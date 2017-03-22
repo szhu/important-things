@@ -6,7 +6,7 @@ abbr wuf   git commit -m
 abbr gaa   git add --all :/
 abbr gb    git branch
 abbr gc    git commit
-abbr gca   git commit --amend --no-edit
+abbr gca   git commit --amend -m '""'
 abbr gco   git checkout
 abbr gcp   git cherry-pick
 abbr gcpa  git cherry-pick --abort

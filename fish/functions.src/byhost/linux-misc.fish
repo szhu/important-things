@@ -9,16 +9,22 @@ and function rmate
     set -l flags
     contains -- --wait $argv; and set flags $flags --wait
     contains -- -f $argv; and set flags $flags -f
+    set -l saved_rmates (rmates-fmt -o command=)
 
     set -l invoked_rmate
     for arg in $argv
         contains -- --wait $arg; and continue
         contains -- -f $arg; and continue
         set invoked_rmate 1
-        command rmate $flags (realpath $arg)
+        set -l realarg (realpath $arg)
+        if contains $realarg $saved_rmates
+            echo "already open: $arg"
+        else
+            command rmate $flags $realarg
+        end
     end
 
-    if test -n invoked_rmate
+    if test -n "$invoked_rmate"
         rmates-save
     else
         command rmate $argv
