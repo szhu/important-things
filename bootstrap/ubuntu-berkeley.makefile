@@ -69,7 +69,7 @@ PHONIES += default
 default: ssh-key fish-set-default git-config fish-config subl-config user-dirs
 
 PHONIES += work
-work: fish fish-set-default git-config fish-config rsubl
+work: fish-set-default git-config fish-config rsubl
 
 PHONIES += ssh-key
 ssh-key: $(ssh-key)
