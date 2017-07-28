@@ -17,3 +17,5 @@ find /dev/null >/dev/null
 for src in (find ~/.config/fish/config -name '*.fish')
     source $src
 end
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
