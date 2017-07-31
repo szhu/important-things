@@ -22,7 +22,7 @@ escape ^|^|
 
 # Keyboard shortcuts
 bindkey ^V copy
-bindkey ^D detach
+bindkey ^H detach
 bindkey ^N sessionname
 
 # Turn on logging

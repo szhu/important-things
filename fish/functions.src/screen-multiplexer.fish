@@ -4,7 +4,7 @@ function screen-multiplexer--helper -a sshvar -a multiplexervar -a host -a name
     set -l ssh ssh $host -t --
     set -l nossh
     set -l tmux tmux new-session -A -s
-    set -l screen screen -q -d -RR
+    set -l screen scrn -q -d -RR
     if not count $name >/dev/null
         set name main
     end

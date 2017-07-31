@@ -7,7 +7,7 @@ function bass
   end
 
   set -l __script (python ~/.config/fish/functions.src/vendor/bass.py $__bash_args)
-  if test "$__script" = '__error'
+  if test $__script = '__error'
     echo "Bass encountered an error!"
   else
     source $__script

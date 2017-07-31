@@ -21,11 +21,19 @@ function status-user-hostname-if-remote
   end
 end
 
+function status-user-hostname-nocolor
+  if command -s uncolor >/dev/null
+    status-user-hostname-if-remote | uncolor
+  else
+    status-user-hostname-if-remote
+  end
+end
+
 
 # Other
 
 function status-returncode-error -a errno
-  test "$errno" -eq 0; and return
+  test $errno -eq 0; and return
   echo -n "[Error $errno]"
 end
 
@@ -47,7 +55,7 @@ function status-git-forced
   python3 -c '
 from subprocess import call, check_output
 try:
-    call(["env", "NOHUSH=1", "fish", "-c", "__fish_git_prompt"], timeout=0.5)
+    call(["env", "NOHUSH=1", "fish", "-c", "__fish_git_prompt"], timeout=0.2)
 except:
     print(" (%s)" % "git timeout")
 '
@@ -78,6 +86,14 @@ function status-git
   and status-git-touch
 
   echo -n $__status_git
+end
+
+function status-git-nocolor
+  if command -s uncolor >/dev/null
+    status-git | uncolor
+  else
+    status-git
+  end
 end
 
 function status-prommptchar
