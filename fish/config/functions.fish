@@ -35,3 +35,23 @@ function funcsreset
 	set -Ux NOHUSH
 	exec fish
 end
+
+function pullover -a repo_path
+	set -l old_pwd $PWD
+
+	printf '$ cd %s\n' $repo_path
+	cd $repo_path; or return
+	printf "Git status:%s\n" (status-git-forced)
+	echo
+
+	echo '$ git pull'
+	git pull; or return
+	echo
+
+	cd $old_pwd; or return
+end
+
+function funcspull
+	pullover ~/.config/fish/functions.src/work; or return
+	pullover ~/.local/opt/important-things; or return
+end
