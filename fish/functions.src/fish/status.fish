@@ -53,14 +53,30 @@ except:
 '
 end
 
+function status-git-outofdate
+  # Out of date if timestamp not set
+  not set -q __status_git_updated
+  and return 0
+
+  # Out of date if timestamp older that current time
+  test "$__status_git_updated" -le (date +%s)
+  and return 0
+
+  return 1
+end
+
+function status-git-touch
+  set -g __status_git_updated (date +%s)
+end
+
 function status-git
   # Do nothing if NO_PROMPT_GIT globally set
   set -x -q NO_PROMPT_GIT; and exit
 
-  if test "$__status_git_updated" -le (date +%s)
-    set -g __status_git (status-git-forced)
-    set -g __status_git_updated (date +%s)
-  end
+  status-git-outofdate
+  and set -g __status_git (status-git-forced)
+  and status-git-touch
+
   echo -n $__status_git
 end
 

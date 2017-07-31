@@ -1,5 +1,5 @@
 function fish_title --description 'Write out the title'
-  if count $__fish_title > /dev/null
+  if set -q __fish_title
       echo -n "$__fish_title"
   else if test -n "$SSH_CLIENT"
       pwd-pretty
@@ -12,7 +12,7 @@ funcsave fish_title
 
 # http://superuser.com/q/223308#comment352223_223314
 function fish_tab_title
-  if count $__fish_title > /dev/null
+  if set -q __fish_title
     appleterminal-tabtitle $__fish_title
   else
     appleterminal-tabtitle (pwd-basename)
