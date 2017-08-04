@@ -4,13 +4,15 @@ function status-is-remote
   test -n "$SSH_CLIENT"; or test -n "$SSH_TTY"
 end
 
+# set -Ux PROMPT_HOSTNAME_PARTS 1-2
 function status-hostname
-  hostname | cut -d . -f 1
+  set -gq PROMPT_HOSTNAME_PARTS; or set -l PROMPT_HOSTNAME_PARTS 1
+  hostname | cut -d . -f "$PROMPT_HOSTNAME_PARTS"
 end
 
 function status-user-hostname
   set -gq status__user_hostname
-  or set -g status__user_hostname (whoami)@(status-hostname)
+  or set -g status__user_hostname $USER@(status-hostname)
   echo $status__user_hostname
 end
 
