@@ -6,7 +6,7 @@ end
 
 # set -Ux PROMPT_HOSTNAME_PARTS 1-2
 function status-hostname
-  set -gq PROMPT_HOSTNAME_PARTS; or set -l PROMPT_HOSTNAME_PARTS 1
+  set -xq PROMPT_HOSTNAME_PARTS; or set -l PROMPT_HOSTNAME_PARTS 1
   hostname | cut -d . -f "$PROMPT_HOSTNAME_PARTS"
 end
 
