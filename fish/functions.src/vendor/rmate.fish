@@ -3,21 +3,22 @@ command -sq rmate; or exit
 
 function rmate
   set -l flags
-  contains -- --wait $argv; and set flags $flags --wait
-  contains -- -f $argv; and set flags $flags -f
+  set -l files
 
-  set -l invoked_rmate
   for arg in $argv
-    contains -- --wait $arg; and continue
-    contains -- -f $arg; and continue
-    set invoked_rmate 1
-    command rmate $flags (realpath $arg)
+    if string match -q -- '-*' $arg
+      set flags $flags $arg
+    else
+      set files $files $arg
+    end
   end
 
-  if test -n invoked_rmate
-    rmates-save
+  if test (count $files) = 0
+    command rmate $flags
   else
-    command rmate $argv
+    for file in $files
+      command rmate $flags (realpath $file)
+    end
   end
 end
 
