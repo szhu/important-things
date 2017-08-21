@@ -91,7 +91,7 @@ function status-git
 end
 
 function status-git-nocolor
-  if command -s uncolor >/dev/null
+  if command -sq uncolor
     status-git | uncolor
   else
     status-git

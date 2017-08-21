@@ -9,11 +9,16 @@ function uncolor-if-possible
 end
 
 function pwd-pretty --description 'Print the current working directory'
-	echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' # -e 's-\([^/.]\)[^/]*/-\1/-g'
+  set -l str (pwd)
+  set -l str (string replace -r "^$HOME" '~' $str)
+  set -l str (string replace -r "^/private" '' $str)
+  echo $str
 end
 
 function pwd-pretty-short --description 'Print the current working directory, shortened to fit the prompt'
-  echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||' -e 's-\([^/.]\)[^/]*/-\1/-g'
+  set -l str (pwd-pretty)
+  set -l str (string replace -r --all '([^/.])[^/]*/' '$1/' $str)
+  echo $str
 end
 
 function pwd-basename

@@ -5,21 +5,19 @@ end
 
 function funcsupdate
   set -l functions_dir ~/.config/fish/functions/
-  # set -l excluded_functions . _ __fish_pwd __fish_git_prompt abbr alias eval funced funcsave funcsnuke funcsupdate funcsreset math
-  set -l excluded_functions (functions -a)
+  set -l builtins (functions -a)
 
   for src in (find ~/.config/fish/functions.src -name '*.fish')
+  set -l pretty_src (string replace -r "^$HOME" '~' $src)
     echo -ne '\r\033[K'
-    echo -n 'source' $src ''
+    echo -n "source $pretty_src "
     source $src
   end
 
   for func in (functions -a)
-    contains $func $excluded_functions; and continue
-    # echo $func | grep -q '^__fish_'; and continue
-    not functions -q $func; and continue
+    contains $func $builtins; and continue
     echo -ne '\r\033[K'
-    echo -n 'save' $func ''
+    echo -n "funcsave $func "
     funcsave $func
   end
 
@@ -37,6 +35,8 @@ function funcsreset
 end
 
 function pullover -a repo_path
+  test -e repo_path; or return 0
+
   set -l old_pwd $PWD
 
   printf '$ cd %s\n' $repo_path
