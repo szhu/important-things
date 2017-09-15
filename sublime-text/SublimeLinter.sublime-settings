@@ -11,67 +11,9 @@
 		"lint_mode": "background",
 		"linters":
 		{
-			"chktex":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"erroron":
-				[
-					16
-				],
-				"excludes":
-				[
-				],
-				"inputfiles":
-				[
-					0
-				],
-				"nowarn":
-				[
-					22,
-					30
-				]
-			},
-			"cjsx":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"clang":
-			{
-				"@disable": true,
-				"args":
-				[
-					"-I/usr/local/opt/openssl/include"
-				],
-				"excludes":
-				[
-				],
-				"extra_flags": "",
-				"include_dirs":
-				[
-				]
-			},
-			"coffee":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
 			"coffeejshint":
 			{
-				"@disable": true,
+				"@disable": false,
 				"args":
 				[
 				],
@@ -83,7 +25,7 @@
 			},
 			"coffeelint":
 			{
-				"@disable": true,
+				"@disable": false,
 				"args":
 				[
 				],
@@ -93,16 +35,6 @@
 				"ignore_match":
 				[
 					"Line exceeds maximum allowed length"
-				]
-			},
-			"coolc":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
 				]
 			},
 			"cppcheck":
@@ -115,70 +47,14 @@
 				"excludes":
 				[
 				],
+				"ignore_match":
+				[
+				],
 				"std":
 				[
 				]
 			},
-			"cpplint":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				],
-				"filter": "",
-				"ignore_match":
-				[
-					"An else should appear on the same line as the preceding",
-					"Closing \\) should be moved to the previous line",
-					"Do not use namespace using-directives\\.",
-					"Extra space after .* in function call",
-					"Found C system header after C\\+\\+ system header\\.",
-					"If an else has a brace on one side, it should have it on both",
-					"Is this a non-const reference\\? If so, make const or use a pointer\\.",
-					"Lines should be <= 80 characters long",
-					"Lines should very rarely be longer than 100 characters",
-					"Missing space after ,",
-					"Missing spaces around (<|>|=|==|!=)",
-					"Missing username in TODO",
-					"More than one command on the same line",
-					"No copyright message found\\.",
-					"Streams are highly discouraged\\.",
-					"Tab found; better to use spaces",
-					"Using C-style cast\\."
-				],
-				"linelength": ""
-			},
-			"cs162":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				],
-				"extra_flags": "",
-				"include_dirs":
-				[
-				]
-			},
-			"csslint":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"errors": "",
-				"excludes":
-				[
-				],
-				"ignore": "",
-				"warnings": ""
-			},
-			"eslint":
+			"fromfile":
 			{
 				"@disable": false,
 				"args":
@@ -187,77 +63,9 @@
 				"excludes":
 				[
 				]
-			},
-			"haml":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"hamllint":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"htmltidy":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"javac":
-			{
-				"@disable": true,
-				"args":
-				[
-					"-classpath",
-					":/Users/Sean/Code/cs61b/javalib/algs4.jar:/Users/Sean/Code/cs61b/javalib/checkstyle-5.9-all.jar:/Users/Sean/Code/cs61b/javalib/classmexer.jar:/Users/Sean/Code/cs61b/javalib/gjdb.jar:/Users/Sean/Code/cs61b/javalib/hamcrest-core-1.3.jar:/Users/Sean/Code/cs61b/javalib/Jama-1.0.3.jar:/Users/Sean/Code/cs61b/javalib/jh61b.jar:/Users/Sean/Code/cs61b/javalib/junit-4.12.jar:/Users/Sean/Code/cs61b/javalib/reflections-0.9.9-RC1-uberjar.jar:/Users/Sean/Code/cs61b/javalib/stdlib-package.jar:/Users/Sean/Code/cs61b/javalib/stdlib.jar"
-				],
-				"excludes":
-				[
-				],
-				"ignore_match":
-				[
-					"auxiliary .* in .* should not be accessed from outside its own source file"
-				],
-				"lint": ""
 			},
 			"jshint":
 			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"json":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				],
-				"strict": true
-			},
-			"lsc":
-			{
 				"@disable": true,
 				"args":
 				[
@@ -266,55 +74,28 @@
 				[
 				]
 			},
-			"pep257":
+			"jsxhint":
 			{
-				"@disable": true,
-				"add-ignore": "",
+				"@disable": false,
 				"args":
 				[
 				],
 				"excludes":
 				[
-				],
-				"ignore": ""
+				]
 			},
 			"pep8":
 			{
-				"@disable": false,
+				"@disable": true,
 				"args":
 				[
 				],
 				"excludes":
 				[
 				],
-				"ignore": "",
-				"ignore_match":
-				[
-					".*indentation contains tabs.*"
-				],
-				"max-line-length": null,
+				"ignore": "E111,E402",
+				"max-line-length": 100,
 				"select": ""
-			},
-			"php":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"pydocstyle":
-			{
-				"@disable": true,
-				"add-ignore": "",
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
 			},
 			"pyflakes":
 			{
@@ -328,75 +109,25 @@
 			},
 			"pylint":
 			{
-				"@disable": false,
+				"@disable": true,
 				"args":
 				[
-					"--disable=W191"
 				],
 				"disable": "",
 				"enable": "",
 				"excludes":
 				[
 				],
-				"rcfile": "~/.config/pylint.rc"
-			},
-			"pyyaml":
-			{
-				"@disable": true,
-				"args":
+				"paths":
 				[
 				],
-				"excludes":
-				[
-				]
-			},
-			"rubocop":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"scss":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"exclude-linter": "",
-				"excludes":
-				[
-				],
-				"include-linter": ""
-			},
-			"shellcheck":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"exclude": "",
-				"excludes":
-				[
-				]
-			},
-			"slimlint":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
+				"rcfile": "",
+				"show-codes": false
 			}
 		},
-		"mark_style": "squiggly underline",
-		"no_column_highlights_line": true,
-		"passive_warnings": true,
+		"mark_style": "solid underline",
+		"no_column_highlights_line": false,
+		"passive_warnings": false,
 		"paths":
 		{
 			"linux":
@@ -431,8 +162,10 @@
 			"html (rails)": "html",
 			"html 5": "html",
 			"javascript (babel)": "javascript",
+			"magicpython": "python",
 			"php": "html",
-			"python django": "python"
+			"python django": "python",
+			"pythonimproved": "python"
 		},
 		"warning_color": "DDB700",
 		"wrap_find": true

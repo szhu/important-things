@@ -1,163 +1,25 @@
 {
-	"_autosort":
-	[
-		"ignored_packages",
-		"added_words"
-	],
-	"added_words":
-	[
-		"app",
-		"autograder",
-		"autograders",
-		"autograding",
-		"curr",
-		"diff",
-		"endian",
-		"filesys",
-		"Hilfinger",
-		"Hu",
-		"inode",
-		"java",
-		"keyframe",
-		"keyframes",
-		"malloc",
-		"metadata",
-		"mlfqs",
-		"Octobear",
-		"prev",
-		"syscalls",
-		"toolchain",
-		"unopinionated",
-		"webhook",
-		"workflow",
-		"workflows",
-		"Yangzi",
-		"Zhu",
-		"–"
-	],
+	"animation_enabled": false,
 	"auto_complete_commit_on_tab": true,
-	"auto_complete_triggers":
-	[
-		{
-			"characters": "<",
-			"selector": "text.html"
-		},
-		{
-			"characters": "\\",
-			"selector": "text.tex.latex"
-		}
-	],
-	"auto_complete_with_fields": true,
-	"binary_file_patterns":
-	[
-		"*.jpg",
-		"*.jpeg",
-		"*.png",
-		"*.gif",
-		"*.ttf",
-		"*.tga",
-		"*.dds",
-		"*.ico",
-		"*.eot",
-		"*.psd",
-		"*.pdf",
-		"*.swf",
-		"*.jar",
-		"*.zip",
-		"*.exe",
-		"*.dll",
-		"*.o",
-		"*.a",
-		"*.lib",
-		"*.so",
-		"*.dylib",
-		"*.scssc"
-	],
-	"color_scheme": "Packages/User/Monokai Extended Origin (SL) (SublimePythonIDE).tmTheme",
-	"file_exclude_patterns":
-	[
-		"*.o",
-		"*.pyc",
-		"*.pyo",
-		"*.ncb",
-		"*.sdf",
-		"*.suo",
-		"*.pdb",
-		"*.idb",
-		".DS_Store",
-		"*.class",
-		"*.sublime-workspace",
-		"*.sassc",
-		"Icon?",
-		".tags*"
-	],
-	"folder_exclude_patterns":
-	[
-		".git",
-		".svn",
-		".hg",
-		"CVS",
-		"__pycache__",
-		".sass-cache",
-		".bin",
-		"node_modules"
-	],
+	"caret_style": "blink",
+	"close_windows_when_empty": false,
+	"color_scheme": "Packages/User/SublimeLinter/GitHub (SL).tmTheme",
+	"el_capitan_font_default": false,
+	"el_capitan_font_helvetica": false,
+	"el_capitan_font_helvetica_neue": false,
+	"el_capitan_font_san_francisco": false,
+	"el_capitan_sidebar_blue_folders": true,
 	"font_face": "Menlo",
-	"font_size": 12,
+	"font_size": 10,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"ActionScript",
-		"Additional PHP Snippets",
-		"ASP",
-		"C#",
-		"Clojure",
-		"D",
-		"Emmet",
-		"Erlang",
-		"GitGutter",
-		"Go",
-		"Graphviz",
-		"Groovy",
-		"Grunt",
-		"Haskell",
-		"Javascript Beautify",
-		"Jedi - Python autocompletion",
-		"LaTeXTools",
-		"Lua",
-		"Matlab",
-		"Objective-C",
-		"OCaml",
-		"Pascal",
-		"Rails Developer Snippets",
-		"Ruby on Rails snippets",
-		"Scala",
-		"SnippetMaker",
-		"SublimeCodeIntel",
-		"SublimeHaskell",
-		"SublimeLinter-coffee",
-		"SublimeLinter-contrib-eslint",
-		"SublimeLinter-contrib-jslint",
-		"SublimeLinter-html-tidy",
+		"GitStatusBar",
+		"SublimeLinter-jsxhint",
 		"SublimePythonIDE",
-		"TCL",
-		"Textile",
 		"Vintage"
 	],
-	"indent_guide_options":
-	[
-		"draw_active"
-	],
-	"line_numbers": false,
-	"open_externally_patterns":
-	[
-		"*.pdf"
-	],
 	"open_files_in_new_window": true,
-	"prevent_bin_preview": true,
-	"remember_full_screen": true,
-	"tab_size": 4,
-	"theme": "Gravity.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?‘’“”"
+	"scroll_past_end": false,
+	"theme": "El Capitan.sublime-theme"
 }

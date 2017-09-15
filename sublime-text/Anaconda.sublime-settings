@@ -1,0 +1,42 @@
+{
+    "pep8_ignore":
+    [
+        "E111",
+        "E402",
+        "E501",
+
+        // Blank lines
+        "E114",
+        "E302",
+        "E305",
+
+        // Spaces
+        "E251",
+
+        // Comments
+        "E265",
+    ],
+
+    "pyflakes_ignore": [
+        "borgcfg_library",
+        "borgcfg_test",
+        "cc_binary",
+        "cc_library",
+        "cc_public_library",
+        "cc_test",
+        "cc_tin_functional_test",
+        "cpplint_test",
+        "crnacl_cc_library",
+        "exports_files",
+        "filegroup",
+        "genmpm",
+        "glob",
+        "load",
+        "ncl_test",
+        "package",
+        "package_group",
+        "py_binary",
+        "py_library",
+        "py_test",
+    ]
+}

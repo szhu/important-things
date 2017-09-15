@@ -23,7 +23,7 @@ install: $(ALL)
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User:
 	@# dirname "$@" | xargs mkdir -p
-	mkdir -p "/Users/Sean/Library/Application Support/Sublime Text 3/Packages"
+	mkdir -p "$HOME/Library/Application Support/Sublime Text 3/Packages"
 	ln -sf -- ../../../../.local/opt/important-things/$(DIR) "$@"
 
 PHONY += uninstall

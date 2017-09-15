@@ -2,6 +2,7 @@
 /*.cache
 /*.tmTheme
 /.SublimeREPLHistory/*.db
+/bin/node_modules
 /Package Control.last-run
 /Package Control.merged-ca-bundle
 /Package Control.system-ca-bundle

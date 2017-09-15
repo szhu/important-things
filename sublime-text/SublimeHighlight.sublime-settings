@@ -1,0 +1,10 @@
+/*
+    SublimeHighlight default settings
+*/
+{
+    /* Pygments theme to use */
+    "theme": "monokai",
+
+    /* Uses inline styles instead of css classes */
+    "noclasses": true,
+}
