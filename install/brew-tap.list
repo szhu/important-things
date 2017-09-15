@@ -1,8 +1,11 @@
-beeftornado/rmtree
 caskroom/cask
 caskroom/versions
-chrismytton/formula
+homebrew/binary
+homebrew/bundle
 homebrew/core
 homebrew/dupes
+homebrew/fuse
+homebrew/python
 homebrew/services
-homebrew/x11
+mistertea/et
+szhu/personal
