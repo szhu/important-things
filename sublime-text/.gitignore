@@ -3,6 +3,7 @@
 /*.tmTheme
 /.SublimeREPLHistory/*.db
 /bin/node_modules
+/oscrypto-ca-bundle.crt
 /Package Control.last-run
 /Package Control.merged-ca-bundle
 /Package Control.system-ca-bundle
