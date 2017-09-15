@@ -1,145 +1,30 @@
-#!/usr/bin/env python
+#!/usr/bin/env node
+// WORK IN PROGRESS
 
-def main(filename=None):
-    from json import load, dumps
+fs = require('fs')
+Hjson = require(`${__dirname}/node_modules/hjson`)
 
-    if filename is None:
-        from sys import stdin
-        obj = load(stdin)
-    else:
-        with open(filename) as f:
-            obj = load(f)
+for (fname of process.argv.slice(2)) {
+    console.log(fname);
 
-    try:
-        sort_settings = obj['_autosort']
-    except KeyError:
-        sort_settings = []
+    srcJson = fs.readFileSync(fname, 'utf8');
+    data = Hjson.rt.parse(srcJson);
+    // data.__COMMENTS__.o.sort()
 
-    rsort(obj, sort_settings=sort_settings)
-    out = dumps(obj, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
-    out = convert_indent_to_tabs(out)
-    out = begin_lists_on_new_line(out)
-
-    if filename is None:
-        print out.encode('utf8')
-    else:
-        with open(filename, 'w') as f:
-            print >> f, out.encode('utf8')
-
-    return 0
+    dstJson = Hjson.rt.stringify(
+      data,
+      {
+        bracesSameLine: true,
+        multiline: 'off',
+        quotes: 'all',
+        separator: true,
+        space: 4,
+      }
+    );
+    console.log(dstJson);
+}
 
 
-def get_indent_level(line, indent_str):
-    indent = 0
-    while line.startswith(indent_str * (indent + 1)):
-        indent += 1
-    return indent
 
-
-def convert_indent_to_tabs(text, width=4):
-    lines = []
-    for line in text.splitlines():
-        indent = get_indent_level(line, ' ' * width)
-        line = '\t' * indent + line[indent * width:]
-        lines.append(line)
-    return '\n'.join(lines)
-
-
-def begin_lists_on_new_line(text, indent_str='\t'):
-    lines = []
-    for line in text.splitlines():
-        if line.endswith(': ['):
-            indent = get_indent_level(line, indent_str)
-            line = line[:-2] + '\n' + (indent * indent_str) + '['
-        lines.append(line)
-    return '\n'.join(lines)
-
-
-class Path(list):
-    def __str__(self):
-        str_only_version = ['' if item is None else item for item in self]
-        return '/' + '/'.join(str_only_version)
-
-    def __add__(self, other):
-        return Path(list.__add__(self, other))
-
-class Rsorter(object):
-    def __init__(self, obj, sort_settings):
-        self.root = obj
-        self.sort_settings = sort_settings
-
-    def run(self):
-        fringe = [(self.root, Path([]))]
-        while fringe:
-            (obj, path) = fringe.pop(0)
-            if isinstance(obj, dict):
-                keys = sorted(obj.keys())
-                for key in keys:
-                    fringe.append((obj[key], path + [key]))
-            elif isinstance(obj, list):
-                for item in obj:
-                    fringe.append((item, path + [None]))
-
-                if (path[-1]  in self.sort_settings or
-                    str(path) in self.sort_settings): obj.sort(key=lambda x: (x.lower(), x))
-
-def rsort(obj, sort_settings=[]):
-    Rsorter(obj, sort_settings).run()
-
-
-# def setdefault(d, key, val):
-#     if key not in d:
-#         d[key] = val
-
-# def rsort(obj, **opts):
-#     setdefault(opts, 'path', '')
-#     for (t, callback) in rsort_types:
-#         if isinstance(obj, t):
-#             callback(obj, **opts)
-#             break
-
-# def rsort_dict(d, path=None, **opts):
-#     for (key, val) in d.iteritems():
-#         if key == u'binary_file_patterns':
-#             print path, opts
-#         if isinstance(path, str):
-#             path = path + '/' + key
-#         else:
-#             path = None
-#         rsort(val, key=key, path=path, **opts)
-
-# def rsort_list(l, key=None, path=None, leave_unsorted=(), **opts):
-#     for item in l:
-#         rsort(item, key=None, path=None, leave_unsorted=leave_unsorted, **opts)
-#     if not key in leave_unsorted and not path in leave_unsorted:
-#         l.sort()
-
-# def rsort_object(obj, **opts):
-#     pass
-
-# rsort_types = [
-#     (dict, rsort_dict),
-#     (list, rsort_list),
-#     (object, rsort_object)
-# ]
-
-##
-
-
-class ProgramError(Exception):
-    pass
-
-def run():
-    from sys import argv, stderr
-    try:
-        exit(main(*argv[1:]) or 0)
-    except ProgramError, exc:
-        print >> stderr, exc
-    except TypeError, exc:
-        if exc.message.startswith("main() takes"):
-            print >> stderr, exc
-        else:
-            raise
-
-if __name__ == '__main__':
-    run()
+//
+// $(document.head).append($('<script src="http://hjson.org/js/hjson.js">'));
