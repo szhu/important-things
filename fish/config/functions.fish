@@ -35,7 +35,7 @@ function funcsreset
 end
 
 function pullover -a repo_path
-  test -e repo_path; or return 0
+  test -e $repo_path; or return 0
 
   set -l old_pwd $PWD
 
