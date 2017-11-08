@@ -10,6 +10,7 @@ auto-update-packages
 autocomplete-ruby
 blame
 color-picker
+custom-title
 floobits
 foldingtext-for-atom
 foldingtext-markdown
@@ -25,7 +26,6 @@ language-latex
 language-pfm
 language-x86
 linter
-linter-clang
 linter-coffeescript
 linter-csslint
 linter-flake8

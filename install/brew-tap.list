@@ -1,11 +1,7 @@
+beeftornado/rmtree
+buo/cask-upgrade
 caskroom/cask
 caskroom/versions
-homebrew/binary
-homebrew/bundle
 homebrew/core
 homebrew/dupes
-homebrew/fuse
-homebrew/python
-homebrew/services
-mistertea/et
 szhu/personal
