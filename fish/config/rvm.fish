@@ -18,7 +18,7 @@ function rvm-root
 end
 
 function __rvm_greeting
-    test "$TERM_PROGRAM" = "Apple_Terminal"
+    contains "$TERM_PROGRAM" "iTerm.app" "Apple_Terminal"
         and set -l __rvm_status_char "💎  "
         or set -l __rvm_status_char "rvm: "
     echo -ne "\r$__rvm_status_char...\r$__rvm_status_char"

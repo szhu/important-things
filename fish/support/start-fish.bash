@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This line can really help debugging
+# osascript -e 'display notification "'"$(ps -o comm= -p $PPID)"'" with title "Invoked by"'
+
 # Check caller
 (ps -o comm= -p $PPID | grep -qE '^((/usr/bin/)?login|sshd|su|script|tmux(: server)|tmate|screen|gnome-terminal|(.*/)?(Atom Helper|Hyper(Term)?))$' ||
  test -n "$DOCKER_HOST" -a "$SHLVL" = 2 ||

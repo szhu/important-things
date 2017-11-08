@@ -29,6 +29,7 @@ ROLE 'all'
     TYPE 'public.python-script'
     TYPE 'public.bash-script'
     TYPE 'com.netscape.javascript-source'
+    TYPE '.fish'
 
 
 APP  'com.ridiculousfish.HexFiend'

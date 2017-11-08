@@ -1,3 +1,3 @@
-for cmd in rails rake rspec
-    abbr $cmd bundle exec $cmd
-end
+# for cmd in rails rake rspec
+#     abbr $cmd bundle exec $cmd
+# end
