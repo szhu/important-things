@@ -6,6 +6,7 @@
 	],
 	"installed_packages":
 	[
+		"1337 Color Scheme",
 		"Anaconda",
 		"ANSIescape",
 		"Babel",
@@ -13,8 +14,10 @@
 		"BinaryPlist",
 		"Bracketeer",
 		"BracketHighlighter",
+		"CJSX Syntax",
 		"Colorsublime",
 		"Compare Side-By-Side",
+		"Cucumber",
 		"DocBlockr",
 		"ESLint",
 		"fish-shell",
@@ -53,13 +56,14 @@
 		"SublimeLinter-pep8",
 		"SublimeLinter-pyflakes",
 		"SublimeLinter-pylint",
+		"SublimeLinter-rubocop",
 		"SublimePythonIDE",
-		"Sublimerge 3",
 		"Table Editor",
 		"Theme - El Capitan",
 		"Theme - Gravity",
 		"Toggle Read-Only",
 		"TrailingSpaces",
+		"WakaTime",
 		"Wrap Plus"
 	],
 	"submit_usage": false

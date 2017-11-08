@@ -11,6 +11,16 @@
 		"lint_mode": "background",
 		"linters":
 		{
+			"cjsx":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
 			"coffeejshint":
 			{
 				"@disable": false,
@@ -37,6 +47,16 @@
 					"Line exceeds maximum allowed length"
 				]
 			},
+			"coolc":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
 			"cppcheck":
 			{
 				"@disable": true,
@@ -51,6 +71,26 @@
 				[
 				],
 				"std":
+				[
+				]
+			},
+			"cs162":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
+			"eslint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
 				[
 				]
 			},
@@ -75,6 +115,16 @@
 				]
 			},
 			"jsxhint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
+			"lsc":
 			{
 				"@disable": false,
 				"args":
@@ -123,9 +173,19 @@
 				],
 				"rcfile": "",
 				"show-codes": false
+			},
+			"rubocop":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
 			}
 		},
-		"mark_style": "solid underline",
+		"mark_style": "squiggly underline",
 		"no_column_highlights_line": false,
 		"passive_warnings": false,
 		"paths":
@@ -167,6 +227,12 @@
 			"python django": "python",
 			"pythonimproved": "python"
 		},
+		"tooltip_fontsize": "1rem",
+		"tooltip_theme": "Packages/SublimeLinter/tooltip-themes/Default/Default.tooltip-theme",
+		"tooltip_theme_excludes":
+		[
+		],
+		"tooltips": false,
 		"warning_color": "DDB700",
 		"wrap_find": true
 	}

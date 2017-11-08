@@ -1,7 +1,7 @@
 {
-	"translate_tabs_to_spaces": false,
 	"extensions":
 	[
 		"txt"
-	]
+	],
+	"translate_tabs_to_spaces": false
 }
