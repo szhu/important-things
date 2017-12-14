@@ -1,4 +1,4 @@
-command -sq thefuck; or exit
+is_command thefuck; or exit
 
 
 mkdir -p ~/.config/fish/functions

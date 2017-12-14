@@ -1,4 +1,4 @@
-command -sq rmate; or exit
+is_command rmate; or exit
 
 
 function rmate

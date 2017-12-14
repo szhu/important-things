@@ -1,5 +1,5 @@
 function uncolor-if-possible
-  if begin; command -sq perl; and command -sq uncolor; end
+  if begin; is_command perl; and is_command uncolor; end
     # ok great
     uncolor
   else

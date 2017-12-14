@@ -1,3 +1,6 @@
+# # Overwrite built-in function
+# functions -e fish_prompt
+#
 function fish_prompt --description 'Write out the prompt'
   set -l last_status $status
   test -e (pwd); and cd (pwd)
