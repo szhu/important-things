@@ -4,7 +4,7 @@
 # osascript -e 'display notification "'"$(ps -o comm= -p $PPID)"'" with title "Invoked by"'
 
 # Check caller
-(ps -o comm= -p $PPID | grep -qE '^((/usr/bin/)?login|sshd|su|script|tmux(: server)|tmate|screen|gnome-terminal|(.*/)?(Atom Helper|Hyper(Term)?))$' ||
+(ps -o comm= -p $PPID | grep -qE '^((/usr/bin/)?login|sshd|su|script|tmux(: server)|tmate|screen|(gnome|xfce4)-terminal|(.*/)?(Atom Helper|Hyper(Term)?))$' ||
  test -n "$DOCKER_HOST" -a "$SHLVL" = 2 ||
  test "$C9_SH_EXECUTED" = 1 -a "$SHLVL" = 4) &&
 # Check terminal
