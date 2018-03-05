@@ -17,7 +17,7 @@ TYPE() {
 }
 
 
-APP  'com.sublimetext.3'
+APP  'com.github.atom'
 ROLE 'all'
 
     TYPE 'public.plain-text'
@@ -26,10 +26,13 @@ ROLE 'all'
     TYPE 'public.shell-script'
     TYPE 'public.unix-executable'
 
-    TYPE 'public.python-script'
-    TYPE 'public.bash-script'
-    TYPE 'com.netscape.javascript-source'
     TYPE '.fish'
+    TYPE '.ts'
+    TYPE 'com.netscape.javascript-source'
+    TYPE 'public.bash-script'
+    TYPE 'public.json'
+    TYPE 'public.python-script'
+    TYPE 'public.ruby-script'
 
 
 APP  'com.ridiculousfish.HexFiend'
