@@ -1,0 +1,4 @@
+#!/bin/bash
+# Returns all js files that appear to be compiled versions of ts/x files in the repo
+
+git ls-files | grep -E '\.tsx?$' | sed -E 's/\.tsx?$/.js/g' | sed -E 's/^/\//g'
