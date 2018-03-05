@@ -54,13 +54,13 @@ function status-git-forced
   test -e $git_root/.git/noprompt; and return
   # and __fish_git_prompt
   # and false
-  python3 -c '
-from subprocess import call, check_output
-try:
-    call(["env", "NOHUSH=1", "fish", "-c", "__fish_git_prompt"], timeout=0.2)
-except:
-    print(" (%s)" % "git timeout")
-'
+  if is_command timeout
+    timeout 0.2 fish -c "__fish_git_prompt"
+  else if is_command gtimeout
+    gtimeout 0.2 fish -c "__fish_git_prompt"
+  else
+    __fish_git_prompt
+  end
 end
 
 function status-git-outofdate
