@@ -33,8 +33,8 @@ npm.list: bin/get-npm-list-leaves
 	$< > $@
 
 PHONY += pip.list
-pip.list: bin/get-nonsystem-python-packages
-	$< 2.7 > $@
+pip.list: bin/get-pip-freeze
+	$< 2 > $@
 
 PHONY += pip3.list
 pip3.list: bin/get-pip-freeze

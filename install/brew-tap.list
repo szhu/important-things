@@ -1,7 +1,9 @@
-beeftornado/rmtree
-buo/cask-upgrade
+==> Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+==> Updated Formulae
+tcc
+
 caskroom/cask
-caskroom/versions
+heroku/brew
 homebrew/core
 homebrew/dupes
-szhu/personal
