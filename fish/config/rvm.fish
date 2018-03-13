@@ -1,4 +1,5 @@
 set -x -q NO_PROMPT_RVM; and exit
+test -e ~/.rvm/scripts/rvm; or exit
 
 function rvm --description='Ruby enVironment Manager'
     bass source ~/.rvm/scripts/rvm \; rvm $argv
@@ -25,8 +26,8 @@ function __rvm_greeting
 end
 
 function rvm-auto
-    set -g __last_rvm_hint_cwd        
-    set -g __last_rvm_cwd        
+    set -g __last_rvm_hint_cwd
+    set -g __last_rvm_cwd
 
     set -l cwd (rvm-root)
     test -z "$cwd"; and return
@@ -78,7 +79,7 @@ function __rvm_on_cd --on-variable PWD
 
         set_color normal
     else
-        not count $cwd >/dev/null; and set -g __last_rvm_hint_cwd        
+        not count $cwd >/dev/null; and set -g __last_rvm_hint_cwd
     end
 
     set -g __last_rvm_cwd "$cwd"
