@@ -1,6 +1,7 @@
 status --is-interactive; or status --is-login; or exit
 
-set -x PATH ~/.local/bin ~/.local/opt/*/bin /usr/local/bin $PATH
+test -d ~/.local/bin; and set -x PATH ~/.local/bin $PATH
+set -x PATH ~/.local/opt/*/bin $PATH
 set -x LANG 'en_US.UTF-8'
 
 # Backwards compatibility for fish 2.0.0
