@@ -1,37 +1,18 @@
 "*":
-  "atom-beautify":
-    _analyticsUserId: "8747e5b9-f178-4aa4-b253-d06dbb83973c"
-    java_uncrustifyPath: "/usr/local/bin/uncrustify"
-    language_java_disabled: true
-  "atom-material-ui":
-    fonts: {}
-    tabs: {}
-    ui: {}
-  "auto-update-packages": {}
-  blame: {}
+  "autocomplete-plus":
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
+  "autocomplete-python":
+    useKite: false
   core:
     automaticallyUpdate: false
+    closeEmptyWindows: false
     disabledPackages: [
-      "atom-beautify"
       "auto-host-markdown-image"
-      "markdown-format"
-      "markdown-scroll-sync"
+      "foldingtext-for-atom"
+      "linter-csslint"
+      "linter-pyflakes"
       "markdown-table-formatter"
-      "minimap-linter"
-      "terminal-panel"
-      "tidy-markdown"
-      "symbols-view"
-      "linter-rubocop"
-      "atom-ctags"
-      "floobits"
-      "atom-html-preview"
-      "pigments"
-      "linter-flake8"
-      "git-plus"
-      "script"
-      "term3"
-      "wordcount"
-      "minimap"
+      "teletype"
     ]
     ignoredNames: [
       "*.class"
@@ -43,61 +24,29 @@
       ".svn"
     ]
     projectHome: "~/Code"
+    telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "monokai"
+      "one-light-ui"
+      "atom-github-theme"
     ]
-  "custom-title":
-    template: "<%= relativeFilePath || fileName %> — <% if (projectPath) { %><%= projectName %><% } %>"
+    titleBar: "custom-inset"
+    warnOnLargeFileLimit: 0.3
   editor:
     backUpBeforeSaving: true
-    fontFamily: "Menlo"
-    fontSize: 12
-    invisibles: {}
-    showIndentGuide: true
+    normalizeIndentOnPaste: false
   "exception-reporting":
     userId: "c6d8a06c-ad1c-362a-f1ac-eece33002bb3"
-  floobits: {}
-  "git-blame": {}
-  "git-diff": {}
-  linter:
-    showErrorPanel: false
-    showErrorTabLine: true
-    showErrorTabProject: false
-    statusIconPosition: "Right"
-    statusIconScope: "File"
-  "linter-gcc":
-    gccDefaultCFlags: "-Wall -std=gnu99"
-  "linter-haml":
-    copyRubocopYml: false
-  "linter-rubocop": {}
+  "linter-ui-default":
+    hidePanelWhenEmpty: false
+    showProviderName: true
+    statusBarClickBehavior: "Jump to next issue"
+    statusBarRepresents: "Current File"
   "markdown-preview":
     useGitHubStyle: true
-  "markdown-writer": {}
-  minimap:
-    plugins:
-      linter: false
-  "one-dark-ui":
-    layoutMode: "Spacious"
-    tabSizing: "Even"
-  "remote-edit":
-    sshPrivateKeyPath: "~/.ssh/id_dsa"
-  term2:
-    cursorBlink: false
-    fontFamily: "Menlo"
-    fontSize: "11"
-    scrollback: 10000
-    shellArguments: " "
-    shellOverride: "/usr/local/bin/fish"
-    titleTemplate: "{{ bashName }}"
-  term3:
-    titleTemplate: "{{ bashName }}"
-  "tree-view":
-    hideIgnoredNames: true
-    sortFoldersBeforeFiles: false
-  "unity-dark-ui":
-    colorStatusIndicatorsInTreeView: true
-    showIcons: true
+  "open-terminal-here":
+    command: "open -b com.googlecode.iterm2 \"$PWD\""
+  "tree-view-auto-fold":
+    showOpenFileIndicator: false
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
     ignore: [
@@ -109,7 +58,7 @@
       "MERGE_MSG$"
     ]
   "wakatime-hidden":
-    lastInit: 1470048785
+    lastInit: 1510890266
   welcome:
     showOnStartup: false
   wordcount:
@@ -117,13 +66,12 @@
       "fhtml"
       "txt"
     ]
+  "wrap-guide":
+    enabled: false
 ".fish.source":
   editor:
-    tabLength: 4
+    tabLength: 2
 ".makefile.source":
   editor:
     tabLength: 4
   softTabs: false
-".shell.source":
-  editor:
-    tabLength: 4
