@@ -15,16 +15,19 @@ clean:
 
 # Install Sublime settings
 
-DIR := $(shell basename $(PWD))/
+SRC_DIR := $(patsubst $(HOME)/%,%,$(PWD))
+INV_SRC_DIR := $(echo $(SRC_DIR) | sed -E 's#([^/.]|[^/.][^/]+)#..#g')
 ALL += ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
 PHONY += install
 install: $(ALL)
 
-~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User:
-	@# dirname "$@" | xargs mkdir -p
-	mkdir -p "$HOME/Library/Application Support/Sublime Text 3/Packages"
-	ln -sf -- ../../../../.local/opt/important-things/$(DIR) "$@"
+$(ALL):
+	$(eval DST := $(patsubst $(HOME)/%,%,$@))
+	$(eval DST_DIR := $(shell dirname "$(DST)"))
+	$(eval INV_DST_DIR := $(shell echo "$(DST_DIR)" | sed -E 's#([^/.]|[^/.][^/]+)#..#g'))
+	mkdir -p "$(HOME)/$(DST_DIR)"
+	ln -nsf -- "$(INV_DST_DIR)/$(SRC_DIR)" "$@"
 
 PHONY += uninstall
 uninstall:

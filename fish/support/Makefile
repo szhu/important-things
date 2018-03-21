@@ -1,5 +1,5 @@
-REPO := .local/opt/important-things
-DIR := $(shell env echo -n "$(PWD)" | xargs -0 dirname | xargs -0 basename)/support
+SRC_DIR := $(patsubst $(HOME)/%,%,$(PWD))
+INV_SRC_DIR := $(echo $(SRC_DIR) | sed -E 's#([^/.]|[^/.][^/]+)#..#g')
 ALL += ~/.bash_fish_launcher
 
 PHONY += install
@@ -9,7 +9,11 @@ install: $(ALL)
 # 	cp -- start-fish.bash $@
 
 ~/.bash_fish_launcher:
-	ln -s -- $(REPO)/$(DIR)/start-fish.bash $@
+	$(eval DST := $(patsubst $(HOME)/%,%,$@))
+	$(eval DST_DIR := $(shell dirname "$(DST)"))
+	$(eval INV_DST_DIR := $(shell echo "$(DST_DIR)" | sed -E 's#([^/.]|[^/.][^/]+)#..#g'))
+	mkdir -p "$(HOME)/$(DST_DIR)"
+	ln -nsf -- "$(INV_DST_DIR)/$(SRC_DIR)"/start-fish.bash "$@"
 
 PHONY += uninstall
 uninstall:
