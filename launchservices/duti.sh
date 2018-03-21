@@ -17,7 +17,7 @@ TYPE() {
 }
 
 
-APP  'com.github.atom'
+APP  'com.microsoft.VSCode'
 ROLE 'all'
 
     TYPE 'public.plain-text'

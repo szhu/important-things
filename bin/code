@@ -1,0 +1,3 @@
+#!/bin/bash
+
+FISH_AUTOINVOKED='' /usr/local/bin/code "$@"
