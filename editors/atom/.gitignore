@@ -1,6 +1,7 @@
-.apm
-.node-gyp
+/blob-store
 /compile-cache
+/git-time-machine
 /local-history
 /packages
+/split-diff
 /storage
