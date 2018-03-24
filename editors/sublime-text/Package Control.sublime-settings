@@ -3,6 +3,8 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"fish-shell",
+		"SublimeLinter-contrib-eslint"
 	],
 	"installed_packages":
 	[
@@ -20,7 +22,6 @@
 		"Cucumber",
 		"DocBlockr",
 		"ESLint",
-		"fish-shell",
 		"Git",
 		"Git Config",
 		"Git Conflict Resolver",
@@ -49,7 +50,6 @@
 		"SSH Config",
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
-		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-cppcheck",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jsxhint",
@@ -64,7 +64,9 @@
 		"Toggle Read-Only",
 		"TrailingSpaces",
 		"WakaTime",
-		"Wrap Plus"
+		"Wrap Plus",
+		"fish",
+		"SublimeLinter-eslint"
 	],
 	"submit_usage": false
 }
