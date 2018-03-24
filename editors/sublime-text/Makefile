@@ -27,6 +27,7 @@ $(ALL):
 	$(eval DST_DIR := $(shell dirname "$(DST)"))
 	$(eval INV_DST_DIR := $(shell echo "$(DST_DIR)" | sed -E 's#([^/.]|[^/.][^/]+)#..#g'))
 	mkdir -p "$(HOME)/$(DST_DIR)"
+	rm -f -- "$@"
 	ln -nsf -- "$(INV_DST_DIR)/$(SRC_DIR)" "$@"
 
 PHONY += uninstall

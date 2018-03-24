@@ -1,15 +1,17 @@
-DIR := $(shell basename $(PWD))/
-ALL += ~/.atom/config.cson
-ALL += ~/.atom/init.coffee
-ALL += ~/.atom/keymap.cson
-ALL += ~/.atom/snippets.cson
-ALL += ~/.atom/styles.less
+SRC_DIR := $(patsubst $(HOME)/%,%,$(PWD))
+INV_SRC_DIR := $(echo $(SRC_DIR) | sed -E 's#([^/.]|[^/.][^/]+)#..#g')
+ALL += ~/.atom
 
 PHONY += install
 install: $(ALL)
 
-~/.atom/%:
-	ln -sf -- ../.local/opt/important-things/$(DIR)$(patsubst $(HOME)/.atom/%,%,$@) $@
+$(ALL):
+	$(eval DST := $(patsubst $(HOME)/%,%,$@))
+	$(eval DST_DIR := $(shell dirname "$(DST)"))
+	$(eval INV_DST_DIR := $(shell echo "$(DST_DIR)" | sed -E 's#([^/.]|[^/.][^/]+)#..#g'))
+	mkdir -p "$(HOME)/$(DST_DIR)"
+	rm -f -- "$@"
+	ln -nsf -- "$(INV_DST_DIR)/$(SRC_DIR)" "$@"
 
 PHONY += uninstall
 uninstall:
