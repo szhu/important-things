@@ -1,7 +1,9 @@
+/.apm
 /blob-store
 /compile-cache
 /git-time-machine
 /local-history
 /packages
+/restore-windows
 /split-diff
 /storage

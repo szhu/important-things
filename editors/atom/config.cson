@@ -33,7 +33,7 @@
     warnOnLargeFileLimit: 0.3
   editor:
     backUpBeforeSaving: true
-    normalizeIndentOnPaste: false
+    normalizeIndentOnPaste: true
   "exception-reporting":
     userId: "c6d8a06c-ad1c-362a-f1ac-eece33002bb3"
   "linter-ui-default":
@@ -45,6 +45,8 @@
     useGitHubStyle: true
   "open-terminal-here":
     command: "open -b com.googlecode.iterm2 \"$PWD\""
+  "tree-view":
+    alwaysOpenExisting: true
   "tree-view-auto-fold":
     showOpenFileIndicator: false
   wakatime:
