@@ -26,6 +26,14 @@ function mkcd
 	and cd $argv
 end
 
+function mktouch
+	true
+	for arg in $argv
+		and mkdir -p (dirname $arg)
+		and touch $arg
+	end
+end
+
 ## finding files
 
 alias find-DS_Store         "find . -name '.DS_Store'   -type f -print"
