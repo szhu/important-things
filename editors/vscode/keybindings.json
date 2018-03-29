@@ -10,4 +10,8 @@
 		"command": "editor.action.referenceSearch.trigger",
 		"when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
 	},
+	{
+		"key": "cmd+e",
+		"command": "actions.findWithSelection"
+	},
 ]

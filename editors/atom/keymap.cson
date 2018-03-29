@@ -11,8 +11,6 @@
 
 '.platform-darwin atom-text-editor':
   'ctrl-j': 'autoflow:reflow-selection'
-
-'.platform-darwin atom-text-editor':
   'cmd-b': 'bracket-matcher:select-inside-brackets'
 
 '.platform-darwin ft-outline-editor':

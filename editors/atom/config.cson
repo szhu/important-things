@@ -13,6 +13,7 @@
       "linter-pyflakes"
       "markdown-table-formatter"
       "teletype"
+      "symbols-view"
     ]
     ignoredNames: [
       "*.class"
@@ -29,7 +30,6 @@
       "one-light-ui"
       "atom-github-theme"
     ]
-    titleBar: "custom-inset"
     warnOnLargeFileLimit: 0.3
   editor:
     backUpBeforeSaving: true
