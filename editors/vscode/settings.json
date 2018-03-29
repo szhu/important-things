@@ -1,4 +1,41 @@
 {
+    // Multi-line settings. These can't be automatically sorted :(
+    "[xml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "cSpell.enabledLanguageIds": [
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pub",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yml"
+    ],
+    "editor.rulers": [
+        90
+    ],
+
+    // Single-line settings.
     "editor.formatOnPaste": true,
     "editor.glyphMargin": false,
     "editor.insertSpaces": false,
@@ -11,20 +48,21 @@
     "editor.snippetSuggestions": "top",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "git.autofetch": true,
+    "git.autofetch": false,
     "git.confirmSync": false,
+    "github.statusbar.refresh": 60,
+    "solargraph.commandPath": "/usr/bin/false",
+    "sqltools.autoConnectTo": "blahnonexistent",
+    "sqltools.showStatusbar": false,
     "sublimeTextKeymap.promptV3Features": true,
     "terminal.integrated.cursorStyle": "line",
     "window.titleBarStyle": "native",
     "window.zoomLevel": -1,
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Github",
+    "workbench.editor.closeOnFileDelete": false,
     "workbench.editor.tabCloseButton": "left",
     "workbench.iconTheme": "macos-classic-icons",
     "workbench.startupEditor": "none",
     "workbench.statusBar.feedback.visible": false,
-    "[xml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-    },
 }

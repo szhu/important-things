@@ -1,0 +1,13 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+	{
+		"key": "alt+cmd+down",
+		"command": "editor.action.previewDeclaration",
+		"when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+	},
+	{
+		"key": "alt+cmd+up",
+		"command": "editor.action.referenceSearch.trigger",
+		"when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+	},
+]
