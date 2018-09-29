@@ -5,6 +5,9 @@
         "editor.tabSize": 4,
         "files.insertFinalNewline": false,
     },
+    "[applescript]": {
+        "files.encoding": "macroman",
+    },
     "cSpell.enabledLanguageIds": [
         "c",
         "cpp",
