@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eou pipefail
+
+keys=$(bash ~/.local/opt/important-things/bin/detectkeypress.c)
+
+if [[ "$keys" == 256 ]]; then
+  osascript -e 'tell application "System Events" to keystroke "[" using {command down, shift down}'
+# elif [[ "$keys" == 256 ]]; then
+#   # key code 18 = non-numpad "1"
+#   osascript -e 'tell application "System Events" to key code 18 using {command down}'
+fi
