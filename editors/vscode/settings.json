@@ -1,8 +1,9 @@
 {
     // Multi-line settings. These can't be automatically sorted :(
-    "[xml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
+    "[plaintext]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4,
+        "files.insertFinalNewline": false,
     },
     "cSpell.enabledLanguageIds": [
         "c",
@@ -29,42 +30,122 @@
         "text",
         "typescript",
         "typescriptreact",
-        "yml"
+        "yml",
+        "ruby",
+    ],
+    "cSpell.ignoreRegExpList": [
+        "'s\\b",
+        "\\bun",
+    ],
+    "cSpell.userWords": [
+        "bignum",
+        "nokogiri",
+        "denormalize",
+        "gsub",
+        "haml",
+        "hellip",
+        "linkify",
+        "nbsp",
+        "opps",
+        "rstrip",
+        "setex",
     ],
     "editor.rulers": [
-        90
+        90,
+    ],
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "diff.header",
+                "scope": "meta.diff, meta.diff.header",
+                "settings": {
+                    "foreground": "#75715E"
+                }
+            },
+            {
+                "name": "diff.deleted",
+                "scope": "markup.deleted",
+                "settings": {
+                    "foreground": "#9A0003"
+                }
+            },
+            {
+                "name": "diff.inserted",
+                "scope": "markup.inserted",
+                "settings": {
+                    "foreground": "#48A043"
+                }
+            },
+            {
+                "name": "diff.changed",
+                "scope": "markup.changed",
+                "settings": {
+                    "foreground": "#B48B47"
+                }
+            }
+        ]
+    },
+    "ruby.lint": {
+        "fasterer": true,
+        "reek": true,
+        // "rubocop": true,
+    },
+    "tslint.autoFixOnSave": [
+        "ordered-imports",
+        "no-unused-variable",
     ],
 
     // Single-line settings.
-    "editor.formatOnPaste": true,
-    "editor.glyphMargin": false,
+    "auto-comment-blocks.singleLineBlockOnEnter": true,
+    "breadcrumbs.enabled": true,
+    "cSpell.allowCompoundWords": true,
+    "cSpell.checkLimit": 500,
+    "cSpell.showStatus": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.autoIndent": false,
+    "editor.find.seedSearchStringFromSelection": false,
+    "editor.formatOnSave": true,
+    "editor.glyphMargin": true,
     "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.lineNumbers": "interval",
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
+    "editor.quickSuggestionsDelay": 300,
     "editor.renderIndentGuides": false,
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollBeyondLastLine": false,
     "editor.snippetSuggestions": "top",
+    "editor.tabSize": 2,
+    "explorer.autoCollapse": false,
+    "extensions.autoUpdate": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "git.autofetch": false,
     "git.confirmSync": false,
-    "github.statusbar.refresh": 60,
+    "markdown.extension.showExplorer": false,
     "prettier.requireConfig": true,
-    "solargraph.commandPath": "/usr/bin/false",
-    "sqltools.autoConnectTo": "blahnonexistent",
-    "sqltools.showStatusbar": false,
+    "prettier.tslintIntegration": true,
+    "python.pythonPath": "/usr/local/bin/python",
+    "rewrap.wholeComment": false,
+    "tableformatter.common.centerAlignedHeader": false,
     "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.scrollback": 100000,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    "window.closeWhenEmpty": false,
+    "window.restoreFullscreen": true,
     "window.restoreWindows": "all",
-    "window.titleBarStyle": "native",
-    "window.zoomLevel": 0,
+    "window.title": "${rootName}${separator}${activeEditorMedium}",
+    "window.zoomLevel": -1,
     "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Github",
-    "workbench.editor.closeOnFileDelete": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.revealIfOpen": false,
+    "workbench.editor.showTabs": false,
     "workbench.editor.tabCloseButton": "left",
     "workbench.iconTheme": "macos-classic-icons",
+    "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.statusBar.feedback.visible": false,
+    "workbench.view.alwaysShowHeaderActions": true,
 }
