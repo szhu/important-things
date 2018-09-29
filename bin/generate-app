@@ -1,0 +1,35 @@
+#!/bin/bash
+set -eou pipefail
+
+if [[ $# != 2 ]]; then
+  echo 'usage: generate-app <app_name> <exe_name>'
+  exit 1
+fi
+APP_NAME=$1
+EXE_NAME=$2
+
+# APP_NAME.app/Contents
+CONTENTS=$APP_NAME.app/Contents
+mkdir -p "$CONTENTS"
+echo "$CONTENTS"
+
+# APP_NAME.app/Contents/Info.plist
+INFO="$PWD/$CONTENTS/Info"
+INFO_PLIST="$CONTENTS/Info.plist"
+defaults write "$INFO" "CFBundleExecutable" "$EXE_NAME"
+defaults write "$INFO" "LSBackgroundOnly" -bool TRUE
+plutil -convert xml1 "$INFO_PLIST"
+echo "$INFO_PLIST"
+
+# APP_NAME.app/Contents/MacOS
+MACOS="$CONTENTS/MacOS"
+mkdir -p "$MACOS"
+echo "$MACOS"
+
+# APP_NAME.app/Contents/MacOS/EXE_NAME
+EXE="$CONTENTS/MacOS/$EXE_NAME"
+touch "$EXE"
+chmod +x "$EXE"
+echo "$EXE"
+
+$EDITOR "$EXE"
