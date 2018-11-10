@@ -14,6 +14,8 @@
       "markdown-table-formatter"
       "teletype"
       "symbols-view"
+      "markdown-preview"
+      "atom-terminal"
     ]
     ignoredNames: [
       "*.class"
@@ -28,16 +30,22 @@
     telemetryConsent: "limited"
     themes: [
       "one-light-ui"
-      "atom-github-theme"
+      "github-atom-light-syntax"
     ]
     warnOnLargeFileLimit: 0.3
   editor:
     backUpBeforeSaving: true
+    fontSize: 12
     normalizeIndentOnPaste: true
+    preferredLineLength: 90
+    showIndentGuide: true
   "exception-reporting":
     userId: "c6d8a06c-ad1c-362a-f1ac-eece33002bb3"
+  github:
+    automaticCommitMessageWrapping: false
   "linter-ui-default":
     hidePanelWhenEmpty: false
+    panelHeight: 716
     showProviderName: true
     statusBarClickBehavior: "Jump to next issue"
     statusBarRepresents: "Current File"
@@ -45,6 +53,10 @@
     useGitHubStyle: true
   "open-terminal-here":
     command: "open -b com.googlecode.iterm2 \"$PWD\""
+  "pull-requests":
+    githubAuthorizationToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  "spell-check":
+    noticesMode: "popup"
   "tree-view":
     alwaysOpenExisting: true
   "tree-view-auto-fold":
@@ -69,7 +81,7 @@
       "txt"
     ]
   "wrap-guide":
-    enabled: false
+    enabled: true
 ".fish.source":
   editor:
     tabLength: 2

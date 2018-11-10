@@ -1,10 +1,10 @@
 if contains $TERM_PROGRAM "vscode"
     is_command code
-    and set -Ux EDITOR 'code --wait'
+    and set -x EDITOR 'code --wait'
 else if contains $TERM_PROGRAM "Apple_Terminal" "iTerm.app"
     is_command nano
-    set -Ux EDITOR 'nano'
+    set -x EDITOR 'nano'
 else
     is_command subl
-    and set -Ux EDITOR 'subl --wait'
+    and set -x EDITOR 'subl --wait'
 end

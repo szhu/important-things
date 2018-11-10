@@ -10,7 +10,7 @@
 	default = current
 [alias]
 	nb = checkout -b
-	uu = "!f() { git branch --set-upstream-to \"$1\"/\"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
+	uu = "!f() { git branch --set-upstream-to \"$(git remote | head -1)\"/\"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
 [alias]
 	current-branch = rev-parse --verify --abbrev-ref HEAD  # http://stackoverflow.com/questions/6245570
 	current-commit = rev-parse --verify HEAD

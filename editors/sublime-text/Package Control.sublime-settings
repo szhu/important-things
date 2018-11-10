@@ -20,6 +20,7 @@
 		"Cucumber",
 		"DocBlockr",
 		"ESLint",
+		"fish",
 		"Git",
 		"Git Config",
 		"Git Conflict Resolver",
@@ -31,6 +32,7 @@
 		"HTML-CSS-JS Prettify",
 		"INI",
 		"JSON Reindent",
+		"JsPrettier",
 		"LiveScript",
 		"Local History",
 		"Markdown Extended",
@@ -49,6 +51,7 @@
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
 		"SublimeLinter-cppcheck",
+		"SublimeLinter-eslint",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jsxhint",
 		"SublimeLinter-pep8",
@@ -62,9 +65,7 @@
 		"Toggle Read-Only",
 		"TrailingSpaces",
 		"WakaTime",
-		"Wrap Plus",
-		"fish",
-		"SublimeLinter-eslint"
+		"Wrap Plus"
 	],
 	"submit_usage": false
 }
