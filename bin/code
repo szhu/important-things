@@ -1,7 +1,12 @@
 #!/bin/bash
 
-env -i osascript -e 'launch app id "com.microsoft.VSCode"'
-while [[ "$(osascript -e 'running of app id "com.microsoft.VSCode"')" != true ]]; do
-	sleep 0.1
+if command -v osascript >/dev/null; then
+	env -i osascript -e 'launch app id "com.microsoft.VSCode"'
+	while [[ "$(osascript -e 'running of app id "com.microsoft.VSCode"')" != true ]]; do
+		sleep 0.1
+	done
+fi
+
+for path in /usr/local/bin/code /usr/bin/code; do
+    [[ -e "$path" ]] && exec env -i "$path" "$@"
 done
-exec env -i /usr/local/bin/code "$@"

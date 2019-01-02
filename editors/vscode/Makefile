@@ -1,6 +1,13 @@
 SRC_DIR := $(patsubst $(HOME)/%,%,$(PWD))
 INV_SRC_DIR := $(echo $(SRC_DIR) | sed -E 's#([^/.]|[^/.][^/]+)#..#g')
-ALL += ~/Library/Application\ Support/Code/User
+
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+	ALL += ~/.config/Code/User
+endif
+ifeq ($(UNAME), Darwin)
+	ALL += ~/Library/Application\ Support/Code/User
+endif
 
 PHONY += install
 install: $(ALL)

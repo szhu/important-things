@@ -214,4 +214,5 @@
     "workbench.list.openMode": "doubleClick",
     "tslint.alwaysShowRuleFailuresAsWarnings": true,
     "git.autofetch": true,
+    "terminal.integrated.rendererType": "dom",
 }
