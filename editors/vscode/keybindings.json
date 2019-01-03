@@ -246,4 +246,38 @@
 		"key": "ctrl+`",
 		"command": "-workbench.action.terminal.toggleTerminal"
 	},
+	{
+		"key": "alt+cmd+.",
+		"command": "quickOpenRelatedFiles.show",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "cmd+.",
+		"command": "-quickOpenRelatedFiles.show",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "alt+cmd+o",
+		"command": "gitlens.diffWithNext",
+		"when": "editorTextFocus && gitlens:keymap == 'alternate' && gitlens:activeFileStatus =~ /tracked/"
+	},
+	{
+		"key": "alt+.",
+		"command": "-gitlens.diffWithNext",
+		"when": "editorTextFocus && gitlens:keymap == 'alternate' && gitlens:activeFileStatus =~ /tracked/"
+	},
+	{
+		"key": "shift+cmd+y",
+		"command": "-workbench.debug.action.toggleRepl"
+	},
+	{
+		"key": "cmd+k cmd+k",
+		"command": "workbench.action.editorLayoutSingle",
+		"when": "editorFocus"
+	},
+	{
+		"key": "cmd+k cmd+k",
+		"command": "-deleteAllRight",
+		"when": "editorTextFocus && !editorReadonly"
+	},
 ]

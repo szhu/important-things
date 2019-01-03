@@ -3,7 +3,7 @@
     "[plaintext]": {
         "editor.insertSpaces": false,
         "editor.tabSize": 4,
-        "files.insertFinalNewline": false,
+        "files.insertFinalNewline": false
     },
     "cSpell.enabledLanguageIds": [
         "c",
@@ -31,18 +31,20 @@
         "typescript",
         "typescriptreact",
         "yml",
-        "ruby",
+        "ruby"
     ],
     "cSpell.ignoreRegExpList": [
-        "'s\\b",
-        "\\bun",
-        "\\bun\\b",
+        // "'s\\b",
+        // "\\bun",
+        // "\\bun\\b",
     ],
     "cSpell.userWords": [
+        "CSRF",
         "Elif",
         "Gmail",
         "Lapras",
         "Orgs",
+        "Uncomment",
         "Unmount",
         "architected",
         "bignum",
@@ -50,25 +52,29 @@
         "camelize",
         "debounced",
         "denormalize",
+        "divs",
+        "encodeji",
         "eval",
         "gabe",
         "gsub",
         "haml",
         "hellip",
+        "isatty",
         "linkify",
         "linkifyjs",
         "lunala",
+        "munge",
         "nbsp",
         "nokogiri",
         "opps",
         "rstrip",
+        "rubocop",
         "setex",
         "styl",
-        "unindent"
+        "unindent",
+        "unlisten"
     ],
-    "editor.rulers": [
-        90,
-    ],
+    "editor.rulers": [90],
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -101,24 +107,15 @@
             }
         ]
     },
-    "emeraldwalk.runonsave": {
-        "commands": [
-            {
-                "match": "/Users/Sean/Code/x(|--.*)/.*",
-                "cmd": "cd ${workspaceRoot} && test -e bin/util/rsync-to-clay && bin/util/rsync-to-clay -v && bin/util/macos-notify 'Visual Studio Code' 'rsync-to-clay' 'Sync completed'",
-            }
-        ]
-    },
-    "githubPullRequests.hosts": [
-        {
-            "host": "https://github.com",
-            "username": "oauth",
-            "token": "system"
-        }
+    "quickOpenRelatedFiles.patternsToStrip": [
+        "{EXTENSION}",
+        "/[_\\.]?[sS]pec$/",
+        "/[_\\.]?[tT]est$/",
+        "/[_\\.]?[cC]component$/"
     ],
     "ruby.lint": {
         "fasterer": true,
-        "reek": true,
+        "reek": true
         // "rubocop": true,
     },
     "sshfs.configs": [
@@ -139,27 +136,34 @@
             "name": "sean@x"
         }
     ],
-    "tslint.autoFixOnSave": true,
 
     // Single-line settings.
     "auto-comment-blocks.singleLineBlockOnEnter": true,
     "breadcrumbs.enabled": true,
+    "breadcrumbs.symbolPath": "off",
     "cSpell.allowCompoundWords": true,
-    "cSpell.checkLimit": 500,
+    "cSpell.checkLimit": 15,
+    "cSpell.diagnosticLevel": "Hint",
     "cSpell.showStatus": false,
+    "debug.enableAllHovers": true,
+    "debug.inlineValues": true,
+    "debug.toolBarLocation": "docked",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.autoIndent": false,
+    "editor.cursorSmoothCaretAnimation": true,
     "editor.find.seedSearchStringFromSelection": false,
-    "editor.foldingStrategy": "indentation",
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontWeight": "500",
     "editor.formatOnSave": true,
     "editor.glyphMargin": true,
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.lineNumbers": "interval",
     "editor.minimap.enabled": false,
     "editor.overviewRulerBorder": false,
     "editor.quickSuggestionsDelay": 300,
     "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "boundary",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollBeyondLastLine": false,
     "editor.snippetSuggestions": "top",
@@ -168,45 +172,47 @@
     "explorer.openEditors.visible": 20,
     "explorer.sortOrder": "mixed",
     "extensions.autoUpdate": true,
+    "files.hotExit": "onExitAndWindowClose",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "git.alwaysShowStagedChangesResourceGroup": true,
-    "git.autorefresh": false,
     "git.autoRepositoryDetection": "subFolders",
     "git.enableSmartCommit": true,
+    "git.openDiffOnClick": false,
     "git.showPushSuccessNotification": true,
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.statusBar.enabled": false,
+    "liveshare.showInStatusBar": "whileCollaborating",
     "markdown.extension.showExplorer": false,
     "prettier.requireConfig": true,
     "prettier.tslintIntegration": true,
-    "python.pythonPath": "/usr/local/bin/python",
+    "rewrap.autoWrap.enabled": true,
     "rewrap.wholeComment": false,
-    "spotify.showMuteUnmuteVolumeButton": false,
-    "spotify.showNextButton": false,
-    "spotify.showPlayPauseButton": false,
-    "spotify.showPreviousButton": false,
-    "spotify.showSignOutButton": false,
+    "search.location": "panel",
+    "search.quickOpen.includeHistory": false,
+    "stylint.run": "onSave",
     "tableformatter.common.centerAlignedHeader": false,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.scrollback": 100000,
-    "typescript.implementationsCodeLens.enabled": true,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    "tslint.autoFixOnSave": true,
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "typescript.referencesCodeLens.enabled": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.closeWhenEmpty": false,
+    "window.nativeTabs": true,
+    "window.openFilesInNewWindow": "default",
     "window.restoreFullscreen": true,
-    "window.restoreWindows": "all",
+    "window.restoreWindows": "none",
     "window.title": "${rootName}${separator}${activeEditorMedium}",
+    "window.titleBarStyle": "native",
     "window.zoomLevel": 0,
-    "workbench.activityBar.visible": true,
-    "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": false,
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showIcons": false,
     "workbench.editor.tabCloseButton": "left",
-    "workbench.iconTheme": "macos-classic-icons",
+    "workbench.iconTheme": "vs-minimal",
     "workbench.sideBar.location": "right",
     "workbench.statusBar.feedback.visible": false,
     "workbench.view.alwaysShowHeaderActions": true,
@@ -214,5 +220,5 @@
     "workbench.list.openMode": "doubleClick",
     "tslint.alwaysShowRuleFailuresAsWarnings": true,
     "git.autofetch": true,
-    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.rendererType": "dom"
 }
