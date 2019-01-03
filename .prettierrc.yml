@@ -1,5 +1,5 @@
 printWidth: 100
-tabWidth: 4
+tabWidth: 2
 useTabs: false
 semi: true
 singleQuote: false
@@ -7,6 +7,7 @@ trailingComma: all
 arrowParens: always
 
 overrides:
+  # TODO: wait for resolution here https://github.com/prettier/prettier/issues/5708
   - files: "*.json"
     options:
       trailingComma: all
