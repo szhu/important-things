@@ -9,7 +9,7 @@ function folders-search-mdfind -a scope -a query
 end
 
 function folders-search-exactmatch -a scope -a query
-  echo (cd $scope ^&-; cd $query ^&-; and pwd)
+  echo (cd $scope 2>&-; cd $query 2>&-; and pwd)
 end
 
 function folders-search-smart

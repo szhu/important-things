@@ -49,7 +49,7 @@ function status-git-forced
     echo $PWD | grep -Fq $loc; and return
   end
   # Do nothing if not a git repo
-  set -l git_root (git rev-parse --show-toplevel ^/dev/null); or return
+  set -l git_root (git rev-parse --show-toplevel 2>/dev/null); or return
   # Do nothing if $git_root/.git/noprompt exists
   test -e $git_root/.git/noprompt; and return
   # and __fish_git_prompt

@@ -28,10 +28,12 @@ function funcsreset
   funcsnuke
   set -Ux NOHUSH
   and fish -lc 'funcsupdate'
-  set -Uxe NOHUSH  # Force fish to read from disk
+  set -Ue NOHUSH  # Force fish to read from disk
 
   set -Ux NOHUSH
-  exec fish
+
+  echo
+  echo "Done! Run 'exec fish' to load new functions."
 end
 
 function pullover -a repo_path
@@ -52,6 +54,6 @@ function pullover -a repo_path
 end
 
 function funcspull
-  pullover ~/.config/fish/functions.src/work; or return
+  # pullover ~/.config/fish/functions.src/work; or return
   pullover ~/.local/opt/important-things; or return
 end
