@@ -1,0 +1,119 @@
+#!/usr/bin/swift
+import AppKit
+
+public class Observer: NSObject {
+    var wasScreenSaver = false
+
+    func observe() {
+        NSWorkspace.shared.notificationCenter.addObserver (
+            self,
+            selector: #selector(Observer.onAppSwitch),
+            name: NSWorkspace.didActivateApplicationNotification,
+            object: nil
+        )
+    }
+
+    @objc
+    func onAppSwitch(notification: NSNotification) {
+        let appId =
+            (notification.userInfo!["NSWorkspaceApplicationKey"]! as! NSRunningApplication)
+            .bundleIdentifier!
+
+        let isScreenSaver = appId == "com.apple.ScreenSaver.Engine"
+        let ignoreChange = appId == "com.apple.loginwindow"
+
+        if (!ignoreChange && wasScreenSaver && !isScreenSaver && !magicKeyPressed()) {
+            lockScreen()
+        }
+        wasScreenSaver = isScreenSaver
+    }
+
+    func magicKeyPressed() -> Bool {
+        let event = CGEvent.init (source: nil)
+        return (
+            event!.flags.rawValue &
+            CGEventFlags.maskCommand.rawValue &
+            CGEventFlags.maskShift.rawValue
+        ) != 0
+    }
+
+    func shell(_ launchPath: String, _ arguments: [String]) {
+        let task = Process()
+        task.launchPath = launchPath
+        task.arguments = arguments
+        task.launch()
+    }
+
+    func lockScreen() {
+        shell(
+            "/usr/bin/osascript",
+            [
+                "-e",
+                "tell app \"System Events\" to keystroke \"q\" using {control down, command down}",
+            ]
+        )
+    }
+}
+
+let o = Observer()
+o.observe()
+print("Hello!")
+RunLoop.main.run()
+
+
+
+// import AppKit
+
+// public class Observer: NSObject {
+//     func observe() {
+//         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(Observer.sleepListener), name: NSWorkspace.willSleepNotification, object: nil)
+//         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(Observer.sleepListener), name: NSWorkspace.didWakeNotification, object: nil)
+//         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(Observer.sleepListener), name: NSWorkspace.didActivateApplicationNotification, object: nil)
+
+//     }
+
+//     @objc
+//     func sleepListener(notification : NSNotification) {
+//         if notification.name == NSWorkspace.willSleepNotification {
+//             print("Going to sleep")
+//         }
+//         else if notification.name == NSWorkspace.didWakeNotification {
+//             print("Woke up")
+//         }
+//         else {
+//             print("Some other event other than the first two")
+//             print((notification.userInfo!["NSWorkspaceApplicationKey"]! as! NSRunningApplication).bundleIdentifier!)
+//         }
+//     }
+// }
+
+// func shell(_ launchPath: String, _ arguments: [String]) {
+//     let task = Process()
+//     task.launchPath = launchPath
+//     task.arguments = arguments
+//     task.launch()
+// }
+
+// // func lock() {
+// //     let bundle = Bundle(path: "/Applications/Utilities/Keychain Access.app/Contents/Resources/Keychain.menu")
+// //     let principalClass: AnyClass = (bundle?.principalClass)!
+// //     let instance = principalClass()
+// //     instance?.perform(#selector(_lockScreenMenuHit(_:)), with: nil)
+// // }
+
+// print("Start")
+
+// let o = Observer()
+// o.observe()
+
+// // let modifiers = GetCurrentKeyModifiers()
+
+// let event = CGEvent.init(source: nil)
+// if (event!.flags.rawValue & CGEventFlags.maskCommand.rawValue != 0) {
+//     print("Shift key is being pressed")
+// }
+
+
+// // shell("/usr/bin/osascript", ["-e", "tell app \"System Events\" to keystroke \"q\" using {control down, command down}"])
+
+// RunLoop.main.run()
