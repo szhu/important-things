@@ -3,7 +3,7 @@
   "[plaintext]": {
     "editor.insertSpaces": false,
     "editor.tabSize": 4,
-    "files.insertFinalNewline": false
+    "files.insertFinalNewline": false,
   },
   "cSpell.enabledLanguageIds": [
     "c",
@@ -31,7 +31,7 @@
     "typescript",
     "typescriptreact",
     "yml",
-    "ruby"
+    "ruby",
   ],
   "cSpell.ignoreRegExpList": [
     // "'s\\b",
@@ -72,50 +72,52 @@
     "setex",
     "styl",
     "unindent",
-    "unlisten"
+    "unlisten",
   ],
-  "editor.rulers": [90],
+  "editor.rulers": [
+    90,
+  ],
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
         "name": "diff.header",
         "scope": "meta.diff, meta.diff.header",
         "settings": {
-          "foreground": "#75715E"
-        }
+          "foreground": "#75715E",
+        },
       },
       {
         "name": "diff.deleted",
         "scope": "markup.deleted",
         "settings": {
-          "foreground": "#9A0003"
-        }
+          "foreground": "#9A0003",
+        },
       },
       {
         "name": "diff.inserted",
         "scope": "markup.inserted",
         "settings": {
-          "foreground": "#48A043"
-        }
+          "foreground": "#48A043",
+        },
       },
       {
         "name": "diff.changed",
         "scope": "markup.changed",
         "settings": {
-          "foreground": "#B48B47"
-        }
-      }
-    ]
+          "foreground": "#B48B47",
+        },
+      },
+    ],
   },
   "quickOpenRelatedFiles.patternsToStrip": [
     "{EXTENSION}",
     "/[_\\.]?[sS]pec$/",
     "/[_\\.]?[tT]est$/",
-    "/[_\\.]?[cC]component$/"
+    "/[_\\.]?[cC]component$/",
   ],
   "ruby.lint": {
     "fasterer": true,
-    "reek": true
+    "reek": true,
     // "rubocop": true,
   },
   "sshfs.configs": [
@@ -125,7 +127,7 @@
       "port": 22,
       "privateKeyPath": "/Users/Sean/.ssh/id_rsa",
       "root": "/home/s/se/seanzhu",
-      "username": "seanzhu"
+      "username": "seanzhu",
     },
     {
       "root": "/home/sean",
@@ -133,8 +135,8 @@
       "port": 20000,
       "username": "sean",
       "privateKeyPath": "/Users/Sean/.ssh/id_rsa",
-      "name": "sean@x"
-    }
+      "name": "sean@x",
+    },
   ],
 
   // Single-line settings.
@@ -221,5 +223,5 @@
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "git.autofetch": true,
   "terminal.integrated.rendererType": "dom",
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
 }

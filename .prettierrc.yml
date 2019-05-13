@@ -7,7 +7,14 @@ trailingComma: all
 arrowParens: always
 
 overrides:
-  # TODO: wait for resolution here https://github.com/prettier/prettier/issues/5708
-  - files: "*.json"
+  # Add trailing comma to JSON, as described here:
+  # https://github.com/prettier/prettier/issues/5708#issuecomment-491610261
+  - files:
+      - "*.json"
+      - "*.sublime-settings"
     options:
+      parser: json5
+      printWidth: 0
+      quoteProps: "preserve"
+      singleQuote: false
       trailingComma: all
