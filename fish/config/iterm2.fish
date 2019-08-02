@@ -1,3 +1,7 @@
+test "$LC_TERMINAL" = iTerm2; or exit
+
+echo HELLO
+
 # test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Downloaded from https://iterm2.com/misc/fish_startup.in
@@ -106,4 +110,10 @@ if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ 
 
   iterm2_precmd
   printf "\033]1337;ShellIntegrationVersion=5;shell=fish\007"
+end
+
+# Instructions from ~/.iterm2/it2git
+
+function iterm2_print_user_vars
+  ~/.iterm2/it2git
 end
