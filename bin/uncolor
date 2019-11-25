@@ -1,12 +1,17 @@
-#!/usr/bin/env perl
-# uncolor — remove terminal escape sequences such as color changes
-# http://unix.stackexchange.com/a/14707/64762
+#!/bin/bash
 
-while (<>) {
-    s/ \e[ #%()*+\-.\/]. |
-       (?:\e\[|\x9b) [ -?]* [@-~] | # CSI ... Cmd
-       (?:\e\]|\x9d) .*? (?:\e\\|[\a\x9c]) | # OSC ... (ST|BEL)
-       (?:\e[P^_]|[\x90\x9e\x9f]) .*? (?:\e\\|\x9c) | # (DCS|PM|APC) ... ST
-       \e.|[\x80-\x9f] //xg;
-    print;
-}
+# https://stackoverflow.com/a/51141872/782045
+sed 's/\x1B\[[0-9;]\+[A-Za-z]//g'
+
+
+# # uncolor — remove terminal escape sequences such as color changes
+# # http://unix.stackexchange.com/a/14707/64762
+
+# while (<>) {
+#     s/ \e[ #%()*+\-.\/]. |
+#        (?:\e\[|\x9b) [ -?]* [@-~] | # CSI ... Cmd
+#        (?:\e\]|\x9d) .*? (?:\e\\|[\a\x9c]) | # OSC ... (ST|BEL)
+#        (?:\e[P^_]|[\x90\x9e\x9f]) .*? (?:\e\\|\x9c) | # (DCS|PM|APC) ... ST
+#        \e.|[\x80-\x9f] //xg;
+#     print;
+# }
