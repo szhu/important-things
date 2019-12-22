@@ -1,8 +1,10 @@
+# Doge git
 abbr wow   git status
 abbr much  git
 abbr such  git
 abbr wuf   git commit -m
 
+# Abbreviations for built-in git commands
 abbr gaa   git add --all :/
 abbr gb    git branch
 abbr gc    git commit
@@ -18,13 +20,10 @@ abbr gm    git merge
 abbr gmt   git mergetool
 abbr gma   git merge --abort
 abbr gmc   git merge --continue
-abbr gmnf  git merge --no-ff
-abbr gmnc  git merge --no-commit
-abbr gmncf git merge --no-commit --no-ff
-abbr gmnfc git merge --no-ff --no-commit
 abbr gl    git pull
 abbr glr   git pull --rebase
 abbr gp    git push
+abbr gpu   git push -u
 abbr gr    git rebase
 abbr gra   git rebase --abort
 abbr grc   git rebase --continue
@@ -42,7 +41,11 @@ abbr gs    git stash
 abbr gsp   git stash pop
 abbr gsd   git stash drop
 abbr gsa   git stash apply
-abbr gu    git up
+
+# Abbreviations for custom git commands
+abbr gll   git log-graph-long
+abbr gls   git log-graph-short
+abbr guu   git branch-track-origin
 
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=565699
 set -ge LESS

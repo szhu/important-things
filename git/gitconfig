@@ -9,27 +9,23 @@
 [push]
 	default = current
 [alias]
-	nb = checkout -b
-	uu = "!f() { git branch --set-upstream-to \"$(git remote | head -1)\"/\"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
-[alias]
-	current-branch = rev-parse --verify --abbrev-ref HEAD  # http://stackoverflow.com/questions/6245570
-	current-commit = rev-parse --verify HEAD
-	current-remote = rev-parse --verify --symbolic-full-name --abbrev-ref @{u} # http://stackoverflow.com/questions/6245570
-	detach = !git checkout "$(git current-commit)"
+	branch-recent = for-each-ref --sort=committerdate --format='%(committerdate:short) %(refname:short)' refs/heads
+	branch-track-origin = "!git branch --set-upstream-to origin/\"$(git rev-parse --abbrev-ref HEAD)\""
+	checkout-detach = !git checkout "$(git rev-commit)"
+	diff-subl = "!env PAGER='subl --wait' git diff --no-color"
 	exec = '!exec'  # http://stackoverflow.com/questions/957928
-	hard-pull = "!git add --all :/ && git stash && git fetch && git reset --hard \"$(git tracking)\""
-	last = log -1
-	ignored = git ls-files --others -i --exclude-standard --exclude-from=.git/info/exclude
-	log-graph = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=iso --graph
+	log-graph-long = log --graph --abbrev-commit --decorate --date=relative  # https://stackoverflow.com/a/1060886/782045
+	log-graph-medium = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=iso --graph
+	log-graph-short = log --graph --oneline --decorate  # https://stackoverflow.com/a/1060886/782045
 	log-short = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 	log-stats = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	new-branch = checkout -b
-	subldiff = "!env PAGER='subl --wait' git diff --no-color"
-	reset-head-only =  "!f() { git symbolic-ref HEAD refs/heads/$1 && git reset; }; f"
-	reset-head-only- =  "!f() { git symbolic-ref HEAD refs/$1 && git reset; }; f"
+	ls-ignored = ls-files --others -i --exclude-standard --exclude-from=.git/info/exclude
+	pull-hard = "!git add --all :/ && git stash && git fetch && git reset --hard \"$(git rev-tracking)\""
+	reset-head-only = "!f() { git symbolic-ref HEAD $1 && git reset; }; f"
+	rev-branch = rev-parse --verify --abbrev-ref HEAD  # http://stackoverflow.com/questions/6245570
+	rev-commit = rev-parse --verify HEAD
+	rev-tracking = rev-parse --verify --symbolic-full-name --abbrev-ref @{u} # http://stackoverflow.com/questions/6245570
 	root = rev-parse --show-toplevel  # http://stackoverflow.com/questions/957928
-	tracking = rev-parse --abbrev-ref --symbolic-full-name @{u}  # http://stackoverflow.com/a/9753364/782045
-	update-upstream = "!f() { git branch --set-upstream-to \"$1\"/\"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
 	verify-included = !echo 'it works!'
 [mergetool]
 	keepBackup = false
