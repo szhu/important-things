@@ -1,7 +1,5 @@
 test "$LC_TERMINAL" = iTerm2; or exit
 
-echo HELLO
-
 # test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Downloaded from https://iterm2.com/misc/fish_startup.in

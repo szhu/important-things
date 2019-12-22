@@ -98,6 +98,6 @@ function status-git-nocolor
   end
 end
 
-function status-prommptchar
-  echo ' $ '
+function status-promptchar
+  echo '$ '
 end

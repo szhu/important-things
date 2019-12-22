@@ -19,16 +19,26 @@ function fish_prompt --description 'Write out the prompt'
   newline-clearline
 
   if test $last_status -ne 0
-    set_color red
+    set_color --reverse red
     status-returncode-error $last_status
+    set_color normal
 
     newline-clearline
     newline-clearline
   end
 
+  if set -q fish_color_autosuggestion
+    set_color $fish_color_autosuggestion
+  end
+  echo -n (status-time)
+
+  echo -n ' '
+
   echo -n (status-user-hostname-if-remote)
 
-  set_color $fish_color_cwd
+  if set -q fish_color_cwd
+    set_color $fish_color_cwd
+  end
   echo -n (pwd-forprompt)
   test -e (pwd); or echo -n ' (!)'
 
@@ -37,11 +47,11 @@ function fish_prompt --description 'Write out the prompt'
 
   newline-clearline
 
-  set_color $fish_color_autosuggestion[1]
-  echo -n (status-time)
-
+  if set -q fish_color_autosuggestion
+    set_color $fish_color_autosuggestion
+  end
+  echo -n (status-promptchar)
   set_color normal
-  echo -n (status-prommptchar)
 end
 
 # Overwrite built-in function
