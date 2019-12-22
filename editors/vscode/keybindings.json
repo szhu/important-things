@@ -49,33 +49,32 @@
 
   // Sidebar
   {
-    "key": "ctrl+\\ ctrl+\\",
+    "key": "cmd+l cmd+\\",
     "command": "workbench.action.toggleSidebarVisibility"
   },
 
   {
-    "key": "ctrl+\\ ctrl+e",
+    "key": "cmd+l cmd+e",
     "command": "workbench.view.explorer",
-    "when": "!editorTextFocus"
   },
   {
-    "key": "ctrl+\\ ctrl+b",
+    "key": "cmd+l cmd+b",
     "command": "workbench.view.extension.bookmarks"
   },
   {
-    "key": "ctrl+\\ ctrl+g",
+    "key": "cmd+l cmd+g",
     "command": "workbench.view.scm"
   },
   {
-    "key": "ctrl+\\ ctrl+p",
+    "key": "cmd+l cmd+p",
     "command": "workbench.view.extension.github-pull-requests"
   },
   {
-    "key": "ctrl+\\ ctrl+l",
+    "key": "cmd+l cmd+l",
     "command": "workbench.view.extension.gitlens"
   },
   {
-    "key": "ctrl+\\ ctrl+x",
+    "key": "cmd+l cmd+x",
     "command": "workbench.view.extensions"
   },
 
@@ -131,19 +130,19 @@
 
   // Panel views
   {
-    "key": "ctrl+\\ ctrl+t",
+    "key": "cmd+l cmd+t",
     "command": "workbench.action.terminal.focus"
   },
   {
-    "key": "ctrl+\\ ctrl+m",
+    "key": "cmd+l cmd+m",
     "command": "workbench.action.problems.focus"
   },
   {
-    "key": "ctrl+shift+d",
+    "key": "cmd+l cmd+d",
     "command": "workbench.debug.action.focusRepl"
   },
   {
-    "key": "ctrl+\\ ctrl+c",
+    "key": "cmd+l cmd+c",
     "command": "workbench.action.focusCommentsPanel"
   },
 
@@ -353,5 +352,13 @@
     "key": "cmd+d",
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+alt+=",
+    "command": "extension.emeraldwalk.enableRunOnSave"
+  },
+  {
+    "key": "ctrl+alt+-",
+    "command": "extension.emeraldwalk.disableRunOnSave"
   }
 ]

@@ -1,31 +1,39 @@
 {
   // Multi-line settings. These can't be automatically sorted :(
   "[git-commit]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
   },
   "[git-rebase]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
   },
   "[markdown]": {
-    "rewrap.autoWrap.enabled": false
+    "rewrap.autoWrap.enabled": false,
   },
   "[plaintext]": {
     "editor.insertSpaces": false,
     "editor.tabSize": 4,
-    "files.insertFinalNewline": false
+    "files.insertFinalNewline": false,
   },
   "[ruby]": {
-    "editor.defaultFormatter": "misogi.ruby-rubocop"
+    "editor.defaultFormatter": "misogi.ruby-rubocop",
   },
   "[stylus]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 
-  "blockhighlight.background": ["200", "100", "255", ".2"],
-  "blockhighlight.omit": ["typescriptreact", "plaintext"],
+  "blockhighlight.background": [
+    "200",
+    "100",
+    "255",
+    ".2",
+  ],
+  "blockhighlight.omit": [
+    "typescriptreact",
+    "plaintext",
+  ],
   "cSpell.enabledLanguageIds": [
     "c",
     "cpp",
@@ -52,7 +60,7 @@
     "typescript",
     "typescriptreact",
     "yml",
-    "ruby"
+    "ruby",
   ],
   "cSpell.ignoreRegExpList": [],
   "cSpell.userWords": [
@@ -67,6 +75,8 @@
     "Kuang",
     "Linkedin",
     "Lyft",
+    "Menlo",
+    "Zhang",
     "Zhou",
     "abcdefghijklmnopqrstuvwxyz",
     "anonymize",
@@ -109,6 +119,7 @@
     "mktemp",
     "munge",
     "nbsp",
+    "nocheck",
     "nokogiri",
     "nums",
     "onboarded",
@@ -137,6 +148,7 @@
     "sscs",
     "styl",
     "tada",
+    "ucomm",
     "uncomment",
     "ungated",
     "ungrouped",
@@ -153,37 +165,39 @@
     "unsanitized",
     "unstaged",
     "upcase",
-    "vals"
+    "vals",
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": true,
   },
-  "editor.rulers": [90],
+  "editor.rulers": [
+    90,
+  ],
   "files.associations": {
-    "*.sublime-settings": "jsonc"
+    "*.sublime-settings": "jsonc",
     // "*.json": "jsonc"
   },
   "gitlens.menus": {
     "editor": false,
     "editorGroup": {
       "blame": true,
-      "compare": true
+      "compare": true,
     },
     "editorTab": false,
     "explorer": false,
     "scmGroup": false,
-    "scmItem": false
+    "scmItem": false,
   },
   "quickOpenRelatedFiles.patternsToStrip": [
     "{EXTENSION}",
     "/[-_\\.]?[sS]pec$/",
     "/[-_\\.]?[tT]est$/",
     "/[-_\\.]?[cC]omponent$/",
-    "/[-_\\.]?[cC]ontainer$/"
+    "/[-_\\.]?[cC]ontainer$/",
   ],
   "ruby.lint": {
     "fasterer": true,
-    "reek": true
+    "reek": true,
     // "rubocop": true,
   },
   // "workbench.colorCustomizations": {
@@ -195,8 +209,10 @@
   // Single-line settings.
   "auto-comment-blocks.singleLineBlockOnEnter": true,
   "blockhighlight.isWholeLine": true,
+  "bookmarks.backgroundLineColor": "rgba(21, 126, 251, 0.4)",
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.showCommandsInContextMenu": false,
+  "bookmarks.sideBar.expanded": true,
   "bookmarks.useWorkaroundForFormatters": true,
   "cSpell.allowCompoundWords": true,
   "cSpell.checkLimit": 30,
@@ -206,6 +222,7 @@
   "debug.toolBarLocation": "docked",
   "deno.alwaysShowStatus": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoIndent": false,
   "editor.codeActionsOnSaveTimeout": 7000,
@@ -219,7 +236,7 @@
   "editor.fontWeight": "500",
   "editor.formatOnSave": true,
   "editor.formatOnSaveTimeout": 5000,
-  "editor.glyphMargin": false,
+  "editor.glyphMargin": true,
   "editor.gotoLocation.multiple": "gotoAndPeek",
   "editor.hideCursorInOverviewRuler": true,
   "editor.insertSpaces": true,
@@ -233,8 +250,9 @@
   "editor.renderWhitespace": "selection",
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "visible",
-  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.scrollbar.verticalScrollbarSize": 8,
   "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "errorLens.gutterIconsEnabled": true,
@@ -259,15 +277,19 @@
   "gitlens.defaultGravatarsStyle": "identicon",
   "gitlens.hovers.annotations.over": "annotation",
   "gitlens.hovers.changesDiff": "hunk",
+  "gitlens.hovers.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.mode.statusBar.enabled": false,
-  "gitlens.recentChanges.highlight.locations": ["gutter", "line", "overview"],
+  "gitlens.recentChanges.highlight.locations": [
+    "gutter",
+    "line",
+    "overview",
+  ],
   "gitlens.statusBar.enabled": false,
   "gitlens.views.compare.enabled": true,
   "gitlens.views.compare.files.layout": "tree",
   "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.fileHistory.enabled": false,
-  "gitlens.views.fileHistory.location": "explorer",
+  "gitlens.views.fileHistory.enabled": true,
   "gitlens.views.lineHistory.enabled": false,
   "gitlens.views.lineHistory.location": "explorer",
   "gitlens.views.search.enabled": false,
@@ -281,6 +303,7 @@
   "rewrap.autoWrap.enabled": false,
   "rewrap.reformat": true,
   "rewrap.wholeComment": false,
+  "ruby.intellisense": "rubyLocate",
   "ruby.useLanguageServer": false,
   "scm.defaultViewMode": "tree",
   "scm.diffDecorations": "all",
@@ -305,6 +328,7 @@
   "vsicons.presets.hideFolders": true,
   "vsicons.presets.jsOfficial": true,
   "vsicons.presets.jsonOfficial": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "vtools.autoHideDelay": 50,
   "whiteviz.enabled": false,
   "whiteviz.visualizeOnlyIndentation": true,
@@ -324,6 +348,4 @@
   "workbench.settings.useSplitJSON": true,
   "workbench.sideBar.location": "right",
   "workbench.tree.indent": 16,
-  "diffEditor.renderSideBySide": false,
-  "ruby.intellisense": "rubyLocate"
 }
