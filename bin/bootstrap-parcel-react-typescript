@@ -1,0 +1,100 @@
+#!/bin/bash
+
+set -e
+shopt -s extglob nullglob dotglob
+
+verbose() {
+  >&2 echo
+  >&2 echo "$" "$@"
+  "$@"
+}
+
+verbose-write-file() {
+  [[ $# -ne 1 ]] && return 1
+  >&2 echo
+  >&2 echo "$" "cat > $1"
+  cat > "$1"
+}
+
+files=(!(bootstrap.sh|.git))
+if [[ ${#files[@]} -gt 0 ]]; then
+  >&2 echo
+  >&2 echo "Existing files found:"
+  >&2 echo
+  >&2 printf '  %s\n' "${files[@]}"
+  >&2 echo
+  >&2 echo "Trash them? (^C to exit)"
+  read -r
+  verbose trash -- "${files[@]}"
+fi
+
+verbose-write-file ".gitignore" <<'EOF'
+/.parcel-cache
+/dist
+/node_modules
+EOF
+
+verbose-write-file "package.json" <<'EOF'
+{
+  "source": "src/index.html"
+}
+EOF
+
+verbose yarn add --dev --silent \
+  "@emotion/css" \
+  "@types/react" \
+  "@types/react-dom" \
+  "parcel" \
+  "react" \
+  "react-dom" \
+  "typescript" \
+  ;
+
+verbose yarn add --dev --silent --exact \
+  "prettier" \
+  ;
+
+verbose-write-file ".prettierrc.json" <<'EOF'
+{
+  "singleQuote": false,
+  "trailingComma": "all"
+}
+EOF
+
+verbose mkdir -p "src"
+
+verbose-write-file "src/index.html" <<'EOF'
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script type="module" src="index.tsx"></script>
+</html>
+EOF
+
+verbose-write-file "src/index.tsx" <<'EOF'
+import { css } from "@emotion/css";
+import ReactDOM from "react-dom";
+
+function App() {
+  return (
+    <h1
+      className={css`
+        color: blue;
+      `}
+    >
+      Hello world!
+    </h1>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("app"));
+EOF
+
+verbose yarn parcel
