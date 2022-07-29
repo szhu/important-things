@@ -52,6 +52,7 @@ verbose yarn add --dev --silent \
 
 verbose yarn add --dev --silent --exact \
   "prettier" \
+  "prettier-plugin-organize-imports" \
   ;
 
 verbose-write-file ".prettierrc.json" <<'EOF'
