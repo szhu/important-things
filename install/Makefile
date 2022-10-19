@@ -1,5 +1,5 @@
-NAMES := apm brew brew-cask brew-tap appstore gem npm pip pip3
-all: $(patsubst %,%.list,$(NAMES))
+NAMES := apm gem npm pip pip3
+all: $(patsubst %,%.list,$(NAMES)) Brewfile
 
 
 # RECORD WHAT I INSTALL
@@ -8,21 +8,9 @@ PHONY += apm.list
 apm.list: bin/get-apm-list
 	$< > $@
 
-PHONY += appstore.list
-appstore.list: bin/get-appstore
-	$< > $@
-
-PHONY += brew.list
-brew.list:
-	brew leaves > $@
-
-PHONY += brew-cask.list
-brew-cask.list:
-	brew cask list > $@
-
-PHONY += brew-tap.list
-brew-tap.list:
-	brew tap > $@
+PHONY += Brewfile
+Brewfile:
+	brew bundle dump --all --force
 
 PHONY += gem.list
 gem.list: bin/get-gem-list
@@ -49,15 +37,7 @@ apm-install:
 
 PHONY += brew-install
 brew-install:
-	cat brew.list | xargs brew install
-
-PHONY += brew-cask-install
-brew-cask-install:
-	cat brew-cask.list | xargs brew cask install
-
-PHONY += brew-tap-install
-brew-tap-install:
-	cat brew-tap.list | xargs -L 1 brew tap
+	brew bundle
 
 PHONY += gem-install
 gem-install:
@@ -75,11 +55,6 @@ PHONY += pip3-install
 pip3-install:
 	cat pip3.list | xargs pip3 install
 
-PHONY += appstore-install
-appstore-install:
-	@echo "Install these apps from the App Store:"
-	@cat appstore.list | sed 's/^/  /'
-
 
 # INSTALL EVERYTHING
 
@@ -87,6 +62,6 @@ PHONY += user-install
 user-install: apm-install
 
 PHONY += system-install
-system-install: brew-install brew-cask-install brew-tap-install appstore-install gem-install npm-install pip-install pip3-install
+system-install: brew-install gem-install npm-install pip-install pip3-install
 
 .PHONY: $(PHONY)
