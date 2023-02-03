@@ -1,4 +1,5 @@
 tap "brettferdosi/tap"
+tap "gbevin/tools"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -6,61 +7,72 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "keith/formulae"
 tap "szhu/personal"
+brew "browser"
 brew "deno"
 brew "duti"
+brew "ffmpeg"
+brew "fileicon"
 brew "fish"
 brew "gh"
+brew "graphviz"
 brew "node"
 brew "iconsur"
 brew "jhead"
 brew "mas"
 brew "micro"
-brew "mupdf"
-brew "openjdk@11"
-brew "poppler"
-brew "ripgrep"
+brew "ncdu"
+brew "pcalc"
 brew "shellcheck"
 brew "swiftformat"
-brew "terminal-notifier"
+brew "swiftlint"
 brew "trash"
+brew "wifi-password"
+brew "youtube-dl"
+brew "gbevin/tools/receivemidi"
+cask "airtable"
 cask "apple-hewlett-packard-printer-drivers"
-cask "autodesk-fusion360"
+cask "arc"
 cask "avibrazil-rdm"
 cask "betterdisplay"
 cask "bluesnooze"
 cask "descript"
 cask "discord"
-cask "dropbox"
 cask "font-sf-pro"
 cask "fontforge"
+cask "freetube"
 cask "gitup"
 cask "google-chrome"
 cask "google-drive"
 cask "grandperspective"
-cask "grayscale"
+cask "hammerspoon"
 cask "inkscape"
 cask "karabiner-elements"
-cask "league-of-legends"
-cask "loom"
+cask "losslesscut"
 cask "maccy"
 cask "macsvg"
 cask "middleclick"
-cask "modmove"
 cask "monitorcontrol"
 cask "mos"
+cask "mouse-fix"
+cask "mysides"
 cask "notion"
 cask "notunes"
 cask "obsidian"
+cask "orion"
 cask "paparazzi"
 cask "picsmac"
 cask "qlmarkdown"
 cask "quickdown"
 cask "rectangle"
+cask "sf-symbols"
 cask "shortcat"
 cask "sloth"
 cask "spotify"
 cask "swiftformat-for-xcode"
+cask "tandem"
+cask "utm"
 cask "visual-studio-code"
+cask "webtorrent"
 cask "zoom"
 cask "zoomin"
 cask "zotero"
@@ -72,22 +84,23 @@ mas "HexColor", id: 446103121
 mas "Hidden Bar", id: 1452453066
 mas "Hush", id: 1544743900
 mas "Keynote", id: 409183694
+mas "Menubar Countdown", id: 1485343244
 mas "Messenger", id: 1480068668
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
-mas "Pages", id: 409201541
+mas "Pasteboard Viewer", id: 1499215709
 mas "PDF Archiver", id: 1433801905
 mas "Plash", id: 1494023538
-mas "Playgrounds", id: 1496833156
 mas "Post-it®", id: 1475777828
 mas "QuickMIDI", id: 1459790045
-mas "Redirect Web for Safari", id: 1571283503
 mas "Seashore", id: 1448648921
 mas "SingleFile for Safari", id: 6444322545
 mas "Slack", id: 803453959
+mas "Smart Countdown Timer", id: 1410709951
 mas "Table Tool", id: 1122008420
 mas "Turn Off the Lights for Safari", id: 1273998507
+mas "URL Linker", id: 1289119450
 mas "Userscripts", id: 1463298887
 mas "Velja", id: 1607635845
-mas "Xcode", id: 497799835
+mas "zClock Lite", id: 1489475245
