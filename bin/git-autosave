@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+old_stash_count=$(git stash list | wc -l)
+git stash push --keep-index --include-untracked --quiet
+if test "$old_stash_count" == "$(git stash list | wc -l)"; then
+echo "All changes have been committed."
+  exit 0
+fi
+
+if test "$(git rev-parse 'autosave':)" == "$(git rev-parse 'stash@{0}':)"; then
+  echo "Tree is identical to last autosave."
+else
+  git tag -f "$(date +'autosave-%Y%m-%d%H%M')" 'stash@{0}'
+  git branch -f 'autosave' 'stash@{0}'
+  echo -n "Autosaved at: "
+  git rev-parse --short=7 'stash@{0}'
+fi
+
+git stash pop --quiet

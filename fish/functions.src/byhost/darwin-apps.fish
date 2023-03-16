@@ -57,7 +57,14 @@ alias quit apps-quit
 function apps-idof
   # $ idof term
   # com.apple.Terminal
-  set -l path (apps-pathto $argv); or return 1
-  osascript -e 'id of app "'$path'"'
+  for name in $argv
+    set -l path
+    if test -e $name
+      set path $name
+    else
+      set path (apps-pathto $name); or return 1
+    end
+    osascript -e 'id of app "'$path'"'
+  end
 end
 alias idof apps-idof

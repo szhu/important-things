@@ -27,6 +27,7 @@ abbr g gitup
 # Command line
 
 abbr lc       launchctl
-abbr v        chflags -h hidden
-abbr V        chflags -h nohidden
+abbr hide     chflags -h hidden
+abbr unhide   chflags -h nohidden
 abbr aedebug  env AEDebugReceives=1
+abbr cask     brew cask

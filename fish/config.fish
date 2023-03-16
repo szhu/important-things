@@ -21,6 +21,13 @@ function is_command
   command -s $argv > /dev/null
 end
 
+# Helper for adding paths
+function add_path
+  test -d $argv[1]; or return
+  contains $argv[1] $fish_user_paths; and return
+  set -U fish_user_paths $fish_user_paths $argv[1]
+end
+
 # Fix for weird bug: find: .: Invalid argument
 find /dev/null >/dev/null
 

@@ -29,3 +29,5 @@
 	verify-included = !echo 'it works!'
 [mergetool]
 	keepBackup = false
+[init]
+	defaultBranch = main

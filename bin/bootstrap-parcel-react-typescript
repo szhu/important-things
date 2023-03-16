@@ -81,7 +81,7 @@ EOF
 
 verbose-write-file "src/index.tsx" <<'EOF'
 import { css } from "@emotion/css";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 function App() {
   return (
@@ -95,7 +95,8 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+const root = ReactDOM.createRoot(document.getElementById("app")!);
+root.render(<App />);
 EOF
 
 verbose yarn parcel
