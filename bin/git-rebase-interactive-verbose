@@ -5,7 +5,7 @@ true
 if test -z $GIT_REBASE_TARGET
     # Initial run:
     set -x GIT_REBASE_TARGET $argv[1]
-    set -x GIT_SEQUENCE_EDITOR git-rebase-fancy
+    set -x GIT_SEQUENCE_EDITOR git-rebase-interactive-verbose
     and git rebase -i $GIT_REBASE_TARGET
 else
     # When run as the sequence editor:
