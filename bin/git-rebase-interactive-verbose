@@ -1,0 +1,20 @@
+#!/usr/bin/env fish
+
+true
+
+if test -z $GIT_REBASE_TARGET
+    # Initial run:
+    set -x GIT_REBASE_TARGET $argv[1]
+    set -x GIT_SEQUENCE_EDITOR git-rebase-fancy
+    and git rebase -i $GIT_REBASE_TARGET
+else
+    # When run as the sequence editor:
+    set TODO $argv[1]
+    echo -n >$TODO
+    for commit in (git log --reverse $GIT_REBASE_TARGET...HEAD --pretty=format:'%h')
+        and git log -1 --pretty=format:'pick %h [%an @ %ar] %s%n' $commit >>$TODO
+        and git show --compact-summary --pretty=format: $commit | sed 's/^/# /' >>$TODO
+        and echo >>$TODO
+    end
+    and env $EDITOR $TODO
+end
