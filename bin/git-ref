@@ -1,0 +1,118 @@
+#!/usr/bin/env deno --ext ts --allow-run=git
+
+import { _, NonZeroExitCode, exec } from "https://deno.land/x/denoexec@v1.1.5/mod.ts";
+import { z } from "https://deno.land/x/zod@v3.23.8/mod.ts";
+
+function help() {
+  console.error("git-ref - Manage git refs");
+  console.error("");
+  usage();
+}
+
+function usage() {
+  console.error("Usage:");
+  console.error("  git ref to <tag|branch> <branch-name> ...");
+  console.error("  git ref mv <old-ref-name> <new-ref-name>");
+}
+
+function trim$(output: string) {
+  return output.replace(/\n$/, "");
+}
+
+class ProgramError extends Error {}
+
+const nullDevice = { write: () => Promise.resolve(0) };
+
+async function gitRevParse(
+  type: "hash" | "symbolic-full-name",
+  ref: string,
+): Promise<string | undefined> {
+  const result = await exec({
+    cmd:
+      type === "symbolic-full-name"
+        ? ["git", "rev-parse", "--symbolic-full-name", ref]
+        : ["git", "rev-parse", ref],
+    throwOnNonZeroExit: false,
+    stdout: nullDevice,
+    stderr: nullDevice,
+  });
+
+  if (result.success) {
+    return trim$(result.stdout("string"));
+  } else {
+    return undefined;
+  }
+}
+
+async function renameRef(oldRef: string, newRef: string) {
+  const oldHash = await gitRevParse("hash", oldRef);
+  if (oldHash == null) {
+    throw new ProgramError(`Error: src ref ${oldRef} does not exist`);
+  }
+
+  const newHash = await gitRevParse("hash", newRef);
+  if (newHash != null) {
+    throw new ProgramError(`Error: target ref ${newRef} already exists`);
+  }
+
+  await exec({ cmd: ["git", "update-ref", newRef, oldHash] });
+  await exec({ cmd: ["git", "update-ref", "-d", oldRef] });
+}
+
+try {
+  if (Deno.args.length === 0) {
+    help();
+    Deno.exit();
+  }
+
+  const parsedArgs = z
+    .union([
+      z.tuple([z.literal("to"), z.enum(["tag", "branch"]), z.string()]).rest(z.string()),
+      z.tuple([z.literal("mv"), z.string(), z.string()]),
+    ])
+    .safeParse(Deno.args);
+  if (!parsedArgs.success) {
+    usage();
+    Deno.exit(1);
+  }
+
+  if (parsedArgs.data[0] === "mv") {
+    const [_, oldRef, newRef] = parsedArgs.data;
+    await renameRef(oldRef, newRef);
+  } else if (parsedArgs.data[0] === "to") {
+    const [_, type, ...oldRefsMaybeShort] = parsedArgs.data;
+
+    for (const oldRefMaybeShort of oldRefsMaybeShort) {
+      const oldRef = await gitRevParse("symbolic-full-name", oldRefMaybeShort);
+      if (oldRef == null) {
+        throw new ProgramError(`Error: ref ${oldRefMaybeShort} does not exist`);
+      }
+
+      const match = oldRef.match(/^refs\/(heads|tags)\/(.+)$/);
+      if (match == null) {
+        throw new ProgramError(`Error: ref ${oldRef} must be a branch or tag`);
+      }
+      const [, , shortName] = match;
+      const RefTypes = {
+        branch: "heads",
+        tag: "tags",
+      };
+      const newRef = `refs/${RefTypes[type]}/${shortName}`;
+
+      if (oldRef === newRef) {
+        console.error(`Warning: ref ${oldRef} is already a ${type}`);
+      } else {
+        await renameRef(oldRef, newRef);
+      }
+    }
+  }
+} catch (e) {
+  if (e instanceof ProgramError) {
+    console.error(e.message);
+    Deno.exit(1);
+  } else if (e instanceof NonZeroExitCode) {
+    Deno.exit(1);
+  } else {
+    throw e;
+  }
+}

@@ -1,0 +1,74 @@
+#!/usr/bin/env deno --ext ts --allow-all
+
+import { $, _, NonZeroExitCode, exec } from "https://deno.land/x/denoexec@v1.1.5/mod.ts";
+
+function trim$(output: string) {
+  return output.replace(/\n$/, "");
+}
+
+async function forcePushBranch(branch: string, ref: string) {
+  await exec({ cmd: ["git", "push", "--force", "origin", ref + ":" + branch] });
+}
+
+try {
+  const repo = JSON.parse(await $("gh", "repo", "view", "--json", "url")) as { url: string };
+
+  const pr = JSON.parse(await $("gh", "pr", "view", "--json", "number,url")) as {
+    number: number;
+    url: string;
+  };
+  console.log(pr.url);
+
+  const currentBranch = trim$(await $("git", "rev-parse", "--abbrev-ref", "HEAD"));
+
+  const otherBranchesAndHeads = trim$(
+    await $(
+      "git",
+      "for-each-ref",
+      "refs/heads/" + currentBranch + "-*",
+      "--format=%(refname:short)\t%(objectname)",
+    ),
+  )
+    .split("\n")
+    .map((line) => line.split("\t"))
+    .map(([name, hash]) => ({ name, hash, hashShort: hash.slice(0, 7) }));
+  console.log(otherBranchesAndHeads.map((branch) => branch.name).join("\n"));
+  prompt("Press Enter to force-push these branches in sequence, or press ^C to stop.");
+
+  for (const otherBranch of otherBranchesAndHeads) {
+    console.log(otherBranch.hashShort, otherBranch.name);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const suffix = otherBranch.name.slice(currentBranch.length + 1);
+
+    // Force-push the branch
+    await forcePushBranch(currentBranch, otherBranch.name);
+
+    // Wait a bit
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Add a comment
+    const bt = "`";
+    await exec({
+      cmd: [
+        "gh",
+        "pr",
+        "comment",
+        "--body",
+        `${suffix}: [${bt}${otherBranch.hashShort}${bt}](${repo.url}/commits/${otherBranch.hash})`,
+      ],
+    });
+  }
+
+  // Force-push the current branch.
+  prompt("Press Enter to force-push the current branch, or press ^C to stop.");
+  await forcePushBranch(currentBranch, currentBranch);
+} catch (e) {
+  if (e instanceof NonZeroExitCode) {
+    console.error("$", ...e.runOpts.cmd);
+    console.error(trim$(e.stderr));
+    Deno.exit(1);
+  } else {
+    throw e;
+  }
+}

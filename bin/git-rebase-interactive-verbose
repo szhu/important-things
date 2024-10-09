@@ -1,20 +1,99 @@
 #!/usr/bin/env fish
 
-true
-
-if test -z $GIT_REBASE_TARGET
-    # Initial run:
-    set -x GIT_REBASE_TARGET $argv[1]
-    set -x GIT_SEQUENCE_EDITOR git-rebase-interactive-verbose
-    and git rebase -i $GIT_REBASE_TARGET
-else
-    # When run as the sequence editor:
-    set TODO $argv[1]
-    echo -n >$TODO
-    for commit in (git log --reverse $GIT_REBASE_TARGET...HEAD --pretty=format:'%h')
-        and git log -1 --pretty=format:'pick %h [%an @ %ar] %s%n' $commit >>$TODO
-        and git show --compact-summary --pretty=format: $commit | sed 's/^/# /' >>$TODO
-        and echo >>$TODO
+function !!
+    $argv
+    set -l last_status $status
+    if test $last_status -ne 0
+        echo >&2
+        echo "Command failed:" >&2
+        echo '$' ""(string escape -- $argv) >&2
+        echo >&2
+        exit $last_status
     end
-    and env $EDITOR $TODO
+
+    return 0
 end
+
+if test "$argv[1]" != --edit
+    # Initial run:
+
+    set -x GIT_SEQUENCE_EDITOR "git-rebase-interactive-verbose --edit"
+    git rebase -i $argv
+else
+    # When given a sequence file to edit:
+
+    set TODO $argv[2]
+    set PASSTHRU_ARGS $argv[2..]
+
+    set TODO_LINES (cat $TODO)
+
+    !! echo -n >$TODO
+    for LINE in $TODO_LINES
+        if string match -q 'pick *' $LINE
+            set COMMIT (string split ' ' $LINE)[2]
+            !! git log -1 --pretty=format:'# %an, %ar%n' $COMMIT >>$TODO
+            !! git log -1 --pretty=format:'pick  %h  %s%n' $COMMIT >>$TODO
+            !! git show --compact-summary --pretty=format: $COMMIT | !! sed 's/^/# /' >>$TODO
+            !! echo >>$TODO
+        else
+            !! echo $LINE >>$TODO
+        end
+    end
+
+    !! $EDITOR $PASSTHRU_ARGS
+end
+
+
+# Old version that regenerates the entire file from scratch:
+#
+# echo -n >$TODO
+# for commit in (git log --reverse $GIT_REBASE_TARGET..HEAD --pretty=format:'%h')
+#     and git log -1 --pretty=format:'# %an, %ar%n' $commit >>$TODO
+#     and git log -1 --pretty=format:'pick  %h  %s%n' $commit >>$TODO
+#     and git show --compact-summary --pretty=format: $commit | sed 's/^/# /' >>$TODO
+#     and echo >>$TODO
+# end
+
+
+# if test "$argv[1]" != --edit
+#     # Initial run:
+
+#     true
+#     and set -x GIT_SEQUENCE_EDITOR "git-rebase-interactive-verbose --edit"
+#     and git rebase -i $argv
+# else
+#     # When run as the sequence editor:
+
+#     true
+#     and set TODO $argv[2]
+#     and set PASSTHRU_ARGS $argv[2..]
+
+#     and set TODO_LINES (cat $TODO)
+
+#     and echo -n >$TODO
+#     for LINE in $TODO_LINES
+#         if string match -q 'pick *' $LINE
+#             true
+#             and set COMMIT (string split ' ' $LINE)[2]
+#             and git log -1 --pretty=format:'# %an, %ar%n' $COMMIT >>$TODO
+#             and git log -1 --pretty=format:'pick  %h  %s%n' $COMMIT >>$TODO
+#             and git show --compact-summary --pretty=format: $COMMIT | sed 's/^/# /' >>$TODO
+#             and echo >>$TODO
+#         else
+#             true
+#             and echo $LINE >>$TODO
+#         end
+#     end
+
+#     and env $EDITOR $PASSTHRU_ARGS
+# end
+
+# # Old version that regenerates the entire file from scratch:
+# #
+# # echo -n >$TODO
+# # for commit in (git log --reverse $GIT_REBASE_TARGET..HEAD --pretty=format:'%h')
+# #     and git log -1 --pretty=format:'# %an, %ar%n' $commit >>$TODO
+# #     and git log -1 --pretty=format:'pick  %h  %s%n' $commit >>$TODO
+# #     and git show --compact-summary --pretty=format: $commit | sed 's/^/# /' >>$TODO
+# #     and echo >>$TODO
+# # end
